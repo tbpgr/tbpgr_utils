@@ -39,6 +39,19 @@ p "true".boolean?  # =>false
 ~~~ruby
 require 'tbpgr_utils'
 
+class Hoge
+  def hgoe
+  end
+
+  protected
+  def hige
+  end
+
+  private
+  def hege
+  end
+end
+
 p Hoge.new.my_methods # =>[:hoge, :hige, :hege]
 ~~~
 
