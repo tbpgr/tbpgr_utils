@@ -20,9 +20,21 @@ Or install it yourself as:
 ### List
 | dsl| mean|
 |:-----------|:------------|
+|Array#together|loop all arrays by block|
 |Object#boolean?|data type check for boolean|
 |Object#my_methods|return public/protected/private self define methods|
 |String#justify_table|justify pipe format table string|
+
+### Array#together
+~~~ruby
+require 'tbpgr_utils'
+
+alpha = %w{one two three}
+numbers = %w{1 2 3}
+[alpha, numbers].together do |first, second|
+  print "#{first}:#{second}\n"  # => output one:1, two:2, three:3
+end
+~~~
 
 ### Object#boolean?
 ~~~ruby
@@ -76,6 +88,7 @@ output
 ~~~
 
 ## History
+* version 0.0.2 : loop all arrays by block.
 * version 0.0.1 : first release.
 
 ## Contributing
