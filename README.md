@@ -21,6 +21,7 @@ Or install it yourself as:
 | dsl| mean|
 |:-----------|:------------|
 |Array#together|loop all arrays by block|
+|Object#any_of?|if self match any one of items, return true|
 |Object#boolean?|data type check for boolean|
 |Object#my_methods|return public/protected/private self define methods|
 |String#justify_table|justify pipe format table string|
@@ -34,6 +35,18 @@ numbers = %w{1 2 3}
 [alpha, numbers].together do |first, second|
   print "#{first}:#{second}\n"  # => output one:1, two:2, three:3
 end
+~~~
+
+### Object#any_of?
+~~~ruby
+require 'tbpgr_utils'
+
+p 'hoge'.any_of? 'hoge', 'hige'    # =>true
+p 'hoge'.any_of?(*%w{hoge hige})    # =>true
+p 'hige'.any_of? 'hoge', 'hige'    # =>true
+p 'hege'.any_of? 'hoge', 'hige'    # =>false
+p 1.any_of? 1, 2, 3                # =>true
+p 4.any_of? 1, 2, 3                # =>false
 ~~~
 
 ### Object#boolean?
@@ -88,6 +101,7 @@ output
 ~~~
 
 ## History
+* version 0.0.3 : add Object#any_of?
 * version 0.0.2 : loop all arrays by block.
 * version 0.0.1 : first release.
 

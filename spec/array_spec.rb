@@ -1,6 +1,6 @@
 # encoding: utf-8
-require "spec_helper"
-require "tbpgr_utils"
+require 'spec_helper'
+require 'tbpgr_utils'
 
 describe Array do
 
@@ -8,15 +8,15 @@ describe Array do
     cases = [
       {
         case_no: 1,
-        case_title: "valid case",
+        case_title: 'valid case',
         inputs: [[1, 2, 3], %w{one two three}],
-        expected: ["1:one", "2:two", "3:three"],
+        expected: ['1:one', '2:two', '3:three'],
       },
       {
         case_no: 2,
-        case_title: "contain nil case",
+        case_title: 'contain nil case',
         inputs: [[1, 2, 3], %w{one two}],
-        expected: ["1:one", "2:two", "3:"],
+        expected: ['1:one', '2:two', '3:'],
       },
     ]
 
