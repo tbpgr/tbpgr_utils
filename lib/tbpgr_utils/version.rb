@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# =Tbpgr Utilities
+# Tbpgr Utilities
 module TbpgrUtils
-  VERSION = '0.0.3'
+  VERSION = '0.0.4'
 end

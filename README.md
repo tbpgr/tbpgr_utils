@@ -25,6 +25,7 @@ Or install it yourself as:
 |Object#boolean?|data type check for boolean|
 |Object#my_methods|return public/protected/private self define methods|
 |String#justify_table|justify pipe format table string|
+|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
 
 ### Array#together
 ~~~ruby
@@ -100,7 +101,53 @@ output
 |test          |tester|aaaaaaaaaaaaaaaaaaaaaaatestest|
 ~~~
 
+### AttributesInitializable::ClassMethods.attr_accessor_init
+~~~ruby
+require 'attributes_initializable'
+
+class AccessorSample
+  include AttributesInitializable
+  attr_accessor_init :atr1, :atr2
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+p atr_sample1.atr1 # => atr1
+p atr_sample1.atr2 # => atr2
+
+atr_sample2 = AccessorSample.new do |a|
+  a.atr1 = 'atr1'
+  a.atr2 = 'atr2'
+end
+p atr_sample2.atr1 # => atr1
+p atr_sample2.atr2 # => atr2
+~~~
+
+same mean code is
+~~~ruby
+class AccessorSample
+  attr_accessor :atr1, :atr2
+
+  def initialize(values = nil, &block)
+    return yield self if block
+    @atr1 = values[:atr1]
+    @atr2 = values[:atr2]
+  end
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+p atr_sample1.atr1 # => atr1
+p atr_sample1.atr2 # => atr2
+
+atr_sample2 = AccessorSample.new do |a|
+  a.atr1 = 'atr1'
+  a.atr2 = 'atr2'
+end
+p atr_sample2.atr1 # => atr1
+p atr_sample2.atr2 # => atr2
+~~~
+
 ## History
+* version 0.0.4 : AttributesInitializable::ClassMethods.attr_accessor_init
 * version 0.0.3 : add Object#any_of?
 * version 0.0.2 : loop all arrays by block.
 * version 0.0.1 : first release.
