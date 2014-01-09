@@ -26,6 +26,7 @@ Or install it yourself as:
 |Object#my_methods|return public/protected/private self define methods|
 |String#justify_table|justify pipe format table string|
 |AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
+|Templatable|get result from template + placeholder|
 
 ### Array#together
 ~~~ruby
@@ -146,7 +147,44 @@ p atr_sample2.atr1 # => atr1
 p atr_sample2.atr2 # => atr2
 ~~~
 
+### Templatable
+* include Templatable
+* set template by here-document
+* in template, parameter must name 'placeholders[:xxxxx]'. xxxxx is your favorite name.
+* when create instance, you must set materials to create template. after, you can get this value from @materials.
+* you must create manufactured_xxx methods. xxx is each-placeholder name.
+* you can get result by 'result' method.
+
+~~~ruby
+require 'templatable'
+
+class TemplateUser
+  include Templatable
+  template <<-EOS
+line1:<%=placeholders[:hoge]%>
+line2:<%=placeholders[:hige]%>
+  EOS
+
+  def manufactured_hoge
+    "hoge-#{@materials}"
+  end
+
+  def manufactured_hige
+    "hige-#{@materials}"
+  end
+end
+
+p TemplateUser.new('sample').result
+~~~
+
+output
+~~~
+line1:hoge-sample
+line2:hige-sample
+~~~
+
 ## History
+* version 0.0.5 : add Templatable
 * version 0.0.4 : AttributesInitializable::ClassMethods.attr_accessor_init
 * version 0.0.3 : add Object#any_of?
 * version 0.0.2 : loop all arrays by block.
