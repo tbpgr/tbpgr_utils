@@ -27,6 +27,7 @@ Or install it yourself as:
 |String#justify_table|justify pipe format table string|
 |AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
 |Templatable|get result from template + placeholder|
+|Ghostable|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
 
 ### Array#together
 ~~~ruby
@@ -183,7 +184,54 @@ line1:hoge-sample
 line2:hige-sample
 ~~~
 
+### Ghostable
+* include Ghostable
+* create ghost method by using Ghostable::ghost_method
+* ghost_method first_args = method_name_pattern
+* ghost_method second_args = method_base_name Symbol(using in Ghostable internal logic)
+* ghost_method third = block. this block is main logic. block can use args[method_name, *args, &block]
+
+sample ghost method define module.
+~~~ruby
+module Checkable
+  include Ghostable
+  ghost_method /check_range_.*\?$/, :check_range do |method_name, *args, &block|
+    method_name.to_s =~ /(check_range_)(\d+)(_to_)(\d*)/
+    from = $2.to_i
+    to = $4.to_i
+    value = args.first
+    (from..to).include? value
+  end
+
+  ghost_method /^contain_.*\?$/, :check_contain do |method_name, *args, &block|
+    method_name.to_s =~ /^(contain_)(.*)(\?)/
+    word = $2
+    value = args.first
+    value.include? word
+  end
+end
+~~~
+
+* use ghost method
+
+sample ghost method use class
+~~~ruby
+class SampleChecker
+  include Checkable
+end
+
+sample = SampleChecker.new
+sample.check_range_3_to_5?(4) # => return true
+sample.check_range_3_to_5?(6) # => return false
+sample.check_range_3_to_6?(6) # => return true
+
+sample.contain_hoge? "test_hoge_test" # => return true
+sample.contain_hoge? "test_hige_test" # => return false
+sample.contain_hige? "test_hige_test" # => return true
+~~~
+
 ## History
+* version 0.0.6 : add Ghostable
 * version 0.0.5 : add Templatable
 * version 0.0.4 : AttributesInitializable::ClassMethods.attr_accessor_init
 * version 0.0.3 : add Object#any_of?
