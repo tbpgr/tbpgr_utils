@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 ### List
-| dsl| mean|
+| class/module/method| mean|
 |:-----------|:------------|
 |Array#together|loop all arrays by block|
 |Object#any_of?|if self match any one of items, return true|
@@ -26,8 +26,8 @@ Or install it yourself as:
 |Object#my_methods|return public/protected/private self define methods|
 |String#justify_table|justify pipe format table string|
 |AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
-|Templatable|get result from template + placeholder|
-|Ghostable|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
+|Templatable module|get result from template + placeholder|
+|Ghostable module|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
 
 ### Array#together
 ~~~ruby
