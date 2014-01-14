@@ -28,6 +28,8 @@ Or install it yourself as:
 |AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
 |Templatable module|get result from template + placeholder|
 |Ghostable module|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
+|Kernel#print_eval|Print code + eval result|
+|Kernel#puts_eval|Puts code + eval result|
 
 ### Array#together
 ~~~ruby
@@ -230,7 +232,39 @@ sample.contain_hoge? "test_hige_test" # => return false
 sample.contain_hige? "test_hige_test" # => return true
 ~~~
 
+### Kernel#print_eval
+This method for sample code. for manual, for blog-entry's-snippet  ...etc.
+
+~~~ruby
+print_eval 8/4, binding  # => 8/4 # => 2
+
+message = 'msg'
+print_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
+~~~
+
+output
+~~~
+8/4 # => 2"hoge-#{message}" # => "hoge-msg"
+~~~
+
+### Kernel#puts_eval
+This method for sample code. for manual, for blog-entry's-snippet  ...etc.
+
+~~~ruby
+puts_eval 8/4, binding
+
+message = 'msg'
+puts_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
+~~~
+
+output
+~~~
+8/4 # => 2
+"hoge-#{message}" # => "hoge-msg"
+~~~
+
 ## History
+* version 0.0.7 : add Kernel#print_eval, Kernel#puts_eval
 * version 0.0.6 : add Ghostable
 * version 0.0.5 : add Templatable
 * version 0.0.4 : AttributesInitializable::ClassMethods.attr_accessor_init

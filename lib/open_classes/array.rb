@@ -1,8 +1,14 @@
 # encoding: utf-8
 
-# =Array
+# Array
 class Array
-  # ==Arrays loop together
+  # Arrays loop together
+  #
+  #   alpha = %w{one two three}
+  #   numbers = %w{1 2 3}
+  #   [alpha, numbers].together do |first, second|
+  #     print "#{first}:#{second}\n"  # => output one:1, two:2, three:3
+  #   end
   def together
     each { |f|fail TypeError, "you have to use [Array1, Array2, ...] | #{f.class} is invalid" unless f.class == Array }
     first.each_with_index do |i_v, i|

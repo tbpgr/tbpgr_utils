@@ -1,8 +1,22 @@
 # encoding: utf-8
 
-# =String
+# String
 class String
-  # ==justify pipe using table format
+  # Justify pipe using table format
+  #
+  # before justify
+  #
+  #   |* first name|* family name|
+  #   |eiichiro|oda|
+  #   |akira|toriyama|
+  #   |yusei|matsui|
+  #
+  # after justify
+  #
+  #   |* first name|* family name|
+  #   |eiichiro    |oda          |
+  #   |akira       |toriyama     |
+  #   |yusei       |matsui       |
   def justify_table
     return self if self.empty?
     max_sizes = get_column_maxes
