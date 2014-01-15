@@ -21,15 +21,16 @@ Or install it yourself as:
 | class/module/method| mean|
 |:-----------|:------------|
 |Array#together|loop all arrays by block|
+|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
+|Ghostable module|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
+|Kernel#bulk_define_methods|define methods to classes. methods have simple return value.|
+|Kernel#print_eval|Print code + eval result|
+|Kernel#puts_eval|Puts code + eval result|
 |Object#any_of?|if self match any one of items, return true|
 |Object#boolean?|data type check for boolean|
 |Object#my_methods|return public/protected/private self define methods|
 |String#justify_table|justify pipe format table string|
-|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
 |Templatable module|get result from template + placeholder|
-|Ghostable module|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
-|Kernel#print_eval|Print code + eval result|
-|Kernel#puts_eval|Puts code + eval result|
 
 ### Array#together
 ~~~ruby
@@ -40,6 +41,176 @@ numbers = %w{1 2 3}
 [alpha, numbers].together do |first, second|
   print "#{first}:#{second}\n"  # => output one:1, two:2, three:3
 end
+~~~
+
+### AttributesInitializable::ClassMethods.attr_accessor_init
+~~~ruby
+require 'attributes_initializable'
+
+class AccessorSample
+  include AttributesInitializable
+  attr_accessor_init :atr1, :atr2
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+p atr_sample1.atr1 # => atr1
+p atr_sample1.atr2 # => atr2
+
+atr_sample2 = AccessorSample.new do |a|
+  a.atr1 = 'atr1'
+  a.atr2 = 'atr2'
+end
+p atr_sample2.atr1 # => atr1
+p atr_sample2.atr2 # => atr2
+~~~
+
+same mean code is
+~~~ruby
+class AccessorSample
+  attr_accessor :atr1, :atr2
+
+  def initialize(values = nil, &block)
+    return yield self if block
+    @atr1 = values[:atr1]
+    @atr2 = values[:atr2]
+  end
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+p atr_sample1.atr1 # => atr1
+p atr_sample1.atr2 # => atr2
+
+atr_sample2 = AccessorSample.new do |a|
+  a.atr1 = 'atr1'
+  a.atr2 = 'atr2'
+end
+p atr_sample2.atr1 # => atr1
+p atr_sample2.atr2 # => atr2
+~~~
+
+### Ghostable
+* include Ghostable
+* create ghost method by using Ghostable::ghost_method
+* ghost_method first_args = method_name_pattern
+* ghost_method second_args = method_base_name Symbol(using in Ghostable internal logic)
+* ghost_method third = block. this block is main logic. block can use args[method_name, *args, &block]
+
+sample ghost method define module.
+~~~ruby
+module Checkable
+  include Ghostable
+  ghost_method /check_range_.*\?$/, :check_range do |method_name, *args, &block|
+    method_name.to_s =~ /(check_range_)(\d+)(_to_)(\d*)/
+    from = $2.to_i
+    to = $4.to_i
+    value = args.first
+    (from..to).include? value
+  end
+
+  ghost_method /^contain_.*\?$/, :check_contain do |method_name, *args, &block|
+    method_name.to_s =~ /^(contain_)(.*)(\?)/
+    word = $2
+    value = args.first
+    value.include? word
+  end
+end
+~~~
+
+* use ghost method
+
+sample ghost method use class
+~~~ruby
+class SampleChecker
+  include Checkable
+end
+
+sample = SampleChecker.new
+sample.check_range_3_to_5?(4) # => return true
+sample.check_range_3_to_5?(6) # => return false
+sample.check_range_3_to_6?(6) # => return true
+
+sample.contain_hoge? "test_hoge_test" # => return true
+sample.contain_hoge? "test_hige_test" # => return false
+sample.contain_hige? "test_hige_test" # => return true
+~~~
+
+### Kernel#bulk_define_methods
+Define methods to classes. Methods have simple return value.
+
+~~~ruby
+bulk_define_methods [NilClass, FalseClass], :blank?, true
+bulk_define_methods [TrueClass, Numeric], "blank?", false
+
+puts nil.blank?   # => true
+puts false.blank? # => true
+puts true.blank?  # => false
+puts 1.blank?     # => false
+
+bulk_define_methods [NilClass, FalseClass], [:blank?, :present?], [true, false]
+bulk_define_methods [TrueClass, Numeric], [:blank?, :present?], [false, true]
+
+puts nil.blank?     # => true
+puts nil.present?   # => false
+puts false.blank?   # => true
+puts false.present? # => false
+puts true.blank?    # => false
+puts true.present?  # => true
+puts 1.blank?       # => false
+puts 1.present?     # => true
+~~~
+
+if you don't use bulk_define_methods, followinng code is same mean.
+~~~ruby
+class NilClass
+ def blank?
+   true
+ end
+
+ def present?
+   false
+ end
+end
+
+class FalseClass
+ def blank?
+   true
+ end
+
+ def present?
+   false
+ end
+end
+~~~
+
+### Kernel#print_eval
+This method for sample code. for manual, for blog-entry's-snippet  ...etc.
+
+~~~ruby
+print_eval 8/4, binding  # => 8/4 # => 2
+
+message = 'msg'
+print_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
+~~~
+
+output
+~~~
+8/4 # => 2"hoge-#{message}" # => "hoge-msg"
+~~~
+
+### Kernel#puts_eval
+This method for sample code. for manual, for blog-entry's-snippet  ...etc.
+
+~~~ruby
+puts_eval 8/4, binding
+
+message = 'msg'
+puts_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
+~~~
+
+output
+~~~
+8/4 # => 2
+"hoge-#{message}" # => "hoge-msg"
 ~~~
 
 ### Object#any_of?
@@ -105,51 +276,6 @@ output
 |test          |tester|aaaaaaaaaaaaaaaaaaaaaaatestest|
 ~~~
 
-### AttributesInitializable::ClassMethods.attr_accessor_init
-~~~ruby
-require 'attributes_initializable'
-
-class AccessorSample
-  include AttributesInitializable
-  attr_accessor_init :atr1, :atr2
-end
-
-atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
-p atr_sample1.atr1 # => atr1
-p atr_sample1.atr2 # => atr2
-
-atr_sample2 = AccessorSample.new do |a|
-  a.atr1 = 'atr1'
-  a.atr2 = 'atr2'
-end
-p atr_sample2.atr1 # => atr1
-p atr_sample2.atr2 # => atr2
-~~~
-
-same mean code is
-~~~ruby
-class AccessorSample
-  attr_accessor :atr1, :atr2
-
-  def initialize(values = nil, &block)
-    return yield self if block
-    @atr1 = values[:atr1]
-    @atr2 = values[:atr2]
-  end
-end
-
-atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
-p atr_sample1.atr1 # => atr1
-p atr_sample1.atr2 # => atr2
-
-atr_sample2 = AccessorSample.new do |a|
-  a.atr1 = 'atr1'
-  a.atr2 = 'atr2'
-end
-p atr_sample2.atr1 # => atr1
-p atr_sample2.atr2 # => atr2
-~~~
-
 ### Templatable
 * include Templatable
 * set template by here-document
@@ -186,84 +312,8 @@ line1:hoge-sample
 line2:hige-sample
 ~~~
 
-### Ghostable
-* include Ghostable
-* create ghost method by using Ghostable::ghost_method
-* ghost_method first_args = method_name_pattern
-* ghost_method second_args = method_base_name Symbol(using in Ghostable internal logic)
-* ghost_method third = block. this block is main logic. block can use args[method_name, *args, &block]
-
-sample ghost method define module.
-~~~ruby
-module Checkable
-  include Ghostable
-  ghost_method /check_range_.*\?$/, :check_range do |method_name, *args, &block|
-    method_name.to_s =~ /(check_range_)(\d+)(_to_)(\d*)/
-    from = $2.to_i
-    to = $4.to_i
-    value = args.first
-    (from..to).include? value
-  end
-
-  ghost_method /^contain_.*\?$/, :check_contain do |method_name, *args, &block|
-    method_name.to_s =~ /^(contain_)(.*)(\?)/
-    word = $2
-    value = args.first
-    value.include? word
-  end
-end
-~~~
-
-* use ghost method
-
-sample ghost method use class
-~~~ruby
-class SampleChecker
-  include Checkable
-end
-
-sample = SampleChecker.new
-sample.check_range_3_to_5?(4) # => return true
-sample.check_range_3_to_5?(6) # => return false
-sample.check_range_3_to_6?(6) # => return true
-
-sample.contain_hoge? "test_hoge_test" # => return true
-sample.contain_hoge? "test_hige_test" # => return false
-sample.contain_hige? "test_hige_test" # => return true
-~~~
-
-### Kernel#print_eval
-This method for sample code. for manual, for blog-entry's-snippet  ...etc.
-
-~~~ruby
-print_eval 8/4, binding  # => 8/4 # => 2
-
-message = 'msg'
-print_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
-~~~
-
-output
-~~~
-8/4 # => 2"hoge-#{message}" # => "hoge-msg"
-~~~
-
-### Kernel#puts_eval
-This method for sample code. for manual, for blog-entry's-snippet  ...etc.
-
-~~~ruby
-puts_eval 8/4, binding
-
-message = 'msg'
-puts_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
-~~~
-
-output
-~~~
-8/4 # => 2
-"hoge-#{message}" # => "hoge-msg"
-~~~
-
 ## History
+* version 0.0.8 : add Kernel#bulk_define_methods
 * version 0.0.7 : add Kernel#print_eval, Kernel#puts_eval
 * version 0.0.6 : add Ghostable
 * version 0.0.5 : add Templatable
