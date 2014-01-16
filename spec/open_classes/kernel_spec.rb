@@ -1,19 +1,9 @@
 # encoding: utf-8
 require "spec_helper"
 require "open_classes/kernel"
+require "test_toolbox"
 
 describe Kernel do
-  def get_stdout
-    begin
-      eval "$stdout = StringIO.new"
-      yield
-      result = eval("$stdout").string
-    ensure
-      eval "$stdout = STDOUT"
-    end
-    result
-  end
-
   context :print_eval do
     cases = [
       {
@@ -40,7 +30,7 @@ describe Kernel do
           message = c[:bind] if c[:bind]
 
           # -- when --
-          actual = get_stdout { print_eval c[:code], binding }
+          actual = capture_stdout { print_eval c[:code], binding }
 
           # -- then --
           expect(actual).to eq(c[:expected])
@@ -85,7 +75,7 @@ describe Kernel do
           message = c[:bind] if c[:bind]
 
           # -- when --
-          actual = get_stdout { puts_eval c[:code], binding }
+          actual = capture_stdout { puts_eval c[:code], binding }
 
           # -- then --
           expect(actual).to eq(c[:expected])

@@ -20,16 +20,18 @@ Or install it yourself as:
 ### List
 | class/module/method| mean|
 |:-----------|:------------|
-|Array#together|loop all arrays by block|
+|TbpgrUtils Array#together|loop all arrays by block|
 |AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
 |Ghostable module|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
-|Kernel#bulk_define_methods|define methods to classes. methods have simple return value.|
-|Kernel#print_eval|Print code + eval result|
-|Kernel#puts_eval|Puts code + eval result|
-|Object#any_of?|if self match any one of items, return true|
-|Object#boolean?|data type check for boolean|
-|Object#my_methods|return public/protected/private self define methods|
-|String#justify_table|justify pipe format table string|
+|TbpgrUtils Kernel#bulk_define_methods|define methods to classes. methods have simple return value.|
+|TestToolbox Kernel#capture_stdout|capture STDOUT|
+|TestToolbox Kernel#dp_line|debug print line for print-debugging|
+|TbpgrUtils Kernel#print_eval|Print code + eval result|
+|TbpgrUtils Kernel#puts_eval|Puts code + eval result|
+|TbpgrUtils Object#any_of?|if self match any one of items, return true|
+|TbpgrUtils Object#boolean?|data type check for boolean|
+|TbpgrUtils Object#my_methods|return public/protected/private self define methods|
+|TbpgrUtils String#justify_table|justify pipe format table string|
 |Templatable module|get result from template + placeholder|
 
 ### Array#together
@@ -97,6 +99,7 @@ p atr_sample2.atr2 # => atr2
 
 sample ghost method define module.
 ~~~ruby
+require 'ghostable'
 module Checkable
   include Ghostable
   ghost_method /check_range_.*\?$/, :check_range do |method_name, *args, &block|
@@ -134,10 +137,45 @@ sample.contain_hoge? "test_hige_test" # => return false
 sample.contain_hige? "test_hige_test" # => return true
 ~~~
 
+### Kernel#capture_stdout
+capture STDOUT to String. This method can use in STDOUT contents test.
+
+~~~ruby
+require 'test_toolbox'
+
+result = capture_stdout {puts "test"} # => "test"
+
+# no stdout case. return empty.
+result = capture_stdout {sleep 0.1} # => ""(empty)
+~~~
+
+### Kernel#dp_line
+debug print line for print-debugging.
+
+~~~ruby
+require 'test_toolbox'
+
+# default usage
+dp_line __LINE__
+# output is following. yy = line no.
+# => --------------------|filename=|line=yy|--------------------\n
+
+# output with filename
+dp_line __LINE__, filename: __FILE__
+# output is following. xx=filenamem, yy = line no.
+# => --------------------|filename=xx|line=yy|--------------------\n
+
+# output with specific line charactor.
+dp_line __LINE__, filename: __FILE__, char: '@'
+# output is following. xx=filenamem, yy = line no.
+# => @@@@@@@@@@@@@@@@@@@@|filename=xx|line=yy$|@@@@@@@@@@@@@@@@@@@@\n
+~~~
+
 ### Kernel#bulk_define_methods
 Define methods to classes. Methods have simple return value.
 
 ~~~ruby
+require 'tbpgr_utils'
 bulk_define_methods [NilClass, FalseClass], :blank?, true
 bulk_define_methods [TrueClass, Numeric], "blank?", false
 
@@ -312,7 +350,13 @@ line1:hoge-sample
 line2:hige-sample
 ~~~
 
+## Relation
+if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
+
+https://github.com/tbpgr/tbpgr_utils_snippets
+
 ## History
+* version 0.0.9 : add TestToolbox module. add Kernel#capture_stdout, Kernel#dp_line
 * version 0.0.8 : add Kernel#bulk_define_methods
 * version 0.0.7 : add Kernel#print_eval, Kernel#puts_eval
 * version 0.0.6 : add Ghostable
