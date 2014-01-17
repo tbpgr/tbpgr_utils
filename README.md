@@ -33,6 +33,7 @@ Or install it yourself as:
 |TbpgrUtils Object#my_methods|return public/protected/private self define methods|
 |TbpgrUtils String#justify_table|justify pipe format table string|
 |Templatable module|get result from template + placeholder|
+|TemplateMethodable module|for Template Method Pattern|
 
 ### Array#together
 ~~~ruby
@@ -350,21 +351,78 @@ line1:hoge-sample
 line2:hige-sample
 ~~~
 
+## TemplateMethodable
+sample usage
+
+~~~ruby
+require "template_methodable"
+# sample BaseClass
+class BaseDeveloper
+  include TemplateMethodable
+  must_impl :easy_coding, :difficult_coding, :normal_coding
+  module DIFFICILTY
+    EASY = 1
+    NORMAL = 2
+    DIFFICILT = 3
+  end
+  def coding(difficulty)
+    ret = []
+    ret << "start coding"
+    case difficulty
+    when DIFFICILTY::EASY
+      ret << easy_coding
+    when DIFFICILTY::NORMAL
+      ret << normal_coding
+    when DIFFICILTY::DIFFICILT
+      ret << difficult_coding
+    else
+      fail 'error'
+    end
+    ret << "finish coding"
+    ret.join("\n")
+  end
+end
+
+# sample valid Concrete Class. it raises NotImplementedError.
+class StarDeveloper < BaseDeveloper
+  def easy_coding
+    "complete 1 minutes"
+  end
+  def normal_coding
+    "complete 10 minutes"
+  end
+  def difficult_coding
+    "complete 59 minutes"
+  end
+end
+
+# sample invalid Concrete Class. if call NormalDeveloper#difficult_coding, it raises NotImplementedError.
+class NormalDeveloper < BaseDeveloper
+  def easy_coding
+    "complete 10 minutes"
+  end
+  def normal_coding
+    "complete 100 minutes"
+  end
+end
+~~~
+
 ## Relation
 if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.9 : add TestToolbox module. add Kernel#capture_stdout, Kernel#dp_line
-* version 0.0.8 : add Kernel#bulk_define_methods
-* version 0.0.7 : add Kernel#print_eval, Kernel#puts_eval
-* version 0.0.6 : add Ghostable
-* version 0.0.5 : add Templatable
-* version 0.0.4 : AttributesInitializable::ClassMethods.attr_accessor_init
-* version 0.0.3 : add Object#any_of?
-* version 0.0.2 : loop all arrays by block.
-* version 0.0.1 : first release.
+* version 0.0.10 : add TemplateMethodable module.
+* version 0.0.9  : add TestToolbox module. add Kernel#capture_stdout, Kernel#dp_line
+* version 0.0.8  : add Kernel#bulk_define_methods
+* version 0.0.7  : add Kernel#print_eval, Kernel#puts_eval
+* version 0.0.6  : add Ghostable
+* version 0.0.5  : add Templatable
+* version 0.0.4  : AttributesInitializable::ClassMethods.attr_accessor_init
+* version 0.0.3  : add Object#any_of?
+* version 0.0.2  : loop all arrays by block.
+* version 0.0.1  : first release.
 
 ## Contributing
 

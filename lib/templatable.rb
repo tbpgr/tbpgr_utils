@@ -1,6 +1,6 @@
 # encoding: utf-8
 require "erb"
-require "active_support"
+require "active_support/concern"
 
 module Templatable
   extend ActiveSupport::Concern
