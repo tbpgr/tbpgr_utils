@@ -1,6 +1,6 @@
 # encoding: utf-8
-require "erb"
-require "active_support/concern"
+require 'erb'
+require 'active_support/concern'
 
 module Templatable
   extend ActiveSupport::Concern
@@ -14,7 +14,7 @@ module Templatable
       define_method :get_placeholders do
         ret = template.scan /<%=placeholders\[:(.*)\]%>/
         ret_hash = {}
-        ret.each {|v| ret_hash[v.first.to_sym] = v.first}
+        ret.each { |v| ret_hash[v.first.to_sym] = v.first }
         ret_hash
       end
     end

@@ -1,5 +1,5 @@
 # encoding: utf-8
-require "active_support/concern"
+require 'active_support/concern'
 
 module Ghostable
   extend ActiveSupport::Concern
@@ -7,7 +7,7 @@ module Ghostable
   module ClassMethods
     def ghost_method(pattern, basename, &ghost_block)
       define_method basename do |method_name, *args, &block|
-        self.class.class_eval {ghost_block.call(method_name, *args, &block)}
+        self.class.class_eval { ghost_block.call(method_name, *args, &block) }
       end
 
       @patterns ||= {}

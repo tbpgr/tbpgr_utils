@@ -28,7 +28,7 @@ module AttributesInitializable
       instance_eval do
         define_method :initialize do |values = nil, &block|
           return block.call self if block
-          symbols.each {|symbol|self.method("#{symbol.to_s}=").call values[symbol]}
+          symbols.each { |symbol|method("#{symbol.to_s}=").call values[symbol] }
         end
       end
     end

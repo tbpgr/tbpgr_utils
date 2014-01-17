@@ -58,7 +58,7 @@ module TemplateMethodable
       methods.each do |method_name|
         fail TypeError, "invalid args type #{method_name.class}. you must use Symbol" unless method_name.is_a? Symbol
         define_method method_name do |*args|
-          raise NotImplementedError.new
+          fail NotImplementedError.new
         end
       end
     end

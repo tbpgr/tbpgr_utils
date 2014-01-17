@@ -1,22 +1,22 @@
 # encoding: utf-8
-require "spec_helper"
-require "open_classes/kernel"
-require "test_toolbox"
+require 'spec_helper'
+require 'open_classes/kernel'
+require 'test_toolbox'
 
 describe Kernel do
   context :print_eval do
     cases = [
       {
         case_no: 1,
-        case_title: "no bind case",
-        code: "8/4",
-        expected: "8/4 # => 2",
+        case_title: 'no bind case',
+        code: '8/4',
+        expected: '8/4 # => 2',
       },
       {
         case_no: 2,
-        case_title: "with bind case",
+        case_title: 'with bind case',
         code: "\"hoge-\#{message}\"",
-        bind: "msg",
+        bind: 'msg',
         expected: "\"hoge-\#{message}\" # => \"hoge-msg\"",
       },
     ]
@@ -53,15 +53,15 @@ describe Kernel do
     cases = [
       {
         case_no: 1,
-        case_title: "no bind case",
-        code: "8/4",
+        case_title: 'no bind case',
+        code: '8/4',
         expected: "8/4 # => 2\n",
       },
       {
         case_no: 2,
-        case_title: "with bind case",
+        case_title: 'with bind case',
         code: '"hoge-#{message}"',
-        bind: "msg",
+        bind: 'msg',
         expected: '"hoge-#{message}" # => "hoge-msg"' + "\n",
       },
     ]
@@ -98,7 +98,7 @@ describe Kernel do
     cases = [
       {
         case_no: 1,
-        case_title: "all Array case",
+        case_title: 'all Array case',
         classes: [NilClass, FalseClass],
         methods: [:blank?, :present?],
         contents: [true, false],
@@ -107,27 +107,27 @@ describe Kernel do
       },
       {
         case_no: 2,
-        case_title: "Class, String, String case",
+        case_title: 'Class, String, String case',
         classes: NilClass,
-        methods: "hoge",
-        contents: "ret hoge",
+        methods: 'hoge',
+        contents: 'ret hoge',
         instances: [nil],
-        expecteds: ["ret hoge"],
+        expecteds: ['ret hoge'],
       },
       {
         case_no: 3,
-        case_title: "invalid classes type case",
+        case_title: 'invalid classes type case',
         classes: :NilClass,
-        methods: "hoge",
-        contents: "ret hoge",
+        methods: 'hoge',
+        contents: 'ret hoge',
         expect_error: true,
       },
       {
         case_no: 4,
-        case_title: "invalid methods type case",
+        case_title: 'invalid methods type case',
         classes: NilClass,
         methods: 1,
-        contents: "ret hoge",
+        contents: 'ret hoge',
         expect_error: true,
       },
     ]

@@ -1,4 +1,4 @@
-require "stringio"
+require 'stringio'
 
 #  Kernel
 module Kernel
@@ -38,9 +38,9 @@ module Kernel
   #   dp_line __LINE__, char: '@'
   #   # xx = filename, yy = call line no
   #   # => @@@@@@@@@@@@@@@@@@@@|filename=|line=yy|@@@@@@@@@@@@@@@@@@@@
-  def dp_line(line, options = {filename: "", char: '-'})
-    filename = options[:filename].nil? ? "" : options[:filename]
-    char = options[:char].nil? ? "-" : options[:char]
-    puts "#{char*20}|filename=#{filename}|line=#{line}|#{char*20}"
+  def dp_line(line, options = { filename: '', char: '-' })
+    filename = options[:filename].nil? ? '' : options[:filename]
+    char = options[:char].nil? ? '-' : options[:char]
+    puts "#{char * 20}|filename=#{filename}|line=#{line}|#{char * 20}"
   end
 end

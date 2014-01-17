@@ -67,7 +67,7 @@ module Kernel
   def fill_same_values(ary, size)
     return ary if ary.is_a?(Array)
     tmp = []
-    size.times {tmp << ary}
+    size.times { tmp << ary }
     tmp
   end
 
@@ -78,7 +78,7 @@ module Kernel
 
   def validate_bulk_define_methods!(methods)
     return if methods.class.any_of?(Array, String, Symbol)
-    fail TypeError, "invalid type #{a.class}. you have to use Array or Class or String or Symbol" 
+    fail TypeError, "invalid type #{a.class}. you have to use Array or Class or String or Symbol"
   end
 
   def define_method_constants(klass, methods, constants)

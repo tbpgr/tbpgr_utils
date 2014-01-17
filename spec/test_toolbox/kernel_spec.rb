@@ -1,21 +1,21 @@
 # encoding: utf-8
-require "spec_helper"
-require "test_toolbox/kernel"
+require 'spec_helper'
+require 'test_toolbox/kernel'
 
 describe Kernel do
   context :capture_stdout do
     cases = [
       {
         case_no: 1,
-        case_title: "have STDOUT case",
+        case_title: 'have STDOUT case',
         code: "print 'hoge'",
-        expected: "hoge",
+        expected: 'hoge',
       },
       {
         case_no: 2,
         case_title: "don't have STDOUT case",
-        code: "",
-        expected: "",
+        code: '',
+        expected: '',
       },
     ]
 
@@ -28,7 +28,7 @@ describe Kernel do
           # nothing
 
           # -- when --
-          actual = capture_stdout {eval c[:code]}
+          actual = capture_stdout { eval c[:code] }
 
           # -- then --
           expect(actual).to eq(c[:expected])
@@ -51,14 +51,14 @@ describe Kernel do
     cases = [
       {
         case_no: 1,
-        case_title: "default case",
+        case_title: 'default case',
         have_filename: true,
         have_char: false,
         expected: "--------------------|filename=$filename$|line=$line$|--------------------\n",
       },
       {
         case_no: 2,
-        case_title: "specific har case",
+        case_title: 'specific har case',
         have_filename: false,
         have_char: true,
         char: '@',
@@ -66,7 +66,7 @@ describe Kernel do
       },
       {
         case_no: 3,
-        case_title: "no options case",
+        case_title: 'no options case',
         have_filename: false,
         have_char: false,
         expected: "--------------------|filename=$filename$|line=$line$|--------------------\n",
@@ -86,16 +86,16 @@ describe Kernel do
           # -- when --
           line = nil
           if !c[:have_filename] && !c[:have_char]
-            actual = capture_stdout{ line = __LINE__ if c[:have_line];dp_line line }
+            actual = capture_stdout { line = __LINE__ if c[:have_line]; dp_line line }
           else
-            actual = capture_stdout{ line = __LINE__ if c[:have_line];dp_line line, options }
+            actual = capture_stdout { line = __LINE__ if c[:have_line]; dp_line line, options }
           end
 
           # -- then --
           expected = c[:expected]
-          file_gsub = c[:have_filename] ? __FILE__.to_s : ""
-          expected = expected.gsub("$filename$", file_gsub)
-          expected = expected.gsub("$line$", line.to_s)
+          file_gsub = c[:have_filename] ? __FILE__.to_s : ''
+          expected = expected.gsub('$filename$', file_gsub)
+          expected = expected.gsub('$line$', line.to_s)
           expect(actual).to eq(expected)
         ensure
           case_after c

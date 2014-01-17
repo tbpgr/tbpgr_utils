@@ -1,6 +1,6 @@
 # encoding: utf-8
-require "spec_helper"
-require "template_methodable"
+require 'spec_helper'
+require 'template_methodable'
 
 describe TemplateMethodable do
 
@@ -17,31 +17,31 @@ describe TemplateMethodable do
 
       def coding(difficulty)
         ret = []
-        ret << "start coding"
+        ret << 'start coding'
         case difficulty
         when DIFFICILTY::EASY
-          ret << easy_coding("hoge", "hige")
+          ret << easy_coding('hoge', 'hige')
         when DIFFICILTY::NORMAL
-          ret << normal_coding("hoge", "hige")
+          ret << normal_coding('hoge', 'hige')
         when DIFFICILTY::DIFFICILT
-          ret << difficult_coding("hoge", "hige")
+          ret << difficult_coding('hoge', 'hige')
         else
           fail 'error'
         end
-        ret << "finish coding"
+        ret << 'finish coding'
         ret.join("\n")
       end
     end
 
     class StarDeveloper < BaseDeveloper
       def easy_coding(hoge, hige)
-        "complete 1 minutes"
+        'complete 1 minutes'
       end
       def normal_coding(hoge, hige)
-        "complete 10 minutes"
+        'complete 10 minutes'
       end
       def difficult_coding(hoge, hige)
-        "complete 59 minutes"
+        'complete 59 minutes'
       end
     end
 
@@ -51,7 +51,7 @@ describe TemplateMethodable do
     cases = [
       {
         case_no: 1,
-        case_title: "all imple easy case",
+        case_title: 'all imple easy case',
         klass: StarDeveloper,
         method_name: :coding,
         difficulty: BaseDeveloper::DIFFICILTY::EASY,
@@ -63,7 +63,7 @@ finish coding
       },
       {
         case_no: 2,
-        case_title: "not imple all case",
+        case_title: 'not imple all case',
         klass: NotImplDeveloper,
         method_name: :coding,
         difficulty: BaseDeveloper::DIFFICILTY::NORMAL,
@@ -81,7 +81,7 @@ finish coding
           # nothing
 
           # -- when --
-          exec = lambda {c[:klass].new.method(c[:method_name]).call c[:difficulty]}
+          exec = lambda { c[:klass].new.method(c[:method_name]).call c[:difficulty] }
           if c[:expect_error]
             exec.should raise_error(NotImplementedError)
             next

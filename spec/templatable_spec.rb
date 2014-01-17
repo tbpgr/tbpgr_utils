@@ -1,6 +1,6 @@
 # encoding: utf-8
-require "spec_helper"
-require "templatable"
+require 'spec_helper'
+require 'templatable'
 
 describe Templatable do
   context :result do
@@ -28,7 +28,7 @@ line2:hige-sample
     cases = [
       {
         case_no: 1,
-        case_title: "valid case",
+        case_title: 'valid case',
         klass: TemplateUser,
         input: 'sample',
         expected: RESULT_CASE1,

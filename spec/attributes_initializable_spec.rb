@@ -1,6 +1,6 @@
 # encoding: utf-8
-require "spec_helper"
-require "attributes_initializable"
+require 'spec_helper'
+require 'attributes_initializable'
 
 describe AttributesInitializable do
   context :attr_accessor_init do
@@ -12,7 +12,7 @@ describe AttributesInitializable do
     cases = [
       {
         case_no: 1,
-        case_title: "not block case",
+        case_title: 'not block case',
         klass: AccessorSample,
         inputs: {
           atr1: 'atr1',
@@ -26,7 +26,7 @@ describe AttributesInitializable do
       },
       {
         case_no: 2,
-        case_title: "block case",
+        case_title: 'block case',
         klass: AccessorSample,
         inputs: {
           atr1: 'atr1',
@@ -56,7 +56,7 @@ describe AttributesInitializable do
               a.atr2 = c[:inputs][:atr2]
             end
           else
-            accessor_sample = c[:klass].new :atr1 => 'atr1', :atr2 => 'atr2'
+            accessor_sample = c[:klass].new atr1: 'atr1', atr2: 'atr2'
           end
 
           # -- then --

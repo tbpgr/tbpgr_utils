@@ -1,6 +1,6 @@
 # encoding: utf-8
-require "spec_helper"
-require "ghostable"
+require 'spec_helper'
+require 'ghostable'
 
 describe Ghostable do
   context :ghost_method do
@@ -8,15 +8,15 @@ describe Ghostable do
       include Ghostable
       ghost_method /check_range_.*\?$/, :check_range do |method_name, *args, &block|
         method_name.to_s =~ /(check_range_)(\d+)(_to_)(\d*)/
-        from = $2.to_i
-        to = $4.to_i
+        from = Regexp.last_match[2].to_i
+        to = Regexp.last_match[4].to_i
         value = args.first
         (from..to).include? value
       end
 
       ghost_method /^contain_.*\?$/, :check_contain do |method_name, *args, &block|
         method_name.to_s =~ /^(contain_)(.*)(\?)/
-        word = $2
+        word = Regexp.last_match[2]
         value = args.first
         value.include? word
       end
@@ -29,15 +29,15 @@ describe Ghostable do
     cases = [
       {
         case_no: 1,
-        case_title: "valid case",
+        case_title: 'valid case',
         klass: SampleChecker,
-        methods: [:check_range_3_to_5?, :check_range_3_to_5? ,:contain_hoge?, :contain_hoge?],
-        values: [3, 6, "testhogetest", "testhigetest"],
+        methods: [:check_range_3_to_5?, :check_range_3_to_5? , :contain_hoge?, :contain_hoge?],
+        values: [3, 6, 'testhogetest', 'testhigetest'],
         expecteds: [true, false, true, false],
       },
       {
         case_no: 2,
-        case_title: "method_missing case",
+        case_title: 'method_missing case',
         klass: SampleChecker,
         methods: [:not_match_method],
         values: [nil],
