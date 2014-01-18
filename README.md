@@ -31,6 +31,7 @@ Or install it yourself as:
 |TbpgrUtils Object#any_of?|if self match any one of items, return true|
 |TbpgrUtils Object#boolean?|data type check for boolean|
 |TbpgrUtils Object#my_methods|return public/protected/private self define methods|
+|TbpgrUtils Object#to_bool|syntax sugar of !!. convert [false, nil] => fasel, other => true.|
 |TbpgrUtils String#justify_table|justify pipe format table string|
 |Templatable module|get result from template + placeholder|
 |TemplateMethodable module|for Template Method Pattern|
@@ -295,6 +296,18 @@ end
 p Hoge.new.my_methods # =>[:hoge, :hige, :hege]
 ~~~
 
+### Object#to_bool
+~~~ruby
+require 'tbpgr_utils'
+
+p true.to_bool # => true
+p false.to_bool # => false
+p 'true'.to_bool # => true
+p 'false'.to_bool # => true
+p nil.to_bool # => false
+p 0.to_bool # => true
+~~~
+
 ### String#justify_table
 ~~~ruby
 require 'tbpgr_utils'
@@ -413,6 +426,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.11 : add Object#to_bool.
 * version 0.0.10 : add TemplateMethodable module.
 * version 0.0.9  : add TestToolbox module. add Kernel#capture_stdout, Kernel#dp_line
 * version 0.0.8  : add Kernel#bulk_define_methods
