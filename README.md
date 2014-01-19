@@ -21,7 +21,9 @@ Or install it yourself as:
 | class/module/method| mean|
 |:-----------|:------------|
 |TbpgrUtils Array#together|loop all arrays by block|
-|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessors + initializer|
+|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessor + initializer|
+|AttributesInitializable::ClassMethods.attr_reader_init|generate attr_reader + initializer|
+|AttributesInitializable::ClassMethods.attr_writer init|generate attr_writer + initializer|
 |Ghostable module|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
 |TbpgrUtils Kernel#bulk_define_methods|define methods to classes. methods have simple return value.|
 |TestToolbox Kernel#capture_stdout|capture STDOUT|
