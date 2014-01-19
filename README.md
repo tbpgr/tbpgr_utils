@@ -527,7 +527,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.12 : AttributesInitializable::ClassMethods.attr_reader_init,attr_writer_init,
+* version 0.0.12 : AttributesInitializable::ClassMethods.attr_reader_init,attr_writer_init
 * version 0.0.11 : add Object#to_bool.
 * version 0.0.10 : add TemplateMethodable module.
 * version 0.0.9  : add TestToolbox module. add Kernel#capture_stdout, Kernel#dp_line
