@@ -92,6 +92,107 @@ p atr_sample2.atr1 # => atr1
 p atr_sample2.atr2 # => atr2
 ~~~
 
+### AttributesInitializable::ClassMethods.attr_reader_init
+~~~ruby
+require 'attributes_initializable'
+
+class AccessorSample
+  include AttributesInitializable
+  attr_reader_init :atr1, :atr2
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+p atr_sample1.atr1 # => atr1
+p atr_sample1.atr2 # => atr2
+
+# can not use writer.
+# atr_sample2 = AccessorSample.new do |a|
+#   a.atr1 = 'atr1'
+#   a.atr2 = 'atr2'
+# end
+~~~
+
+same mean code is
+~~~ruby
+class AccessorSample
+  attr_reader :atr1, :atr2
+
+  def initialize(values = nil, &block)
+    return yield self if block
+    @atr1 = values[:atr1]
+    @atr2 = values[:atr2]
+  end
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+p atr_sample1.atr1 # => atr1
+p atr_sample1.atr2 # => atr2
+
+# can not use writer.
+# atr_sample2 = AccessorSample.new do |a|
+#   a.atr1 = 'atr1'
+#   a.atr2 = 'atr2'
+# end
+~~~
+
+### AttributesInitializable::ClassMethods.attr_writer_init
+~~~ruby
+require 'attributes_initializable'
+
+class AccessorSample
+  include AttributesInitializable
+  attr_writer_init :atr1, :atr2
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+# can not use reader
+# p atr_sample1.atr1 # => atr1
+# p atr_sample1.atr2 # => atr2
+atr_sample1.instance_variable_get "@atr1" # => atr1
+atr_sample1.instance_variable_get "@atr2" # => atr2
+
+atr_sample2 = AccessorSample.new do |a|
+  a.atr1 = 'atr1'
+  a.atr2 = 'atr2'
+end
+
+# can not use reader
+# p atr_sample2.atr1 # => atr1
+# p atr_sample2.atr2 # => atr2
+atr_sample2.instance_variable_get "@atr1" # => atr1
+atr_sample2.instance_variable_get "@atr2" # => atr2
+~~~
+
+same mean code is
+~~~ruby
+class AccessorSample
+  attr_writer :atr1, :atr2
+
+  def initialize(values = nil, &block)
+    return yield self if block
+    @atr1 = values[:atr1]
+    @atr2 = values[:atr2]
+  end
+end
+
+atr_sample1 = AccessorSample.new :atr1 => 'atr1', :atr2 => 'atr2'
+# can not use reader
+# p atr_sample1.atr1 # => atr1
+# p atr_sample1.atr2 # => atr2
+atr_sample1.instance_variable_get "@atr1" # => atr1
+atr_sample1.instance_variable_get "@atr2" # => atr2
+
+atr_sample2 = AccessorSample.new do |a|
+  a.atr1 = 'atr1'
+  a.atr2 = 'atr2'
+end
+# can not use reader
+# p atr_sample2.atr1 # => atr1
+# p atr_sample2.atr2 # => atr2
+atr_sample2.instance_variable_get "@atr1" # => atr1
+atr_sample2.instance_variable_get "@atr2" # => atr2
+~~~
+
 ### Ghostable
 * include Ghostable
 * create ghost method by using Ghostable::ghost_method
@@ -426,6 +527,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.12 : AttributesInitializable::ClassMethods.attr_reader_init,attr_writer_init,
 * version 0.0.11 : add Object#to_bool.
 * version 0.0.10 : add TemplateMethodable module.
 * version 0.0.9  : add TestToolbox module. add Kernel#capture_stdout, Kernel#dp_line
