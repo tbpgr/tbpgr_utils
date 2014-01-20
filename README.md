@@ -18,25 +18,26 @@ Or install it yourself as:
 
 ## Usage
 ### List
-| class/module/method| mean|
-|:-----------|:------------|
-|TbpgrUtils Array#together|loop all arrays by block|
-|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessor + initializer|
-|AttributesInitializable::ClassMethods.attr_reader_init|generate attr_reader + initializer|
-|AttributesInitializable::ClassMethods.attr_writer init|generate attr_writer + initializer|
-|Ghostable module|help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
-|TbpgrUtils Kernel#bulk_define_methods|define methods to classes. methods have simple return value.|
-|TestToolbox Kernel#capture_stdout|capture STDOUT|
-|TestToolbox Kernel#dp_line|debug print line for print-debugging|
-|TbpgrUtils Kernel#print_eval|Print code + eval result|
-|TbpgrUtils Kernel#puts_eval|Puts code + eval result|
-|TbpgrUtils Object#any_of?|if self match any one of items, return true|
-|TbpgrUtils Object#boolean?|data type check for boolean|
-|TbpgrUtils Object#my_methods|return public/protected/private self define methods|
-|TbpgrUtils Object#to_bool|syntax sugar of !!. convert [false, nil] => fasel, other => true.|
-|TbpgrUtils String#justify_table|justify pipe format table string|
-|Templatable module|get result from template + placeholder|
-|TemplateMethodable module|for Template Method Pattern|
+| class/module/method                                    | mean                                                                                            |
+|:-----------                                            |:------------                                                                                    |
+|TbpgrUtils Array#together                               |loop all arrays by block                                                                         |
+|TbpgrUtils Array#together_with_index                    |loop all arrays by block with index                                                              |
+|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessor + initializer                                                             |
+|AttributesInitializable::ClassMethods.attr_reader_init  |generate attr_reader + initializer                                                               |
+|AttributesInitializable::ClassMethods.attr_writer init  |generate attr_writer + initializer                                                               |
+|Ghostable module                                        |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)|
+|TbpgrUtils Kernel#bulk_define_methods                   |define methods to classes. methods have simple return value.                                     |
+|TestToolbox Kernel#capture_stdout                       |capture STDOUT                                                                                   |
+|TestToolbox Kernel#dp_line                              |debug print line for print-debugging                                                             |
+|TbpgrUtils Kernel#print_eval                            |Print code + eval result                                                                         |
+|TbpgrUtils Kernel#puts_eval                             |Puts code + eval result                                                                          |
+|TbpgrUtils Object#any_of?                               |if self match any one of items, return true                                                      |
+|TbpgrUtils Object#boolean?                              |data type check for boolean                                                                      |
+|TbpgrUtils Object#my_methods                            |return public/protected/private self define methods                                              |
+|TbpgrUtils Object#to_bool                               |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                |
+|TbpgrUtils String#justify_table                         |justify pipe format table string                                                                 |
+|Templatable module                                      |get result from template + placeholder                                                           |
+|TemplateMethodable module                               |for Template Method Pattern                                                                      |
 
 ### Array#together
 ~~~ruby
@@ -46,6 +47,17 @@ alpha = %w{one two three}
 numbers = %w{1 2 3}
 [alpha, numbers].together do |first, second|
   print "#{first}:#{second}\n"  # => output one:1, two:2, three:3
+end
+~~~
+
+### Array#together_with_index
+~~~ruby
+require 'tbpgr_utils'
+
+alpha = %w{one two three}
+numbers = %w{1 2 3}
+[alpha, numbers].together_with_index do |first, second, index|
+  print "#{index.to_s}:#{first}:#{second}\n"  # => output 0:one:1, 1:two:2, 2:three:3
 end
 ~~~
 
@@ -529,6 +541,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.13 : add Array#together_with_index
 * version 0.0.12 : AttributesInitializable::ClassMethods.attr_reader_init,attr_writer_init
 * version 0.0.11 : add Object#to_bool.
 * version 0.0.10 : add TemplateMethodable module.
