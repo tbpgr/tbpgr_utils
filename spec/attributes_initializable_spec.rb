@@ -127,12 +127,12 @@ describe AttributesInitializable do
           reader_sample = nil
           if c[:block]
             # -- then --
-            lambda { 
+            lambda do
               reader_sample = c[:klass].new do |a|
                 a.atr1 = c[:inputs][:atr1]
                 a.atr2 = c[:inputs][:atr2]
               end
-            }.should raise_error(NoMethodError)
+            end.should raise_error(NoMethodError)
             next
           else
             reader_sample = c[:klass].new atr1: 'atr1', atr2: 'atr2'

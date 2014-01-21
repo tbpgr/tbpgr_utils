@@ -172,22 +172,22 @@ describe Kernel do
   end
 
   context :bluk_puts_eval do
-    BULK_CODE1 =<<-EOS
+    BULK_CODE1 = <<-EOS
 "hoge-hige1" + "add"
 "hoge-hige2" + "add"
     EOS
 
-    BULK_EXPECTED1 =<<-EOS
+    BULK_EXPECTED1 = <<-EOS
 "hoge-hige1" + "add" # => "hoge-hige1add"
 "hoge-hige2" + "add" # => "hoge-hige2add"
     EOS
 
-    BULK_CODE2 =<<-EOS
+    BULK_CODE2 = <<-EOS
 "hoge-hige1" + "add" + message
 "hoge-hige2" + "add" + message
     EOS
 
-    BULK_EXPECTED2 =<<-EOS
+    BULK_EXPECTED2 = <<-EOS
 "hoge-hige1" + "add" + message # => "hoge-hige1addmsg"
 "hoge-hige2" + "add" + message # => "hoge-hige2addmsg"
     EOS
