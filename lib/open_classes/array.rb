@@ -48,7 +48,7 @@ class Array
   #   alpha = %w{one two three}
   #   numbers = %w{1 2 3}
   #   print [alpha, numbers].together_map do |first, second|
-  #     ["#{first}:#{second}\n", "#{second}:#{first}\n"]
+  #     ["#{first}:#{second}", "#{second}:#{first}"]
   #   end # => output [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']]
   def together_map
     if_not_contain_array_rails_type_error
