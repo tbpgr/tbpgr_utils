@@ -100,21 +100,21 @@ describe Array do
       {
         case_no: 1,
         case_title: 'valid case',
-        method_name: :together_map, 
+        method_name: :together_map,
         inputs: [[1, 2, 3], %w{one two three}],
         expected: ['1:one', '2:two', '3:three'],
       },
       {
         case_no: 2,
         case_title: 'contain nil case',
-        method_name: :together_map, 
+        method_name: :together_map,
         inputs: [[1, 2, 3], %w{one two}],
         expected: ['1:one', '2:two', '3:'],
       },
       {
         case_no: 3,
         case_title: 'valid case',
-        method_name: :together_map, 
+        method_name: :together_map,
         inputs: [[1, 2, 3], %w{one two three}],
         expected: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
         is_multi: true,
@@ -122,21 +122,21 @@ describe Array do
       {
         case_no: 4,
         case_title: 'valid case(alias together_collect)',
-        method_name: :together_collect, 
+        method_name: :together_collect,
         inputs: [[1, 2, 3], %w{one two three}],
         expected: ['1:one', '2:two', '3:three'],
       },
       {
         case_no: 5,
         case_title: 'valid case(alias tmap)',
-        method_name: :tmap, 
+        method_name: :tmap,
         inputs: [[1, 2, 3], %w{one two three}],
         expected: ['1:one', '2:two', '3:three'],
       },
       {
         case_no: 6,
         case_title: 'valid case(alias tcollect)',
-        method_name: :tcollect, 
+        method_name: :tcollect,
         inputs: [[1, 2, 3], %w{one two three}],
         expected: ['1:one', '2:two', '3:three'],
       },
@@ -152,9 +152,9 @@ describe Array do
 
           # -- when/then --
           if c[:is_multi]
-            actual = c[:inputs].method(c[:method_name]).call {|first, second|["#{first}:#{second}", "#{second}:#{first}"]}
+            actual = c[:inputs].method(c[:method_name]).call { |first, second|["#{first}:#{second}", "#{second}:#{first}"] }
           else
-            actual = c[:inputs].method(c[:method_name]).call {|first, second|"#{first}:#{second}"}
+            actual = c[:inputs].method(c[:method_name]).call { |first, second|"#{first}:#{second}" }
           end
 
           expect(actual).to eq(c[:expected])

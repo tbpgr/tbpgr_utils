@@ -1,12 +1,12 @@
 # encoding: utf-8
-require "spec_helper"
-require "open_classes/module"
+require 'spec_helper'
+require 'open_classes/module'
 
 describe Module do
   context :alias_methods do
     class Hoge
       def hoge
-        "hoge"
+        'hoge'
       end
 
       alias_methods [:hige, :hege, :huge], :hoge
@@ -14,15 +14,15 @@ describe Module do
     cases = [
       {
         case_no: 1,
-        case_title: "valid case",
+        case_title: 'valid case',
         klass: Hoge,
         target: :hoge,
         inputs: [:hige, :hege, :huge],
-        expected: "hoge",
+        expected: 'hoge',
       },
       {
         case_no: 2,
-        case_title: "not Array error case",
+        case_title: 'not Array error case',
         klass: Hoge,
         expect_error: true,
       },
@@ -38,14 +38,14 @@ describe Module do
 
           # -- when --
           if c[:expect_error]
-            lambda {
+            lambda do
               class Hige
                 def hige
-                  "hige"
+                  'hige'
                 end
-                alias_methods "invalid type", :hige
+                alias_methods 'invalid type', :hige
               end
-            }.should raise_error(TypeError)
+            end.should raise_error(TypeError)
             next
           end
 

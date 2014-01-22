@@ -73,7 +73,7 @@ class Array
 
   def get_args_for_together(i)
     eval_each = []
-    each_with_index {|j_v, j|eval_each << "self[#{j}][#{i}]"}
+    each_with_index { |j_v, j|eval_each << "self[#{j}][#{i}]" }
     eval_each
   end
 
@@ -84,8 +84,8 @@ class Array
 
   def set_together_each_return(ret, each_ret, index)
     if together_return_multi?(each_ret)
-      self.size.times {|i|ret << []} if index == 0
-      (0..(self.size - 1)).each {|i|ret[i] << each_ret[i]}
+      size.times { |i|ret << [] } if index == 0
+      (0..(size - 1)).each { |i|ret[i] << each_ret[i] }
     else
       ret << each_ret
     end
@@ -93,6 +93,6 @@ class Array
   end
 
   def together_return_multi?(list)
-    (list.class == Array && list.size == self.size).to_bool
+    (list.class == Array && list.size == size).to_bool
   end
 end
