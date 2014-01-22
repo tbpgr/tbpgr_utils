@@ -33,6 +33,7 @@ Or install it yourself as:
 |TbpgrUtils Kernel#print_eval                            |Print code + eval result                                                                          |
 |TbpgrUtils Kernel#puts_eval                             |Puts code + eval result                                                                           |
 |TbpgrUtils Kernel#bulk_puts_eval                        |Puts each-line-code + eval result                                                                 |
+|TbpgrUtils Module.alias_methods                         |create alias methods                                                                              |
 |TbpgrUtils Object#any_of?                               |if self match any one of items, return true                                                       |
 |TbpgrUtils Object#boolean?                              |data type check for boolean                                                                       |
 |TbpgrUtils Object#my_methods                            |return public/protected/private self define methods                                               |
@@ -407,6 +408,39 @@ output
 "hoge-hige2" + "add" + message # => "hoge-hige2addmsg"
 ~~~
 
+### Module.alias_methods
+create alias methods.
+
+~~~ruby
+require "tbpgr_utils"
+
+class Hoge
+  def hoge
+    "hoge"
+  end
+
+  alias_methods [:hige, :hege, :huge], :hoge
+end
+
+Hoge.new.hoge # => "hoge"
+Hoge.new.hige # => "hoge"
+Hoge.new.hege # => "hoge"
+Hoge.new.huge # => "hoge"
+~~~
+
+same code is...
+~~~
+class Hoge
+  def hoge
+    "hoge"
+  end
+
+  alias_method :hige, :hoge
+  alias_method :hege, :hoge
+  alias_method :huge, :hoge
+end
+~~~
+
 ### Object#any_of?
 ~~~ruby
 require 'tbpgr_utils'
@@ -580,6 +614,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.15 : add Module.alias_methods
 * version 0.0.14 : add Array#together_map(aliases => [tmap, together_collect, tcollect])
 * version 0.0.13 : add Array#together_with_index, Kernel#bulk_puts_eval
 * version 0.0.12 : AttributesInitializable::ClassMethods.attr_reader_init,attr_writer_init
