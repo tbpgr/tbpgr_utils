@@ -18,29 +18,30 @@ Or install it yourself as:
 
 ## Usage
 ### List
-| class/module/method                                    | mean                                                                                             |
-|:-----------                                            |:------------                                                                                     |
-|TbpgrUtils Array#together                               |loop all arrays by block                                                                          |
-|TbpgrUtils Array#together_map                           |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]|
-|TbpgrUtils Array#together_with_index                    |loop all arrays by block with index                                                               |
-|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessor + initializer                                                              |
-|AttributesInitializable::ClassMethods.attr_reader_init  |generate attr_reader + initializer                                                                |
-|AttributesInitializable::ClassMethods.attr_writer init  |generate attr_writer + initializer                                                                |
-|Ghostable module                                        |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name) |
-|TbpgrUtils Kernel#bulk_define_methods                   |define methods to classes. methods have simple return value.                                      |
-|TestToolbox Kernel#capture_stdout                       |capture STDOUT                                                                                    |
-|TestToolbox Kernel#dp_line                              |debug print line for print-debugging                                                              |
-|TbpgrUtils Kernel#print_eval                            |Print code + eval result                                                                          |
-|TbpgrUtils Kernel#puts_eval                             |Puts code + eval result                                                                           |
-|TbpgrUtils Kernel#bulk_puts_eval                        |Puts each-line-code + eval result                                                                 |
-|TbpgrUtils Module.alias_methods                         |create alias methods                                                                              |
-|TbpgrUtils Object#any_of?                               |if self match any one of items, return true                                                       |
-|TbpgrUtils Object#boolean?                              |data type check for boolean                                                                       |
-|TbpgrUtils Object#my_methods                            |return public/protected/private self define methods                                               |
-|TbpgrUtils Object#to_bool                               |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                 |
-|TbpgrUtils String#justify_table                         |justify pipe format table string                                                                  |
-|Templatable module                                      |get result from template + placeholder                                                            |
-|TemplateMethodable module                               |for Template Method Pattern                                                                       |
+| class/module/method                                    | mean                                                                                                       |
+|:-----------                                            |:------------                                                                                               |
+|TbpgrUtils Array#together                               |loop all arrays by block                                                                                    |
+|TbpgrUtils Array#together_map                           |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]          |
+|TbpgrUtils Array#together_select                        |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]|
+|TbpgrUtils Array#together_with_index                    |loop all arrays by block with index                                                                         |
+|AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessor + initializer                                                                        |
+|AttributesInitializable::ClassMethods.attr_reader_init  |generate attr_reader + initializer                                                                          |
+|AttributesInitializable::ClassMethods.attr_writer init  |generate attr_writer + initializer                                                                          |
+|Ghostable module                                        |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)           |
+|TbpgrUtils Kernel#bulk_define_methods                   |define methods to classes. methods have simple return value.                                                |
+|TestToolbox Kernel#capture_stdout                       |capture STDOUT                                                                                              |
+|TestToolbox Kernel#dp_line                              |debug print line for print-debugging                                                                        |
+|TbpgrUtils Kernel#print_eval                            |Print code + eval result                                                                                    |
+|TbpgrUtils Kernel#puts_eval                             |Puts code + eval result                                                                                     |
+|TbpgrUtils Kernel#bulk_puts_eval                        |Puts each-line-code + eval result                                                                           |
+|TbpgrUtils Module.alias_methods                         |create alias methods                                                                                        |
+|TbpgrUtils Object#any_of?                               |if self match any one of items, return true                                                                 |
+|TbpgrUtils Object#boolean?                              |data type check for boolean                                                                                 |
+|TbpgrUtils Object#my_methods                            |return public/protected/private self define methods                                                         |
+|TbpgrUtils Object#to_bool                               |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                           |
+|TbpgrUtils String#justify_table                         |justify pipe format table string                                                                            |
+|Templatable module                                      |get result from template + placeholder                                                                      |
+|TemplateMethodable module                               |for Template Method Pattern                                                                                 |
 
 ### Array#together
 ~~~ruby
@@ -71,6 +72,26 @@ alpha = %w{one two three}
 numbers = %w{1 2 3}
 ret = [alpha, numbers].together_map {|first, second|[["#{first}:ret"], ["#{second}:ret"]]}
 print ret # => output [["one:ret", "two:ret", "three:ret"],["1:ret", "2:ret", "3:ret"]]
+~~~
+
+### Array#together_select(or tselect, together_find_all, tfindall)
+~~~ruby
+require 'tbpgr_utils'
+
+firsts = [1, 2, 3, 4]
+seconds =  [4, 2, 3, 1]
+ret = [firsts, seconds].together_select{|first, second|first == second}
+print ret # => output  [[2, 3], [2, 3]]
+~~~
+
+if you want to return multi array, following.
+~~~ruby
+require 'tbpgr_utils'
+
+firsts = [1, 2, 3, 4]
+seconds =  [4, 2, 3, 1]
+ret = [firsts, seconds].together_select{|first, second|[first.odd?, second.even?]}
+print ret # => output  [[1, 3], [4, 2]]
 ~~~
 
 ### Array#together_with_index
@@ -584,7 +605,7 @@ class BaseDeveloper
   end
 end
 
-# sample valid Concrete Class. it raises NotImplementedError.
+# sample valid Concrete Class.
 class StarDeveloper < BaseDeveloper
   def easy_coding
     "complete 1 minutes"
@@ -614,6 +635,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.16 : add Array#together_select(or tselect, together_find_all, tfindall)
 * version 0.0.15 : add Module.alias_methods
 * version 0.0.14 : add Array#together_map(aliases => [tmap, together_collect, tcollect])
 * version 0.0.13 : add Array#together_with_index, Kernel#bulk_puts_eval
