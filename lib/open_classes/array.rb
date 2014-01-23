@@ -119,7 +119,7 @@ class Array
   def set_together_each_return_select(ret, each_ret, index)
     unless together_return_multi?(each_ret)
       tmp_each_ret = []
-      size.times {tmp_each_ret << each_ret}
+      size.times { tmp_each_ret << each_ret }
       each_ret = tmp_each_ret
     end
     size.times { |i|ret << [] } if index == 0
