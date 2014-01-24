@@ -22,6 +22,7 @@ Or install it yourself as:
 |:-----------                                            |:------------                                                                                               |
 |TbpgrUtils Array#together                               |loop all arrays by block                                                                                    |
 |TbpgrUtils Array#together_map                           |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]          |
+|TbpgrUtils Array#together_reduce                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]   |
 |TbpgrUtils Array#together_select                        |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]|
 |TbpgrUtils Array#together_with_index                    |loop all arrays by block with index                                                                         |
 |AttributesInitializable::ClassMethods.attr_accessor_init|generate attr_accessor + initializer                                                                        |
@@ -72,6 +73,52 @@ alpha = %w{one two three}
 numbers = %w{1 2 3}
 ret = [alpha, numbers].together_map {|first, second|[["#{first}:ret"], ["#{second}:ret"]]}
 print ret # => output [["one:ret", "two:ret", "three:ret"],["1:ret", "2:ret", "3:ret"]]
+~~~
+
+### Array#together_reduce(or :treduce, :together_inject, :tinject)
+* if you want to single return
+
+~~~ruby
+firsts = [1, 2, 3, 4]
+seconds =  [4, 2, 3, 1]
+ret = [firsts, seconds].together_reduce{|memo, first, second|memo + first + second}
+print ret # => output  20
+~~~
+
+* if you want to single return with init value
+
+~~~ruby
+firsts = [1, 2, 3, 4]
+seconds =  [4, 2, 3, 1]
+ret = [firsts, seconds].together_reduce(10){|memo, first, second|memo + first + second}
+print ret # => output  30
+~~~
+
+* if you want to single return with init string value
+
+~~~ruby
+firsts = %w{a b c}
+seconds =  %w{1 2 3}
+ret = [firsts, seconds].together_reduce('start-'){|memo, first, second|memo + first + second}
+print ret # => output 'start-a1b2c3'
+~~~
+
+* if you want to single return with init Array value
+
+~~~ruby
+firsts = [1, 2, 3, 4]
+seconds =  [4, 2, 3, 1]
+ret = [firsts, seconds].together_reduce([]){|memo, first, second|memo << first + second}
+print ret # => output [5, 4, 6, 5]
+~~~
+
+* if you want to single return with init Hash value
+
+~~~ruby
+firsts = [1, 2, 3, 4]
+seconds =  [4, 2, 3, 1]
+ret = [firsts, seconds].together_reduce({}){|memo, first, second|memo[first] = second;memo}
+print ret # => output {1=>4, 2=>2, 3=>3, 4=>1}
 ~~~
 
 ### Array#together_select(or tselect, together_find_all, tfindall)
@@ -635,6 +682,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.17 : add Array#together_reduce(or :treduce, :together_inject, :tinject)
 * version 0.0.16 : add Array#together_select(or tselect, together_find_all, tfindall)
 * version 0.0.15 : add Module.alias_methods
 * version 0.0.14 : add Array#together_map(aliases => [tmap, together_collect, tcollect])

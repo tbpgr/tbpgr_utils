@@ -173,47 +173,67 @@ describe Array do
     end
   end
 
-  context :together_select do
+  context :together_reduce do
     cases = [
       {
         case_no: 1,
         case_title: 'single valid case',
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
-        condition: 'first == second',
-        method_name: :together_select,
-        expected: [[2, 3], [2, 3]],
+        init: nil,
+        logic: 'memo + first + second',
+        method_name: :together_reduce,
+        expected: 20,
       },
       {
         case_no: 2,
-        case_title: 'multi valid case',
+        case_title: 'single with init valid case',
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
-        condition: '[first.odd?, second.even?]',
-        expected: [[1, 3], [4, 2]],
-        method_name: :together_select,
-      },
-      {
-        case_no: 3,
-        case_title: 'multi valid case',
-        inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
-        condition: '[first.odd?, second.even?]',
-        expected: [[1, 3], [4, 2]],
-        method_name: :tselect,
-      },
-      {
-        case_no: 4,
-        case_title: 'multi valid case',
-        inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
-        condition: '[first.odd?, second.even?]',
-        expected: [[1, 3], [4, 2]],
-        method_name: :together_find_all,
+        init: 10,
+        logic: 'memo + first + second',
+        method_name: :together_reduce,
+        expected: 30,
       },
       {
         case_no: 5,
+        case_title: 'single valid case',
+        inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
+        logic: 'memo + first + second',
+        expected: 20,
+        method_name: :treduce,
+      },
+      {
+        case_no: 6,
+        case_title: 'single valid case',
+        inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
+        logic: 'memo + first + second',
+        expected: 20,
+        method_name: :together_inject,
+      },
+      {
+        case_no: 7,
         case_title: 'multi valid case',
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
-        condition: '[first.odd?, second.even?]',
-        expected: [[1, 3], [4, 2]],
-        method_name: :tfindall,
+        logic: 'memo + first + second',
+        expected: 20,
+        method_name: :tinject,
+      },
+      {
+        case_no: 8,
+        case_title: 'single with init valid array case',
+        inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
+        init: [],
+        logic: 'memo << first + second',
+        method_name: :together_reduce,
+        expected: [5, 4, 6, 5],
+      },
+      {
+        case_no: 9,
+        case_title: 'single with init valid array case',
+        inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
+        init: {},
+        logic: 'memo[first] = second; memo',
+        method_name: :together_reduce,
+        expected: {1=>4, 2=>2, 3=>3, 4=>1},
       },
     ]
 
@@ -226,7 +246,11 @@ describe Array do
           # nothing
 
           # -- when/then --
-          actual = c[:inputs].method(c[:method_name]).call { |first, second| eval c[:condition], binding }
+          if c[:init]
+            actual = c[:inputs].method(c[:method_name]).call(c[:init]) { |memo, first, second| eval c[:logic], binding }
+          else
+            actual = c[:inputs].method(c[:method_name]).call { |memo, first, second| eval c[:logic], binding }
+          end
 
           expect(actual).to eq(c[:expected])
         ensure
