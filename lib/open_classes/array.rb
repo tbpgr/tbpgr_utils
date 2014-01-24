@@ -103,7 +103,7 @@ class Array
   #   seconds =  [4, 2, 3, 1]
   #   ret = [firsts, seconds].together_reduce(10){|memo, first, second|memo + first + second}
   #   print ret # => output  30
-  # 
+  #
   # if you want to single return with init string value
   #   firsts = %w{a b c}
   #   seconds =  %w{1 2 3}
@@ -175,7 +175,7 @@ class Array
 
   def initial_memo(init)
     return init unless init.nil?
-    first.first.is_a?(Numeric) ? 0 : first.first.is_a?(String) ? "" : nil
+    first.first.is_a?(Numeric) ? 0 : first.first.is_a?(String) ? '' : nil
   end
 
   def together_return_multi?(list)

@@ -233,7 +233,7 @@ describe Array do
         init: {},
         logic: 'memo[first] = second; memo',
         method_name: :together_reduce,
-        expected: {1=>4, 2=>2, 3=>3, 4=>1},
+        expected: { 1 => 4, 2 => 2, 3 => 3, 4 => 1 },
       },
     ]
 
