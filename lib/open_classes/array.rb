@@ -190,6 +190,7 @@ class Array
     (list.class == Array && list.size == size).to_bool
   end
 
+  alias_method :tconcat, :together_concat
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select
   alias_methods [:together_inject, :treduce, :tinject], :together_reduce

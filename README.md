@@ -21,7 +21,7 @@ Or install it yourself as:
 | class/module/method                                    | mean                                                                                                       |
 |:-----------                                            |:------------                                                                                               |
 |TbpgrUtils Array#together                               |loop all arrays by block                                                                                    |
-|TbpgrUtils Array#together_concat                        |together version of Array#concat.                                                                           |
+|TbpgrUtils Array#together_concat                        |together version of Array#concat. together_concat has alias :tconcat                                        |
 |TbpgrUtils Array#together_map                           |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]          |
 |TbpgrUtils Array#together_reduce                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]   |
 |TbpgrUtils Array#together_select                        |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]|
@@ -695,7 +695,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.18 : add Array#together_concat
+* version 0.0.18 : add Array#together_concat.  together_concat has alias :tconcat
 * version 0.0.17 : add Array#together_reduce(or :treduce, :together_inject, :tinject)
 * version 0.0.16 : add Array#together_select(or tselect, together_find_all, tfindall)
 * version 0.0.15 : add Module.alias_methods
