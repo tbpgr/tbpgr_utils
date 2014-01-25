@@ -131,9 +131,17 @@ class Array
     memo
   end
 
-  alias_methods [:together_collect, :tmap, :tcollect], :together_map
-  alias_methods [:together_find_all, :tselect, :tfindall], :together_select
-  alias_methods [:together_inject, :treduce, :tinject], :together_reduce
+  # Arrays bulk concat.
+  #
+  #   alpha = %w{one two three}
+  #   numbers = %w{1 2 3}
+  #   [alpha, numbers].together do |first, second|
+  #     print "#{first}:#{second}\n"  # => output one:1, two:2, three:3
+  #   end
+  def together_concat(other)
+    if_not_contain_array_rails_type_error
+    self.each {|list|list.concat other}
+  end
 
   private
 
@@ -181,4 +189,8 @@ class Array
   def together_return_multi?(list)
     (list.class == Array && list.size == size).to_bool
   end
+
+  alias_methods [:together_collect, :tmap, :tcollect], :together_map
+  alias_methods [:together_find_all, :tselect, :tfindall], :together_select
+  alias_methods [:together_inject, :treduce, :tinject], :together_reduce
 end
