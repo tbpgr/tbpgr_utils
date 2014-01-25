@@ -140,7 +140,7 @@ class Array
   #   end
   def together_concat(other)
     if_not_contain_array_rails_type_error
-    self.each {|list|list.concat other}
+    each { |list|list.concat other }
   end
 
   private
