@@ -56,7 +56,6 @@ module AttributesInitializable
       instance_eval do
         define_method :initialize do |values = nil, &block|
           return block.call self if block
-          # symbols.each { |symbol|send("#{symbol.to_s}=", values[symbol]) }
           symbols.each { |symbol|instance_variable_set("@#{symbol.to_s}", values[symbol]) }
         end
       end

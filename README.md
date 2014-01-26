@@ -18,32 +18,33 @@ Or install it yourself as:
 
 ## Usage
 ### List
-| class/module/method                                                                                               | mean                                                                                                       |
-|:-----------                                                                                                       |:------------                                                                                               |
-|[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                    |
-|[TbpgrUtils Array#together_concat](#arraytogether_concat)                                                          |together version of Array#concat. together_concat has alias :tconcat                                        |
-|[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]          |
-|[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]   |
-|[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]|
-|[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                         |
-|[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                        |
-|[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                          |
-|[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                          |
-|[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)           |
-|[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                |
-|[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                              |
-|[TestToolbox Kernel#dp_line](#kerneldp_line)                                                                       |debug print line for print-debugging                                                                        |
-|[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                    |
-|[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                     |
-|[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                           |
-|[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                        |
-|[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                 |
-|[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                 |
-|[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                         |
-|[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                           |
-|[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                            |
-|[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                      |
-|[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                 |
+| class/module/method                                                                                               | mean                                                                                                                |
+|:-----------                                                                                                       |:------------                                                                                                        |
+|[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
+|[TbpgrUtils Array#together_concat](#arraytogether_concat)                                                          |together version of Array#concat. together_concat has alias :tconcat                                                 |
+|[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
+|[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
+|[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]         |
+|[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
+|[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
+|[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
+|[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
+|[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
+|[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
+|[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
+|[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
+|[TestToolbox Kernel#dp_line](#kerneldp_line)                                                                       |debug print line for print-debugging                                                                                 |
+|[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
+|[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
+|[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
+|[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
+|[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
+|[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
+|[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
+|[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
+|[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
+|[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
+|[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
 
 ### Array#together
 ~~~ruby
@@ -173,6 +174,30 @@ numbers = %w{1 2 3}
 [alpha, numbers].together_with_index do |first, second, index|
   print "#{index.to_s}:#{first}:#{second}\n"  # => output 0:one:1, 1:two:2, 2:three:3
 end
+~~~
+
+[back to list](#list)
+
+### AttributesHashable.to_hash
+~~~ruby
+require 'attributes_initializable'
+require 'attributes_hashable'
+
+class Hoge
+  include AttributesInitializable
+  attr_accessor_init :hoge, :hige
+  include AttributesHashable
+end
+
+hoge = Hoge.new |h|
+  h.hoge = 'hoge'
+  h.hige = 'hige'
+end
+
+hoge.to_hash # => {:hoge=>"hoge", :hige=>"hige"}
+
+# After include AttributesHashable, you can use Hash.try_convert.
+Hash.try_convert hoge # => {:hoge=>"hoge", :hige=>"hige"}
 ~~~
 
 [back to list](#list)
@@ -741,6 +766,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.19 : add AttributesHashable module.
 * version 0.0.18 : add Array#together_concat.  together_concat has alias :tconcat
 * version 0.0.17 : add Array#together_reduce(or :treduce, :together_inject, :tinject)
 * version 0.0.16 : add Array#together_select(or tselect, together_find_all, tfindall)
