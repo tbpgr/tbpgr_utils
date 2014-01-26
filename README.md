@@ -189,7 +189,7 @@ class Hoge
   include AttributesHashable
 end
 
-hoge = Hoge.new |h|
+hoge = Hoge.new do |h|
   h.hoge = 'hoge'
   h.hige = 'hige'
 end
