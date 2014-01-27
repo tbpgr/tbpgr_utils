@@ -145,7 +145,7 @@ class Array
     each { |list|list.concat other }
   end
 
-  # Arrays bulk at. 
+  # Arrays bulk at.
   #
   # together_at has alias :tat
   #
