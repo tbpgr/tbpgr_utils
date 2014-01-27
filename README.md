@@ -71,7 +71,7 @@ print [alpha, numbers].together_at 2 # => output ['three', 3]
 
 # different elements size case
 alpha = %w{one two three}
-numbers = %w{1 2 nil}
+numbers = %w{1 2}
 print [alpha, numbers].together_at 2 # => output ['three', nil]
 ~~~
 
