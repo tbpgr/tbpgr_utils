@@ -133,6 +133,8 @@ class Array
 
   # Arrays bulk concat.
   #
+  # together_concat has alias :tconcat
+  #
   #   alpha = %w{one two three}
   #   numbers = %w{1 2 3}
   #   [alpha, numbers].together do |first, second|
@@ -141,6 +143,24 @@ class Array
   def together_concat(other)
     if_not_contain_array_rails_type_error
     each { |list|list.concat other }
+  end
+
+  # Arrays bulk at. 
+  #
+  # together_at has alias :tat
+  #
+  # same elements size case
+  #   alpha = %w{one two three}
+  #   numbers = %w{1 2 3}
+  #   [alpha, numbers].together_at 2 # => output ['three', 3]
+  #
+  # different elements size case
+  #   alpha = %w{one two three}
+  #   numbers = %w{1 2 nil}
+  #   [alpha, numbers].together_at 2 # => output ['three', nil]
+  def together_at(index)
+    if_not_contain_array_rails_type_error
+    reduce([]) { |ats, list|ats << list.at(index) }
   end
 
   private
@@ -191,6 +211,7 @@ class Array
   end
 
   alias_method :tconcat, :together_concat
+  alias_method :tat, :together_at
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select
   alias_methods [:together_inject, :treduce, :tinject], :together_reduce
