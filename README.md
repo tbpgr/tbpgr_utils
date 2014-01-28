@@ -22,6 +22,7 @@ Or install it yourself as:
 |:-----------                                                                                                       |:------------                                                                                                        |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
 |[TbpgrUtils Array#together_at](#arraytogether_at)                                                                  |together version of Array#at. together_at has alias :tat                                                             |
+|[TbpgrUtils Array#together_clear](#arraytogether_clear)                                                            |together version of Array#clear. together_clear has alias :tclear                                                    |
 |[TbpgrUtils Array#together_concat](#arraytogether_concat)                                                          |together version of Array#concat. together_concat has alias :tconcat                                                 |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -73,6 +74,17 @@ print [alpha, numbers].together_at 2 # => output ['three', 3]
 alpha = %w{one two three}
 numbers = %w{1 2}
 print [alpha, numbers].together_at 2 # => output ['three', nil]
+~~~
+
+[back to list](#list)
+
+### Array#together_clear
+~~~ruby
+require 'tbpgr_utils'
+
+alpha = %w{one two three}
+numbers = %w{1 2 3}
+[alpha, numbers].together_clear # => [[], []]
 ~~~
 
 [back to list](#list)
@@ -784,6 +796,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.21 : add Array#together_clear. together_clear has alias :tclear
 * version 0.0.20 : add Array#together_at. together_at has alias :tat
 * version 0.0.19 : add AttributesHashable module.
 * version 0.0.18 : add Array#together_concat. together_concat has alias :tconcat

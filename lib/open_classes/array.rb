@@ -156,11 +156,24 @@ class Array
   #
   # different elements size case
   #   alpha = %w{one two three}
-  #   numbers = %w{1 2 nil}
+  #   numbers = %w{1 2}
   #   [alpha, numbers].together_at 2 # => output ['three', nil]
   def together_at(index)
     if_not_contain_array_rails_type_error
     reduce([]) { |ats, list|ats << list.at(index) }
+  end
+
+  # Arrays bulk clear.
+  #
+  # together_clear has alias :tclear
+  #
+  # same elements size case
+  #   alpha = %w{one two three}
+  #   numbers = %w{1 2 3}
+  #   [alpha, numbers].together_clear # => output [[],[]]
+  def together_clear
+    if_not_contain_array_rails_type_error
+    each { |list|list.clear }
   end
 
   private
@@ -212,6 +225,7 @@ class Array
 
   alias_method :tconcat, :together_concat
   alias_method :tat, :together_at
+  alias_method :tclear, :together_clear
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select
   alias_methods [:together_inject, :treduce, :tinject], :together_reduce
