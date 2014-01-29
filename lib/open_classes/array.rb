@@ -176,6 +176,37 @@ class Array
     each { |list|list.clear }
   end
 
+  # Arrays bulk compact.(immutable)
+  #
+  # together_compact has alias :tcompact
+  #
+  # same elements size case
+  #   alpha = ['a','b','c', nil,'d']
+  #   numbers = [1, 2, nil, 3]
+  #   lists = [alpha, numbers]
+  #   ret = lists.together_compact
+  #   print lists # => output [['a','b','c', nil,'d'], [1, 2, nil, 3]]
+  #   print ret # => output [['a','b','c','d'], [1, 2, 3]]
+  def together_compact
+    if_not_contain_array_rails_type_error
+    reduce([]) { |ret, list|ret << list.compact }
+  end
+
+  # Arrays bulk compact!.(mutable)
+  #
+  # together_compact! has alias :tcompact!
+  #
+  # same elements size case
+  #   alpha = ['a','b','c', nil,'d']
+  #   numbers = [1, 2, nil, 3]
+  #   ret = lists.together_compact!
+  #   print lists # => output [['a','b','c','d'], [1, 2, 3]]
+  #   print ret # => output [['a','b','c','d'], [1, 2, 3]]
+  def together_compact!
+    if_not_contain_array_rails_type_error
+    each { |list|list.compact! }
+  end
+
   private
 
   def if_not_contain_array_rails_type_error
@@ -226,6 +257,8 @@ class Array
   alias_method :tconcat, :together_concat
   alias_method :tat, :together_at
   alias_method :tclear, :together_clear
+  alias_method :tcompact, :together_compact
+  alias_method :tcompact!, :together_compact!
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select
   alias_methods [:together_inject, :treduce, :tinject], :together_reduce
