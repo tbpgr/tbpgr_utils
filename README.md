@@ -24,9 +24,10 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_at](#arraytogether_at)                                                                  |together version of Array#at. together_at has alias :tat                                                             |
 |[TbpgrUtils Array#together_clear](#arraytogether_clear)                                                            |together version of Array#clear. together_clear has alias :tclear                                                    |
 |[TbpgrUtils Array#together_compact](#arraytogether_compact)                                                        |together version of Array#compact. together_compact has alias :tcompact. this is immutable.                          |
-|[TbpgrUtils Array#together_compact!](#arraytogether_compact!)                                                      |together version of Array#compact!. together_compact! has alias :tcompact! this is mutable.                          |
+|[TbpgrUtils Array#together_compact!](#arraytogether_compact-1)                                                     |together version of Array#compact!. together_compact! has alias :tcompact! this is mutable.                          |
 |[TbpgrUtils Array#together_concat](#arraytogether_concat)                                                          |together version of Array#concat. together_concat has alias :tconcat                                                 |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
+|[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
 |[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]         |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
@@ -151,6 +152,37 @@ alpha = %w{one two three}
 numbers = %w{1 2 3}
 ret = [alpha, numbers].together_map {|first, second|[["#{first}:ret"], ["#{second}:ret"]]}
 print ret # => output [["one:ret", "two:ret", "three:ret"],["1:ret", "2:ret", "3:ret"]]
+~~~
+
+[back to list](#list)
+
+### Array#together_map!(or tmap!, together_collect!, tcollect!)
+if you want to return single array, following.
+~~~ruby
+require 'tbpgr_utils'
+
+alpha = %w{one two three}
+numbers = %w{1 2 3}
+ary = [alpha, numbers]
+ret = ary.together_map! do |first, second|
+  "#{first}:#{second}"
+end
+print ret # => output ['one:1', 'two:2', 'three:3']
+print ary # => output ['one:1', 'two:2', 'three:3']
+~~~
+
+if you want to return multi array, following.
+~~~ruby
+require 'tbpgr_utils'
+
+alpha = %w{one two three}
+numbers = %w{1 2 3}
+ary = [alpha, numbers]
+ret = ary.together_map! do |first, second|
+  ["#{first}:#{second}", "#{second}:#{first}"]
+end
+print ret # => output [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']]
+print ary # => output [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']]
 ~~~
 
 [back to list](#list)
@@ -826,6 +858,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.23 : add Array#together_map!(aliases => [tmap!, together_collect!, tcollect!])
 * version 0.0.22 : add Array#together_compact. together_compact has alias :tcompact. Array#together_compact!. together_compact! has alias :tcompact!.
 * version 0.0.21 : add Array#together_clear. together_clear has alias :tclear
 * version 0.0.20 : add Array#together_at. together_at has alias :tat
