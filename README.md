@@ -153,7 +153,7 @@ require 'tbpgr_utils'
 child1 = [1, 2, 3, 4]
 child2 = [2, 3, 4, 5]
 lists = [child1, child2]
-ret = lists.together_delete 2
+ret = lists.together_delete 6
 print ret # => nil
 print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
 ~~~
@@ -165,7 +165,7 @@ require 'tbpgr_utils'
 child1 = [1, 2, 3, 4]
 child2 = [2, 3, 4, 5]
 lists = [child1, child2]
-ret = lists.together_delete(2) { 999 }
+ret = lists.together_delete(6) { 999 }
 print ret # => 999
 print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
 ~~~
