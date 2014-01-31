@@ -727,7 +727,7 @@ describe Array do
 
           # -- when --
           if c[:has_block]
-            actual = c[:inputs].send c[:method_name], c[:delete_value] {c[:block]}
+            actual = c[:inputs].send c[:method_name], c[:delete_value] {c[:block] }
           else
             actual = c[:inputs].send c[:method_name], c[:delete_value]
           end
