@@ -235,12 +235,48 @@ class Array
   # same elements size case
   #   alpha = ['a','b','c', nil,'d']
   #   numbers = [1, 2, nil, 3]
+  #   lists = [alpha, numbers]
   #   ret = lists.together_compact!
   #   print lists # => output [['a','b','c','d'], [1, 2, 3]]
   #   print ret # => output [['a','b','c','d'], [1, 2, 3]]
   def together_compact!
     if_not_contain_array_rails_type_error
     each { |list|list.compact! }
+  end
+
+  # Arrays bulk delete.
+  #
+  # together_delete has alias :tdelete
+  #
+  # if delete target is exist
+  #   child1 = [1, 2, 3, 4]
+  #   child2 = [2, 3, 4, 5]
+  #   lists = [child1, child2]
+  #   ret = lists.together_delete 2
+  #   print ret # => 2
+  #   print lists # => output [[1, 3, 4], [3, 4, 5]]
+  #
+  # if delete target is not exist
+  #   child1 = [1, 2, 3, 4]
+  #   child2 = [2, 3, 4, 5]
+  #   lists = [child1, child2]
+  #   ret = lists.together_delete 2
+  #   print ret # => nil
+  #   print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
+  #
+  # if delete target is not exist and use block
+  #   child1 = [1, 2, 3, 4]
+  #   child2 = [2, 3, 4, 5]
+  #   lists = [child1, child2]
+  #   ret = lists.together_delete(2) { 999 }
+  #   print ret # => 999
+  #   print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
+  def together_delete(value)
+    if_not_contain_array_rails_type_error
+    ret = []
+    each { |list|ret << list.delete(value) }
+    default_return = block_given? ? yield : nil
+    ret.compact.size == 0 ? default_return : value
   end
 
   private
@@ -305,6 +341,7 @@ class Array
   alias_method :tclear, :together_clear
   alias_method :tcompact, :together_compact
   alias_method :tcompact!, :together_compact!
+  alias_method :tdelete, :together_delete
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_collect!, :tmap!, :tcollect!], :together_map!
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select

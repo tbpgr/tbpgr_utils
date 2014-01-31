@@ -26,6 +26,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_compact](#arraytogether_compact)                                                        |together version of Array#compact. together_compact has alias :tcompact. this is immutable.                          |
 |[TbpgrUtils Array#together_compact!](#arraytogether_compact-1)                                                     |together version of Array#compact!. together_compact! has alias :tcompact! this is mutable.                          |
 |[TbpgrUtils Array#together_concat](#arraytogether_concat)                                                          |together version of Array#concat. together_concat has alias :tconcat                                                 |
+|[TbpgrUtils Array#together_delete](#arraytogether_delete)                                                          |together version of Array#delete. together_delete has alias :tdelete                                                 |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -130,6 +131,43 @@ numbers = %w{1 2 3}
 
 print alpha # => ["one", "two", "three", 4, 5, 6]
 print numbers # => ["1", "2", "3", 4, 5, 6]
+~~~
+
+[back to list](#list)
+
+### Array#together_delete
+~~~ruby
+require 'tbpgr_utils'
+
+child1 = [1, 2, 3, 4]
+child2 = [2, 3, 4, 5]
+lists = [child1, child2]
+ret = lists.together_delete 2
+print lists # => output [[1, 3, 4], [3, 4, 5]]
+~~~
+
+if delete target is not exist
+~~~ruby
+require 'tbpgr_utils'
+
+child1 = [1, 2, 3, 4]
+child2 = [2, 3, 4, 5]
+lists = [child1, child2]
+ret = lists.together_delete 2
+print ret # => nil
+print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
+~~~
+
+if delete target is not exist and use block
+~~~ruby
+require 'tbpgr_utils'
+
+child1 = [1, 2, 3, 4]
+child2 = [2, 3, 4, 5]
+lists = [child1, child2]
+ret = lists.together_delete(2) { 999 }
+print ret # => 999
+print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
 ~~~
 
 [back to list](#list)
@@ -858,13 +896,14 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.24 : add Array#together_delete(alias tdelete)
 * version 0.0.23 : add Array#together_map!(aliases => [tmap!, together_collect!, tcollect!])
 * version 0.0.22 : add Array#together_compact. together_compact has alias :tcompact. Array#together_compact!. together_compact! has alias :tcompact!.
 * version 0.0.21 : add Array#together_clear. together_clear has alias :tclear
 * version 0.0.20 : add Array#together_at. together_at has alias :tat
 * version 0.0.19 : add AttributesHashable module.
-* version 0.0.18 : add Array#together_concat. together_concat has alias :tconcat
-* version 0.0.17 : add Array#together_reduce(or :treduce, :together_inject, :tinject)
+* version 0.0.18 : add Array#together_concat. together_concat has alias tconcat
+* version 0.0.17 : add Array#together_reduce(or treduce, together_inject, tinject)
 * version 0.0.16 : add Array#together_select(or tselect, together_find_all, tfindall)
 * version 0.0.15 : add Module.alias_methods
 * version 0.0.14 : add Array#together_map(aliases => [tmap, together_collect, tcollect])
