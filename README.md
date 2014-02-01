@@ -936,6 +936,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.25 : add Array#together_delete_at(alias tdelete_at)
 * version 0.0.24 : add Array#together_delete(alias tdelete)
 * version 0.0.23 : add Array#together_map!(aliases => [tmap!, together_collect!, tcollect!])
 * version 0.0.22 : add Array#together_compact. together_compact has alias :tcompact. Array#together_compact!. together_compact! has alias :tcompact!.
