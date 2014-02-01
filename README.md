@@ -27,6 +27,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_compact!](#arraytogether_compact-1)                                                     |together version of Array#compact!. together_compact! has alias :tcompact! this is mutable.                          |
 |[TbpgrUtils Array#together_concat](#arraytogether_concat)                                                          |together version of Array#concat. together_concat has alias :tconcat                                                 |
 |[TbpgrUtils Array#together_delete](#arraytogether_delete)                                                          |together version of Array#delete. together_delete has alias :tdelete                                                 |
+|[TbpgrUtils Array#together_delete_at](#arraytogether_delete_at)                                                    |together version of Array#delete_at. together_delete_at has alias :tdelete_at                                        |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -168,6 +169,45 @@ lists = [child1, child2]
 ret = lists.together_delete(6) { 999 }
 print ret # => 999
 print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
+~~~
+
+[back to list](#list)
+
+### Array#together_delete_at
+if delete_at target is exist
+~~~ruby
+require 'tbpgr_utils'
+
+child1 = [1, 2, 3, 4]
+child2 = [2, 3, 4, 5]
+lists = [child1, child2]
+ret = lists.together_delete_at 2
+print ret # => [3, 4]
+print lists # => output [[1, 2, 4], [2, 3, 5]]
+~~~
+
+if delete_at target is not exist
+~~~ruby
+require 'tbpgr_utils'
+
+child1 = [1, 2, 3, 4]
+child2 = [2, 3, 4, 5]
+lists = [child1, child2]
+ret = lists.together_delete_at 6
+print ret # => [nil, nil]
+print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
+~~~
+
+if delete_at target is exist(minus index)
+~~~ruby
+require 'tbpgr_utils'
+
+child1 = [1, 2, 3, 4]
+child2 = [2, 3, 4, 5]
+lists = [child1, child2]
+ret = lists.together_delete_at -3
+print ret # => [2, 3]
+print lists # => output [[1, 3, 4], [2, 4, 5]]
 ~~~
 
 [back to list](#list)
