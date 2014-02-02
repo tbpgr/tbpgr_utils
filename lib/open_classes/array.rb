@@ -311,6 +311,34 @@ class Array
     reduce([]) { |ret, list|ret << list.delete_at(index) }
   end
 
+
+  # Arrays bulk delete_if.
+  #
+  # together_delete_if has alias :tdelete_if
+  #
+  # if delete_if target is exist. return self.
+  #   lists = [[1, 2, 3, 4], [6, 4, 6, 8]]
+  #   ret = lists.together_delete_if {|first, second|(first + second).odd?}
+  #   print ret # => [[2, 4], [4, 8]]
+  #
+  # if delete_if target is not exist. return nil.
+  #   lists = [[2, 2, 4, 4], [6, 4, 6, 8]]
+  #   ret = lists.together_delete_if {|first, second|(first + second).odd?}
+  #   print ret # => nil
+  def together_delete_if(&block)
+    if_not_contain_array_rails_type_error
+    have_deleted = false
+    first.each_with_index do |i_v, i|
+      eval_each_str = get_args_str_for_together i
+      is_delete = instance_eval "yield(#{eval_each_str})"
+      if is_delete
+        each { |e|e.delete_at i }
+        have_deleted = true
+      end
+    end
+    have_deleted ? self : nil
+  end
+
   private
 
   def if_not_contain_array_rails_type_error
@@ -375,6 +403,7 @@ class Array
   alias_method :tcompact!, :together_compact!
   alias_method :tdelete, :together_delete
   alias_method :tdelete_at, :together_delete_at
+  alias_method :tdelete_if, :together_delete_if
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_collect!, :tmap!, :tcollect!], :together_map!
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select
