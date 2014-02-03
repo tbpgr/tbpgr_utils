@@ -29,6 +29,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_delete](#arraytogether_delete)                                                          |together version of Array#delete. together_delete has alias :tdelete                                                 |
 |[TbpgrUtils Array#together_delete_at](#arraytogether_delete_at)                                                    |together version of Array#delete_at. together_delete_at has alias :tdelete_at                                        |
 |[TbpgrUtils Array#together_delete_if](#arraytogether_delete_if)                                                    |together version of Array#delete_if. together_delete_if has alias :tdelete_if                                        |
+|[TbpgrUtils Array#together_empty?](#arraytogether_empty)                                                           |together version of Array#empty?. together_empty? has alias :tempty?                                                 |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -230,6 +231,27 @@ require 'tbpgr_utils'
 lists = [[2, 2, 4, 4], [6, 4, 6, 8]]
 ret = lists.together_delete_if {|first, second|(first + second).odd?}
 print ret # => nil
+~~~
+
+[back to list](#list)
+
+### Array#together_empty?
+empty case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[], []]
+ret = lists.together_empty?
+print ret # => true
+~~~
+
+not empty case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[1], []]
+ret = lists.together_empty?
+print ret # => false
 ~~~
 
 [back to list](#list)
@@ -958,6 +980,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.27 : add Array#together_empty?(alias tempty?)
 * version 0.0.26 : add Array#together_delete_if(alias tdelete_if)
 * version 0.0.25 : add Array#together_delete_at(alias tdelete_at)
 * version 0.0.24 : add Array#together_delete(alias tdelete)

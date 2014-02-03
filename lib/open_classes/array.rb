@@ -311,7 +311,6 @@ class Array
     reduce([]) { |ret, list|ret << list.delete_at(index) }
   end
 
-
   # Arrays bulk delete_if.
   #
   # together_delete_if has alias :tdelete_if
@@ -337,6 +336,26 @@ class Array
       end
     end
     have_deleted ? self : nil
+  end
+
+  # Arrays bulk empty?.
+  #
+  # together_empty? has alias :tempty?
+  #
+  # empty case
+  #   lists = [[], []]
+  #   ret = lists.together_empty?
+  #   print ret # => true
+  #
+  # not empty case
+  #   lists = [[1], []]
+  #   ret = lists.together_empty?
+  #   print ret # => false
+  def together_empty?
+    if_not_contain_array_rails_type_error
+    is_empty = true
+    each { |list|is_empty = is_empty && list.empty? }
+    is_empty
   end
 
   private
@@ -366,16 +385,6 @@ class Array
     ret
   end
 
-  # def set_together_each_return_map!(ret, each_ret, index)
-  #   if together_return_multi?(each_ret)
-  #     size.times { |i|ret << [] } if index == 0
-  #     (0..(size - 1)).each { |i|ret[i]  each_ret[i] }
-  #   else
-  #     ret << each_ret
-  #   end
-  #   ret
-  # end
-
   def set_together_each_return_select(ret, each_ret, index)
     unless together_return_multi?(each_ret)
       tmp_each_ret = []
@@ -404,6 +413,7 @@ class Array
   alias_method :tdelete, :together_delete
   alias_method :tdelete_at, :together_delete_at
   alias_method :tdelete_if, :together_delete_if
+  alias_method :tempty?, :together_empty?
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_collect!, :tmap!, :tcollect!], :together_map!
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select
