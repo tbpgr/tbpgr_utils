@@ -30,6 +30,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_delete_at](#arraytogether_delete_at)                                                    |together version of Array#delete_at. together_delete_at has alias :tdelete_at                                        |
 |[TbpgrUtils Array#together_delete_if](#arraytogether_delete_if)                                                    |together version of Array#delete_if. together_delete_if has alias :tdelete_if                                        |
 |[TbpgrUtils Array#together_empty?](#arraytogether_empty)                                                           |together version of Array#empty?. together_empty? has alias :tempty?                                                 |
+|[TbpgrUtils Array#together_fill](#arraytogether_fill)                                                              |together version of Array#fill. together_fill has alias :tfill                                                       |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -252,6 +253,36 @@ require 'tbpgr_utils'
 lists = [[1], []]
 ret = lists.together_empty?
 print ret # => false
+~~~
+
+[back to list](#list)
+
+### Array#together_fill
+not use block case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*6..10]]
+ret = lists.together_fill(99)
+print ret # => [[99, 99, 99, 99, 99], [99, 99, 99, 99, 99]]
+~~~
+
+use block, no args case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*6..10]]
+ret = lists.together_fill { |i|(i + 1) + 1 }
+print ret # => [[2, 3, 4, 5, 6], [2, 3, 4, 5, 6]]
+~~~
+
+use block, has args case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*6..10]]
+ret = lists.together_fill(2) { |i|(i + 1) + 1 }
+print ret # => [[1, 2, 4, 5, 6], [6, 7, 4, 5, 6]]
 ~~~
 
 [back to list](#list)
@@ -980,6 +1011,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.28 : add Array#together_fill(alias tfill)
 * version 0.0.27 : add Array#together_empty?(alias tempty?)
 * version 0.0.26 : add Array#together_delete_if(alias tdelete_if)
 * version 0.0.25 : add Array#together_delete_at(alias tdelete_at)
