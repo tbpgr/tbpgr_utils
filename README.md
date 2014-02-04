@@ -40,6 +40,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
+|[TbpgrUtils File.insert_bom](#file_insert_bom)                                                                     |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
@@ -599,6 +600,43 @@ atr_sample2.instance_variable_get "@atr2" # => atr2
 
 [back to list](#list)
 
+### File.insert_bom
+* this method's main purpose is 'UTF-8 Excel CSV File'.
+
+output bommed text from input.csv to output.csv
+~~~ruby
+require 'tbpgr_utils'
+
+File.insert_bom("input.csv", "output.csv") # => output bommed text to output.csv
+~~~
+
+output bommed text from input.csv to input.csv
+~~~ruby
+require 'tbpgr_utils'
+
+File.insert_bom("input.csv") # => output bommed text to output.csv
+~~~
+
+* use ghost method
+
+sample ghost method use class
+~~~ruby
+class SampleChecker
+  include Checkable
+end
+
+sample = SampleChecker.new
+sample.check_range_3_to_5?(4) # => return true
+sample.check_range_3_to_5?(6) # => return false
+sample.check_range_3_to_6?(6) # => return true
+
+sample.contain_hoge? "test_hoge_test" # => return true
+sample.contain_hoge? "test_hige_test" # => return false
+sample.contain_hige? "test_hige_test" # => return true
+~~~
+
+[back to list](#list)
+
 ### Ghostable
 * include Ghostable
 * create ghost method by using Ghostable::ghost_method
@@ -1011,7 +1049,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.28 : add Array#together_fill(alias tfill)
+* version 0.0.28 : add Array#together_fill(alias tfill). add File.insert_bom.
 * version 0.0.27 : add Array#together_empty?(alias tempty?)
 * version 0.0.26 : add Array#together_delete_if(alias tdelete_if)
 * version 0.0.25 : add Array#together_delete_at(alias tdelete_at)
