@@ -32,6 +32,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_empty?](#arraytogether_empty)                                                           |together version of Array#empty?. together_empty? has alias :tempty?                                                 |
 |[TbpgrUtils Array#together_fill](#arraytogether_fill)                                                              |together version of Array#fill. together_fill has alias :tfill                                                       |
 |[TbpgrUtils Array#together_first](#arraytogether_first)                                                            |together version of Array#first. together_first has alias :tfirst                                                    |
+|[TbpgrUtils Array#together_include?](#arraytogether_include)                                                       |together version of Array#include?. together_include? has alias :tinclude?                                           |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -41,7 +42,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
-|[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                              |
+|[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
@@ -324,6 +325,55 @@ require 'tbpgr_utils'
 lists = [[*1..5], [*6..10]]
 ret = lists.together_first 6
 print ret # => [[*1..5], [*6..10]]
+~~~
+
+[back to list](#list)
+
+### Array#together_include?
+together_include? is bulk version of Array#include?
+
+together_include? has alias :tinclude?
+
+both include single ret case
+~~~ruby
+  lists = [[*1..5], [*5..9]]
+  ret = lists.together_include? 5
+  print ret # => true
+~~~
+
+one include single ret case
+~~~ruby
+  lists = [[*1..5], [*5..9]]
+  ret = lists.together_include? 9
+  print ret # => true
+~~~
+
+both not include single ret case
+~~~ruby
+  lists = [[*1..5], [*5..9]]
+  ret = lists.together_include? 10
+  print ret # => false
+~~~
+
+both include multi ret case
+~~~ruby
+  lists = [[*1..5], [*5..9]]
+  ret = lists.together_include? 5, true
+  print ret # => [true, true]
+~~~
+
+one include multi ret case
+~~~ruby
+  lists = [[*1..5], [*5..9]]
+  ret = lists.together_include? 9, true
+  print ret # => [false, true]
+~~~
+
+both not include multi ret case
+~~~ruby
+  lists = [[*1..5], [*5..9]]
+  ret = lists.together_include? 10, true
+  print ret # => [false, false]
 ~~~
 
 [back to list](#list)
@@ -1071,6 +1121,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.30 : add Array#together_include?(alias tinclude?).
 * version 0.0.29 : add Array#together_first(alias tfirst).
 * version 0.0.28 : add Array#together_fill(alias tfill). add File.insert_bom.
 * version 0.0.27 : add Array#together_empty?(alias tempty?)

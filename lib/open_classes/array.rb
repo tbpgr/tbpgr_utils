@@ -419,6 +419,45 @@ class Array
     reduce([]) { |ret, list|ret << eval(each_return, binding) }
   end
 
+  # Arrays bulk include?.
+  #
+  # together_include? has alias :tinclude?
+  #
+  # both include single ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_include? 5
+  #   print ret # => true
+  #
+  # one include single ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_include? 9
+  #   print ret # => true
+  #
+  # both not include single ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_include? 10
+  #   print ret # => false
+  #
+  # both include multi ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_include? 5, true
+  #   print ret # => [true, true]
+  #
+  # one include multi ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_include? 9, true
+  #   print ret # => [false, true]
+  #
+  # both not include multi ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_include? 10, true
+  #   print ret # => [false, false]
+  def together_include?(value, is_multi = false)
+    if_not_contain_array_rails_type_error
+    return reduce([]) { |ret, list|ret << list.include?(value) } if is_multi
+    reduce(false) { |ret, list|ret = ret || list.include?(value) }
+  end
+
   private
 
   def if_not_contain_array_rails_type_error
@@ -477,6 +516,7 @@ class Array
   alias_method :tempty?, :together_empty?
   alias_method :tfill, :together_fill
   alias_method :tfirst, :together_first
+  alias_method :tinclude?, :together_include?
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_collect!, :tmap!, :tcollect!], :together_map!
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select
