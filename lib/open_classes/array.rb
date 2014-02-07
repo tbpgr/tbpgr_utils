@@ -458,6 +458,29 @@ class Array
     reduce(false) { |ret, list|ret = ret || list.include?(value) }
   end
 
+  # Arrays bulk index.
+  #
+  # together_index has alias :tindex
+  #
+  # both index exist case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_index 5
+  #   print ret # => [4, 0]
+  #
+  # one include single ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_index 4
+  #   print ret # => [3, nil]
+  #
+  # both not include single ret case
+  #   lists = [[*1..5], [*5..9]]
+  #   ret = lists.together_index 10
+  #   print ret # => [nil, nil]
+  def together_index(value)
+    if_not_contain_array_rails_type_error
+    reduce([]) { |ret, list|ret << list.index(value) }
+  end
+
   private
 
   def if_not_contain_array_rails_type_error
@@ -517,6 +540,7 @@ class Array
   alias_method :tfill, :together_fill
   alias_method :tfirst, :together_first
   alias_method :tinclude?, :together_include?
+  alias_method :tindex, :together_index
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_collect!, :tmap!, :tcollect!], :together_map!
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select

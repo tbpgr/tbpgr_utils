@@ -33,6 +33,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_fill](#arraytogether_fill)                                                              |together version of Array#fill. together_fill has alias :tfill                                                       |
 |[TbpgrUtils Array#together_first](#arraytogether_first)                                                            |together version of Array#first. together_first has alias :tfirst                                                    |
 |[TbpgrUtils Array#together_include?](#arraytogether_include)                                                       |together version of Array#include?. together_include? has alias :tinclude?                                           |
+|[TbpgrUtils Array#together_index](#arraytogether_index)                                                            |together version of Array#index. together_index has alias :tindex                                                    |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -374,6 +375,32 @@ both not include multi ret case
   lists = [[*1..5], [*5..9]]
   ret = lists.together_include? 10, true
   print ret # => [false, false]
+~~~
+
+[back to list](#list)
+
+### Array#together_index
+together_index has alias :tindex
+
+both index exist case
+~~~ruby
+lists = [[*1..5], [*5..9]]
+ret = lists.together_index 5
+print ret # => [4, 0]
+~~~
+
+one include single ret case
+~~~ruby
+lists = [[*1..5], [*5..9]]
+ret = lists.together_index 4
+print ret # => [3, nil]
+~~~
+
+both not include single ret case
+~~~ruby
+lists = [[*1..5], [*5..9]]
+ret = lists.together_index 10
+print ret # => [nil, nil]
 ~~~
 
 [back to list](#list)
@@ -1121,6 +1148,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.31 : add Array#together_index(alias tindex).
 * version 0.0.30 : add Array#together_include?(alias tinclude?).
 * version 0.0.29 : add Array#together_first(alias tfirst).
 * version 0.0.28 : add Array#together_fill(alias tfill). add File.insert_bom.
