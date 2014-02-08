@@ -34,6 +34,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_first](#arraytogether_first)                                                            |together version of Array#first. together_first has alias :tfirst                                                    |
 |[TbpgrUtils Array#together_include?](#arraytogether_include)                                                       |together version of Array#include?. together_include? has alias :tinclude?                                           |
 |[TbpgrUtils Array#together_index](#arraytogether_index)                                                            |together version of Array#index. together_index has alias :tindex                                                    |
+|[TbpgrUtils Array#together_insert](#arraytogether_insert)                                                          |together version of Array#insert. together_insert has alias :tinsert                                                 |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -401,6 +402,32 @@ both not include single ret case
 lists = [[*1..5], [*5..9]]
 ret = lists.together_index 10
 print ret # => [nil, nil]
+~~~
+
+[back to list](#list)
+
+### Array#together_insert
+together_insert has alias :tinsert
+
+both insert exist case
+~~~ruby
+lists = [[*1..5], [*5..9]]
+ret = lists.together_insert(1, 55, 66)
+print ret # => [[1, 55, 66, 2, 3, 4, 5], [5, 55, 66, 6, 7, 8, 9]]
+~~~
+
+both insert exist and minus index case
+~~~ruby
+lists = [[*1..5], [*5..9]]
+ret = lists.together_insert(-2, 55, 66)
+print ret # => [[1, 2, 3, 4, 55, 66, 5], [5, 6, 7, 8, 55, 66, 9]]
+~~~
+
+both insert exist case
+~~~ruby
+lists = [[*1..5], [*5..9]]
+ret = lists.together_insert(6, 55, 66)
+print ret # => [[1, 2, 3, 4, 5, nil, 55, 66], [5, 6, 7, 8, 9, nil, 55, 66]],
 ~~~
 
 [back to list](#list)
@@ -1148,6 +1175,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.32 : add Array#together_insert(alias tinsert).
 * version 0.0.31 : add Array#together_index(alias tindex).
 * version 0.0.30 : add Array#together_include?(alias tinclude?).
 * version 0.0.29 : add Array#together_first(alias tfirst).
