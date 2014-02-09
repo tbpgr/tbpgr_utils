@@ -1,5 +1,7 @@
 # TbpgrUtils
 
+[![Build Status](https://travis-ci.org/tbpgr/tbpgr_utils.png?branch=master)](https://travis-ci.org/tbpgr/tbpgr_utils)
+
 TbpgrUtils is Utilities.
 
 ## Installation
