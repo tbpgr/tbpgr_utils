@@ -39,6 +39,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
 |[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]         |
+|[TbpgrUtils Array#together_shift](#arraytogether_shift)                                                            |together version of Array#shift. together_shift has alias :tshift                                                    |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
@@ -551,6 +552,43 @@ firsts = [1, 2, 3, 4]
 seconds =  [4, 2, 3, 1]
 ret = [firsts, seconds].together_select{|first, second|[first.odd?, second.even?]}
 print ret # => output  [[1, 3], [4, 2]]
+~~~
+
+[back to list](#list)
+
+### Array#together_shift(or tshift)
+together_shift has alias :tshift
+
+not empty case
+~~~ruby
+lists = [[1, 2], [5, 6]]
+ret = lists.together_shift
+print ret # => [1, 5]
+print lists # => [2, 6]
+~~~
+
+empty case
+~~~ruby
+lists = [[], []]
+ret = lists.together_shift
+print ret # => [nil, nil]
+print lists # => [[], []]
+~~~
+
+not empty case
+~~~ruby with args
+lists = [[1, 2], [5, 6]]
+ret = lists.together_shift 2
+print ret # => [[1, 2], [5, 6]]
+print lists # => [[], []]
+~~~
+
+not empty case
+~~~ruby with args
+lists = [[], []]
+ret = lists.together_shift 2
+print ret # => [[], []]
+print lists # => [[], []]
 ~~~
 
 [back to list](#list)
@@ -1175,6 +1213,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.33 : add Array#together_shift(alias tshift).
 * version 0.0.32 : add Array#together_insert(alias tinsert).
 * version 0.0.31 : add Array#together_index(alias tindex).
 * version 0.0.30 : add Array#together_include?(alias tinclude?).
