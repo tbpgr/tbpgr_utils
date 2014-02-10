@@ -415,7 +415,36 @@ class Array
   #   print ret # => [[*1..5], [*6..10]]
   def together_first(index = nil)
     if_not_contain_array_rails_type_error
-    each_return = index == 0 ? '[]' : index.nil? ? 'list.first' : 'list[0..index - 1]'
+    each_return = index == 0 ? '[]' : index.nil? ? 'list.first' : 'list.first(index)'
+    reduce([]) { |ret, list|ret << eval(each_return, binding) }
+  end
+
+  # Arrays bulk last.
+  #
+  # together_last has alias :tlast
+  #
+  # no args case
+  #   lists = [[*1..5], [*6..10]]
+  #   ret = lists.together_last
+  #   print ret # => [5, 10]
+  #
+  # has args 2 case
+  #   lists = [[*1..5], [*6..10]]
+  #   ret = lists.together_last 2
+  #   print ret # => [[4, 5], [9, 10]]
+  #
+  # has args 0 case
+  #   lists = [[*1..5], [*6..10]]
+  #   ret = lists.together_last 0
+  #   print ret # => [[], []]
+  #
+  # has args over size case
+  #   lists = [[*1..5], [*6..10]]
+  #   ret = lists.together_last 6
+  #   print ret # => [[*1..5], [*6..10]]
+  def together_last(index = nil)
+    if_not_contain_array_rails_type_error
+    each_return = index == 0 ? '[]' : index.nil? ? 'list.last' : 'list.last(index)'
     reduce([]) { |ret, list|ret << eval(each_return, binding) }
   end
 
@@ -599,6 +628,7 @@ class Array
   alias_method :tempty?, :together_empty?
   alias_method :tfill, :together_fill
   alias_method :tfirst, :together_first
+  alias_method :tlast, :together_last
   alias_method :tinclude?, :together_include?
   alias_method :tindex, :together_index
   alias_method :tinsert, :together_insert

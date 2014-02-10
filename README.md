@@ -37,6 +37,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_include?](#arraytogether_include)                                                       |together version of Array#include?. together_include? has alias :tinclude?                                           |
 |[TbpgrUtils Array#together_index](#arraytogether_index)                                                            |together version of Array#index. together_index has alias :tindex                                                    |
 |[TbpgrUtils Array#together_insert](#arraytogether_insert)                                                          |together version of Array#insert. together_insert has alias :tinsert                                                 |
+|[TbpgrUtils Array#together_last](#arraytogether_last)                                                              |together version of Array#last. together_last has alias :tlast                                                       |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
@@ -431,6 +432,39 @@ both insert exist case
 lists = [[*1..5], [*5..9]]
 ret = lists.together_insert(6, 55, 66)
 print ret # => [[1, 2, 3, 4, 5, nil, 55, 66], [5, 6, 7, 8, 9, nil, 55, 66]],
+~~~
+
+[back to list](#list)
+
+### Array#together_last
+together_last has alias :tlast
+
+no args case
+~~~ruby
+lists = [[*1..5], [*6..10]]
+ret = lists.together_last
+print ret # => [5, 10]
+~~~
+
+has args 2 case
+~~~ruby
+lists = [[*1..5], [*6..10]]
+ret = lists.together_last 2
+print ret # => [[4, 5], [9, 10]]
+~~~
+
+has args 0 case
+~~~ruby
+lists = [[*1..5], [*6..10]]
+ret = lists.together_last 0
+print ret # => [[], []]
+~~~
+
+has args over size case
+~~~ruby
+lists = [[*1..5], [*6..10]]
+ret = lists.together_last 6
+print ret # => [[*1..5], [*6..10]]
 ~~~
 
 [back to list](#list)
@@ -1215,6 +1249,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.34 : add Array#together_last(alias tlast).
 * version 0.0.33 : add Array#together_shift(alias tshift).
 * version 0.0.32 : add Array#together_insert(alias tinsert).
 * version 0.0.31 : add Array#together_index(alias tindex).
