@@ -533,7 +533,6 @@ class Array
     each { |list|list.insert(index, *args) }
   end
 
-
   # Arrays bulk shift.
   #
   # together_shift has alias :tshift
@@ -567,6 +566,42 @@ class Array
       reduce([]) { |ret, list|ret << list.shift }
     else
       reduce([]) { |ret, list|ret << list.shift(count) }
+    end
+  end
+
+  # Arrays bulk pop.
+  #
+  # together_pop has alias :tpop
+  #
+  # not empty case
+  #   lists = [[1, 2], [5, 6]]
+  #   ret = lists.together_pop
+  #   print ret # => [2, 6]
+  #   print lists # => [1, 5]
+  #
+  # empty case
+  #   lists = [[], []]
+  #   ret = lists.together_pop
+  #   print ret # => [nil, nil]
+  #   print lists # => [[], []]
+  #
+  # not empty case with args
+  #   lists = [[1, 2], [5, 6]]
+  #   ret = lists.together_pop 2
+  #   print ret # => [[1, 2], [5, 6]]
+  #   print lists # => [[], []]
+  #
+  # not empty case with args
+  #   lists = [[], []]
+  #   ret = lists.together_pop 2
+  #   print ret # => [[], []]
+  #   print lists # => [[], []]
+  def together_pop(count = nil)
+    if_not_contain_array_rails_type_error
+    if count.nil?
+      reduce([]) { |ret, list|ret << list.pop }
+    else
+      reduce([]) { |ret, list|ret << list.pop(count) }
     end
   end
 
@@ -633,6 +668,7 @@ class Array
   alias_method :tindex, :together_index
   alias_method :tinsert, :together_insert
   alias_method :tshift, :together_shift
+  alias_method :tpop, :together_pop
   alias_methods [:together_collect, :tmap, :tcollect], :together_map
   alias_methods [:together_collect!, :tmap!, :tcollect!], :together_map!
   alias_methods [:together_find_all, :tselect, :tfindall], :together_select

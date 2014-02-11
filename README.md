@@ -41,6 +41,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_last](#arraytogether_last)                                                              |together version of Array#last. together_last has alias :tlast                                                       |
 |[TbpgrUtils Array#together_map](#arraytogether_mapor-tmap-together_collect-tcollect)                               |together version of Enumerable#map. together_map has aliases [:tmap, :together_collect, :tcollect]                   |
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
+|[TbpgrUtils Array#together_pop](#arraytogether_pop)                                                                |together version of Array#pop. together_pop has alias :tpop                                                          |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
 |[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]         |
 |[TbpgrUtils Array#together_shift](#arraytogether_shift)                                                            |together version of Array#shift. together_shift has alias :tshift                                                    |
@@ -519,6 +520,41 @@ ret = ary.together_map! do |first, second|
 end
 print ret # => output [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']]
 print ary # => output [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']]
+~~~
+
+[back to list](#list)
+
+### Array#together_pop(or tpop)
+together_pop has alias :tpop
+
+not empty case
+~~~ruby
+lists = [[1, 2], [5, 6]]
+ret = lists.together_pop
+print ret # => [2, 6]
+print lists # => [1, 5]
+~~~
+
+empty case
+~~~ruby
+lists = [[], []]
+ret = lists.together_pop
+print ret # => [nil, nil]
+print lists # => [[], []]
+~~~
+
+not empty case with args
+lists = [[1, 2], [5, 6]]
+ret = lists.together_pop 2
+print ret # => [[1, 2], [5, 6]]
+print lists # => [[], []]
+~~~
+
+not empty case with args
+lists = [[], []]
+ret = lists.together_pop 2
+print ret # => [[], []]
+print lists # => [[], []]
 ~~~
 
 [back to list](#list)
@@ -1250,6 +1286,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.35 : add Array#together_pop(alias tpop).
 * version 0.0.34 : add Array#together_last(alias tlast).
 * version 0.0.33 : add Array#together_shift(alias tshift).
 * version 0.0.32 : add Array#together_insert(alias tinsert).
