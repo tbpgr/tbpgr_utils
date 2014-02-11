@@ -1544,8 +1544,8 @@ describe Array do
         case_title: 'not empty case(alias tpop)',
         inputs: [[1, 2], [5, 6]],
         method_name: 'tpop',
-        expected_ret: [1, 5],
-        expected_self: [[2], [6]],
+        expected_ret: [2, 6],
+        expected_self: [[1], [5]],
       },
     ]
 
