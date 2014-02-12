@@ -43,6 +43,8 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_map!](#arraytogether_map-1or-tmap-1-together_collect-1-tcollect-1)                      |together version of Enumerable#map!. together_map! has aliases [:tmap!, :together_collect!, :tcollect!]              |
 |[TbpgrUtils Array#together_pop](#arraytogether_pop)                                                                |together version of Array#pop. together_pop has alias :tpop                                                          |
 |[TbpgrUtils Array#together_reduce](#arraytogether_reduceor-treduce-together_inject-tinject)                        |together version of Enumerable#reduce. together_reduce has aliases [:treduce, :together_inject, :tinject]            |
+|[TbpgrUtils Array#together_reverse](#arraytogether_reverse)                                                        |together version of Array#reverse. together_reverse has alias :treverse                                              |
+|[TbpgrUtils Array#together_reverse](#arraytogether_reverse!)                                                       |together version of Array#reverse!. together_reverse! has alias :treverse!                                           |
 |[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]         |
 |[TbpgrUtils Array#together_shift](#arraytogether_shift)                                                            |together version of Array#shift. together_shift has alias :tshift                                                    |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
@@ -603,6 +605,49 @@ firsts = [1, 2, 3, 4]
 seconds =  [4, 2, 3, 1]
 ret = [firsts, seconds].together_reduce({}){|memo, first, second|memo[first] = second;memo}
 print ret # => output {1=>4, 2=>2, 3=>3, 4=>1}
+~~~
+
+[back to list](#list)
+
+### Array#together_reverse(or :treverse)
+together_reverse has alias :treverse
+
+not empty case
+~~~ruby
+lists = [[1, 2], [5, 6]]
+ret = lists.together_reverse
+print ret # => [[2, 1], [6, 5]]
+print lists # => [[1, 2], [5, 6]]
+~~~
+
+one empty case
+~~~ruby
+lists = [[1, 2], []]
+ret = lists.together_reverse
+print ret # => [[2, 1], []]
+print lists # => [[1, 2], []]
+~~~
+
+
+[back to list](#list)
+
+### Array#together_reverse!(or :treverse!)
+together_reverse! has alias :treverse!
+
+not empty case
+~~~ruby
+lists = [[1, 2], [5, 6]]
+ret = lists.together_reverse!
+print ret # => [[2, 1], [6, 5]]
+print lists # => [[2, 1], [6, 5]]
+~~~
+
+one empty case
+~~~ruby
+lists = [[1, 2], []]
+ret = lists.together_reverse!
+print ret # => [[2, 1], []]
+print lists # => [[2, 1], []]
 ~~~
 
 [back to list](#list)
@@ -1286,6 +1331,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.36 : add Array#together_reverse,Array#together_reverse!(alias treverse, alias treverse!).
 * version 0.0.35 : add Array#together_pop(alias tpop).
 * version 0.0.34 : add Array#together_last(alias tlast).
 * version 0.0.33 : add Array#together_shift(alias tshift).
