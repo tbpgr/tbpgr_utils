@@ -11,7 +11,6 @@ class Array
   #
   # together_shuffle has alias :tshuffle
   #
-  # not empty case
   #   lists = [[1, 2], [5, 6]]
   #   ret = lists.together_shuffle
   #   print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]]
