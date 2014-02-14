@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'spec_helper'
-require "active_support/core_ext/object/inclusion"
+require 'active_support/core_ext/object/inclusion'
 require 'tbpgr_utils'
 
 describe Array do
@@ -11,24 +11,24 @@ describe Array do
         case_title: 'not empty case',
         inputs: [[1, 2], [5, 6]],
         method_name: 'together_sample',
-        expected_first: "actual[0].in? [1, 2]",
-        expected_second: "actual[1].in? [5, 6]",
+        expected_first: 'actual[0].in? [1, 2]',
+        expected_second: 'actual[1].in? [5, 6]',
       },
       {
         case_no: 2,
         case_title: 'one empty case',
         inputs: [[1, 2], []],
         method_name: 'together_sample',
-        expected_first: "actual[0].in? [1, 2]",
-        expected_second: "actual[1].nil?",
+        expected_first: 'actual[0].in? [1, 2]',
+        expected_second: 'actual[1].nil?',
       },
       {
         case_no: 3,
         case_title: 'both empty case',
         inputs: [[], []],
         method_name: 'together_sample',
-        expected_first: "actual[0].nil?",
-        expected_second: "actual[1].nil?",
+        expected_first: 'actual[0].nil?',
+        expected_second: 'actual[1].nil?',
       },
       {
         case_no: 4,
@@ -37,8 +37,8 @@ describe Array do
         method_name: 'together_sample',
         args: 2,
         expected_size: 2,
-        expected_first: "f.in? [1, 2]",
-        expected_second: "s.in? [5, 6]",
+        expected_first: 'f.in? [1, 2]',
+        expected_second: 's.in? [5, 6]',
         has_args: true,
       },
       {
@@ -59,8 +59,8 @@ describe Array do
         method_name: 'together_sample',
         args: 3,
         expected_size: 2,
-        expected_first: "f.in? [1, 2]",
-        expected_second: "s.in? [5, 6]",
+        expected_first: 'f.in? [1, 2]',
+        expected_second: 's.in? [5, 6]',
         has_args: true,
       },
       {
@@ -68,8 +68,8 @@ describe Array do
         case_title: 'not empty case',
         inputs: [[1, 2], [5, 6]],
         method_name: 'tsample',
-        expected_first: "actual[0].in? [1, 2]",
-        expected_second: "actual[1].in? [5, 6]",
+        expected_first: 'actual[0].in? [1, 2]',
+        expected_second: 'actual[1].in? [5, 6]',
       },
     ]
 

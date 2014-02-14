@@ -24,7 +24,7 @@ class Array
   # not empty case with args
   #   lists = [[1, 2], [5, 6]]
   #   ret = lists.together_sample 2
-  #   print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]] 
+  #   print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]]
   #
   # not empty case with args
   #   lists = [[], []]
@@ -34,7 +34,7 @@ class Array
   # not empty, over size case with args
   #   lists = [[1, 2], [5, 6]]
   #   ret = lists.together_sample 3
-  #   print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]] 
+  #   print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]]
   #
   def together_sample(count = nil)
     if_not_contain_array_rails_type_error

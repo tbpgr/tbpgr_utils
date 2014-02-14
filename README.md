@@ -49,6 +49,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_sample](#arraytogether_sampleor-tsample)                                                |together version of Array#sample. together_sample has alias :tsample                                                 |
 |[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]         |
 |[TbpgrUtils Array#together_shift](#arraytogether_shift)                                                            |together version of Array#shift. together_shift has alias :tshift                                                    |
+|[TbpgrUtils Array#together_shuffle](#arraytogether_shuffleor-tshuffle)                                             |together version of Array#shuffle. together_shuffle has alias :tshuffle                                              |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
@@ -348,44 +349,56 @@ together_include? has alias :tinclude?
 
 both include single ret case
 ~~~ruby
-  lists = [[*1..5], [*5..9]]
-  ret = lists.together_include? 5
-  print ret # => true
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*5..9]]
+ret = lists.together_include? 5
+print ret # => true
 ~~~
 
 one include single ret case
 ~~~ruby
-  lists = [[*1..5], [*5..9]]
-  ret = lists.together_include? 9
-  print ret # => true
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*5..9]]
+ret = lists.together_include? 9
+print ret # => true
 ~~~
 
 both not include single ret case
 ~~~ruby
-  lists = [[*1..5], [*5..9]]
-  ret = lists.together_include? 10
-  print ret # => false
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*5..9]]
+ret = lists.together_include? 10
+print ret # => false
 ~~~
 
 both include multi ret case
 ~~~ruby
-  lists = [[*1..5], [*5..9]]
-  ret = lists.together_include? 5, true
-  print ret # => [true, true]
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*5..9]]
+ret = lists.together_include? 5, true
+print ret # => [true, true]
 ~~~
 
 one include multi ret case
 ~~~ruby
-  lists = [[*1..5], [*5..9]]
-  ret = lists.together_include? 9, true
-  print ret # => [false, true]
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*5..9]]
+ret = lists.together_include? 9, true
+print ret # => [false, true]
 ~~~
 
 both not include multi ret case
 ~~~ruby
-  lists = [[*1..5], [*5..9]]
-  ret = lists.together_include? 10, true
-  print ret # => [false, false]
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*5..9]]
+ret = lists.together_include? 10, true
+print ret # => [false, false]
 ~~~
 
 [back to list](#list)
@@ -395,6 +408,8 @@ together_index has alias :tindex
 
 both index exist case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*5..9]]
 ret = lists.together_index 5
 print ret # => [4, 0]
@@ -402,6 +417,8 @@ print ret # => [4, 0]
 
 one include single ret case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*5..9]]
 ret = lists.together_index 4
 print ret # => [3, nil]
@@ -409,6 +426,8 @@ print ret # => [3, nil]
 
 both not include single ret case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*5..9]]
 ret = lists.together_index 10
 print ret # => [nil, nil]
@@ -421,6 +440,8 @@ together_insert has alias :tinsert
 
 both insert exist case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*5..9]]
 ret = lists.together_insert(1, 55, 66)
 print ret # => [[1, 55, 66, 2, 3, 4, 5], [5, 55, 66, 6, 7, 8, 9]]
@@ -428,6 +449,8 @@ print ret # => [[1, 55, 66, 2, 3, 4, 5], [5, 55, 66, 6, 7, 8, 9]]
 
 both insert exist and minus index case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*5..9]]
 ret = lists.together_insert(-2, 55, 66)
 print ret # => [[1, 2, 3, 4, 55, 66, 5], [5, 6, 7, 8, 55, 66, 9]]
@@ -435,6 +458,8 @@ print ret # => [[1, 2, 3, 4, 55, 66, 5], [5, 6, 7, 8, 55, 66, 9]]
 
 both insert exist case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*5..9]]
 ret = lists.together_insert(6, 55, 66)
 print ret # => [[1, 2, 3, 4, 5, nil, 55, 66], [5, 6, 7, 8, 9, nil, 55, 66]],
@@ -447,6 +472,8 @@ together_last has alias :tlast
 
 no args case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*6..10]]
 ret = lists.together_last
 print ret # => [5, 10]
@@ -454,6 +481,8 @@ print ret # => [5, 10]
 
 has args 2 case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*6..10]]
 ret = lists.together_last 2
 print ret # => [[4, 5], [9, 10]]
@@ -461,6 +490,8 @@ print ret # => [[4, 5], [9, 10]]
 
 has args 0 case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*6..10]]
 ret = lists.together_last 0
 print ret # => [[], []]
@@ -468,6 +499,8 @@ print ret # => [[], []]
 
 has args over size case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[*1..5], [*6..10]]
 ret = lists.together_last 6
 print ret # => [[*1..5], [*6..10]]
@@ -533,6 +566,8 @@ together_pop has alias :tpop
 
 not empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_pop
 print ret # => [2, 6]
@@ -541,6 +576,8 @@ print lists # => [1, 5]
 
 empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[], []]
 ret = lists.together_pop
 print ret # => [nil, nil]
@@ -548,6 +585,9 @@ print lists # => [[], []]
 ~~~
 
 not empty case with args
+~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_pop 2
 print ret # => [[1, 2], [5, 6]]
@@ -555,6 +595,9 @@ print lists # => [[], []]
 ~~~
 
 not empty case with args
+~~~ruby
+require 'tbpgr_utils'
+
 lists = [[], []]
 ret = lists.together_pop 2
 print ret # => [[], []]
@@ -567,6 +610,8 @@ print lists # => [[], []]
 * if you want to single return
 
 ~~~ruby
+require 'tbpgr_utils'
+
 firsts = [1, 2, 3, 4]
 seconds =  [4, 2, 3, 1]
 ret = [firsts, seconds].together_reduce{|memo, first, second|memo + first + second}
@@ -576,6 +621,8 @@ print ret # => output  20
 * if you want to single return with init value
 
 ~~~ruby
+require 'tbpgr_utils'
+
 firsts = [1, 2, 3, 4]
 seconds =  [4, 2, 3, 1]
 ret = [firsts, seconds].together_reduce(10){|memo, first, second|memo + first + second}
@@ -585,6 +632,8 @@ print ret # => output  30
 * if you want to single return with init string value
 
 ~~~ruby
+require 'tbpgr_utils'
+
 firsts = %w{a b c}
 seconds =  %w{1 2 3}
 ret = [firsts, seconds].together_reduce('start-'){|memo, first, second|memo + first + second}
@@ -594,6 +643,8 @@ print ret # => output 'start-a1b2c3'
 * if you want to single return with init Array value
 
 ~~~ruby
+require 'tbpgr_utils'
+
 firsts = [1, 2, 3, 4]
 seconds =  [4, 2, 3, 1]
 ret = [firsts, seconds].together_reduce([]){|memo, first, second|memo << first + second}
@@ -603,6 +654,8 @@ print ret # => output [5, 4, 6, 5]
 * if you want to single return with init Hash value
 
 ~~~ruby
+require 'tbpgr_utils'
+
 firsts = [1, 2, 3, 4]
 seconds =  [4, 2, 3, 1]
 ret = [firsts, seconds].together_reduce({}){|memo, first, second|memo[first] = second;memo}
@@ -616,6 +669,8 @@ together_reverse has alias :treverse
 
 not empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_reverse
 print ret # => [[2, 1], [6, 5]]
@@ -624,6 +679,8 @@ print lists # => [[1, 2], [5, 6]]
 
 one empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], []]
 ret = lists.together_reverse
 print ret # => [[2, 1], []]
@@ -637,6 +694,8 @@ together_reverse! has alias :treverse!
 
 not empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_reverse!
 print ret # => [[2, 1], [6, 5]]
@@ -645,6 +704,8 @@ print lists # => [[2, 1], [6, 5]]
 
 one empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], []]
 ret = lists.together_reverse!
 print ret # => [[2, 1], []]
@@ -658,6 +719,8 @@ together_sample has alias :tsample
 
 not empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_sample
 print ret # => [1 or 2, 5 or 6]
@@ -665,24 +728,35 @@ print ret # => [1 or 2, 5 or 6]
 
 empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[], []]
 ret = lists.together_sample
 print ret # => [nil, nil]
 ~~~
 
 not empty case with args
+~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_sample 2
 print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]] 
 ~~~
 
 not empty case with args
+~~~ruby
+require 'tbpgr_utils'
+
 lists = [[], []]
 ret = lists.together_sample 2
 print ret # => [[], []]
 ~~~
 
 not empty, over size case with args
+~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_sample 3
 print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]] 
@@ -717,6 +791,8 @@ together_shift has alias :tshift
 
 not empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_shift
 print ret # => [1, 5]
@@ -725,6 +801,8 @@ print lists # => [2, 6]
 
 empty case
 ~~~ruby
+require 'tbpgr_utils'
+
 lists = [[], []]
 ret = lists.together_shift
 print ret # => [nil, nil]
@@ -732,7 +810,9 @@ print lists # => [[], []]
 ~~~
 
 not empty case
-~~~ruby with args
+~~~ruby
+require 'tbpgr_utils'
+
 lists = [[1, 2], [5, 6]]
 ret = lists.together_shift 2
 print ret # => [[1, 2], [5, 6]]
@@ -740,11 +820,27 @@ print lists # => [[], []]
 ~~~
 
 not empty case
-~~~ruby with args
+~~~ruby
+require 'tbpgr_utils'
+
 lists = [[], []]
 ret = lists.together_shift 2
 print ret # => [[], []]
 print lists # => [[], []]
+~~~
+
+[back to list](#list)
+
+### Array#together_shuffle(or :tshuffle)
+together_shuffle has alias :tshuffle
+
+~~~ruby
+require 'tbpgr_utils'
+
+not empty case
+lists = [[1, 2], [5, 6]]
+ret = lists.together_shuffle
+print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]]
 ~~~
 
 [back to list](#list)
@@ -1369,6 +1465,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.38 : add Array#together_shuffle(alias tshuffle).
 * version 0.0.37 : add Array#together_sample(alias tsample).
 * version 0.0.36 : add Array#together_reverse,Array#together_reverse!(alias treverse, alias treverse!).
 * version 0.0.35 : add Array#together_pop(alias tpop).
