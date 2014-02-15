@@ -69,6 +69,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
+|[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
 
@@ -1364,6 +1365,55 @@ output
 
 [back to list](#list)
 
+### String#surround
+single line, no option case
+
+~~~ruby
+require 'tbpgr_utils'
+'hoge'.surround
+~~~
+
+result
+
+~~~
+------
+|hoge|
+------
+~~~
+
+multi line, no option case
+
+~~~ruby
+require 'tbpgr_utils'
+'hoge\na'.surround
+~~~
+
+result
+
+~~~
+------
+|hoge|
+|a   |
+------
+~~~
+
+single line, both option case
+
+~~~ruby
+require 'tbpgr_utils'
+'hoge\na'.surround top_bottom: '=', side: '!'
+~~~
+
+result
+
+~~~
+======
+!hoge!
+======
+~~~
+
+[back to list](#list)
+
 ### Templatable
 * include Templatable
 * set template by here-document
@@ -1464,6 +1514,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.39 : add String#surround.
 * version 0.0.38 : add Array#together_shuffle(alias tshuffle).
 * version 0.0.37 : add Array#together_sample(alias tsample).
 * version 0.0.36 : add Array#together_reverse,Array#together_reverse!(alias treverse, alias treverse!).

@@ -5,9 +5,6 @@
 AccessModifierIndentation:
   Enabled: false
 
-ClassLength:
-  Enabled: false
-
 Documentation:
   Enabled: false
 
@@ -41,7 +38,7 @@ ParenthesesAroundCondition:
 RaiseArgs:
   Enabled: false
 
-Semicolon:
+ReduceArguments:
   Enabled: false
 
 ShadowingOuterLocalVariable:
