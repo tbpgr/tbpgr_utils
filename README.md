@@ -1385,7 +1385,7 @@ multi line, no option case
 
 ~~~ruby
 require 'tbpgr_utils'
-'hoge\na'.surround
+"hoge\na".surround
 ~~~
 
 result
@@ -1401,7 +1401,7 @@ single line, both option case
 
 ~~~ruby
 require 'tbpgr_utils'
-'hoge\na'.surround top_bottom: '=', side: '!'
+'hoge'.surround top_bottom: '=', side: '!'
 ~~~
 
 result

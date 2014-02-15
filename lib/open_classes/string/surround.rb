@@ -23,7 +23,7 @@ class String
   #
   # multi line, no option case
   #
-  #   'hoge\na'.surround
+  #   "hoge\na".surround
   #
   # result
   #
@@ -34,7 +34,7 @@ class String
   #
   # single line, both option case
   #
-  #   'hoge\na'.surround top_bottom: '=', side: '!'
+  #   'hoge'.surround top_bottom: '=', side: '!'
   #
   # result
   #
