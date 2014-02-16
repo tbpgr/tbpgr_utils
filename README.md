@@ -60,6 +60,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
 |[TestToolbox Kernel#dp_line](#kerneldp_line)                                                                       |debug print line for print-debugging                                                                                 |
+|[TbpgrUtils Kernel#aa_ancestors](#kernelprint_eval)                                                                |Ascii Art Ancestors                                                                                                  |
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
@@ -1191,6 +1192,42 @@ end
 
 [back to list](#list)
 
+### Kernel#aa_ancestors
+Ascii Airt Ancestors
+
+~~~ruby
+class BaseHogeForAncestors;end
+class HogeForAncestors < BaseHogeForAncestors;end
+
+puts HogeForAncestors.aa_ancestors
+~~~
+
+result is ...
+
+~~~
+----------------------
+|     BasicObject    |
+----------------------
+          |
+----------------------
+|       Kernel       |
+----------------------
+          |
+----------------------
+|       Object       |
+----------------------
+          |
+----------------------
+|BaseHogeForAncestors|
+----------------------
+          |
+----------------------
+|  HogeForAncestors  |
+----------------------
+~~~
+
+[back to list](#list)
+
 ### Kernel#print_eval
 This method for sample code. for manual, for blog-entry's-snippet  ...etc.
 
@@ -1514,6 +1551,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.40 : add Kernel#aa_ancestors.
 * version 0.0.39 : add String#surround.
 * version 0.0.38 : add Array#together_shuffle(alias tshuffle).
 * version 0.0.37 : add Array#together_sample(alias tsample).
