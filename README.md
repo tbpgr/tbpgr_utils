@@ -67,6 +67,8 @@ Or install it yourself as:
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
+|[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
+|[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
@@ -1344,6 +1346,60 @@ p "true".boolean?  # =>false
 
 [back to list](#list)
 
+### Object#guard
+guard return case
+
+~~~ruby
+def hoge(msg)
+  guard(msg.nil?) {return "guard"}
+  "not guard"
+end
+
+hoge true # => "guard"
+hoge false # => "not guard"
+~~~
+
+guard fail case
+
+~~~ruby
+def hoge(msg)
+  guard(msg.nil?) {fail ArgumentError, 'error!!'}
+  "not guard"
+end
+
+hoge true # => raise ArgumentError. message = error!!
+hoge false # => "not guard"
+~~~
+
+[back to list](#list)
+
+### Object#unless_guard
+unless_guard return case
+
+~~~ruby
+def hoge(msg)
+  unless_guard(msg.nil?) {return "unless_guard"}
+  "not unless_guard"
+end
+
+hoge false # => "unless_guard"
+hoge true # => "not unless_guard"
+~~~
+
+unless_guard fail case
+
+~~~ruby
+def hoge(msg)
+  unless_guard(msg.nil?) {fail ArgumentError, 'error!!'}
+  "not unless_guard"
+end
+
+hoge false # => raise ArgumentError. message = error!!
+hoge true # => "not unless_guard"
+~~~
+
+[back to list](#list)
+
 ### Object#my_methods
 ~~~ruby
 require 'tbpgr_utils'
@@ -1551,6 +1607,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.41 : add Object#guard, unless_guard
 * version 0.0.40 : add Kernel#aa_ancestors.
 * version 0.0.39 : add String#surround.
 * version 0.0.38 : add Array#together_shuffle(alias tshuffle).

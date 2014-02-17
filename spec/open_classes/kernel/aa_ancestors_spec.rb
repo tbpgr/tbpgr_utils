@@ -4,8 +4,8 @@ require 'open_classes/kernel'
 
 describe Kernel do
   context :aa_ancestors do
-    class BaseHogeForAncestors;end
-    class HogeForAncestors < BaseHogeForAncestors;end
+    class BaseHogeForAncestors; end
+    class HogeForAncestors < BaseHogeForAncestors; end
 
     cases = [
       {
