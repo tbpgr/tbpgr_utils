@@ -1351,7 +1351,7 @@ guard return case
 
 ~~~ruby
 def hoge(msg)
-  guard(msg.nil?) {return "guard"}
+  guard(msg) {return "guard"}
   "not guard"
 end
 
@@ -1363,7 +1363,7 @@ guard fail case
 
 ~~~ruby
 def hoge(msg)
-  guard(msg.nil?) {fail ArgumentError, 'error!!'}
+  guard(msg) {fail ArgumentError, 'error!!'}
   "not guard"
 end
 
@@ -1378,7 +1378,7 @@ unless_guard return case
 
 ~~~ruby
 def hoge(msg)
-  unless_guard(msg.nil?) {return "unless_guard"}
+  unless_guard(msg) {return "unless_guard"}
   "not unless_guard"
 end
 
@@ -1390,7 +1390,7 @@ unless_guard fail case
 
 ~~~ruby
 def hoge(msg)
-  unless_guard(msg.nil?) {fail ArgumentError, 'error!!'}
+  unless_guard(msg) {fail ArgumentError, 'error!!'}
   "not unless_guard"
 end
 
