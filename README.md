@@ -64,6 +64,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
+|[MetasyntacticVariable](#metasyntacticvariable)                                                                   |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
@@ -1284,6 +1285,23 @@ output
 
 [back to list](#list)
 
+### MetasyntacticVariable
+* META variable
+
+~~~ruby
+MetasyntacticVariable::META_VARIABLES  # => [:foo, :bar, :baz, :qux, :quux, :corge, :grault, :garply, :waldo, :fred, :plugh, :xyzzy, :thud]
+MetasyntacticVariable.meta_variables  # => [:foo, :bar, :baz, :qux, :quux, :corge, :grault, :garply, :waldo, :fred, :plugh, :xyzzy, :thud]
+~~~
+
+* META variable for classes
+
+~~~ruby
+MetasyntacticVariable::META_CLASSES  # => [:foo, :bar, :baz, :qux, :quux, :corge, :grault, :garply, :waldo, :fred, :plugh, :xyzzy, :thud]
+MetasyntacticVariable.meta_classes  # => [:foo, :bar, :baz, :qux, :quux, :corge, :grault, :garply, :waldo, :fred, :plugh, :xyzzy, :thud]
+~~~
+
+[back to list](#list)
+
 ### Module.alias_methods
 create alias methods.
 
@@ -1607,6 +1625,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.42 : add MetasyntacticVariable
 * version 0.0.41 : add Object#guard, unless_guard
 * version 0.0.40 : add Kernel#aa_ancestors.
 * version 0.0.39 : add String#surround.
