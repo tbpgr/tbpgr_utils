@@ -50,6 +50,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_select](#arraytogether_selector-tselect-together_find_all-tfindall)                     |together version of Enumerable#select. together_select has aliases [:tselect, :together_find_all, :tfindall]         |
 |[TbpgrUtils Array#together_shift](#arraytogether_shift)                                                            |together version of Array#shift. together_shift has alias :tshift                                                    |
 |[TbpgrUtils Array#together_shuffle](#arraytogether_shuffleor-tshuffle)                                             |together version of Array#shuffle. together_shuffle has alias :tshuffle                                              |
+|[TbpgrUtils Array#together_slice](#arraytogether_sliceor-tslice)                                                   |together version of Array#slice. together_slice has alias :tslice                                                    |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
@@ -849,6 +850,36 @@ print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]]
 
 [back to list](#list)
 
+### Array#together_slice(or :tslice)
+single args case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*6..10]]
+ret = lists.together_slice 2
+print ret # => [3, 8]
+~~~
+
+multi args case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*6..10]]
+ret = lists.together_slice 2, 2
+print ret # => [[3, 4], [8, 9]]
+~~~
+
+range args case
+~~~ruby
+require 'tbpgr_utils'
+
+lists = [[*1..5], [*6..10]]
+ret = lists.together_slice (2..3)
+print ret # => [[3, 4], [8, 9]]
+~~~
+
+[back to list](#list)
+
 ### Array#together_with_index
 ~~~ruby
 require 'tbpgr_utils'
@@ -1625,6 +1656,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.43 : add Array#together_slice(alias tslice).
 * version 0.0.42 : add MetasyntacticVariable
 * version 0.0.41 : add Object#guard, unless_guard
 * version 0.0.40 : add Kernel#aa_ancestors.
