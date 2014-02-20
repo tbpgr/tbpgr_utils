@@ -1087,8 +1087,8 @@ end
 puts hoge
 
 __END__
-hoge=<%=hoge%>
-hige=<%=hige%>
+hoge=<%=hash[:hoge]%>
+hige=<%=hash[:hige]%>
 ~~~
 
 output
