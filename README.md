@@ -1076,6 +1076,8 @@ for single template script using __END__ and DATA
 sample case
 
 ~~~ruby
+require "end_erb"
+
 def hoge
   hash = {
     hoge: '@hoge@',
