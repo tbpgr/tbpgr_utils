@@ -56,6 +56,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
+|[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
@@ -65,7 +66,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
-|[MetasyntacticVariable](#metasyntacticvariable)                                                                   |META variable, META variable for classes                                                                             |
+|[MetasyntacticVariable](#metasyntacticvariable)                                                                   |META variable, META variable for classes                                                                              |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
@@ -1069,6 +1070,36 @@ atr_sample2.instance_variable_get "@atr2" # => atr2
 
 [back to list](#list)
 
+### EndERB.apply
+for single template script using __END__ and DATA
+
+sample case
+
+~~~ruby
+def hoge
+  hash = {
+    hoge: '@hoge@',
+    hige: '@hige@',
+  }
+  EndERB.apply(hash)
+end
+
+puts hoge
+
+__END__
+hoge=<%=hoge%>
+hige=<%=hige%>
+~~~
+
+output
+
+~~~
+hoge=@hoge@
+hige=@hige@
+~~~
+
+[back to list](#list)
+
 ### File.insert_bom
 * this method's main purpose is 'UTF-8 Excel CSV File'.
 
@@ -1656,6 +1687,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.44 : add EndERB.apply
 * version 0.0.43 : add Array#together_slice(alias tslice).
 * version 0.0.42 : add MetasyntacticVariable
 * version 0.0.41 : add Object#guard, unless_guard
