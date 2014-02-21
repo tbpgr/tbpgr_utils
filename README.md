@@ -66,7 +66,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
-|[MetasyntacticVariable](#metasyntacticvariable)                                                                   |META variable, META variable for classes                                                                              |
+|[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
@@ -75,6 +75,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
+|[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
@@ -1540,6 +1541,34 @@ output
 
 [back to list](#list)
 
+### String#say
+default case
+~~~ruby
+'hoge'.say # => 'hoge'
+~~~
+
+quote case
+~~~ruby
+'hoge'.say(:quote) # => 'hoge'
+~~~
+
+dquote case
+~~~ruby
+'hoge'.say(:dquote) # => "hoge"
+~~~
+
+bracket case
+~~~ruby
+'hoge'.say(:bracket) # => [hoge]
+~~~
+
+hyphen case
+~~~ruby
+'hoge'.say(:hyphen) # => -hoge-
+~~~
+
+[back to list](#list)
+
 ### String#surround
 single line, no option case
 
@@ -1689,6 +1718,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.45 : add String#say
 * version 0.0.44 : add EndERB.apply
 * version 0.0.43 : add Array#together_slice(alias tslice).
 * version 0.0.42 : add MetasyntacticVariable
