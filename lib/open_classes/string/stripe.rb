@@ -16,7 +16,7 @@ class String
   #
   # lower_cap case
   #
-  #   'hoge'.stripe # => hOgE
+  #   'hoge'.stripe :lower_cap # => hOgE
   #
   # empty case
   #

@@ -1582,7 +1582,7 @@ lower_cap case
 ~~~ruby
 require 'tbpgr_utils'
 
-'hoge'.stripe # => hOgE
+'hoge'.stripe :lower_cap # => hOgE
 ~~~
 
 empty case
