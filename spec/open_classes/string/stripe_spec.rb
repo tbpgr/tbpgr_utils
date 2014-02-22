@@ -3,42 +3,33 @@ require 'spec_helper'
 require 'tbpgr_utils'
 
 describe String do
-  context :say do
+  context :surround do
     cases = [
       {
         case_no: 1,
         case_title: 'default case',
         input: 'hoge',
-        expected: "'hoge'"
+        expected: 'HoGe'
       },
       {
         case_no: 2,
-        case_title: 'quote case',
+        case_title: 'lower cap case',
         input: 'hoge',
-        option: :quote,
-        expected: "'hoge'"
+        option: :lower_cap,
+        expected: 'hOgE'
       },
       {
         case_no: 3,
-        case_title: 'dquote case',
-        input: 'hoge',
-        option: :dquote,
-        expected: '"hoge"'
+        case_title: 'empty case',
+        input: '',
+        expected: ''
       },
       {
         case_no: 4,
-        case_title: 'bracket case',
-        input: 'hoge',
-        option: :bracket,
-        expected: '[hoge]'
-      },
-      {
-        case_no: 5,
-        case_title: 'hyphen case',
-        input: 'hoge',
-        option: :hyphen,
-        expected: '-hoge-'
-      },
+        case_title: 'nil case',
+        input: nil,
+        expected: nil
+      }
     ]
 
     cases.each do |c|
@@ -50,7 +41,7 @@ describe String do
           # nothing
 
           # -- when --
-          actual = c[:option] ? c[:input].say(c[:option]) : c[:input].say
+          actual = c[:option] ? c[:input].stripe(c[:option]) : c[:input].stripe
 
           # -- then --
           expect(actual).to eq(c[:expected])

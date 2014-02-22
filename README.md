@@ -76,6 +76,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
+|[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
@@ -1569,6 +1570,38 @@ hyphen case
 
 [back to list](#list)
 
+### String#stripe
+default case
+~~~ ruby
+require 'tbpgr_utils'
+
+'hoge'.stripe # => HoGe
+~~~
+
+lower_cap case
+~~~ruby
+require 'tbpgr_utils'
+
+'hoge'.stripe # => hOgE
+~~~
+
+empty case
+~~~ruby
+require 'tbpgr_utils'
+
+''.stripe # => ''
+~~~
+
+nil case
+~~~ruby
+require 'tbpgr_utils'
+
+hoge = nil
+hoge.stripe # => nil
+~~~
+
+[back to list](#list)
+
 ### String#surround
 single line, no option case
 
@@ -1718,6 +1751,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.46 : add String#stripe
 * version 0.0.45 : add String#say
 * version 0.0.44 : add EndERB.apply
 * version 0.0.43 : add Array#together_slice(alias tslice).
