@@ -78,6 +78,7 @@ Or install it yourself as:
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
+|[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create heading string with Emmet-like grammar                                                                        |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
 
@@ -1651,6 +1652,28 @@ result
 
 [back to list](#list)
 
+### String#to_space2_heading
+&gt; case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige'.to_space2_heading # => 'hoge\nhige'
+~~~
+
++ case
+~~~ruby
+require 'tbpgr_utils'
+
+'hoge+hige'.to_space2_heading # => 'hoge\nhige'
+~~~
+
+^ case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige^hege'.to_space2_heading # => 'hoge\nhige\nhege'
+~~~
+
+[back to list](#list)
+
 ### Templatable
 * include Templatable
 * set template by here-document
@@ -1751,6 +1774,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.47 : add String#to_space2_heading
 * version 0.0.46 : add String#stripe
 * version 0.0.45 : add String#say
 * version 0.0.44 : add EndERB.apply
