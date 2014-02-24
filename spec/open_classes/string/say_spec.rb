@@ -39,6 +39,14 @@ describe String do
         option: :hyphen,
         expected: '-hoge-'
       },
+      {
+        case_no: 6,
+        case_title: 'error case',
+        input: 'hoge',
+        option: :invalid,
+        expected: '-hoge-',
+        expect_error: true,
+      },
     ]
 
     cases.each do |c|
@@ -50,6 +58,10 @@ describe String do
           # nothing
 
           # -- when --
+          if c[:expect_error]
+            lambda { c[:input].say(c[:option]) }.should raise_error(StandardError)
+            next
+          end
           actual = c[:option] ? c[:input].say(c[:option]) : c[:input].say
 
           # -- then --

@@ -78,7 +78,8 @@ Or install it yourself as:
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
-|[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create heading string with Emmet-like grammar                                                                        |
+|[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                                        |
+|[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                                        |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
 
@@ -87,7 +88,7 @@ Or install it yourself as:
 require 'tbpgr_utils'
 
 alpha = %w{one two three}
-numbers = %w{1 2 3}
+numbers = %w{1 4 3}
 [alpha, numbers].together do |first, second|
   print "#{first}:#{second}\n"  # => output one:1, two:2, three:3
 end
@@ -1656,10 +1657,10 @@ result
 &gt; case
 ~~~ruby
 require 'tbpgr_utils'
-'hoge>hige'.to_space2_heading # => 'hoge\nhige'
+'hoge>hige'.to_space2_heading # => 'hoge\n  hige'
 ~~~
 
-+ case
+\+ case
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -1669,7 +1670,29 @@ require 'tbpgr_utils'
 ^ case
 ~~~ruby
 require 'tbpgr_utils'
-'hoge>hige^hege'.to_space2_heading # => 'hoge\nhige\nhege'
+'hoge>hige^hege'.to_space2_heading # => 'hoge\n  hige\nhege'
+~~~
+
+[back to list](#list)
+
+### String#to_space4_heading
+&gt; case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige'.to_space4_heading # => 'hoge\n    hige'
+~~~
+
+\+ case
+~~~ruby
+require 'tbpgr_utils'
+
+'hoge+hige'.to_space4_heading # => 'hoge\nhige'
+~~~
+
+^ case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige^hege'.to_space4_heading # => 'hoge\n    hige\nhege'
 ~~~
 
 [back to list](#list)
@@ -1774,6 +1797,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.48 : add String#to_space4_heading
 * version 0.0.47 : add String#to_space2_heading
 * version 0.0.46 : add String#stripe
 * version 0.0.45 : add String#say

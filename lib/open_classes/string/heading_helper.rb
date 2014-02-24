@@ -5,6 +5,8 @@ require 'active_support/core_ext/object/inclusion'
 module HeadingHelper
   # Space2
   SPACE2 = '  '
+  # Space4
+  SPACE4 = '    '
 
   private
     def to_heading
