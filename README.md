@@ -78,8 +78,9 @@ Or install it yourself as:
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
-|[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                                        |
-|[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                                        |
+|[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                          |
+|[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                          |
+|[TbpgrUtils String#to_tab_heading](#stringto_tab_heading)                                                          |create tab-format heading string with Emmet-like grammar                                                             |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
 
@@ -1685,7 +1686,6 @@ require 'tbpgr_utils'
 \+ case
 ~~~ruby
 require 'tbpgr_utils'
-
 'hoge+hige'.to_space4_heading # => 'hoge\nhige'
 ~~~
 
@@ -1696,6 +1696,25 @@ require 'tbpgr_utils'
 ~~~
 
 [back to list](#list)
+
+### String#to_tab_heading
+&gt; case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige'.to_tab_heading # => 'hoge\n\thige'
+~~~
+
+\+ case
+~~~ruby
+require 'tbpgr_utils'
+'hoge+hige'.to_tab_heading # => 'hoge\nhige'
+~~~
+
+^ case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige^hege'.to_tab_heading # => 'hoge\n\thige\nhege'
+~~~
 
 ### Templatable
 * include Templatable
@@ -1797,6 +1816,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.49 : add String#to_tab_heading
 * version 0.0.48 : add String#to_space4_heading
 * version 0.0.47 : add String#to_space2_heading
 * version 0.0.46 : add String#stripe

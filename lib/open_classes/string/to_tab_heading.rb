@@ -4,8 +4,8 @@ require 'open_classes/string/heading_helper'
 
 class String
   include HeadingHelper
-  # Space2
-  SPACE2 = '  '
+  # Tab
+  TAB = "\t"
 
   # create heading string with Emmet-like grammar.
   #
@@ -13,23 +13,23 @@ class String
   #
   # > case
   #
-  #   'hoge>hige'.to_space2_heading # => 'hoge\n  hige'
+  #   'hoge>hige'.to_tab_heading # => 'hoge\n\thige'
   #
   # + case
   #
-  #   'hoge+hige'.to_space2_heading # => 'hoge\nhige'
+  #   'hoge+hige'.to_tab_heading # => 'hoge\nhige'
   #
   # ^ case
   #
-  #   'hoge>hige^hege'.to_space2_heading # => 'hoge\n  hige\nhege'
+  #   'hoge>hige^hege'.to_tab_heading # => 'hoge\n\thige\nhege'
   #
-  def to_space2_heading
+  def to_tab_heading
     heading = to_heading
-    to_space2 heading
+    to_tab heading
   end
 
   private
-    def to_space2(heading)
-      to_head(heading, SPACE2)
+    def to_tab(heading)
+      to_head(heading, TAB)
     end
 end

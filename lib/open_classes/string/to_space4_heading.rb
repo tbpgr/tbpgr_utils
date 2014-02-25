@@ -4,6 +4,8 @@ require 'open_classes/string/heading_helper'
 
 class String
   include HeadingHelper
+  # Space4
+  SPACE4 = '    '
 
   # create heading string with Emmet-like grammar.
   #
