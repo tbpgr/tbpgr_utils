@@ -28,7 +28,10 @@ module HeadingHelper
       word
     end
 
-    def to_head(heading, head_char)
-      heading.reduce([]) { |ret, value|ret << "#{head_char * value[:level]}#{value[:word]}" }.join("\n")
+    def to_head(heading, head_char, options = { separator: '', start_level: 0 })
+      heading.reduce([]) do |ret, value|
+        repeat = (value[:level] + options[:start_level])
+        ret << "#{head_char * repeat}#{options[:separator]}#{value[:word]}"
+      end.join("\n")
     end
 end

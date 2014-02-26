@@ -78,6 +78,7 @@ Or install it yourself as:
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
+|[TbpgrUtils String#to_markdown_heading](#stringto_markdown_heading)                                                |create markdown-format heading string with Emmet-like grammar                                                        |
 |[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_tab_heading](#stringto_tab_heading)                                                          |create tab-format heading string with Emmet-like grammar                                                             |
@@ -1654,6 +1655,28 @@ result
 
 [back to list](#list)
 
+### String#to_markdown_heading
+&gt; case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige'.to_markdown_heading # => '# hoge\n## hige'
+~~~
+
+\+ case
+~~~ruby
+require 'tbpgr_utils'
+
+'hoge+hige'.to_markdown_heading # => '# hoge\n# hige'
+~~~
+
+^ case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige^hege'.to_markdown_heading # => '# hoge\n## hige\n# hege'
+~~~
+
+[back to list](#list)
+
 ### String#to_space2_heading
 &gt; case
 ~~~ruby
@@ -1816,6 +1839,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.50 : add String#to_markdown_heading
 * version 0.0.49 : add String#to_tab_heading
 * version 0.0.48 : add String#to_space4_heading
 * version 0.0.47 : add String#to_space2_heading
