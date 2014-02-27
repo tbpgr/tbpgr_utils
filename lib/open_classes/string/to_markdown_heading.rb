@@ -9,7 +9,7 @@ class String
   # Separator
   SEPARATOR = ' '
 
-  # create heading string with Emmet-like grammar.
+  # create heading string with Emmet-like syntax.
   #
   # ==== Examples
   #

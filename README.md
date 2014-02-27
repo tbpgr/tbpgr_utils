@@ -78,6 +78,7 @@ Or install it yourself as:
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
+|[TbpgrUtils String#to_hatena_heading](#stringto_hatena_heading)                                                    |create hatena-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_markdown_heading](#stringto_markdown_heading)                                                |create markdown-format heading string with Emmet-like grammar                                                        |
 |[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                          |
@@ -1652,6 +1653,29 @@ result
 !hoge!
 ======
 ~~~
+
+[back to list](#list)
+
+### String#to_hatena_heading
+&gt; case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige'.to_hatena_heading # => '*hoge\n**hige'
+~~~
+
+\+ case
+~~~ruby
+require 'tbpgr_utils'
+
+'hoge+hige'.to_hatena_heading # => '*hoge\n*hige'
+~~~
+
+^ case
+~~~ruby
+require 'tbpgr_utils'
+'hoge>hige^hege'.to_hatena_heading # => '*hoge\n**hige\n*hege'
+~~~
+
 
 [back to list](#list)
 

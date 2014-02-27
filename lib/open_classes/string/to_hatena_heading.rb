@@ -4,8 +4,8 @@ require 'open_classes/string/heading_helper'
 
 class String
   include HeadingHelper
-  # Tab
-  TAB = "\t"
+  # Hatena
+  HATENA = '*'
 
   # create heading string with Emmet-like syntax.
   #
@@ -13,23 +13,23 @@ class String
   #
   # > case
   #
-  #   'hoge>hige'.to_tab_heading # => 'hoge\n\thige'
+  #   'hoge>hige'.to_hatena_heading # => '*hoge\n**hige'
   #
   # + case
   #
-  #   'hoge+hige'.to_tab_heading # => 'hoge\nhige'
+  #   'hoge+hige'.to_hatena_heading # => '*hoge\n*hige'
   #
   # ^ case
   #
-  #   'hoge>hige^hege'.to_tab_heading # => 'hoge\n\thige\nhege'
+  #   'hoge>hige^hege'.to_hatena_heading # => '*hoge\n**hige\n*hege'
   #
-  def to_tab_heading
+  def to_hatena_heading
     heading = to_heading
-    to_tab heading
+    to_hatena heading
   end
 
   private
-    def to_tab(heading)
-      to_head(heading, TAB)
+    def to_hatena(heading)
+      to_head(heading, HATENA, start_level: 1)
     end
 end

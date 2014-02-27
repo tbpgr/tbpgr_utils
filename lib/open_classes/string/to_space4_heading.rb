@@ -7,7 +7,7 @@ class String
   # Space4
   SPACE4 = '    '
 
-  # create heading string with Emmet-like grammar.
+  # create heading string with Emmet-like syntax.
   #
   # ==== Examples
   #
