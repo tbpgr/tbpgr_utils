@@ -1375,7 +1375,7 @@ end
 hash = {
   input: "test",
   if_cond: "msg == 'test'",
-  if_proc: "test",
+  if_proc: "true",
   else_proc: "false",
 }
 EvalHelperTest.new.hoge(hash) # => return true
@@ -1397,7 +1397,7 @@ end
 hash = {
   input: "not_test",
   if_cond: "msg == 'test'",
-  if_proc: "test",
+  if_proc: "true",
   else_proc: "false",
 }
 EvalHelperTest.new.hoge(hash) # => return false

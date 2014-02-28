@@ -20,7 +20,7 @@ module EvalHelper
   #   hash = {
   #     input: "test",
   #     if_cond: "msg == 'test'",
-  #     if_proc: "test",
+  #     if_proc: "true",
   #     else_proc: "false",
   #   }
   #   EvalHelperTest.new.hoge(hash) # => return true
@@ -40,7 +40,7 @@ module EvalHelper
   #   hash = {
   #     input: "not_test",
   #     if_cond: "msg == 'test'",
-  #     if_proc: "test",
+  #     if_proc: "true",
   #     else_proc: "false",
   #   }
   #   EvalHelperTest.new.hoge(hash) # => return false
