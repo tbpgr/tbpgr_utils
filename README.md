@@ -57,7 +57,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
-|[KernelHelper#if_code](#kernelhelperif_code)                                                                       |create if strings, for eval                                                                                          |
+|[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
@@ -1357,7 +1357,7 @@ output
 
 [back to list](#list)
 
-### KernelHelper#if_code
+### EvalHelper#if_code
 
 if case
 
