@@ -1912,7 +1912,8 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.51 : add EvalHelper#if_code
+* version 0.0.52 : add EvalHelper#if_code
+* version 0.0.51 : add String#to_hatena_heading
 * version 0.0.50 : add String#to_markdown_heading
 * version 0.0.49 : add String#to_tab_heading
 * version 0.0.48 : add String#to_space4_heading
