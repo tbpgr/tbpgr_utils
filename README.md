@@ -58,6 +58,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
+|[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
@@ -1405,6 +1406,59 @@ EvalHelperTest.new.hoge(hash) # => return false
 
 [back to list](#list)
 
+### EvalHelper#if_code_after
+if case
+
+~~~ruby
+require 'eval_helper'
+
+class EvalHelperTest
+  include EvalHelper
+
+  def hoge(hash)
+    msg = hash[:input]
+    code = if_code_after(hash[:if_cond], hash[:if_proc])
+    ret = 'dafault'
+    instance_eval code
+    ret
+  end
+end
+
+hash = {
+  input: "test",
+  if_cond: "msg == 'test'",
+  if_proc: "ret = "true"",
+}
+EvalHelperTest.new.hoge(hash) # => return 'true'
+~~~
+
+else case
+
+~~~ruby
+require 'eval_helper'
+
+class EvalHelperTest
+  include EvalHelper
+
+  def hoge(hash)
+    msg = hash[:input]
+    code = if_code_after(hash[:if_cond], hash[:if_proc])
+    ret = 'ret = "true"'
+    instance_eval code
+    ret
+  end
+end
+
+hash = {
+  input: "not_test",
+  if_cond: "msg == 'test'",
+  if_proc: "ret = "true"",
+}
+EvalHelperTest.new.hoge(hash) # => return 'default'
+~~~
+
+[back to list](#list)
+
 ### MetasyntacticVariable
 * META variable
 
@@ -1912,6 +1966,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.53 : add EvalHelper#if_code_after
 * version 0.0.52 : add EvalHelper#if_code
 * version 0.0.51 : add String#to_hatena_heading
 * version 0.0.50 : add String#to_markdown_heading
