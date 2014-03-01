@@ -4,7 +4,7 @@ require 'eval_helper'
 
 describe 'EvalHelper' do
   context :if_code_after do
-    class EvalHelperTest
+    class EvalHelperAfterTest
       include EvalHelper
 
       def hoge(hash)
@@ -40,7 +40,7 @@ describe 'EvalHelper' do
           case_before c
 
           # -- given --
-          eval_helper = EvalHelperTest.new
+          eval_helper = EvalHelperAfterTest.new
 
           # -- when --
           actual = eval_helper.hoge(c)
