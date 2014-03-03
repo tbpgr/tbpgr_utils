@@ -3,5 +3,6 @@
 module EvalHelper
   require 'eval_helper/if_code'
   require 'eval_helper/if_code_after'
-  require 'eval_helper/else_code'
+  require 'eval_helper/unless_code'
+  require 'eval_helper/unless_code_after'
 end
