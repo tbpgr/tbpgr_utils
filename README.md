@@ -59,6 +59,7 @@ Or install it yourself as:
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
+|[EvalHelper#ternary_operator](#evalhelperternary_operator)                                                         |create ternary operator strings, for eval                                                                            |
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
@@ -1461,6 +1462,69 @@ EvalHelperTest.new.hoge(hash) # => return 'default'
 
 [back to list](#list)
 
+### EvalHelper#ternary_operator
+true case
+
+~~~ruby
+require 'eval_helper'
+
+class EvalHelperTernaryTest
+  include EvalHelper
+
+  def hoge(hash)
+    msg = hash[:input]
+    code = \
+      if hash[:ret]
+        ternary_operator(hash[:cond], hash[:true_case], hash[:false_case], hash[:ret])
+      else
+        ternary_operator(hash[:cond], hash[:true_case], hash[:false_case])
+      end
+    instance_eval code
+  end
+end
+
+hash = {
+  input: "test",
+  cond: "msg == 'test'",
+  true_case: "true",
+  false_case: "false",
+  ret: "ret",
+}
+EvalHelperTernaryTest.new.hoge(hash) # => return 'true'
+~~~
+
+false case
+
+~~~ruby
+require 'eval_helper'
+
+class EvalHelperTernaryTest
+  include EvalHelper
+
+  def hoge(hash)
+    msg = hash[:input]
+    code = \
+      if hash[:ret]
+        ternary_operator(hash[:cond], hash[:true_case], hash[:false_case], hash[:ret])
+      else
+        ternary_operator(hash[:cond], hash[:true_case], hash[:false_case])
+      end
+    instance_eval code
+  end
+end
+
+hash = {
+  input: "not_test",
+  cond: "msg == 'test'",
+  true_case: "true",
+  false_case: "false",
+  ret: "ret",
+}
+EvalHelperTernaryTest.new.hoge(hash) # => return 'false'
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#unless_code
 
 unless case
@@ -2069,6 +2133,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.56 : add EvalHelper#toternary_operator
 * version 0.0.55 : add EvalHelper#unless_code_after
 * version 0.0.54 : add EvalHelper#unless_code
 * version 0.0.53 : add EvalHelper#if_code_after
