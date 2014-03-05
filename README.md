@@ -59,6 +59,7 @@ Or install it yourself as:
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
+|[EvalHelper#require_code](#evalhelperrequire_code)                                                                 |create require strings, for eval                                                                                     |
 |[EvalHelper#ternary_operator](#evalhelperternary_operator)                                                         |create ternary operator strings, for eval                                                                            |
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
@@ -1462,6 +1463,39 @@ EvalHelperTest.new.hoge(hash) # => return 'default'
 
 [back to list](#list)
 
+### EvalHelper#require_code
+single require case
+
+~~~ruby
+class EvalHelperRequireTest
+  include EvalHelper
+
+  def hoge(*args)
+    require_code(args)
+  end
+end
+
+args = 'tbpgr_utils'
+EvalHelperRequireTest.new.hoge(args) # => return "require 'tbpgr_utils'\n"
+~~~
+
+muiti require case
+
+~~~ruby
+class EvalHelperRequireTest
+  include EvalHelper
+
+  def hoge(*args)
+    require_code(args)
+  end
+end
+
+args =  ['tbpgr_utils', 'eval_helper']
+EvalHelperRequireTest.new.hoge(args) # => return "require 'tbpgr_utils'\nrequire 'eval_helper'\n"
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#ternary_operator
 true case
 
@@ -2133,6 +2167,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.57 : add EvalHelper#require_code
 * version 0.0.56 : add EvalHelper#toternary_operator
 * version 0.0.55 : add EvalHelper#unless_code_after
 * version 0.0.54 : add EvalHelper#unless_code
