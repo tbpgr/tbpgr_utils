@@ -60,6 +60,7 @@ Or install it yourself as:
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
 |[EvalHelper#require_code](#evalhelperrequire_code)                                                                 |create require strings, for eval                                                                                     |
+|[EvalHelper#require_relative_code](#evalhelperrequire_relative_code)                                               |create require_relative strings, for eval                                                                            |
 |[EvalHelper#ternary_operator](#evalhelperternary_operator)                                                         |create ternary operator strings, for eval                                                                            |
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
@@ -1492,6 +1493,39 @@ end
 
 args =  ['tbpgr_utils', 'eval_helper']
 EvalHelperRequireTest.new.hoge(args) # => return "require 'tbpgr_utils'\nrequire 'eval_helper'\n"
+~~~
+
+[back to list](#list)
+
+### EvalHelper#require_relative_code
+single require_relative case
+
+~~~ruby
+class EvalHelperRequireRelativeTest
+  include EvalHelper
+
+  def hoge(*args)
+    require_relative_code(args)
+  end
+end
+
+args = 'tbpgr_utils'
+EvalHelperRequireRelativeTest.new.hoge(args) # => return "require_relative 'tbpgr_utils'\n"
+~~~
+
+muiti require_relative case
+
+~~~ruby
+class EvalHelperRequireRelativeTest
+  include EvalHelper
+
+  def hoge(*args)
+    require_relative_code(args)
+  end
+end
+
+args =  ['tbpgr_utils', 'eval_helper']
+EvalHelperRequireRelativeTest.new.hoge(args) # => return "require_relative 'tbpgr_utils'\nrequire_relative 'eval_helper'\n"
 ~~~
 
 [back to list](#list)
