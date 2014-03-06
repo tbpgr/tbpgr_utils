@@ -2201,6 +2201,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.58 : add EvalHelper#require_relative_code
 * version 0.0.57 : add EvalHelper#require_code
 * version 0.0.56 : add EvalHelper#toternary_operator
 * version 0.0.55 : add EvalHelper#unless_code_after
