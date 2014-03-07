@@ -57,6 +57,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
+|[EvalHelper Object](#evalhelper_object)                                                                            |enable to use EvalHelper in Object                                                                                   |
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
 |[EvalHelper#require_code](#evalhelperrequire_code)                                                                 |create require strings, for eval                                                                                     |
@@ -1363,6 +1364,16 @@ output
 
 [back to list](#list)
 
+### EvalHelper Object
+
+enable to use EvalHelper in Object
+~~~ruby
+require 'eval_helper_object'
+require_code("hoge") # => 'require "hoge"'
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#if_code
 
 if case
@@ -2201,6 +2212,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.59 : add EvalHelper Object
 * version 0.0.58 : add EvalHelper#require_relative_code
 * version 0.0.57 : add EvalHelper#require_code
 * version 0.0.56 : add EvalHelper#toternary_operator
