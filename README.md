@@ -62,6 +62,7 @@ Or install it yourself as:
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
 |[EvalHelper#require_code](#evalhelperrequire_code)                                                                 |create require strings, for eval                                                                                     |
 |[EvalHelper#require_relative_code](#evalhelperrequire_relative_code)                                               |create require_relative strings, for eval                                                                            |
+|[EvalHelper#times_code](#evalhelpertimes_code)                                                                     |create times_code strings, for eval                                                                                  |
 |[EvalHelper#ternary_operator](#evalhelperternary_operator)                                                         |create ternary operator strings, for eval                                                                            |
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
@@ -1541,6 +1542,62 @@ EvalHelperRequireRelativeTest.new.hoge(args) # => return "require_relative 'tbpg
 
 [back to list](#list)
 
+### EvalHelper#times_code
+
+single_line_proc case
+~~~ruby
+require 'eval_helper'
+
+class EvalHelperTimesTest
+  include EvalHelper
+
+  def hoge(number, proc)
+    times_code(number, proc)
+  end
+end
+
+hash = {
+  number: 2,
+  proc: 'puts "#{i}times"',
+}
+EvalHelperTimesTest.new.hoge(hash[:number], hash[:proc])
+~~~
+
+return
+~~~
+2.times { |i| puts "#{i}times" }
+~~~
+
+multi_line_proc case
+~~~ruby
+require 'eval_helper'
+
+class EvalHelperTimesTest
+  include EvalHelper
+
+  def hoge(number, proc)
+    times_code(number, proc)
+  end
+end
+
+hash = {
+  number: 3,
+  proc: 'puts "#{i}times"\nputs "#{i*2}times"',
+}
+EvalHelperTimesTest.new.hoge(hash[:number], hash[:proc])
+~~~
+
+return
+
+~~~
+3.times do |i|
+  puts "#{i}times"
+  puts "#{i*2}times"
+end
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#ternary_operator
 true case
 
@@ -2212,6 +2269,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.60 : add EvalHelper#times_code
 * version 0.0.59 : add EvalHelper Object
 * version 0.0.58 : add EvalHelper#require_relative_code
 * version 0.0.57 : add EvalHelper#require_code

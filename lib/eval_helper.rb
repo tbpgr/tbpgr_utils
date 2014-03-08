@@ -6,6 +6,7 @@ module EvalHelper
   require 'eval_helper/require_code'
   require 'eval_helper/require_relative_code'
   require 'eval_helper/ternary_operator'
+  require 'eval_helper/times_code'
   require 'eval_helper/unless_code'
   require 'eval_helper/unless_code_after'
 end
