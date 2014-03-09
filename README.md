@@ -1574,7 +1574,7 @@ class EvalHelperSetVariableTest
   include EvalHelper
 
   def hoge(name, value)
-    times_code(name, value)
+    set_variable_code(name, value)
   end
 end
 
