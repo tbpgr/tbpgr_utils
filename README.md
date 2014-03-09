@@ -1542,6 +1542,57 @@ EvalHelperRequireRelativeTest.new.hoge(args) # => return "require_relative 'tbpg
 
 [back to list](#list)
 
+### EvalHelper#set_variable_code
+set string variable case
+~~~ruby
+require 'eval_helper'
+class EvalHelperSetVariableTest
+  include EvalHelper
+
+  def hoge(name, value)
+    set_variable_code(name, value)
+  end
+end
+
+hash = {
+  name: 'hoge',
+  value: '"hoge"',
+}
+EvalHelperSetVariableTest.new.hoge(hash[:name], hash[:value])
+~~~
+
+return
+
+~~~ruby
+hoge = "hoge"
+~~~
+
+set numeric variable case
+~~~ruby
+require 'eval_helper'
+class EvalHelperSetVariableTest
+  include EvalHelper
+
+  def hoge(name, value)
+    times_code(name, value)
+  end
+end
+
+hash = {
+  name: 'hoge_num',
+  value: '1',
+}
+EvalHelperSetVariableTest.new.hoge(hash[:name], hash[:value])
+~~~
+
+return
+
+~~~ruby
+hoge_num = 1
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#times_code
 
 single_line_proc case
@@ -2269,6 +2320,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.61 : add EvalHelper#set_variable_code
 * version 0.0.60 : add EvalHelper#times_code
 * version 0.0.59 : add EvalHelper Object
 * version 0.0.58 : add EvalHelper#require_relative_code
