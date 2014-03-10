@@ -62,6 +62,8 @@ Or install it yourself as:
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
 |[EvalHelper#require_code](#evalhelperrequire_code)                                                                 |create require strings, for eval                                                                                     |
 |[EvalHelper#require_relative_code](#evalhelperrequire_relative_code)                                               |create require_relative strings, for eval                                                                            |
+|[EvalHelper#set_variable_code](#evalhelperset_variable_code)                                                       |create set_variable_code strings, for eval                                                                           |
+|[EvalHelper#set_variables_code](#evalhelperset_variables_code)                                                     |create set_variables_code strings, for eval                                                                           |
 |[EvalHelper#times_code](#evalhelpertimes_code)                                                                     |create times_code strings, for eval                                                                                  |
 |[EvalHelper#ternary_operator](#evalhelperternary_operator)                                                         |create ternary operator strings, for eval                                                                            |
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
@@ -1593,6 +1595,32 @@ hoge_num = 1
 
 [back to list](#list)
 
+### EvalHelper#set_variables_code
+~~~ruby
+require 'eval_helper'
+class EvalHelperSetVariablesTest
+  include EvalHelper
+
+  def hoge(variables)
+    set_variables_code(variables)
+  end
+end
+
+variables = [
+  {
+    name: 'name1',
+    value: '"value1"',
+  },
+  {
+    name: 'name2',
+    value: '"value2"',
+  },
+]
+EvalHelperSetVariablesTest.new.hoge(variables)
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#times_code
 
 single_line_proc case
@@ -2320,6 +2348,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.62 : add EvalHelper#set_variables_code
 * version 0.0.61 : add EvalHelper#set_variable_code
 * version 0.0.60 : add EvalHelper#times_code
 * version 0.0.59 : add EvalHelper Object
