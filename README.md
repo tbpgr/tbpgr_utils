@@ -86,6 +86,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
+|[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
@@ -2039,6 +2040,23 @@ p 0.to_bool # => true
 
 [back to list](#list)
 
+### String#hyphen_to_a
+number case
+
+~~~ruby
+require 'tbpgr_utils'
+'1-5'.hyphen_to_a # => [1, 2, 3, 4, 5]
+~~~
+
+alphabet case
+
+~~~ruby
+require 'tbpgr_utils'
+'"a"-"e"'.hyphen_to_a # => ['a', 'b', 'c', 'd', 'e']
+~~~
+
+[back to list](#list)
+
 ### String#justify_table
 ~~~ruby
 require 'tbpgr_utils'
@@ -2377,7 +2395,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.63 : add EvalHelper#each_brace_code
+* version 0.0.63 : add EvalHelper#each_brace_code, String#hyphen_to_a
 * version 0.0.62 : add EvalHelper#set_variables_code
 * version 0.0.61 : add EvalHelper#set_variable_code
 * version 0.0.60 : add EvalHelper#times_code
