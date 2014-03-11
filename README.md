@@ -1380,7 +1380,7 @@ require_code("hoge") # => 'require "hoge"'
 
 [back to list](#list)
 
-### EvalHelper#evalhelpereach_brace_code
+### EvalHelper#each_brace_code
 ~~~ruby
 require 'eval_helper'
 class EvalHelperEacjBraceTest
