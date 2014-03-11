@@ -58,12 +58,13 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
 |[EvalHelper Object](#evalhelper-object)                                                                            |enable to use EvalHelper in Object                                                                                   |
+|[EvalHelper#each_brace_code](#evalhelpereach_brace_code)                                                           |create each brace single line code, for eval                                                                         |
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
 |[EvalHelper#require_code](#evalhelperrequire_code)                                                                 |create require strings, for eval                                                                                     |
 |[EvalHelper#require_relative_code](#evalhelperrequire_relative_code)                                               |create require_relative strings, for eval                                                                            |
 |[EvalHelper#set_variable_code](#evalhelperset_variable_code)                                                       |create set_variable_code strings, for eval                                                                           |
-|[EvalHelper#set_variables_code](#evalhelperset_variables_code)                                                     |create set_variables_code strings, for eval                                                                           |
+|[EvalHelper#set_variables_code](#evalhelperset_variables_code)                                                     |create set_variables_code strings, for eval                                                                          |
 |[EvalHelper#times_code](#evalhelpertimes_code)                                                                     |create times_code strings, for eval                                                                                  |
 |[EvalHelper#ternary_operator](#evalhelperternary_operator)                                                         |create ternary operator strings, for eval                                                                            |
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
@@ -1377,11 +1378,32 @@ require_code("hoge") # => 'require "hoge"'
 
 [back to list](#list)
 
+### EvalHelper#evalhelpereach_brace_code
+~~~ruby
+require 'eval_helper'
+class EvalHelperEacjBraceTest
+  include EvalHelper
+
+  def hoge(hash)
+    each_brace_code(hash[:target], hash[:proc])
+  end
+end
+
+hash = {
+  target: '[:a, :b]',
+  proc: 'puts v',
+}
+EvalHelperEacjBraceTest.new.hoge(hash) # => return '[:a, :b].each { |v|puts v }'
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#if_code
 
 if case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperTest
   include EvalHelper
 
@@ -1404,6 +1426,7 @@ EvalHelperTest.new.hoge(hash) # => return true
 else case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperTest
   include EvalHelper
 
@@ -1482,6 +1505,7 @@ EvalHelperTest.new.hoge(hash) # => return 'default'
 single require case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperRequireTest
   include EvalHelper
 
@@ -1497,6 +1521,7 @@ EvalHelperRequireTest.new.hoge(args) # => return "require 'tbpgr_utils'\n"
 muiti require case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperRequireTest
   include EvalHelper
 
@@ -1515,6 +1540,7 @@ EvalHelperRequireTest.new.hoge(args) # => return "require 'tbpgr_utils'\nrequire
 single require_relative case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperRequireRelativeTest
   include EvalHelper
 
@@ -1530,6 +1556,7 @@ EvalHelperRequireRelativeTest.new.hoge(args) # => return "require_relative 'tbpg
 muiti require_relative case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperRequireRelativeTest
   include EvalHelper
 
@@ -1745,6 +1772,7 @@ EvalHelperTernaryTest.new.hoge(hash) # => return 'false'
 unless case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperTest
   include EvalHelper
 
@@ -1767,6 +1795,7 @@ EvalHelperTest.new.hoge(hash) # => return true
 else case
 
 ~~~ruby
+require 'eval_helper'
 class EvalHelperTest
   include EvalHelper
 
@@ -2348,6 +2377,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.63 : add EvalHelper#each_brace_code
 * version 0.0.62 : add EvalHelper#set_variables_code
 * version 0.0.61 : add EvalHelper#set_variable_code
 * version 0.0.60 : add EvalHelper#times_code
