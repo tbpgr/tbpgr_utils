@@ -3,19 +3,19 @@ require 'spec_helper'
 require 'tbpgr_utils'
 
 describe String do
-  context :hyphen_to_a do
+  context :comma_to_a do
     cases = [
       {
         case_no: 1,
-        case_title: 'number case',
-        input: '1-5',
-        expected: [1, 2, 3, 4, 5]
+        case_title: 'space commma case',
+        input: '1, 5, 9',
+        expected: ['1', '5', '9']
       },
       {
         case_no: 2,
-        case_title: 'alphabet case',
-        input: '"a"-"e"',
-        expected: ['a', 'b', 'c', 'd', 'e']
+        case_title: 'commma case',
+        input: '1,5,9',
+        expected: ['1', '5', '9']
       },
     ]
 
@@ -28,7 +28,7 @@ describe String do
           # nothing
 
           # -- when --
-          actual = c[:input].hyphen_to_a
+          actual = c[:input].comma_to_a
 
           # -- then --
           expect(actual).to eq(c[:expected])
