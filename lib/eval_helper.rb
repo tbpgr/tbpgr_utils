@@ -2,6 +2,7 @@
 
 module EvalHelper
   require 'eval_helper/each_brace_code'
+  require 'eval_helper/each_do_code'
   require 'eval_helper/if_code'
   require 'eval_helper/if_code_after'
   require 'eval_helper/require_code'

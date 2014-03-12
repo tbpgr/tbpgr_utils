@@ -58,6 +58,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
 |[EvalHelper Object](#evalhelper-object)                                                                            |enable to use EvalHelper in Object                                                                                   |
+|[EvalHelper#each_do_code](#evalhelpereach_do_code)                                                                 |create each do code, for eval                                                                                        |
 |[EvalHelper#each_brace_code](#evalhelpereach_brace_code)                                                           |create each brace single line code, for eval                                                                         |
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
@@ -1380,6 +1381,26 @@ require_code("hoge") # => 'require "hoge"'
 
 [back to list](#list)
 
+### EvalHelper#each_do_code
+~~~ruby
+require 'eval_helper'
+class EvalHelperEacjBraceTest
+  include EvalHelper
+
+  def hoge(hash)
+    each_do_code(hash[:target], hash[:proc])
+  end
+end
+
+hash = {
+  target: '[:a, :b]',
+  proc: "puts \"\#{v}1\"\nputs \"\#{v}2\"\n",
+}
+EvalHelperEacjBraceTest.new.hoge(hash) # => return "[:a, :b].each do |v|\n  puts \"\#{v}1\"\n  puts \"\#{v}2\"\nend"
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#each_brace_code
 ~~~ruby
 require 'eval_helper'
@@ -2413,6 +2434,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.64 : add EvalHelper#each_do_code
 * version 0.0.63 : add EvalHelper#each_brace_code, String#hyphen_to_a, String#commma_to_a
 * version 0.0.62 : add EvalHelper#set_variables_code
 * version 0.0.61 : add EvalHelper#set_variable_code
