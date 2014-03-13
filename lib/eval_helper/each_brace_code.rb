@@ -5,7 +5,7 @@ module EvalHelper
   #
   # ==== Examples
   #
-  #   class EvalHelperEacjBraceTest
+  #   class EvalHelperEachBraceTest
   #     include EvalHelper
   #
   #     def hoge(hash)
@@ -17,7 +17,7 @@ module EvalHelper
   #     target: '[:a, :b]',
   #     proc: 'puts v',
   #   }
-  #   EvalHelperEacjBraceTest.new.hoge(hash) # => return '[:a, :b].each { |v|puts v }'
+  #   EvalHelperEachBraceTest.new.hoge(hash) # => return '[:a, :b].each { |v|puts v }'
   #
   def each_brace_code(target, proc)
     "#{target}.each { |v|#{proc} }"

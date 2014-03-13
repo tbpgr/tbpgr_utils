@@ -3,12 +3,12 @@ require 'spec_helper'
 require 'eval_helper'
 
 describe 'EvalHelper' do
-  context :each_brace_code do
-    class EvalHelperEachBraceTest
+  context :each_with_index_brace_code do
+    class EvalHelperEachWithIndexBraceTest
       include EvalHelper
 
       def hoge(hash)
-        each_brace_code(hash[:target], hash[:proc])
+        each_with_index_brace_code(hash[:target], hash[:proc])
       end
     end
     cases = [
@@ -16,8 +16,8 @@ describe 'EvalHelper' do
         case_no: 1,
         case_title: 'unless case',
         target: '[:a, :b]',
-        proc: 'puts v',
-        expected: '[:a, :b].each { |v|puts v }',
+        proc: 'puts "#{i}:#{v}"',
+        expected: '[:a, :b].each { |v, i|puts "#{i}:#{v}" }',
       },
     ]
 
@@ -27,7 +27,7 @@ describe 'EvalHelper' do
           case_before c
 
           # -- given --
-          eval_helper = EvalHelperEachBraceTest.new
+          eval_helper = EvalHelperEachWithIndexBraceTest.new
 
           # -- when --
           actual = eval_helper.hoge(c)
