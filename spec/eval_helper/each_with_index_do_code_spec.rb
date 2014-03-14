@@ -3,12 +3,12 @@ require 'spec_helper'
 require 'eval_helper'
 
 describe 'EvalHelper' do
-  context :each_do_code do
-    class EvalHelperEachDoTest
+  context :each_with_index_do_code do
+    class EvalHelperEachWithIndexDoTest
       include EvalHelper
 
       def hoge(hash)
-        each_do_code(hash[:target], hash[:proc])
+        each_with_index_do_code(hash[:target], hash[:proc])
       end
     end
     cases = [
@@ -16,9 +16,9 @@ describe 'EvalHelper' do
         case_no: 1,
         case_title: 'valid case',
         target: '[:a, :b]',
-        proc: "puts \"\#{v}1\"\nputs \"\#{v}2\"\n",
-        expected: "[:a, :b].each do |v|\n  puts \"\#{v}1\"\n  puts \"\#{v}2\"\nend",
-      }
+        proc: "puts \"\#{i}:\#{v}1\"\nputs \"\#{i}:\#{v}2\"\n",
+        expected: "[:a, :b].each_with_index do |v, i|\n  puts \"\#{i}:\#{v}1\"\n  puts \"\#{i}:\#{v}2\"\nend",
+      },
     ]
 
     cases.each do |c|
@@ -27,7 +27,7 @@ describe 'EvalHelper' do
           case_before c
 
           # -- given --
-          eval_helper = EvalHelperEachDoTest.new
+          eval_helper = EvalHelperEachWithIndexDoTest.new
 
           # -- when --
           actual = eval_helper.hoge(c)

@@ -4,6 +4,7 @@ module EvalHelper
   require 'eval_helper/each_brace_code'
   require 'eval_helper/each_do_code'
   require 'eval_helper/each_with_index_brace_code'
+  require 'eval_helper/each_with_index_do_code'
   require 'eval_helper/if_code'
   require 'eval_helper/if_code_after'
   require 'eval_helper/require_code'

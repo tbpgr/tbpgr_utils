@@ -61,6 +61,7 @@ Or install it yourself as:
 |[EvalHelper#each_do_code](#evalhelpereach_do_code)                                                                 |create each do code, for eval                                                                                        |
 |[EvalHelper#each_brace_code](#evalhelpereach_brace_code)                                                           |create each brace single line code, for eval                                                                         |
 |[EvalHelper#each_with_index_brace_code](#evalhelpereach_with_index_brace_code)                                     |create eachwith_index_ brace single line code, for eval                                                              |
+|[EvalHelper#each_with_index_do_code](#evalhelpereach_with_index_do_code)                                           |create eachwith_index_ do code, for eval                                                                             |
 |[EvalHelper#if_code](#evalhelperif_code)                                                                           |create if strings, for eval                                                                                          |
 |[EvalHelper#if_code_after](#evalhelperif_code_after)                                                               |create after-if strings, for eval                                                                                    |
 |[EvalHelper#require_code](#evalhelperrequire_code)                                                                 |create require strings, for eval                                                                                     |
@@ -1437,7 +1438,27 @@ hash = {
   target: '[:a, :b]',
   proc: 'puts "#{i}:#{v}"',
 }
-EvalHelperEachWithIndexBraceTest.new.hoge(hash) # => return '[:a, :b].each { |v, i|puts "#{i}:#{v}" }'
+EvalHelperEachWithIndexBraceTest.new.hoge(hash) # => return '[:a, :b].each_with_index { |v, i|puts "#{i}:#{v}" }'
+~~~
+
+[back to list](#list)
+
+### EvalHelper#each_with_index_do_code
+~~~ruby
+require 'eval_helper'
+class EvalHelperEachWithIndexDoTest
+  include EvalHelper
+
+  def hoge(hash)
+    each_with_index_do_code(hash[:target], hash[:proc])
+  end
+end
+
+hash = {
+  target: '[:a, :b]',
+  proc: "puts \"\#{i}:\#{v}1\"\nputs \"\#{i}:\#{v}2\"\n",
+}
+EvalHelperEachWithIndexDoTest.new.hoge(hash) # => return "[:a, :b].each_with_index do |v, i|\n  puts \"\#{i}:\#{v}1\"\n  puts \"\#{i}:\#{v}2\"\nend"
 ~~~
 
 [back to list](#list)
@@ -2455,6 +2476,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.66 : add EvalHelper#each_with_index_do_code
 * version 0.0.65 : add EvalHelper#each_with_index_brace_code
 * version 0.0.64 : add EvalHelper#each_do_code
 * version 0.0.63 : add EvalHelper#each_brace_code, String#hyphen_to_a, String#commma_to_a

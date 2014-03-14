@@ -20,6 +20,6 @@ module EvalHelper
   #   EvalHelperEachWithIndexBraceTest.new.hoge(hash) # => return '[:a, :b].each { |v, i|puts "#{i}:#{v}" }'
   #
   def each_with_index_brace_code(target, proc)
-    "#{target}.each { |v, i|#{proc} }"
+    "#{target}.each_with_index { |v, i|#{proc} }"
   end
 end
