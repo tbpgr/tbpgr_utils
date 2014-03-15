@@ -58,6 +58,7 @@ Or install it yourself as:
 |[AttributesInitializable::ClassMethods.attr_writer init](#attributesinitializableclassmethodsattr_writer_init)     |generate attr_writer + initializer                                                                                   |
 |[EndERB.apply](#enderbapply)                                                                                       |for single template script using __END__ and DATA                                                                    |
 |[EvalHelper Object](#evalhelper-object)                                                                            |enable to use EvalHelper in Object                                                                                   |
+|[EvalHelper#attr_accessor_init_code](#evalhelperattr_accessor_init_code)                                           |create attr_accessor + initialize code, for eval                                                                     |
 |[EvalHelper#each_do_code](#evalhelpereach_do_code)                                                                 |create each do code, for eval                                                                                        |
 |[EvalHelper#each_brace_code](#evalhelpereach_brace_code)                                                           |create each brace single line code, for eval                                                                         |
 |[EvalHelper#each_with_index_brace_code](#evalhelpereach_with_index_brace_code)                                     |create eachwith_index_ brace single line code, for eval                                                              |
@@ -1383,6 +1384,58 @@ require_code("hoge") # => 'require "hoge"'
 
 [back to list](#list)
 
+### EvalHelper#evalhelpereach_do_code
+single case
+
+~~~ruby
+class EvalHelperAttrAccessorInitTest
+  include EvalHelper
+
+  def hoge(args)
+    attr_accessor_init(args)
+  end
+end
+
+EvalHelperAttrAccessorInitTest.new.hoge('atr1')
+~~~
+
+result
+
+~~~ruby
+attr_accessor :atr1
+
+def initialize(atr1)
+  @atr1 = atr1
+end
+~~~
+
+multi case
+
+~~~ruby
+class EvalHelperAttrAccessorInitTest
+  include EvalHelper
+
+  def hoge(args)
+    attr_accessor_init(args)
+  end
+end
+
+EvalHelperAttrAccessorInitTest.new.hoge(['atr1', 'atr2'])
+~~~
+
+result
+
+~~~ruby
+attr_accessor :atr1, :atr2
+
+def initialize(atr1, atr2)
+  @atr1 = atr1
+  @atr2 = atr2
+end
+~~~
+
+[back to list](#list)
+
 ### EvalHelper#each_do_code
 ~~~ruby
 require 'eval_helper'
@@ -2476,6 +2529,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.67 : add EvalHelper#attr_accessor_init_code
 * version 0.0.66 : add EvalHelper#each_with_index_do_code
 * version 0.0.65 : add EvalHelper#each_with_index_brace_code
 * version 0.0.64 : add EvalHelper#each_do_code
