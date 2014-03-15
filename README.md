@@ -1384,7 +1384,7 @@ require_code("hoge") # => 'require "hoge"'
 
 [back to list](#list)
 
-### EvalHelper#evalhelpereach_do_code
+### EvalHelper#attr_accessor_init_code
 single case
 
 ~~~ruby
@@ -1392,7 +1392,7 @@ class EvalHelperAttrAccessorInitTest
   include EvalHelper
 
   def hoge(args)
-    attr_accessor_init(args)
+    attr_accessor_init_code(args)
   end
 end
 
@@ -1416,7 +1416,7 @@ class EvalHelperAttrAccessorInitTest
   include EvalHelper
 
   def hoge(args)
-    attr_accessor_init(args)
+    attr_accessor_init_code(args)
   end
 end
 

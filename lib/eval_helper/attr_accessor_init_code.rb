@@ -11,7 +11,7 @@ module EvalHelper
   #     include EvalHelper
   #
   #     def hoge(args)
-  #       attr_accessor_init(args)
+  #       attr_accessor_init_code(args)
   #     end
   #   end
   #
@@ -31,7 +31,7 @@ module EvalHelper
   #     include EvalHelper
   #
   #     def hoge(args)
-  #       attr_accessor_init(args)
+  #       attr_accessor_init_code(args)
   #     end
   #   end
   #
