@@ -7,6 +7,7 @@ module TbpgrUtils
   require 'open_classes/file'
   require 'open_classes/kernel'
   require 'open_classes/module'
+  require 'open_classes/numeric'
   require 'open_classes/object'
   require 'open_classes/string'
 end

@@ -84,6 +84,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
+|[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
@@ -2040,6 +2041,26 @@ end
 
 [back to list](#list)
 
+### Numeric#dice_back
+each 1-6 case
+
+~~~ruby
+1.dice_back # => return 6
+2.dice_back # => return 5
+3.dice_back # => return 4
+4.dice_back # => return 3
+5.dice_back # => return 2
+6.dice_back # => return 1
+~~~
+
+other case
+
+~~~ruby
+7.dice_back # => return 7
+~~~
+
+[back to list](#list)
+
 ### Object#any_of?
 ~~~ruby
 require 'tbpgr_utils'
@@ -2529,6 +2550,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.68 : add Numeric#dice_back
 * version 0.0.67 : add EvalHelper#attr_accessor_init_code
 * version 0.0.66 : add EvalHelper#each_with_index_do_code
 * version 0.0.65 : add EvalHelper#each_with_index_brace_code
