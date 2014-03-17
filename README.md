@@ -85,6 +85,7 @@ Or install it yourself as:
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
+|[TbpgrUtils Numeric#dozen](#numericdozen)                                                                          |get dozen number                                                                                                     |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
@@ -2061,6 +2062,19 @@ other case
 
 [back to list](#list)
 
+### Numeric#dozen
+0,1,2 case
+
+~~~ruby
+require 'tbpgr_utils'
+
+0.dozen # => return 0
+1.dozen # => return 12
+2.dozen # => return 24
+~~~
+
+[back to list](#list)
+
 ### Object#any_of?
 ~~~ruby
 require 'tbpgr_utils'
@@ -2550,6 +2564,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.69 : add Numeric#dozen
 * version 0.0.68 : add Numeric#dice_back
 * version 0.0.67 : add EvalHelper#attr_accessor_init_code
 * version 0.0.66 : add EvalHelper#each_with_index_do_code
