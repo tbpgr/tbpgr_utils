@@ -2209,7 +2209,7 @@ apply challengers
 require 'simple_tournament'
 
 st = SimpleTournament.new 3
-st.apply [*1..3]
+st.apply_challengers [*1..3]
 print st.tournament # => [[nil], [1, nil], [3, 2]]
 ~~~
 
@@ -2219,7 +2219,7 @@ start tournament match
 require 'simple_tournament'
 
 st = SimpleTournament.new 3
-st.apply [*1..3]
+st.apply_challengers [*1..3]
 st.start_match Proc.new { |one, other|
   rets = []
   winner = (one > other ? one : other)
