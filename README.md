@@ -92,7 +92,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
-|[SimpleTounament](#simpletounament)                                                                                |simple tounament                                                                                                     |
+|[SimpleTournament](#simpletournament)                                                                              |simple tournament                                                                                                    |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
@@ -2193,7 +2193,7 @@ p 0.to_bool # => true
 
 [back to list](#list)
 
-### SimpleTounament
+### SimpleTournament
 init tournament
 
 ~~~ruby
