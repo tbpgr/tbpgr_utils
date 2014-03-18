@@ -92,6 +92,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
+|[SimpleTounament](#simpletounament)                                                                                |simple tounament                                                                                                     |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
@@ -2192,6 +2193,43 @@ p 0.to_bool # => true
 
 [back to list](#list)
 
+### SimpleTounament
+init tournament
+
+~~~ruby
+require 'simple_tournament'
+
+st = SimpleTounament.new 3
+print st.tournament # => [[nil], [nil, nil], [nil, nil]]
+~~~
+
+apply challengers
+
+~~~ruby
+require 'simple_tournament'
+
+st = SimpleTounament.new 3
+st.apply [*1..3]
+print st.tournament # => [[nil], [1, nil], [3, 2]]
+~~~
+
+start tournament match
+
+~~~ruby
+require 'simple_tournament'
+
+st = SimpleTounament.new 3
+st.apply [*1..3]
+st.start_match Proc.new { |one, other|
+  rets = []
+  winner = (one > other ? one : other)
+  rets << winner
+  rets << "#{one} : #{other} 's winner is #{winner}"
+  rets
+}
+print st.tournament # => [[3], [1, 3], [3, 2]]
+~~~
+
 ### String#comma_to_a
 space commma case
 
@@ -2564,6 +2602,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.70 : add SimpleTournament
 * version 0.0.69 : add Numeric#dozen
 * version 0.0.68 : add Numeric#dice_back
 * version 0.0.67 : add EvalHelper#attr_accessor_init_code
