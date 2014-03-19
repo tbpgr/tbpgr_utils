@@ -75,6 +75,7 @@ Or install it yourself as:
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
+|[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
 |[TestToolbox Kernel#dp_line](#kerneldp_line)                                                                       |debug print line for print-debugging                                                                                 |
@@ -1232,6 +1233,20 @@ dp_line __LINE__, filename: __FILE__
 dp_line __LINE__, filename: __FILE__, char: '@'
 # output is following. xx=filenamem, yy = line no.
 # => @@@@@@@@@@@@@@@@@@@@|filename=xx|line=yy$|@@@@@@@@@@@@@@@@@@@@\n
+~~~
+
+[back to list](#list)
+
+### Kernel booleans
+~~~ruby
+require 'tbpgr_utils'
+puts yes # return true
+puts ok # return true
+puts good # return true
+
+puts no # return false
+puts ng # return false
+puts bad # return false
 ~~~
 
 [back to list](#list)
@@ -2602,6 +2617,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.71 : add Kernel booleans
 * version 0.0.70 : add SimpleTournament
 * version 0.0.69 : add Numeric#dozen
 * version 0.0.68 : add Numeric#dice_back
