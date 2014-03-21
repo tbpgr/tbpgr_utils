@@ -81,6 +81,7 @@ Or install it yourself as:
 |[TestToolbox Kernel#dp_line](#kerneldp_line)                                                                       |debug print line for print-debugging                                                                                 |
 |[TbpgrUtils Kernel#aa_ancestors](#kernelaa_ancestors)                                                              |Ascii Art Ancestors                                                                                                  |
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
+|[TbpgrUtils Kernel#evalb](#kernelevalb)                                                                            |eval block version                                                                                                   |
 |[TbpgrUtils Kernel#null](#kernelnull)                                                                              |null is alias of nil                                                                                                 |
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
@@ -1336,6 +1337,22 @@ result is ...
 ----------------------
 |  HogeForAncestors  |
 ----------------------
+~~~
+
+[back to list](#list)
+
+### Kernel#evalb
+~~~ruby
+require 'tbpgr_utils'
+n = 1
+actual = evalb(binding) do
+  <<-EOS
+n = n + 1
+n = n + 2
+     EOS
+end
+
+print actual # => 4
 ~~~
 
 [back to list](#list)
@@ -2637,6 +2654,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.72 : add Kernel#evalb
 * version 0.0.71 : add Kernel booleans
 * version 0.0.70 : add SimpleTournament
 * version 0.0.69 : add Numeric#dozen
