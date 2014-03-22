@@ -75,6 +75,7 @@ Or install it yourself as:
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
+|[TbpgrUtils Hash#table](#hash-table)                                                                               |get pipe format table string from key + value                                                                        |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
@@ -1236,6 +1237,26 @@ dp_line __LINE__, filename: __FILE__
 dp_line __LINE__, filename: __FILE__, char: '@'
 # output is following. xx=filenamem, yy = line no.
 # => @@@@@@@@@@@@@@@@@@@@|filename=xx|line=yy$|@@@@@@@@@@@@@@@@@@@@\n
+~~~
+
+[back to list](#list)
+
+### Hash#table
+~~~ruby
+require 'tbpgr_utils'
+{
+  :key_1 => :value1___________________,
+  :key__2 => :value2,
+  :key___3 => :value3,
+}.table
+~~~
+
+result
+
+~~~ruby
+|key_1  |value1___________________|
+|key__2 |value2                   |
+|key___3|value3                   |
 ~~~
 
 [back to list](#list)
@@ -2654,7 +2675,9 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.72 : add Kernel#evalb
+* version 0.0.74 : add Hash#table
+* version 0.0.73 : add Kernel#evalb
+* version 0.0.72 : add Kernel#null, Object#null?
 * version 0.0.71 : add Kernel booleans
 * version 0.0.70 : add SimpleTournament
 * version 0.0.69 : add Numeric#dozen
