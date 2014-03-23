@@ -93,6 +93,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
+|[TbpgrUtils Object#method_nameable?](#objectmethod_nameable)                                                       |object can use method name or not                                                                                    |
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
 |[TbpgrUtils Object#null?](#objectnull)                                                                             |null? is alias of nil?                                                                                               |
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
@@ -2193,6 +2194,16 @@ hoge false # => "not guard"
 
 [back to list](#list)
 
+### Object#method_nameable?
+~~~ruby
+require 'tbpbr_utils'
+"string".method_nameable? # => true
+:symbol.method_nameable? # => true
+1.method_nameable? # => false
+~~~
+
+[back to list](#list)
+
 ### Object#unless_guard
 unless_guard return case
 
@@ -2675,6 +2686,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.75 : add Object#method_nameable?
 * version 0.0.74 : add Hash#table
 * version 0.0.73 : add Kernel#evalb
 * version 0.0.72 : add Kernel#null, Object#null?
