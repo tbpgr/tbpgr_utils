@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'open_classes/string/ascii1_other2_size'
 require 'open_classes/string/comma_to_a'
 require 'open_classes/string/hyphen_to_a'
 require 'open_classes/string/justify_table'

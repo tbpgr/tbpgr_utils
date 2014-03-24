@@ -42,7 +42,8 @@ class String
       columns = get_columuns(line)
       line_ret = []
       columns.each_with_index do |column, cnt|
-        line_ret << column.ljust(max_sizes[cnt])
+        diff = column.ascii1_other2_size - column.size
+        line_ret << column.ljust(max_sizes[cnt] - diff)
       end
       ret << "|#{line_ret.join('|')}|"
     end
@@ -55,7 +56,8 @@ class String
 
   def get_column_max(columns, max_sizes)
     columns.each_with_index do |column, index|
-      current_size = column.size
+      current_size = column.ascii1_other2_size
+      # current_size = column.size
       if max_sizes[index].nil?
         max_sizes << current_size
         next

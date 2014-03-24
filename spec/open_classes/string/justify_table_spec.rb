@@ -24,6 +24,20 @@ csv_column2_1, csv_column2_2
 |yusei       |matsui       |
     EOS
 
+    SAMPLE_TABLE4 = <<-EOS
+|* firstあ name|* family いいname|
+|eiichiro|oda|
+|akira|toriyama|
+|yusei|matsui|
+    EOS
+
+    SAMPLE_JUSTIFIED_TABLE4 = <<-EOS
+|* firstあ name|* family いいname|
+|eiichiro      |oda              |
+|akira         |toriyama         |
+|yusei         |matsui           |
+    EOS
+
     cases = [
       {
         case_no: 1,
@@ -42,6 +56,12 @@ csv_column2_1, csv_column2_2
         case_title: 'empty case',
         input: '',
         expected: '',
+      },
+      {
+        case_no: 4,
+        case_title: 'ascii/other code mix valid justify case',
+        input: SAMPLE_TABLE4,
+        expected: SAMPLE_JUSTIFIED_TABLE4,
       },
     ]
 
