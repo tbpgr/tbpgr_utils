@@ -2714,7 +2714,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.76 : add EvalHelper#attr_accessor_init_code, Numeric#is_ascii?, String#ascii1_other2_size
+* version 0.0.76 : add EvalHelper#attr_init_class_code, Numeric#is_ascii?, String#ascii1_other2_size
 * version 0.0.75 : add Object#method_nameable?
 * version 0.0.74 : add Hash#table
 * version 0.0.73 : add Kernel#evalb
