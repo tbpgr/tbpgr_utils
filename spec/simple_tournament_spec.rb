@@ -102,11 +102,11 @@ describe SimpleTournament do
         case_title: '3 case',
         number: 3,
         challengers: [*1..3],
-        proc: proc do |one, other|
+        proc: proc do |one, other, level|
           rets = []
           winner = (one > other ? one : other)
           rets << winner
-          rets << "#{one} : #{other} 's winner is #{winner}"
+          rets << level = "level=#{level} #{one} : #{other} 's winner is #{winner}"
           rets
         end,
         expected: [[3], [1, 3], [3, 2]],
@@ -116,11 +116,11 @@ describe SimpleTournament do
         case_title: '4 case',
         number: 4,
         challengers: [*1..4],
-        proc: proc do |one, other|
+        proc: proc do |one, other, level|
           rets = []
           winner = (one > other ? one : other)
           rets << winner
-          rets << "#{one} : #{other} 's winner is #{winner}"
+          rets << "level=#{level} #{one} : #{other} 's winner is #{winner}"
           rets
         end,
         expected: [[4], [4, 2], [4, 3, 2, 1]],

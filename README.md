@@ -90,6 +90,7 @@ Or install it yourself as:
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
 |[TbpgrUtils Numeric#dozen](#numericdozen)                                                                          |get dozen number                                                                                                     |
+|[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
@@ -99,6 +100,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
 |[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[SimpleTournament](#simpletournament)                                                                              |simple tournament                                                                                                    |
+|[TbpgrUtils String#ascii1_other2_size](#stringascii1_other2_size)                                                  |count string size. ascii => count1, not ascii => count2                                                              |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
@@ -2140,6 +2142,19 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+[back to list](#list)
+
+### Numeric#is_ascii?
+
+1,127,128 case
+~~~ruby
+require 'tbpgr_utils'
+
+1.is_ascii? # => return true
+127.is_ascii? # => return true
+128.is_ascii? # => return false
+~~~
+
 ### Object#any_of?
 ~~~ruby
 require 'tbpgr_utils'
@@ -2313,6 +2328,19 @@ st.start_match Proc.new { |one, other|
 }
 print st.tournament # => [[3], [1, 3], [3, 2]]
 ~~~
+
+[back to list](#list)
+
+### String#ascii1_other2_size
+~~~ruby
+require 'tbpgr_utils'
+
+'abc'.ord.ascii1_other2_size # => 3
+'ａｂｃ'.ord.ascii1_other2_size # => 6
+'aａbｂcｃ'.ord.ascii1_other2_size # => 9
+~~~
+
+[back to list](#list)
 
 ### String#comma_to_a
 space commma case
@@ -2686,6 +2714,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.76 : add EvalHelper#attr_accessor_init_code, Numeric#is_ascii?, String#ascii1_other2_size
 * version 0.0.75 : add Object#method_nameable?
 * version 0.0.74 : add Hash#table
 * version 0.0.73 : add Kernel#evalb

@@ -2,12 +2,12 @@
 
 # SimpleTournament
 class SimpleTournament
-  attr_reader :tournament, :number, :messages
+  attr_reader :tournament, :number, :matches
 
   # initialize tournament by number
   def initialize(number)
     @number = number
-    @messages = []
+    @matches = []
     cnt = 0
     @tournament = []
     while number >= (2**cnt)
@@ -30,15 +30,15 @@ class SimpleTournament
     end
   end
 
-  # start tournament match. set result to tournament, messages
+  # start tournament match. set result to tournament, matches
   def start_match(proc)
     @tournament.reverse_each.with_index do |outer, outer_index|
       outer.reverse_each.with_index do |inner, inner_index|
         next if inner_index.odd?
         next if inner_index == outer.size - 1
-        rets = proc.call outer[-(inner_index + 1)], outer[-(inner_index + 2)]
+        rets = proc.call outer[-(inner_index + 1)], outer[-(inner_index + 2)], outer_index
         winner = rets.first
-        @messages << rets.last
+        @matches << rets.last
         set_winner(winner, outer_index)
       end
     end
