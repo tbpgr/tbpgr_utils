@@ -2,6 +2,7 @@
 
 module EvalHelper
   require 'eval_helper/attr_accessor_init_code'
+  require 'eval_helper/attr_init_class_code'
   require 'eval_helper/each_brace_code'
   require 'eval_helper/each_do_code'
   require 'eval_helper/each_with_index_brace_code'
