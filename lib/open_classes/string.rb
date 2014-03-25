@@ -2,6 +2,7 @@
 require 'open_classes/string/ascii1_other2_size'
 require 'open_classes/string/comma_to_a'
 require 'open_classes/string/hyphen_to_a'
+require 'open_classes/string/is_meta_variable'
 require 'open_classes/string/justify_table'
 require 'open_classes/string/say'
 require 'open_classes/string/stripe'

@@ -103,6 +103,7 @@ Or install it yourself as:
 |[TbpgrUtils String#ascii1_other2_size](#stringascii1_other2_size)                                                  |count string size. ascii => count1, not ascii => count2                                                              |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
+|[TbpgrUtils String#is_meta_variable?](#stringis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
@@ -112,6 +113,7 @@ Or install it yourself as:
 |[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_tab_heading](#stringto_tab_heading)                                                          |create tab-format heading string with Emmet-like grammar                                                             |
+|[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
 
@@ -2376,6 +2378,17 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#is_meta_variable?
+~~~ruby
+'foo'.is_meta_variable? # => true
+'bar'.is_meta_variable? # => true
+'baz'.is_meta_variable? # => true
+'aaa'.is_meta_variable? # => false
+''.is_meta_variable? # => false
+~~~
+
+[back to list](#list)
+
 ### String#justify_table
 ~~~ruby
 require 'tbpgr_utils'
@@ -2614,6 +2627,18 @@ require 'tbpgr_utils'
 'hoge>hige^hege'.to_tab_heading # => 'hoge\n\thige\nhege'
 ~~~
 
+[back to list](#list)
+
+### Symbol#is_meta_variable?
+~~~ruby
+:foo.is_meta_variable? # => true
+:bar.is_meta_variable? # => true
+:baz.is_meta_variable? # => true
+:aaa.is_meta_variable? # => false
+~~~
+
+[back to list](#list)
+
 ### Templatable
 * include Templatable
 * set template by here-document
@@ -2714,6 +2739,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.77 : add String#is_meta_variable?, Symbol#is_meta_variable?
 * version 0.0.76 : add EvalHelper#attr_init_class_code, Numeric#is_ascii?, String#ascii1_other2_size
 * version 0.0.75 : add Object#method_nameable?
 * version 0.0.74 : add Hash#table

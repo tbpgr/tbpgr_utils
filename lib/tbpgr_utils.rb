@@ -11,4 +11,5 @@ module TbpgrUtils
   require 'open_classes/numeric'
   require 'open_classes/object'
   require 'open_classes/string'
+  require 'open_classes/symbol'
 end
