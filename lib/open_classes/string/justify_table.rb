@@ -17,11 +17,11 @@ class String
   #   |eiichiro    |oda          |
   #   |akira       |toriyama     |
   #   |yusei       |matsui       |
-  def justify_table
+  def justify_table(position = :left)
     return self if self.empty?
     max_sizes = get_column_maxes
     return self if max_sizes.nil?
-    justify_lines max_sizes
+    justify_lines max_sizes, position
   end
 
   private
@@ -36,18 +36,30 @@ class String
     max_sizes
   end
 
-  def justify_lines(max_sizes)
+  def justify_lines(max_sizes, position)
     ret = []
     each_line do |line|
       columns = get_columuns(line)
       line_ret = []
       columns.each_with_index do |column, cnt|
         diff = column.ascii1_other2_size - column.size
-        line_ret << column.ljust(max_sizes[cnt] - diff)
+        line_ret << justified_column(column, max_sizes[cnt], diff, position)
       end
       ret << "|#{line_ret.join('|')}|"
     end
     ret.join("\n") + "\n"
+  end
+
+  def justified_column(column, max_size, diff, position)
+    pos = max_size - diff
+    case position
+    when :left
+      column.ljust(pos)
+    when :right
+      column.rjust(pos)
+    when :center
+      column.center(pos)
+    end
   end
 
   def get_columuns(line)

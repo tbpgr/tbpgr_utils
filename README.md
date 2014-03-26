@@ -101,6 +101,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[SimpleTournament](#simpletournament)                                                                              |simple tournament                                                                                                    |
 |[TbpgrUtils String#ascii1_other2_size](#stringascii1_other2_size)                                                  |count string size. ascii => count1, not ascii => count2                                                              |
+|[TbpgrUtils String#ascii_unicode_table](#stringascii_unicode_table)                                                |get ascii_unicode_table                                                                                              |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
 |[TbpgrUtils String#is_meta_variable?](#stringis_meta_variable)                                                     |is meta variable.                                                                                                    |
@@ -2344,6 +2345,23 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#ascii_unicode_table
+~~~ruby
+require 'tbpgr_utils'
+
+'aあb'.ascii_unicode_table
+~~~
+
+result
+~~~
+|char|ASCII|ascii2 |Unicode|
+| a  | 97  |1100001|  --   |
+| あ | --  |  --   |0x3042 |
+| b  | 98  |1100010|  --   |
+~~~
+
+[back to list](#list)
+
 ### String#comma_to_a
 space commma case
 
@@ -2739,6 +2757,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.78 : add String#ascii_unicode_table
 * version 0.0.77 : add String#is_meta_variable?, Symbol#is_meta_variable?
 * version 0.0.76 : add EvalHelper#attr_init_class_code, Numeric#is_ascii?, String#ascii1_other2_size
 * version 0.0.75 : add Object#method_nameable?

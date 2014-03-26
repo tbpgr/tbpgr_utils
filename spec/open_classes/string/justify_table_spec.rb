@@ -38,6 +38,13 @@ csv_column2_1, csv_column2_2
 |yusei         |matsui           |
     EOS
 
+    SAMPLE_JUSTIFIED_TABLE5 = <<-EOS
+|* firstあ name|* family いいname|
+|      eiichiro|              oda|
+|         akira|         toriyama|
+|         yusei|           matsui|
+    EOS
+
     cases = [
       {
         case_no: 1,
@@ -63,6 +70,13 @@ csv_column2_1, csv_column2_2
         input: SAMPLE_TABLE4,
         expected: SAMPLE_JUSTIFIED_TABLE4,
       },
+      {
+        case_no: 5,
+        case_title: 'ascii/other code mix valid justify case(right)',
+        input: SAMPLE_TABLE4,
+        position: :right,
+        expected: SAMPLE_JUSTIFIED_TABLE5,
+      },
     ]
 
     cases.each do |c|
@@ -74,7 +88,11 @@ csv_column2_1, csv_column2_2
           # nothing
 
           # -- when --
-          actual = c[:input].justify_table
+          if (c[:position])
+            actual = c[:input].justify_table c[:position]
+          else
+            actual = c[:input].justify_table
+          end
 
           # -- then --
           expect(actual).to eq(c[:expected])
