@@ -24,6 +24,7 @@ Or install it yourself as:
 ### List
 | class/module/method                                                                                               | mean                                                                                                                |
 |:-----------                                                                                                       |:------------                                                                                                        |
+|[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
 |[TbpgrUtils Array#together_at](#arraytogether_at)                                                                  |together version of Array#at. together_at has alias :tat                                                             |
 |[TbpgrUtils Array#together_clear](#arraytogether_clear)                                                            |together version of Array#clear. together_clear has alias :tclear                                                    |
@@ -117,6 +118,20 @@ Or install it yourself as:
 |[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
+
+### Array#to_table
+~~~ruby
+require 'tbpgr_utils'
+[['header1', 'header2', 'header3'],['line1_1', 'line1_2', 'line1_3']].to_table
+~~~
+
+result
+~~~
+|header1|header2|header3|
+|line1_1|line1_2|line1_3|
+~~~
+
+[back to list](#list)
 
 ### Array#together
 ~~~ruby
@@ -2757,6 +2772,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.79 : add Array#to_table
 * version 0.0.78 : add String#ascii_unicode_table
 * version 0.0.77 : add String#is_meta_variable?, Symbol#is_meta_variable?
 * version 0.0.76 : add EvalHelper#attr_init_class_code, Numeric#is_ascii?, String#ascii1_other2_size

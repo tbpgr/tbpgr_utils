@@ -5,6 +5,9 @@
 AccessModifierIndentation:
   Enabled: false
 
+AsciiComments:
+  Enabled: false
+
 Documentation:
   Enabled: false
 
