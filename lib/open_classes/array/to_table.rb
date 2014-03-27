@@ -14,9 +14,10 @@ class Array
   #   |line1_1|line1_2|line1_3|
   #
   def to_table
-    reduce([]) do |rets, lines|
+    ret = reduce([]) do |rets, lines|
       ret = lines.reduce([]) { |ret, column|ret << column; ret }
       rets << "|#{ret.join("|")}|"
-    end.join("\n") + "\n".justify_table(:center)
+    end.join("\n") + "\n"
+    ret.justify_table(:center)
   end
 end
