@@ -76,7 +76,7 @@ Or install it yourself as:
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
-|[TbpgrUtils Hash#table](#hash-table)                                                                               |get pipe format table string from key + value                                                                        |
+|[TbpgrUtils Hash#table](#hash_table)                                                                               |get pipe format table string from key + value                                                                        |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
@@ -92,6 +92,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
 |[TbpgrUtils Numeric#dozen](#numericdozen)                                                                          |get dozen number                                                                                                     |
 |[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
+|[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                      |binary table                                                                                                         |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
@@ -2173,6 +2174,25 @@ require 'tbpgr_utils'
 128.is_ascii? # => return false
 ~~~
 
+[back to list](#list)
+
+### Numeric to_binary_table
+1 to 3 case
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_binary_table(1, 3)
+~~~
+
+result
+~~~
+|10digit|2digit  |
+|1      |00000001|
+|2      |00000010|
+|3      |00000011|
+~~~
+
+[back to list](#list)
+
 ### Object#any_of?
 ~~~ruby
 require 'tbpgr_utils'
@@ -2772,6 +2792,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.80 : add Numeric to_binary_table
 * version 0.0.79 : add Array#to_table
 * version 0.0.78 : add String#ascii_unicode_table
 * version 0.0.77 : add String#is_meta_variable?, Symbol#is_meta_variable?
