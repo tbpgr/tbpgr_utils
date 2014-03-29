@@ -92,7 +92,8 @@ Or install it yourself as:
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
 |[TbpgrUtils Numeric#dozen](#numericdozen)                                                                          |get dozen number                                                                                                     |
 |[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
-|[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                      |binary table                                                                                                         |
+|[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                     |binary table                                                                                                         |
+|[TbpgrUtils Numeric to_hes_table](#numeric-to_hes_table)                                                           |hes table                                                                                                            |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
@@ -2193,6 +2194,22 @@ result
 
 [back to list](#list)
 
+### Numeric to_hex_table
+65535 to 65536 case
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_binary_table(65535, 65536)
+~~~
+
+result
+~~~
+|10digit| 16digit|
+|  65535|0000ffff|
+|  65536|00010000|
+~~~
+
+[back to list](#list)
+
 ### Object#any_of?
 ~~~ruby
 require 'tbpgr_utils'
@@ -2792,6 +2809,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.81 : add Numeric to_hex_table
 * version 0.0.80 : add Numeric to_binary_table
 * version 0.0.79 : add Array#to_table
 * version 0.0.78 : add String#ascii_unicode_table

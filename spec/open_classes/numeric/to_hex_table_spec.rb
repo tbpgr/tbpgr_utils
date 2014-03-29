@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'tbpgr_utils'
 
 describe Numeric do
-  context :to_binary_table do
+  context :to_hex_table do
     cases = [
       {
         case_no: 1,
@@ -11,21 +11,21 @@ describe Numeric do
         from: 1,
         to: 3,
         expected: <<-EOS
-|10digit|  2digit|
-|      1|00000001|
-|      2|00000010|
-|      3|00000011|
+|10digit|16digit|
+|      1|   0001|
+|      2|   0002|
+|      3|   0003|
         EOS
       },
       {
         case_no: 2,
-        case_title: '255-256 case',
-        from: 255,
-        to: 256,
+        case_title: '65535-65536 case',
+        from: 65_535,
+        to: 65_536,
         expected: <<-EOS
-|10digit|          2digit|
-|    255|0000000011111111|
-|    256|0000000100000000|
+|10digit| 16digit|
+|  65535|0000ffff|
+|  65536|00010000|
         EOS
       },
     ]
@@ -39,7 +39,7 @@ describe Numeric do
           # nothing
 
           # -- when --
-          actual = Numeric.to_binary_table(c[:from], c[:to])
+          actual = Numeric.to_hex_table(c[:from], c[:to])
 
           # -- then --
           expect(actual).to eq(c[:expected])
