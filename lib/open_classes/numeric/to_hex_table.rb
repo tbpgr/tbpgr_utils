@@ -8,7 +8,7 @@ class Numeric
   #
   # 65535 to 65536 case
   #
-  #   Numeric.to_binary_table(65535, 65536)
+  #   Numeric.to_hex_table(65535, 65536)
   #
   # result
   #

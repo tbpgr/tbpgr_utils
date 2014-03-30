@@ -94,6 +94,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
 |[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                     |binary table                                                                                                         |
 |[TbpgrUtils Numeric to_hex_table](#numeric-to_hex_table)                                                           |hex table                                                                                                            |
+|[TbpgrUtils Numeric to_oct_table](#numeric-to_oct_table)                                                           |oct table                                                                                                            |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
@@ -2198,7 +2199,7 @@ result
 65535 to 65536 case
 ~~~ruby
 require 'tbpgr_utils'
-Numeric.to_binary_table(65535, 65536)
+Numeric.to_hex_table(65535, 65536)
 ~~~
 
 result
@@ -2206,6 +2207,22 @@ result
 |10digit| 16digit|
 |  65535|0000ffff|
 |  65536|00010000|
+~~~
+
+[back to list](#list)
+
+### Numeric to_oct_table
+65535 to 65536 case
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_oct_table(65535, 65536)
+~~~
+
+result
+~~~
+|10digit|8digit|
+|  65535|177777|
+|  65536|200000|
 ~~~
 
 [back to list](#list)
@@ -2809,6 +2826,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.82 : add Numeric to_oct_table
 * version 0.0.81 : add Numeric to_hex_table
 * version 0.0.80 : add Numeric to_binary_table
 * version 0.0.79 : add Array#to_table
