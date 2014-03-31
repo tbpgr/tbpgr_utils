@@ -93,6 +93,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric#dozen](#numericdozen)                                                                          |get dozen number                                                                                                     |
 |[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
 |[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                     |binary table                                                                                                         |
+|[TbpgrUtils Numeric to_digit_table](#numeric-to_digit_table)                                                       |digit table                                                                                                          |
 |[TbpgrUtils Numeric to_hex_table](#numeric-to_hex_table)                                                           |hex table                                                                                                            |
 |[TbpgrUtils Numeric to_oct_table](#numeric-to_oct_table)                                                           |oct table                                                                                                            |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
@@ -2195,6 +2196,22 @@ result
 
 [back to list](#list)
 
+### Numeric to_digit_table
+255 to 256 case
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_digit_table(255, 256)
+~~~
+
+result
+~~~
+|10digit|          2digit|8digit|16digit|
+|    255|0000000011111111|   377|   00ff|
+|    256|0000000100000000|   400|   0100|
+~~~
+
+[back to list](#list)
+
 ### Numeric to_hex_table
 65535 to 65536 case
 ~~~ruby
@@ -2826,6 +2843,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.83 : add Numeric to_digit_table
 * version 0.0.82 : add Numeric to_oct_table
 * version 0.0.81 : add Numeric to_hex_table
 * version 0.0.80 : add Numeric to_binary_table
