@@ -75,8 +75,9 @@ Or install it yourself as:
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
+|[TbpgrUtils Fixnum to_fixnum_table](#fixnum-to_fixnum_table)                                                       |return value is fixnum table                                                                                         |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
-|[TbpgrUtils Hash#table](#hashtable)                                                                               |get pipe format table string from key + value                                                                        |
+|[TbpgrUtils Hash#table](#hashtable)                                                                                |get pipe format table string from key + value                                                                        |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
@@ -1175,6 +1176,42 @@ output bommed text from input.csv to input.csv
 require 'tbpgr_utils'
 
 File.insert_bom("input.csv") # => output bommed text to output.csv
+~~~
+
+[back to list](#list)
+
+### Fixnum.to_fixnum_table
+1 to 100 by 10 case
+~~~ruby
+Fixnum.to_fixnum_table(1, 100, 10)
+~~~
+
+result
+~~~
+| 1| 2| 3| 4| 5| 6| 7| 8| 9| 10|
+|11|12|13|14|15|16|17|18|19| 20|
+|21|22|23|24|25|26|27|28|29| 30|
+|31|32|33|34|35|36|37|38|39| 40|
+|41|42|43|44|45|46|47|48|49| 50|
+|51|52|53|54|55|56|57|58|59| 60|
+|61|62|63|64|65|66|67|68|69| 70|
+|71|72|73|74|75|76|77|78|79| 80|
+|81|82|83|84|85|86|87|88|89| 90|
+|91|92|93|94|95|96|97|98|99|100|
+~~~
+
+1 to 10 by 2 case
+~~~ruby
+Fixnum.to_fixnum_table(1, 10, 2)
+~~~
+
+result
+~~~
+|1| 2|
+|3| 4|
+|5| 6|
+|7| 8|
+|9|10|
 ~~~
 
 [back to list](#list)
@@ -2843,6 +2880,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.84 : add Fixnum to_fixnum_table
 * version 0.0.83 : add Numeric to_digit_table
 * version 0.0.82 : add Numeric to_oct_table
 * version 0.0.81 : add Numeric to_hex_table

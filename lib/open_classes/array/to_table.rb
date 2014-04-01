@@ -13,11 +13,11 @@ class Array
   #   |header1|header2|header3|
   #   |line1_1|line1_2|line1_3|
   #
-  def to_table
+  def to_table(position = :right)
     ret = reduce([]) do |rets, lines|
       ret = lines.reduce([]) { |ret, column|ret << column; ret }
       rets << "|#{ret.join("|")}|"
     end.join("\n") + "\n"
-    ret.justify_table(:center)
+    ret.justify_table(position)
   end
 end

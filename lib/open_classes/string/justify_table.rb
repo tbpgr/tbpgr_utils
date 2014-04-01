@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'open_classes/string/ascii1_other2_size'
 
 # String
 class String
