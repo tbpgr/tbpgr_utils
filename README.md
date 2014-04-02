@@ -115,6 +115,7 @@ Or install it yourself as:
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
+|[TbpgrUtils String#table_to_array](#stringtable_to_array)                                                          |convert table format string to array.                                                                                |
 |[TbpgrUtils String#to_hatena_heading](#stringto_hatena_heading)                                                    |create hatena-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_markdown_heading](#stringto_markdown_heading)                                                |create markdown-format heading string with Emmet-like grammar                                                        |
 |[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                          |
@@ -2657,6 +2658,25 @@ result
 ======
 !hoge!
 ======
+~~~
+
+[back to list](#list)
+
+### String#table_to_array
+sample case
+
+~~~ruby
+require 'tbpgr_utils'
+BEFORE =<<-EOS
+|header1|header2 |header3|
+|line1_1| line1_2|line1_3|
+EOS
+BEFORE.table_to_array
+~~~
+
+result
+~~~ruby
+[["header1", "header2", "header3"], ["line1_1", "line1_2", "line1_3"]]
 ~~~
 
 [back to list](#list)
