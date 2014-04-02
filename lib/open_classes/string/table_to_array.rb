@@ -5,7 +5,7 @@ class String
   #
   # === Example
   #
-  # sample case
+  # sample case.
   #
   #   BEFORE =<<-EOS
   #   |header1|header2 |header3|

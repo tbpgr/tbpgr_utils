@@ -20,7 +20,7 @@ describe String do
           case_before c
 
           # -- given --
-          # nothing
+          # nothing*
 
           # -- when --
           actual = c[:input].table_to_array

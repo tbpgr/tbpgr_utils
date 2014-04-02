@@ -2663,7 +2663,7 @@ result
 [back to list](#list)
 
 ### String#table_to_array
-sample case
+sample case.
 
 ~~~ruby
 require 'tbpgr_utils'
