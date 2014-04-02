@@ -2900,6 +2900,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.85 : add String#table_to_array
 * version 0.0.84 : add Fixnum to_fixnum_table
 * version 0.0.83 : add Numeric to_digit_table
 * version 0.0.82 : add Numeric to_oct_table
