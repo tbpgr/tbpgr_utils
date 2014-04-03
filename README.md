@@ -74,6 +74,7 @@ Or install it yourself as:
 |[EvalHelper#ternary_operator](#evalhelperternary_operator)                                                         |create ternary operator strings, for eval                                                                            |
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
+|[Familyable](#familyable)                                                                                          |user family model(family, person, parents, children, brothers)                                                       |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[TbpgrUtils Fixnum to_fixnum_table](#fixnum-to_fixnum_table)                                                       |return value is fixnum table                                                                                         |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
@@ -1159,6 +1160,30 @@ output
 hoge=@hoge@
 hige=@hige@
 ~~~
+
+[back to list](#list)
+
+### Familyable
+5 person case
+
+~~~ruby
+require 'familyable'
+persons = [
+  a = Familyable::Person.new(id: 1, parent_ids: [2, 3]),
+  b = Familyable::Person.new(id: 2, parent_ids: []),
+  c = Familyable::Person.new(id: 3, parent_ids: [4],),
+  d = Familyable::Person.new(id: 4, parent_ids: [3]),
+  e = Familyable::Person.new(id: 5, parent_ids: [2]),
+]
+
+family = Familyable::Family.new(family: persons)
+family.get_parents a # => return person [b, c]
+family.get_children b # => return person [a, e]
+family.get_brothers a # => return person [d, e]
+~~~
+
+If you want to use other model instead of person,  
+Create model that has two fileds that are 'id' and 'parent_ids'.
 
 [back to list](#list)
 
@@ -2900,6 +2925,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.86 : add Familyable
 * version 0.0.85 : add String#table_to_array
 * version 0.0.84 : add Fixnum to_fixnum_table
 * version 0.0.83 : add Numeric to_digit_table
