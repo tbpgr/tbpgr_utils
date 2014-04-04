@@ -114,6 +114,7 @@ Or install it yourself as:
 |[TbpgrUtils String#is_meta_variable?](#stringis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
+|[TbpgrUtils String#spacing](#stringspacing)                                                                        |get spacing string                                                                                                   |
 |[TbpgrUtils String#stripe](#stringstripe)                                                                          |stripe string                                                                                                        |
 |[TbpgrUtils String#surround](#stringsurround)                                                                      |surround string                                                                                                      |
 |[TbpgrUtils String#table_to_array](#stringtable_to_array)                                                          |convert table format string to array.                                                                                |
@@ -2606,6 +2607,16 @@ hyphen case
 
 [back to list](#list)
 
+### String#spacing
+~~~ruby
+require 'tbpgr_utils'
+hoge = 'hoge'
+hoge.spacing # => 'h o g e'
+hoge.spacing({char: '_', size: 2}) # => 'h__o__g__e'
+~~~
+
+[back to list](#list)
+
 ### String#stripe
 default case
 ~~~ ruby
@@ -2925,6 +2936,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.87 : add String#spacing
 * version 0.0.86 : add Familyable
 * version 0.0.85 : add String#table_to_array
 * version 0.0.84 : add Fixnum to_fixnum_table
