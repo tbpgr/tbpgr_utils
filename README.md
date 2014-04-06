@@ -110,6 +110,7 @@ Or install it yourself as:
 |[TbpgrUtils String#ascii1_other2_size](#stringascii1_other2_size)                                                  |count string size. ascii => count1, not ascii => count2                                                              |
 |[TbpgrUtils String#ascii_unicode_table](#stringascii_unicode_table)                                                |get ascii_unicode_table                                                                                              |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
+|[TbpgrUtils String#escape_quote](#stringescape_quote)                                                              |escape quote                                                                                                         |
 |[TbpgrUtils String#escape_double_quote](#stringescape_double_quote)                                                |escape double quote                                                                                                  |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
 |[TbpgrUtils String#is_meta_variable?](#stringis_meta_variable)                                                     |is meta variable.                                                                                                    |
@@ -2530,6 +2531,14 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#escape_quote
+~~~ruby
+require 'tbpgr_utils'
+"hoge'hige".escape_quote # => "hoge''hige"
+~~~
+
+[back to list](#list)
+
 ### String#escape_double_quote
 ~~~ruby
 require 'tbpgr_utils'
@@ -2945,6 +2954,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.89 : add String#escape_quote
 * version 0.0.88 : add String#escape_double_quote
 * version 0.0.87 : add String#spacing
 * version 0.0.86 : add Familyable
