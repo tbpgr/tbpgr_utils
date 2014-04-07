@@ -85,7 +85,8 @@ Or install it yourself as:
 |[TestToolbox Kernel#dp_line](#kerneldp_line)                                                                       |debug print line for print-debugging                                                                                 |
 |[TbpgrUtils Kernel#aa_ancestors](#kernelaa_ancestors)                                                              |Ascii Art Ancestors                                                                                                  |
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
-|[TbpgrUtils Kernel#evalb](#kernelevalb)                                                                            |eval block version                                                                                                   |
+|[TbpgrUtils Kernel#evalb](#kernelevalb)                                                                            |set attributes from hash                                                                                             |
+|[TbpgrUtils Kernel#hash_to_attributes](#kernelhash_to_attributes)                                                  |eval block version                                                                                                   |
 |[TbpgrUtils Kernel#null](#kernelnull)                                                                              |null is alias of nil                                                                                                 |
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
@@ -1465,6 +1466,25 @@ n = n + 2
 end
 
 print actual # => 4
+~~~
+
+[back to list](#list)
+
+### Kernel#hash_to_attributes
+~~~ruby
+require 'tbpgr_utils'
+
+class Person
+  attr_accessor :name, :age
+end
+
+person = Person.new
+person.hash_to_attributes({name: 'hoge', age: 33})
+~~~
+
+result
+~~~ruby
+#<PersonForHashToAttributes:0x3957858 @age=33, @not_exists="hoge">
 ~~~
 
 [back to list](#list)
@@ -2954,6 +2974,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.90 : add Kernel#hash_to_attributes
 * version 0.0.89 : add String#escape_quote
 * version 0.0.88 : add String#escape_double_quote
 * version 0.0.87 : add String#spacing

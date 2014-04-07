@@ -3,17 +3,17 @@ require 'spec_helper'
 require 'open_classes/string/escape_double_quote'
 
 describe String do
-  context :escape_double_quote do
+  context :escape_quote do
     cases = [
       {
         case_no: 1,
-        case_title: 'exist double quote case',
-        input: 'hoge"h"ige',
-        expected: 'hoge""h""ige',
+        case_title: 'exist quote case',
+        input: "hoge'h'ige",
+        expected: "hoge''h''ige",
       },
       {
         case_no: 2,
-        case_title: 'not exist double quote case',
+        case_title: 'not exist quote case',
         input: 'hogehige',
         expected: 'hogehige',
       },
@@ -28,7 +28,7 @@ describe String do
           # nothing
 
           # -- when --
-          actual = c[:input].escape_double_quote
+          actual = c[:input].escape_quote
 
           # -- then --
           expect(actual).to eq(c[:expected])
