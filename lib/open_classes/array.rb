@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'open_classes/array/to_html_table'
 require 'open_classes/array/to_table'
 require 'open_classes/array/together'
 require 'open_classes/array/together_at'

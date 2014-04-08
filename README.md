@@ -25,6 +25,7 @@ Or install it yourself as:
 | class/module/method                                                                                               | mean                                                                                                                |
 |:-----------                                                                                                       |:------------                                                                                                        |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
+|[TbpgrUtils Array#to_html_table](#arrayto_html_table)                                                              |Array(Array, Array...) to html table format.                                                                         |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
 |[TbpgrUtils Array#together_at](#arraytogether_at)                                                                  |together version of Array#at. together_at has alias :tat                                                             |
 |[TbpgrUtils Array#together_clear](#arraytogether_clear)                                                            |together version of Array#clear. together_clear has alias :tclear                                                    |
@@ -141,6 +142,51 @@ result
 |header1|header2|header3|
 |line1_1|line1_2|line1_3|
 ~~~
+
+[back to list](#list)
+
+### Array#to_html_table
+~~~ruby
+[['header1', 'header2', 'header3'],['line1_1', 'line1_2', 'line1_3']].to_html_table
+~~~
+
+result
+~~~
+<table>
+  <tr>
+    <th>header1</th>
+    <th>header2</th>
+    <th>header3</th>
+  </tr>
+  <tr>
+    <td>line1_1</td>
+    <td>line1_2</td>
+    <td>line1_3</td>
+  </tr>
+</table>
+~~~
+
+no header case
+~~~ruby
+[['not_header1', 'not_header2', 'not_header3'],['line1_1', 'line1_2', 'line1_3']].to_html_table({no_header: true})
+~~~
+
+result
+~~~
+<table>
+  <tr>
+    <td>not_header1</td>
+    <td>not_header2</td>
+    <td>not_header3</td>
+  </tr>
+  <tr>
+    <td>line1_1</td>
+    <td>line1_2</td>
+    <td>line1_3</td>
+  </tr>
+</table>
+~~~
+
 
 [back to list](#list)
 
@@ -2974,6 +3020,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.91 : add Array#to_html_table
 * version 0.0.90 : add Kernel#hash_to_attributes
 * version 0.0.89 : add String#escape_quote
 * version 0.0.88 : add String#escape_double_quote
