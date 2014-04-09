@@ -77,7 +77,8 @@ Or install it yourself as:
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
 |[Familyable](#familyable)                                                                                          |user family model(family, person, parents, children, brothers)                                                       |
 |[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
-|[TbpgrUtils Fixnum to_fixnum_table](#fixnum-to_fixnum_table)                                                       |return value is fixnum table                                                                                         |
+|[TbpgrUtils Fixnum to_fixnum_html_table](#fixnum-to_fixnum_html_table)                                             |return value is fixnum html table                                                                                    |
+|[TbpgrUtils Fixnum to_fixnum_table](#fixnumto_fixnum_table)                                                        |return value is fixnum table                                                                                         |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
 |[TbpgrUtils Hash#table](#hashtable)                                                                                |get pipe format table string from key + value                                                                        |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
@@ -1252,6 +1253,40 @@ output bommed text from input.csv to input.csv
 require 'tbpgr_utils'
 
 File.insert_bom("input.csv") # => output bommed text to output.csv
+~~~
+
+[back to list](#list)
+
+### Fixnum.to_fixnum_html_table
+1 to 10 by 2 case
+~~~ruby
+Fixnum.to_fixnum_table(1, 10, 2)
+~~~
+
+result
+~~~
+<table>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>10</td>
+  </tr>
+</table>
 ~~~
 
 [back to list](#list)
@@ -3020,6 +3055,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.92 : add Fixnum.to_fixnum_html_table
 * version 0.0.91 : add Array#to_html_table
 * version 0.0.90 : add Kernel#hash_to_attributes
 * version 0.0.89 : add String#escape_quote
