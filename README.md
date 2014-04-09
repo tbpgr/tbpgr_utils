@@ -1260,7 +1260,8 @@ File.insert_bom("input.csv") # => output bommed text to output.csv
 ### Fixnum.to_fixnum_html_table
 1 to 10 by 2 case
 ~~~ruby
-Fixnum.to_fixnum_table(1, 10, 2)
+require 'tbpgr_utils'
+Fixnum.to_fixnum_html_table(1, 10, 2)
 ~~~
 
 result
