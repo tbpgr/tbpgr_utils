@@ -128,6 +128,7 @@ Or install it yourself as:
 |[TbpgrUtils String#to_space2_heading](#stringto_space2_heading)                                                    |create space2-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_tab_heading](#stringto_tab_heading)                                                          |create tab-format heading string with Emmet-like grammar                                                             |
+|[TbpgrUtils String#unescape_double_quote](#stringunescape_double_quote)                                            |unescape double quote                                                                                                |
 |[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
@@ -1501,7 +1502,7 @@ end
 [back to list](#list)
 
 ### Kernel#aa_ancestors
-Ascii Airt Ancestors
+Ascii Art Ancestors
 
 ~~~ruby
 class BaseHogeForAncestors;end
@@ -2857,7 +2858,6 @@ require 'tbpgr_utils'
 'hoge>hige^hege'.to_hatena_heading # => '*hoge\n**hige\n*hege'
 ~~~
 
-
 [back to list](#list)
 
 ### String#to_markdown_heading
@@ -2942,6 +2942,14 @@ require 'tbpgr_utils'
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige^hege'.to_tab_heading # => 'hoge\n\thige\nhege'
+~~~
+
+[back to list](#list)
+
+### String#unescape_double_quote
+~~~ruby
+require 'tbpgr_utils'
+'hoge""hige'.unescape_double_quote # => 'hoge"hige'
 ~~~
 
 [back to list](#list)
@@ -3056,6 +3064,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.93 : add String#unescape_double_quote
 * version 0.0.92 : add Fixnum.to_fixnum_html_table
 * version 0.0.91 : add Array#to_html_table
 * version 0.0.90 : add Kernel#hash_to_attributes
