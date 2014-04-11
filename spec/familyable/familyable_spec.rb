@@ -11,7 +11,7 @@ describe Familyable::Family do
         persons: [
           a = Familyable::Person.new(id: 1, parent_ids: [2, 3]),
           b = Familyable::Person.new(id: 2, parent_ids: []),
-          c = Familyable::Person.new(id: 3, parent_ids: [4], ),
+          c = Familyable::Person.new(id: 3, parent_ids: [4],),
           d = Familyable::Person.new(id: 4, parent_ids: []),
           e = Familyable::Person.new(id: 5, parent_ids: [2]),
         ],
@@ -59,7 +59,7 @@ describe Familyable::Family do
         persons: [
           a = Familyable::Person.new(id: 1, parent_ids: [2, 3]),
           b = Familyable::Person.new(id: 2, parent_ids: []),
-          c = Familyable::Person.new(id: 3, parent_ids: [4], ),
+          c = Familyable::Person.new(id: 3, parent_ids: [4],),
           d = Familyable::Person.new(id: 4, parent_ids: []),
           e = Familyable::Person.new(id: 5, parent_ids: [2]),
         ],
@@ -107,7 +107,7 @@ describe Familyable::Family do
         persons: [
           a = Familyable::Person.new(id: 1, parent_ids: [2, 3]),
           b = Familyable::Person.new(id: 2, parent_ids: []),
-          c = Familyable::Person.new(id: 3, parent_ids: [4], ),
+          c = Familyable::Person.new(id: 3, parent_ids: [4],),
           d = Familyable::Person.new(id: 4, parent_ids: [3]),
           e = Familyable::Person.new(id: 5, parent_ids: [2]),
         ],

@@ -26,4 +26,6 @@ module AttributesHashable
       hash
     end
   end
+
+  alias_method :to_h, :to_hash
 end
