@@ -80,6 +80,7 @@ Or install it yourself as:
 |[TbpgrUtils Fixnum to_fixnum_html_table](#fixnum-to_fixnum_html_table)                                             |return value is fixnum html table                                                                                    |
 |[TbpgrUtils Fixnum to_fixnum_table](#fixnumto_fixnum_table)                                                        |return value is fixnum table                                                                                         |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
+|[TbpgrUtils Hash#html_table](#hashhtml_table)                                                                      |get html table string from key + value                                                                               |
 |[TbpgrUtils Hash#table](#hashtable)                                                                                |get pipe format table string from key + value                                                                        |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
@@ -1413,6 +1414,37 @@ dp_line __LINE__, filename: __FILE__
 dp_line __LINE__, filename: __FILE__, char: '@'
 # output is following. xx=filenamem, yy = line no.
 # => @@@@@@@@@@@@@@@@@@@@|filename=xx|line=yy$|@@@@@@@@@@@@@@@@@@@@\n
+~~~
+
+[back to list](#list)
+
+### Hash#html_table
+~~~ruby
+require 'tbpgr_utils'
+{
+  :key_1 => :value1,
+  :key__2 => :value2,
+  :key___3 => :value3,
+}.html_table
+~~~
+
+result
+
+~~~
+<table>
+  <tr>
+    <td>key_1</td>
+    <td>value1</td>
+  </tr>
+  <tr>
+    <td>key__2</td>
+    <td>value2</td>
+  </tr>
+  <tr>
+    <td>key___3</td>
+    <td>value3</td>
+  </tr>
+</table>
 ~~~
 
 [back to list](#list)
@@ -3073,6 +3105,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.95 : add Hash#html_table
 * version 0.0.94 : add String#unescape_quote
 * version 0.0.93 : add String#unescape_double_quote
 * version 0.0.92 : add Fixnum.to_fixnum_html_table
