@@ -32,7 +32,7 @@ class Hash
   #   </table>
   #
   def html_table
-    ret = [keys, values].treduce(["<table>"]) do |ret, one, other|
+    ret = [keys, values].treduce(['<table>']) do |ret, one, other|
       ret << "  <tr>\n    <td>#{one}</td>\n    <td>#{other}</td>\n  </tr>"
       ret
     end

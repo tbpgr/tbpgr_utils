@@ -98,6 +98,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
 |[TbpgrUtils Numeric#dozen](#numericdozen)                                                                          |get dozen number                                                                                                     |
 |[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
+|[TbpgrUtils Numeric to_binary_html_table](#numeric-to_binary_html_table)                                           |binary html table                                                                                                    |
 |[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                     |binary table                                                                                                         |
 |[TbpgrUtils Numeric to_digit_table](#numeric-to_digit_table)                                                       |digit table                                                                                                          |
 |[TbpgrUtils Numeric to_hex_table](#numeric-to_hex_table)                                                           |hex table                                                                                                            |
@@ -2381,6 +2382,34 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### Numeric to_binary_html_table
+
+[back to list](#list)
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_binary_html_table(255, 256)
+~~~
+
+result
+~~~
+<table>
+  <tr>
+    <th>10digit</th>
+    <th>2digit</th>
+  </tr>
+  <tr>
+    <td>255</td>
+    <td>0000000011111111</td>
+  </tr>
+  <tr>
+    <td>256</td>
+    <td>0000000100000000</td>
+  </tr>
+</table>
+~~~
+
+[back to list](#list)
+
 ### Numeric to_binary_table
 1 to 3 case
 ~~~ruby
@@ -3105,6 +3134,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.96 : add Numeric.to_binary_html_table
 * version 0.0.95 : add Hash#html_table
 * version 0.0.94 : add String#unescape_quote
 * version 0.0.93 : add String#unescape_double_quote
