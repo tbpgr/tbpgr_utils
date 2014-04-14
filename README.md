@@ -100,6 +100,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
 |[TbpgrUtils Numeric to_binary_html_table](#numeric-to_binary_html_table)                                           |binary html table                                                                                                    |
 |[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                     |binary table                                                                                                         |
+|[TbpgrUtils Numeric to_digit_html_table](#numeric-to_digit_html_table)                                             |digit html table                                                                                                     |
 |[TbpgrUtils Numeric to_digit_table](#numeric-to_digit_table)                                                       |digit table                                                                                                          |
 |[TbpgrUtils Numeric to_hex_table](#numeric-to_hex_table)                                                           |hex table                                                                                                            |
 |[TbpgrUtils Numeric to_oct_table](#numeric-to_oct_table)                                                           |oct table                                                                                                            |
@@ -2423,6 +2424,39 @@ result
 |1      |00000001|
 |2      |00000010|
 |3      |00000011|
+~~~
+
+[back to list](#list)
+
+### Numeric to_digit_html_table
+255 to 256 case
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_digit_html_table(255, 256)
+~~~
+
+result
+~~~html
+<table>
+  <tr>
+    <th>10digit</th>
+    <th>2digit</th>
+    <th>8digit</th>
+    <th>16digit</th>
+  </tr>
+  <tr>
+    <td>255</td>
+    <td>0000000011111111</td>
+    <td>377</td>
+    <td>00ff</td>
+  </tr>
+  <tr>
+    <td>256</td>
+    <td>0000000100000000</td>
+    <td>400</td>
+    <td>0100</td>
+  </tr>
+</table>
 ~~~
 
 [back to list](#list)
