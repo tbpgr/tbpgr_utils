@@ -3168,6 +3168,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.97 : add Numeric.to_digit_html_table
 * version 0.0.96 : add Numeric.to_binary_html_table
 * version 0.0.95 : add Hash#html_table
 * version 0.0.94 : add String#unescape_quote
