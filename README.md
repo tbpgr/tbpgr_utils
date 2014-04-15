@@ -102,6 +102,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                     |binary table                                                                                                         |
 |[TbpgrUtils Numeric to_digit_html_table](#numeric-to_digit_html_table)                                             |digit html table                                                                                                     |
 |[TbpgrUtils Numeric to_digit_table](#numeric-to_digit_table)                                                       |digit table                                                                                                          |
+|[TbpgrUtils Numeric to_hex_html_table](#numeric-to_hex_html_table)                                                 |hex html table                                                                                                       |
 |[TbpgrUtils Numeric to_hex_table](#numeric-to_hex_table)                                                           |hex table                                                                                                            |
 |[TbpgrUtils Numeric to_oct_table](#numeric-to_oct_table)                                                           |oct table                                                                                                            |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
@@ -2477,7 +2478,7 @@ result
 
 [back to list](#list)
 
-### Numeric to_html_hex_table
+### Numeric to_hex_html_table
 65535 to 65536 case
 ~~~ruby
 require 'tbpgr_utils'
