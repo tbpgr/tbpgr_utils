@@ -2477,6 +2477,33 @@ result
 
 [back to list](#list)
 
+### Numeric to_html_hex_table
+65535 to 65536 case
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_hex_html_table(65535, 65536)
+~~~
+
+result
+~~~
+<table>
+  <tr>
+    <th>10digit</th>
+    <th>16digit</th>
+  </tr>
+  <tr>
+    <td>65535</td>
+    <td>0000ffff</td>
+  </tr>
+  <tr>
+    <td>65536</td>
+    <td>00010000</td>
+  </tr>
+</table>
+~~~
+
+[back to list](#list)
+
 ### Numeric to_hex_table
 65535 to 65536 case
 ~~~ruby
@@ -3168,6 +3195,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.98 : add Numeric.to_hex_html_table
 * version 0.0.97 : add Numeric.to_digit_html_table
 * version 0.0.96 : add Numeric.to_binary_html_table
 * version 0.0.95 : add Hash#html_table
