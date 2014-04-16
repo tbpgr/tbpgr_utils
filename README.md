@@ -104,6 +104,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric to_digit_table](#numeric-to_digit_table)                                                       |digit table                                                                                                          |
 |[TbpgrUtils Numeric to_hex_html_table](#numeric-to_hex_html_table)                                                 |hex html table                                                                                                       |
 |[TbpgrUtils Numeric to_hex_table](#numeric-to_hex_table)                                                           |hex table                                                                                                            |
+|[TbpgrUtils Numeric to_oct_html_table](#numeric-to_oct_html_table)                                                 |oct html table                                                                                                       |
 |[TbpgrUtils Numeric to_oct_table](#numeric-to_oct_table)                                                           |oct table                                                                                                            |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
@@ -2521,6 +2522,33 @@ result
 
 [back to list](#list)
 
+### Numeric to_oct_html_table
+65535 to 65536 case
+~~~ruby
+require 'tbpgr_utils'
+Numeric.to_oct_html_table(65535, 65536)
+~~~
+
+result
+~~~
+<table>
+  <tr>
+    <th>10digit</th>
+    <th>8digit</th>
+  </tr>
+  <tr>
+    <td>65535</td>
+    <td>177777</td>
+  </tr>
+  <tr>
+    <td>65536</td>
+    <td>200000</td>
+  </tr>
+</table>
+~~~
+
+[back to list](#list)
+
 ### Numeric to_oct_table
 65535 to 65536 case
 ~~~ruby
@@ -3196,6 +3224,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.99 : add Numeric.to_oct_html_table
 * version 0.0.98 : add Numeric.to_hex_html_table
 * version 0.0.97 : add Numeric.to_digit_html_table
 * version 0.0.96 : add Numeric.to_binary_html_table
