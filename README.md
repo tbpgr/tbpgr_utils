@@ -116,6 +116,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[SimpleTournament](#simpletournament)                                                                              |simple tournament                                                                                                    |
 |[TbpgrUtils String#ascii1_other2_size](#stringascii1_other2_size)                                                  |count string size. ascii => count1, not ascii => count2                                                              |
+|[TbpgrUtils String#ascii_unicode_html_table](#stringascii_unicode_html_table)                                      |get ascii_unicode_html_table                                                                                         |
 |[TbpgrUtils String#ascii_unicode_table](#stringascii_unicode_table)                                                |get ascii_unicode_table                                                                                              |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
 |[TbpgrUtils String#escape_quote](#stringescape_quote)                                                              |escape quote                                                                                                         |
@@ -145,7 +146,7 @@ require 'tbpgr_utils'
 [['header1', 'header2', 'header3'],['line1_1', 'line1_2', 'line1_3']].to_table
 ~~~
 
-result
+result  
 ~~~
 |header1|header2|header3|
 |line1_1|line1_2|line1_3|
@@ -158,7 +159,7 @@ result
 [['header1', 'header2', 'header3'],['line1_1', 'line1_2', 'line1_3']].to_html_table
 ~~~
 
-result
+result  
 ~~~
 <table>
   <tr>
@@ -179,7 +180,7 @@ no header case
 [['not_header1', 'not_header2', 'not_header3'],['line1_1', 'line1_2', 'line1_3']].to_html_table({no_header: true})
 ~~~
 
-result
+result  
 ~~~
 <table>
   <tr>
@@ -292,7 +293,7 @@ ret = lists.together_delete 2
 print lists # => output [[1, 3, 4], [3, 4, 5]]
 ~~~
 
-if delete target is not exist
+if delete target is not exist  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -304,7 +305,7 @@ print ret # => nil
 print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
 ~~~
 
-if delete target is not exist and use block
+if delete target is not exist and use block  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -319,7 +320,7 @@ print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
 [back to list](#list)
 
 ### Array#together_delete_at
-if delete_at target is exist
+if delete_at target is exist  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -331,7 +332,7 @@ print ret # => [3, 4]
 print lists # => output [[1, 2, 4], [2, 3, 5]]
 ~~~
 
-if delete_at target is not exist
+if delete_at target is not exist  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -343,7 +344,7 @@ print ret # => [nil, nil]
 print lists # => output [[1, 2, 3, 4], [2, 3, 4, 5]]
 ~~~
 
-if delete_at target is exist(minus index)
+if delete_at target is exist(minus index)  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -358,7 +359,7 @@ print lists # => output [[1, 3, 4], [2, 4, 5]]
 [back to list](#list)
 
 ### Array#together_delete_if
-if delete_if target is exist
+if delete_if target is exist  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -367,7 +368,7 @@ ret = lists.together_delete_if {|first, second|(first + second).odd?}
 print ret # => [[2, 4], [4, 8]]
 ~~~
 
-if delete_if target is not exist. return nil.
+if delete_if target is not exist. return nil.  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -379,7 +380,7 @@ print ret # => nil
 [back to list](#list)
 
 ### Array#together_empty?
-empty case
+empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -388,7 +389,7 @@ ret = lists.together_empty?
 print ret # => true
 ~~~
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -400,7 +401,7 @@ print ret # => false
 [back to list](#list)
 
 ### Array#together_fill
-not use block case
+not use block case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -409,7 +410,7 @@ ret = lists.together_fill(99)
 print ret # => [[99, 99, 99, 99, 99], [99, 99, 99, 99, 99]]
 ~~~
 
-use block, no args case
+use block, no args case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -418,7 +419,7 @@ ret = lists.together_fill { |i|(i + 1) + 1 }
 print ret # => [[2, 3, 4, 5, 6], [2, 3, 4, 5, 6]]
 ~~~
 
-use block, has args case
+use block, has args case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -430,7 +431,7 @@ print ret # => [[1, 2, 4, 5, 6], [6, 7, 4, 5, 6]]
 [back to list](#list)
 
 ### Array#together_first
-no args case
+no args case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -439,7 +440,7 @@ ret = lists.together_first
 print ret # => [1, 6]
 ~~~
 
-has args 2 case
+has args 2 case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -448,7 +449,7 @@ ret = lists.together_first 2
 print ret # => [[1, 2], [6, 7]]
 ~~~
 
-has args 0 case
+has args 0 case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -457,7 +458,7 @@ ret = lists.together_first 0
 print ret # => [[], []]
 ~~~
 
-has args over size case
+has args over size case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -473,7 +474,7 @@ together_include? is bulk version of Array#include?
 
 together_include? has alias :tinclude?
 
-both include single ret case
+both include single ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -482,7 +483,7 @@ ret = lists.together_include? 5
 print ret # => true
 ~~~
 
-one include single ret case
+one include single ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -491,7 +492,7 @@ ret = lists.together_include? 9
 print ret # => true
 ~~~
 
-both not include single ret case
+both not include single ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -500,7 +501,7 @@ ret = lists.together_include? 10
 print ret # => false
 ~~~
 
-both include multi ret case
+both include multi ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -509,7 +510,7 @@ ret = lists.together_include? 5, true
 print ret # => [true, true]
 ~~~
 
-one include multi ret case
+one include multi ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -518,7 +519,7 @@ ret = lists.together_include? 9, true
 print ret # => [false, true]
 ~~~
 
-both not include multi ret case
+both not include multi ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -532,7 +533,7 @@ print ret # => [false, false]
 ### Array#together_index
 together_index has alias :tindex
 
-both index exist case
+both index exist case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -541,7 +542,7 @@ ret = lists.together_index 5
 print ret # => [4, 0]
 ~~~
 
-one include single ret case
+one include single ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -550,7 +551,7 @@ ret = lists.together_index 4
 print ret # => [3, nil]
 ~~~
 
-both not include single ret case
+both not include single ret case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -564,7 +565,7 @@ print ret # => [nil, nil]
 ### Array#together_insert
 together_insert has alias :tinsert
 
-both insert exist case
+both insert exist case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -573,7 +574,7 @@ ret = lists.together_insert(1, 55, 66)
 print ret # => [[1, 55, 66, 2, 3, 4, 5], [5, 55, 66, 6, 7, 8, 9]]
 ~~~
 
-both insert exist and minus index case
+both insert exist and minus index case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -582,7 +583,7 @@ ret = lists.together_insert(-2, 55, 66)
 print ret # => [[1, 2, 3, 4, 55, 66, 5], [5, 6, 7, 8, 55, 66, 9]]
 ~~~
 
-both insert exist case
+both insert exist case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -596,7 +597,7 @@ print ret # => [[1, 2, 3, 4, 5, nil, 55, 66], [5, 6, 7, 8, 9, nil, 55, 66]],
 ### Array#together_last
 together_last has alias :tlast
 
-no args case
+no args case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -605,7 +606,7 @@ ret = lists.together_last
 print ret # => [5, 10]
 ~~~
 
-has args 2 case
+has args 2 case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -614,7 +615,7 @@ ret = lists.together_last 2
 print ret # => [[4, 5], [9, 10]]
 ~~~
 
-has args 0 case
+has args 0 case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -623,7 +624,7 @@ ret = lists.together_last 0
 print ret # => [[], []]
 ~~~
 
-has args over size case
+has args over size case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -644,7 +645,7 @@ ret = [alpha, numbers].together_map {|first, second|"#{first}:#{second}"}
 print ret # => output [one:1, two:2, three:3]
 ~~~
 
-if you want to return multi array, following.
+if you want to return multi array, following.  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -657,7 +658,7 @@ print ret # => output [["one:ret", "two:ret", "three:ret"],["1:ret", "2:ret", "3
 [back to list](#list)
 
 ### Array#together_map!(or tmap!, together_collect!, tcollect!)
-if you want to return single array, following.
+if you want to return single array, following.  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -671,7 +672,7 @@ print ret # => output ['one:1', 'two:2', 'three:3']
 print ary # => output ['one:1', 'two:2', 'three:3']
 ~~~
 
-if you want to return multi array, following.
+if you want to return multi array, following.  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -690,7 +691,7 @@ print ary # => output [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:
 ### Array#together_pop(or tpop)
 together_pop has alias :tpop
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -700,7 +701,7 @@ print ret # => [2, 6]
 print lists # => [1, 5]
 ~~~
 
-empty case
+empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -710,7 +711,7 @@ print ret # => [nil, nil]
 print lists # => [[], []]
 ~~~
 
-not empty case with args
+not empty case with args  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -720,7 +721,7 @@ print ret # => [[1, 2], [5, 6]]
 print lists # => [[], []]
 ~~~
 
-not empty case with args
+not empty case with args  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -793,7 +794,7 @@ print ret # => output {1=>4, 2=>2, 3=>3, 4=>1}
 ### Array#together_reverse(or :treverse)
 together_reverse has alias :treverse
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -803,7 +804,7 @@ print ret # => [[2, 1], [6, 5]]
 print lists # => [[1, 2], [5, 6]]
 ~~~
 
-one empty case
+one empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -818,7 +819,7 @@ print lists # => [[1, 2], []]
 ### Array#together_reverse!(or :treverse!)
 together_reverse! has alias :treverse!
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -828,7 +829,7 @@ print ret # => [[2, 1], [6, 5]]
 print lists # => [[2, 1], [6, 5]]
 ~~~
 
-one empty case
+one empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -843,7 +844,7 @@ print lists # => [[2, 1], []]
 ### Array#together_sample(or :tsample)
 together_sample has alias :tsample
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -852,7 +853,7 @@ ret = lists.together_sample
 print ret # => [1 or 2, 5 or 6]
 ~~~
 
-empty case
+empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -861,7 +862,7 @@ ret = lists.together_sample
 print ret # => [nil, nil]
 ~~~
 
-not empty case with args
+not empty case with args  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -870,7 +871,7 @@ ret = lists.together_sample 2
 print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]] 
 ~~~
 
-not empty case with args
+not empty case with args  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -879,7 +880,7 @@ ret = lists.together_sample 2
 print ret # => [[], []]
 ~~~
 
-not empty, over size case with args
+not empty, over size case with args  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -900,7 +901,7 @@ ret = [firsts, seconds].together_select{|first, second|first == second}
 print ret # => output  [[2, 3], [2, 3]]
 ~~~
 
-if you want to return multi array, following.
+if you want to return multi array, following.  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -915,7 +916,7 @@ print ret # => output  [[1, 3], [4, 2]]
 ### Array#together_shift(or tshift)
 together_shift has alias :tshift
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -925,7 +926,7 @@ print ret # => [1, 5]
 print lists # => [2, 6]
 ~~~
 
-empty case
+empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -935,7 +936,7 @@ print ret # => [nil, nil]
 print lists # => [[], []]
 ~~~
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -945,7 +946,7 @@ print ret # => [[1, 2], [5, 6]]
 print lists # => [[], []]
 ~~~
 
-not empty case
+not empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -971,7 +972,7 @@ print ret # => [[1 or 2, 1 or 2], [5 or 6, 5 or 6]]
 [back to list](#list)
 
 ### Array#together_slice(or :tslice)
-single args case
+single args case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -980,7 +981,7 @@ ret = lists.together_slice 2
 print ret # => [3, 8]
 ~~~
 
-multi args case
+multi args case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -989,7 +990,7 @@ ret = lists.together_slice 2, 2
 print ret # => [[3, 4], [8, 9]]
 ~~~
 
-range args case
+range args case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -1058,7 +1059,7 @@ p atr_sample2.atr1 # => atr1
 p atr_sample2.atr2 # => atr2
 ~~~
 
-same mean code is
+same mean code is  
 ~~~ruby
 class AccessorSample
   attr_accessor :atr1, :atr2
@@ -1104,7 +1105,7 @@ p atr_sample1.atr2 # => atr2
 # end
 ~~~
 
-same mean code is
+same mean code is  
 ~~~ruby
 class AccessorSample
   attr_reader :atr1, :atr2
@@ -1157,7 +1158,7 @@ atr_sample2.instance_variable_get "@atr1" # => atr1
 atr_sample2.instance_variable_get "@atr2" # => atr2
 ~~~
 
-same mean code is
+same mean code is  
 ~~~ruby
 class AccessorSample
   attr_writer :atr1, :atr2
@@ -1248,14 +1249,14 @@ Create model that has two fileds that are 'id' and 'parent_ids'.
 ### File.insert_bom
 * this method's main purpose is 'UTF-8 Excel CSV File'.
 
-output bommed text from input.csv to output.csv
+output bommed text from input.csv to output.csv  
 ~~~ruby
 require 'tbpgr_utils'
 
 File.insert_bom("input.csv", "output.csv") # => output bommed text to output.csv
 ~~~
 
-output bommed text from input.csv to input.csv
+output bommed text from input.csv to input.csv  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -1265,13 +1266,13 @@ File.insert_bom("input.csv") # => output bommed text to output.csv
 [back to list](#list)
 
 ### Fixnum.to_fixnum_html_table
-1 to 10 by 2 case
+1 to 10 by 2 case  
 ~~~ruby
 require 'tbpgr_utils'
 Fixnum.to_fixnum_html_table(1, 10, 2)
 ~~~
 
-result
+result  
 ~~~
 <table>
   <tr>
@@ -1300,12 +1301,12 @@ result
 [back to list](#list)
 
 ### Fixnum.to_fixnum_table
-1 to 100 by 10 case
+1 to 100 by 10 case  
 ~~~ruby
 Fixnum.to_fixnum_table(1, 100, 10)
 ~~~
 
-result
+result  
 ~~~
 | 1| 2| 3| 4| 5| 6| 7| 8| 9| 10|
 |11|12|13|14|15|16|17|18|19| 20|
@@ -1319,12 +1320,12 @@ result
 |91|92|93|94|95|96|97|98|99|100|
 ~~~
 
-1 to 10 by 2 case
+1 to 10 by 2 case  
 ~~~ruby
 Fixnum.to_fixnum_table(1, 10, 2)
 ~~~
 
-result
+result  
 ~~~
 |1| 2|
 |3| 4|
@@ -1342,7 +1343,7 @@ result
 * ghost_method second_args = method_base_name Symbol(using in Ghostable internal logic)
 * ghost_method third = block. this block is main logic. block can use args[method_name, *args, &block]
 
-sample ghost method define module.
+sample ghost method define module.  
 ~~~ruby
 require 'ghostable'
 module Checkable
@@ -1366,7 +1367,7 @@ end
 
 * use ghost method
 
-sample ghost method use class
+sample ghost method use class  
 ~~~ruby
 class SampleChecker
   include Checkable
@@ -1432,7 +1433,7 @@ require 'tbpgr_utils'
 }.html_table
 ~~~
 
-result
+result  
 
 ~~~
 <table>
@@ -1463,7 +1464,7 @@ require 'tbpgr_utils'
 }.table
 ~~~
 
-result
+result  
 
 ~~~ruby
 |key_1  |value1___________________|
@@ -1513,7 +1514,7 @@ puts 1.blank?       # => false
 puts 1.present?     # => true
 ~~~
 
-if you don't use bulk_define_methods, followinng code is same mean.
+if you don't use bulk_define_methods, followinng code is same mean.  
 ~~~ruby
 class NilClass
  def blank?
@@ -1602,7 +1603,7 @@ person = Person.new
 person.hash_to_attributes({name: 'hoge', age: 33})
 ~~~
 
-result
+result  
 ~~~ruby
 #<PersonForHashToAttributes:0x3957858 @age=33, @not_exists="hoge">
 ~~~
@@ -1627,7 +1628,7 @@ message = 'msg'
 print_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
 ~~~
 
-output
+output  
 ~~~
 8/4 # => 2"hoge-#{message}" # => "hoge-msg"
 ~~~
@@ -1644,7 +1645,7 @@ message = 'msg'
 puts_eval "hoge-#{message}", binding # => "hoge-#{message}" # => "hoge-msg"
 ~~~
 
-output
+output  
 ~~~
 8/4 # => 2
 "hoge-#{message}" # => "hoge-msg"
@@ -1663,7 +1664,7 @@ bulk_puts_eval binding, <<-EOS
 EOS
 ~~~
 
-output
+output  
 ~~~
 "hoge-hige1" + "add" + message # => "hoge-hige1addmsg"
 "hoge-hige2" + "add" + message # => "hoge-hige2addmsg"
@@ -1696,7 +1697,7 @@ end
 EvalHelperAttrAccessorInitTest.new.hoge('atr1')
 ~~~
 
-result
+result  
 
 ~~~ruby
 attr_accessor :atr1
@@ -1720,7 +1721,7 @@ end
 EvalHelperAttrAccessorInitTest.new.hoge(['atr1', 'atr2'])
 ~~~
 
-result
+result  
 
 ~~~ruby
 attr_accessor :atr1, :atr2
@@ -1987,7 +1988,7 @@ EvalHelperRequireRelativeTest.new.hoge(args) # => return "require_relative 'tbpg
 [back to list](#list)
 
 ### EvalHelper#set_variable_code
-set string variable case
+set string variable case  
 ~~~ruby
 require 'eval_helper'
 class EvalHelperSetVariableTest
@@ -2011,7 +2012,7 @@ return
 hoge = "hoge"
 ~~~
 
-set numeric variable case
+set numeric variable case  
 ~~~ruby
 require 'eval_helper'
 class EvalHelperSetVariableTest
@@ -2065,7 +2066,7 @@ EvalHelperSetVariablesTest.new.hoge(variables)
 
 ### EvalHelper#times_code
 
-single_line_proc case
+single_line_proc case  
 ~~~ruby
 require 'eval_helper'
 
@@ -2084,12 +2085,12 @@ hash = {
 EvalHelperTimesTest.new.hoge(hash[:number], hash[:proc])
 ~~~
 
-return
+return  
 ~~~
 2.times { |i| puts "#{i}times" }
 ~~~
 
-multi_line_proc case
+multi_line_proc case  
 ~~~ruby
 require 'eval_helper'
 
@@ -2322,7 +2323,7 @@ Hoge.new.hege # => "hoge"
 Hoge.new.huge # => "hoge"
 ~~~
 
-same code is...
+same code is...  
 ~~~
 class Hoge
   def hoge
@@ -2374,7 +2375,7 @@ require 'tbpgr_utils'
 
 ### Numeric#is_ascii?
 
-1,127,128 case
+1,127,128 case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -2393,7 +2394,7 @@ require 'tbpgr_utils'
 Numeric.to_binary_html_table(255, 256)
 ~~~
 
-result
+result  
 ~~~
 <table>
   <tr>
@@ -2420,7 +2421,7 @@ require 'tbpgr_utils'
 Numeric.to_binary_table(1, 3)
 ~~~
 
-result
+result  
 ~~~
 |10digit|2digit  |
 |1      |00000001|
@@ -2437,7 +2438,7 @@ require 'tbpgr_utils'
 Numeric.to_digit_html_table(255, 256)
 ~~~
 
-result
+result  
 ~~~html
 <table>
   <tr>
@@ -2464,13 +2465,13 @@ result
 [back to list](#list)
 
 ### Numeric to_digit_table
-255 to 256 case
+255 to 256 case  
 ~~~ruby
 require 'tbpgr_utils'
 Numeric.to_digit_table(255, 256)
 ~~~
 
-result
+result  
 ~~~
 |10digit|          2digit|8digit|16digit|
 |    255|0000000011111111|   377|   00ff|
@@ -2486,7 +2487,7 @@ require 'tbpgr_utils'
 Numeric.to_hex_html_table(65535, 65536)
 ~~~
 
-result
+result  
 ~~~
 <table>
   <tr>
@@ -2507,13 +2508,13 @@ result
 [back to list](#list)
 
 ### Numeric to_hex_table
-65535 to 65536 case
+65535 to 65536 case  
 ~~~ruby
 require 'tbpgr_utils'
 Numeric.to_hex_table(65535, 65536)
 ~~~
 
-result
+result  
 ~~~
 |10digit| 16digit|
 |  65535|0000ffff|
@@ -2523,13 +2524,13 @@ result
 [back to list](#list)
 
 ### Numeric to_oct_html_table
-65535 to 65536 case
+65535 to 65536 case  
 ~~~ruby
 require 'tbpgr_utils'
 Numeric.to_oct_html_table(65535, 65536)
 ~~~
 
-result
+result  
 ~~~
 <table>
   <tr>
@@ -2550,13 +2551,13 @@ result
 [back to list](#list)
 
 ### Numeric to_oct_table
-65535 to 65536 case
+65535 to 65536 case  
 ~~~ruby
 require 'tbpgr_utils'
 Numeric.to_oct_table(65535, 65536)
 ~~~
 
-result
+result  
 ~~~
 |10digit|8digit|
 |  65535|177777|
@@ -2752,6 +2753,45 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#ascii_unicode_html_table
+~~~ruby
+require 'tbpgr_utils'
+
+'aあb'.ascii_unicode_html_table
+~~~
+
+result  
+~~~
+<table>
+  <tr>
+    <th>char</th>
+    <th>ASCII</th>
+    <th>ascii2</th>
+    <th>Unicode</th>
+  </tr>
+  <tr>
+    <td>a</td>
+    <td>97</td>
+    <td>1100001</td>
+    <td>--</td>
+  </tr>
+  <tr>
+    <td>あ</td>
+    <td>--</td>
+    <td>--</td>
+    <td>0x3042</td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td>98</td>
+    <td>1100010</td>
+    <td>--</td>
+  </tr>
+</table>
+~~~
+
+[back to list](#list)
+
 ### String#ascii_unicode_table
 ~~~ruby
 require 'tbpgr_utils'
@@ -2759,7 +2799,7 @@ require 'tbpgr_utils'
 'aあb'.ascii_unicode_table
 ~~~
 
-result
+result  
 ~~~
 |char|ASCII|ascii2 |Unicode|
 | a  | 97  |1100001|  --   |
@@ -2853,27 +2893,27 @@ output
 [back to list](#list)
 
 ### String#say
-default case
+default case  
 ~~~ruby
 'hoge'.say # => 'hoge'
 ~~~
 
-quote case
+quote case  
 ~~~ruby
 'hoge'.say(:quote) # => 'hoge'
 ~~~
 
-dquote case
+dquote case  
 ~~~ruby
 'hoge'.say(:dquote) # => "hoge"
 ~~~
 
-bracket case
+bracket case  
 ~~~ruby
 'hoge'.say(:bracket) # => [hoge]
 ~~~
 
-hyphen case
+hyphen case  
 ~~~ruby
 'hoge'.say(:hyphen) # => -hoge-
 ~~~
@@ -2891,28 +2931,28 @@ hoge.spacing({char: '_', size: 2}) # => 'h__o__g__e'
 [back to list](#list)
 
 ### String#stripe
-default case
+default case  
 ~~~ ruby
 require 'tbpgr_utils'
 
 'hoge'.stripe # => HoGe
 ~~~
 
-lower_cap case
+lower_cap case  
 ~~~ruby
 require 'tbpgr_utils'
 
 'hoge'.stripe :lower_cap # => hOgE
 ~~~
 
-empty case
+empty case  
 ~~~ruby
 require 'tbpgr_utils'
 
 ''.stripe # => ''
 ~~~
 
-nil case
+nil case  
 ~~~ruby
 require 'tbpgr_utils'
 
@@ -2930,7 +2970,7 @@ require 'tbpgr_utils'
 'hoge'.surround
 ~~~
 
-result
+result  
 
 ~~~
 ------
@@ -2945,7 +2985,7 @@ require 'tbpgr_utils'
 "hoge\na".surround
 ~~~
 
-result
+result  
 
 ~~~
 ------
@@ -2961,7 +3001,7 @@ require 'tbpgr_utils'
 'hoge'.surround top_bottom: '=', side: '!'
 ~~~
 
-result
+result  
 
 ~~~
 ======
@@ -2983,7 +3023,7 @@ EOS
 BEFORE.table_to_array
 ~~~
 
-result
+result  
 ~~~ruby
 [["header1", "header2", "header3"], ["line1_1", "line1_2", "line1_3"]]
 ~~~
@@ -2991,20 +3031,20 @@ result
 [back to list](#list)
 
 ### String#to_hatena_heading
-&gt; case
+&gt; case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige'.to_hatena_heading # => '*hoge\n**hige'
 ~~~
 
-\+ case
+\+ case  
 ~~~ruby
 require 'tbpgr_utils'
 
 'hoge+hige'.to_hatena_heading # => '*hoge\n*hige'
 ~~~
 
-^ case
+^ case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige^hege'.to_hatena_heading # => '*hoge\n**hige\n*hege'
@@ -3013,20 +3053,20 @@ require 'tbpgr_utils'
 [back to list](#list)
 
 ### String#to_markdown_heading
-&gt; case
+&gt; case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige'.to_markdown_heading # => '# hoge\n## hige'
 ~~~
 
-\+ case
+\+ case  
 ~~~ruby
 require 'tbpgr_utils'
 
 'hoge+hige'.to_markdown_heading # => '# hoge\n# hige'
 ~~~
 
-^ case
+^ case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige^hege'.to_markdown_heading # => '# hoge\n## hige\n# hege'
@@ -3035,20 +3075,20 @@ require 'tbpgr_utils'
 [back to list](#list)
 
 ### String#to_space2_heading
-&gt; case
+&gt; case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige'.to_space2_heading # => 'hoge\n  hige'
 ~~~
 
-\+ case
+\+ case  
 ~~~ruby
 require 'tbpgr_utils'
 
 'hoge+hige'.to_space2_heading # => 'hoge\nhige'
 ~~~
 
-^ case
+^ case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige^hege'.to_space2_heading # => 'hoge\n  hige\nhege'
@@ -3057,19 +3097,19 @@ require 'tbpgr_utils'
 [back to list](#list)
 
 ### String#to_space4_heading
-&gt; case
+&gt; case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige'.to_space4_heading # => 'hoge\n    hige'
 ~~~
 
-\+ case
+\+ case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge+hige'.to_space4_heading # => 'hoge\nhige'
 ~~~
 
-^ case
+^ case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige^hege'.to_space4_heading # => 'hoge\n    hige\nhege'
@@ -3078,19 +3118,19 @@ require 'tbpgr_utils'
 [back to list](#list)
 
 ### String#to_tab_heading
-&gt; case
+&gt; case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige'.to_tab_heading # => 'hoge\n\thige'
 ~~~
 
-\+ case
+\+ case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge+hige'.to_tab_heading # => 'hoge\nhige'
 ~~~
 
-^ case
+^ case  
 ~~~ruby
 require 'tbpgr_utils'
 'hoge>hige^hege'.to_tab_heading # => 'hoge\n\thige\nhege'
@@ -3151,10 +3191,10 @@ line2:<%=placeholders[:hige]%>
   end
 end
 
-p TemplateUser.new('sample').result
+p TemplateUser.new('sample').result  
 ~~~
 
-output
+output  
 ~~~
 line1:hoge-sample
 line2:hige-sample
@@ -3224,6 +3264,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.100 : add String.ascii_unicode_html_table
 * version 0.0.99 : add Numeric.to_oct_html_table
 * version 0.0.98 : add Numeric.to_hex_html_table
 * version 0.0.97 : add Numeric.to_digit_html_table
