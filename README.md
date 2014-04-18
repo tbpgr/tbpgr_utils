@@ -3273,7 +3273,8 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
-* version 0.0.100 : add String.ascii_unicode_html_table
+* version 0.0.101 : add String#winpath_to_cygwinpath
+* version 0.0.100 : add String#ascii_unicode_html_table
 * version 0.0.99 : add Numeric.to_oct_html_table
 * version 0.0.98 : add Numeric.to_hex_html_table
 * version 0.0.97 : add Numeric.to_digit_html_table
