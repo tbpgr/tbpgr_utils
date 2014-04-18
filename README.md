@@ -136,6 +136,7 @@ Or install it yourself as:
 |[TbpgrUtils String#to_tab_heading](#stringto_tab_heading)                                                          |create tab-format heading string with Emmet-like grammar                                                             |
 |[TbpgrUtils String#unescape_double_quote](#stringunescape_double_quote)                                            |unescape double quote                                                                                                |
 |[TbpgrUtils String#unescape_quote](#stringunescape_quote)                                                          |unescape single quote                                                                                                |
+|[TbpgrUtils String#winpath_to_cygwinpath](#stringwinpath_to_cygwinpath)                                            |convert windows path to cygwin path                                                                                  |
 |[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
@@ -3150,6 +3151,14 @@ require 'tbpgr_utils'
 ~~~ruby
 require 'tbpgr_utils'
 "hoge''h''ige".unescape_quote # => "hoge'h'ige"
+~~~
+
+[back to list](#list)
+
+### String#winpath_to_cygwinpath
+~~~ruby
+require 'tbpgr_utils'
+'C:\hoge\hoge.txt'.winpath_to_cygwinpath # => '/cygdrive/c/hoge/hoge.txt'
 ~~~
 
 [back to list](#list)
