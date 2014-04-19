@@ -1,8 +1,9 @@
 # encoding: utf-8
 require 'open_classes/string/ascii1_other2_size'
-require 'open_classes/string/ascii_unicode_table'
 require 'open_classes/string/ascii_unicode_html_table'
+require 'open_classes/string/ascii_unicode_table'
 require 'open_classes/string/comma_to_a'
+require 'open_classes/string/cygwinpath_to_winpath'
 require 'open_classes/string/escape_double_quote'
 require 'open_classes/string/escape_quote'
 require 'open_classes/string/hyphen_to_a'

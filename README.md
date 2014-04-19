@@ -119,6 +119,7 @@ Or install it yourself as:
 |[TbpgrUtils String#ascii_unicode_html_table](#stringascii_unicode_html_table)                                      |get ascii_unicode_html_table                                                                                         |
 |[TbpgrUtils String#ascii_unicode_table](#stringascii_unicode_table)                                                |get ascii_unicode_table                                                                                              |
 |[TbpgrUtils String#comma_to_a](#stringcomma_to_a)                                                                  |comma-format string to array                                                                                         |
+|[TbpgrUtils String#cygwinpath_to_winpath](#stringcygwinpath_to_winpath)                                            |convert cygwin path to windows path                                                                                  |
 |[TbpgrUtils String#escape_quote](#stringescape_quote)                                                              |escape quote                                                                                                         |
 |[TbpgrUtils String#escape_double_quote](#stringescape_double_quote)                                                |escape double quote                                                                                                  |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
@@ -2827,6 +2828,14 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#cygwinpath_to_winpath
+~~~ruby
+require 'tbpgr_utils'
+'/cygdrive/c/hoge/hoge.txt'.cygwinpath_to_winpath # => 'C:\hoge\hoge.txt'
+~~~
+
+[back to list](#list)
+
 ### String#escape_quote
 ~~~ruby
 require 'tbpgr_utils'
@@ -3273,6 +3282,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.102 : add String#cygwinpath_to_winpath
 * version 0.0.101 : add String#winpath_to_cygwinpath
 * version 0.0.100 : add String#ascii_unicode_html_table
 * version 0.0.99 : add Numeric.to_oct_html_table
