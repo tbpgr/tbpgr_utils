@@ -82,6 +82,7 @@ Or install it yourself as:
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
 |[TbpgrUtils Hash#html_table](#hashhtml_table)                                                                      |get html table string from key + value                                                                               |
 |[TbpgrUtils Hash#table](#hashtable)                                                                                |get pipe format table string from key + value                                                                        |
+|[TbpgrUtils Integer#palindromic_prime?](#integerpalindromic_prime)                                                 |Returns true if value is palindromic prime, false for a composite.                                                   |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
@@ -1472,6 +1473,19 @@ result
 |key_1  |value1___________________|
 |key__2 |value2                   |
 |key___3|value3                   |
+~~~
+
+[back to list](#list)
+
+### Integer#palindromic_prime
+~~~ruby
+require 'tbpgr_utils'
+0.palindromic_prime? # => false
+1.palindromic_prime? # => false
+2.palindromic_prime? # => true
+11.palindromic_prime? # => true
+757.palindromic_prime? # => true
+758.palindromic_prime? # => false
 ~~~
 
 [back to list](#list)
@@ -3282,6 +3296,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.103 : add Integer#palindromic_prime
 * version 0.0.102 : add String#cygwinpath_to_winpath
 * version 0.0.101 : add String#winpath_to_cygwinpath
 * version 0.0.100 : add String#ascii_unicode_html_table
