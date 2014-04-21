@@ -76,7 +76,6 @@ Or install it yourself as:
 |[EvalHelper#unless_code](#evalhelperunless_code)                                                                   |create unless strings, for eval                                                                                      |
 |[EvalHelper#unless_code_after](#evalhelperunless_code_after)                                                       |create after-unless strings, for eval                                                                                |
 |[Familyable](#familyable)                                                                                          |user family model(family, person, parents, children, brothers)                                                       |
-|[TbpgrUtils File.insert_bom](#fileinsert_bom)                                                                      |insert BOM to UTF-8 File                                                                                             |
 |[TbpgrUtils Fixnum to_fixnum_html_table](#fixnum-to_fixnum_html_table)                                             |return value is fixnum html table                                                                                    |
 |[TbpgrUtils Fixnum to_fixnum_table](#fixnumto_fixnum_table)                                                        |return value is fixnum table                                                                                         |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
@@ -94,6 +93,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#null](#kernelnull)                                                                              |null is alias of nil                                                                                                 |
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
+|[MarkdownString.heading1](#markdownstring_heading1)                                                                |Return markdown heading level1 from text                                                                             |
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
@@ -1249,25 +1249,6 @@ Create model that has two fileds that are 'id' and 'parent_ids'.
 
 [back to list](#list)
 
-### File.insert_bom
-* this method's main purpose is 'UTF-8 Excel CSV File'.
-
-output bommed text from input.csv to output.csv  
-~~~ruby
-require 'tbpgr_utils'
-
-File.insert_bom("input.csv", "output.csv") # => output bommed text to output.csv
-~~~
-
-output bommed text from input.csv to input.csv  
-~~~ruby
-require 'tbpgr_utils'
-
-File.insert_bom("input.csv") # => output bommed text to output.csv
-~~~
-
-[back to list](#list)
-
 ### Fixnum.to_fixnum_html_table
 1 to 10 by 2 case  
 ~~~ruby
@@ -2302,6 +2283,17 @@ EvalHelperTest.new.hoge(hash) # => return 'default'
 
 [back to list](#list)
 
+### MarkdownString.heading1
+~~~ruby
+require 'markdown_string'
+MarkdownString.heading1("title") # => "# title"
+MarkdownString.heading1("") # => "# "
+MarkdownString.heading1(nil) # => "# "
+MarkdownString.heading1(12345) # => "# 12345"
+~~~
+
+[back to list](#list)
+
 ### MetasyntacticVariable
 * META variable
 
@@ -3296,6 +3288,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.104 : add MarkdownString#heading1. remove File.insert_bom.
 * version 0.0.103 : add Integer#palindromic_prime
 * version 0.0.102 : add String#cygwinpath_to_winpath
 * version 0.0.101 : add String#winpath_to_cygwinpath
