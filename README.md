@@ -93,7 +93,8 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#null](#kernelnull)                                                                              |null is alias of nil                                                                                                 |
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
-|[MarkdownString.heading1](#markdownstringheading1)                                                                |Return markdown heading level1 from text                                                                             |
+|[MarkdownString.heading1](#markdownstringheading1)                                                                 |Return markdown heading level1 from text                                                                             |
+|[MarkdownString.heading2](#markdownstringheading2)                                                                 |Return markdown heading level2 from text                                                                             |
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
@@ -2294,6 +2295,17 @@ MarkdownString.heading1(12345) # => "# 12345"
 
 [back to list](#list)
 
+### MarkdownString.heading2
+~~~ruby
+require 'markdown_string'
+MarkdownString.heading2("title") # => "## title"
+MarkdownString.heading2("") # => "## "
+MarkdownString.heading2(nil) # => "## "
+MarkdownString.heading2(12345) # => "## 12345"
+~~~
+
+[back to list](#list)
+
 ### MetasyntacticVariable
 * META variable
 
@@ -3288,6 +3300,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.105 : add MarkdownString#heading2
 * version 0.0.104 : add MarkdownString#heading1. remove File.insert_bom.
 * version 0.0.103 : add Integer#palindromic_prime
 * version 0.0.102 : add String#cygwinpath_to_winpath

@@ -11,8 +11,26 @@ class MarkdownString
   #   MarkdownString.heading1(12345) # => "# 12345"
   #
   def self.heading1(text)
-    return '# ' if text.nil?
-    return '# ' if text.respond_to?(:empty) && text.empty?
-    "# #{text.to_s}"
+    heading(text, 1)
   end
+
+  # Return markdown heading level2 from text
+  #
+  # === Example
+  #
+  #   MarkdownString.heading2("title") # => "## title"
+  #   MarkdownString.heading2("") # => "## "
+  #   MarkdownString.heading2(nil) # => "## "
+  #   MarkdownString.heading2(12345) # => "## 12345"
+  #
+  def self.heading2(text)
+    heading(text, 2)
+  end
+
+  private
+    def self.heading(text, level)
+      return '#' * level + ' ' if text.nil?
+      return '#' * level + ' ' if text.respond_to?(:empty) && text.empty?
+      '#' * level + " #{text.to_s}"
+    end
 end
