@@ -95,6 +95,10 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
 |[MarkdownString.heading1](#markdownstringheading1)                                                                 |Return markdown heading level1 from text                                                                             |
 |[MarkdownString.heading2](#markdownstringheading2)                                                                 |Return markdown heading level2 from text                                                                             |
+|[MarkdownString.heading3](#markdownstringheading3)                                                                 |Return markdown heading level3 from text                                                                             |
+|[MarkdownString.heading4](#markdownstringheading4)                                                                 |Return markdown heading level4 from text                                                                             |
+|[MarkdownString.heading5](#markdownstringheading5)                                                                 |Return markdown heading level5 from text                                                                             |
+|[MarkdownString.heading6](#markdownstringheading6)                                                                 |Return markdown heading level6 from text                                                                             |
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
@@ -2306,6 +2310,47 @@ MarkdownString.heading2(12345) # => "## 12345"
 
 [back to list](#list)
 
+### MarkdownString.heading3
+~~~ruby
+require 'markdown_string'
+MarkdownString.heading3("title") # => "### title"
+MarkdownString.heading3("") # => "### "
+MarkdownString.heading3(nil) # => "### "
+MarkdownString.heading3(12345) # => "### 12345"
+~~~
+[back to list](#list)
+
+### MarkdownString.heading4
+~~~ruby
+require 'markdown_string'
+MarkdownString.heading4("title") # => "#### title"
+MarkdownString.heading4("") # => "#### "
+MarkdownString.heading4(nil) # => "#### "
+MarkdownString.heading4(12345) # => "#### 12345"
+~~~
+[back to list](#list)
+
+### MarkdownString.heading5
+~~~ruby
+require 'markdown_string'
+MarkdownString.heading5("title") # => "##### title"
+MarkdownString.heading5("") # => "##### "
+MarkdownString.heading5(nil) # => "##### "
+MarkdownString.heading5(12345) # => "##### 12345"
+~~~
+[back to list](#list)
+
+### MarkdownString.heading6
+~~~ruby
+require 'markdown_string'
+MarkdownString.heading6("title") # => "###### title"
+MarkdownString.heading6("") # => "###### "
+MarkdownString.heading6(nil) # => "###### "
+MarkdownString.heading6(12345) # => "###### 12345"
+~~~
+
+[back to list](#list)
+
 ### MetasyntacticVariable
 * META variable
 
@@ -3300,6 +3345,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.106 : add MarkdownString#heading3, heading4, heading5, heading6
 * version 0.0.105 : add MarkdownString#heading2
 * version 0.0.104 : add MarkdownString#heading1. remove File.insert_bom.
 * version 0.0.103 : add Integer#palindromic_prime
