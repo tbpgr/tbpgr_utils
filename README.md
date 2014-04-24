@@ -99,6 +99,7 @@ Or install it yourself as:
 |[MarkdownString.heading4](#markdownstringheading4)                                                                 |Return markdown heading level4 from text                                                                             |
 |[MarkdownString.heading5](#markdownstringheading5)                                                                 |Return markdown heading level5 from text                                                                             |
 |[MarkdownString.heading6](#markdownstringheading6)                                                                 |Return markdown heading level6 from text                                                                             |
+|[MarkdownString.ul](#markdownstringul)                                                                             |Return markdown ul from arrau                                                                                        |
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
@@ -2351,6 +2352,45 @@ MarkdownString.heading6(12345) # => "###### 12345"
 
 [back to list](#list)
 
+### MarkdownString.ul
+case list  
+~~~ruby
+require 'markdown_string'
+MarkdownString.ul(%w{a b c})
+~~~
+
+result  
+~~~
+* a
+* b
+* c
+~~~
+
+case not list  
+~~~ruby
+require 'markdown_string'
+MarkdownString.ul("test") # => "test"
+
+case nil list  
+~~~ruby
+require 'markdown_string'
+  MarkdownString.ul([nil, nil])
+~~~
+
+result  
+~~~
+* 
+* 
+~~~
+
+case empty list  
+~~~ruby
+require 'markdown_string'
+MarkdownString.ul([]) # => ""
+~~~
+
+[back to list](#list)
+
 ### MetasyntacticVariable
 * META variable
 
@@ -3345,6 +3385,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.107 : add MarkdownString#ul
 * version 0.0.106 : add MarkdownString#heading3, heading4, heading5, heading6
 * version 0.0.105 : add MarkdownString#heading2
 * version 0.0.104 : add MarkdownString#heading1. remove File.insert_bom.
