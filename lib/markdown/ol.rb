@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class MarkdownString
-  # Return markdown heading level1-6 from text
+  # Return markdown ol from text
   #
   # === Example
   #
