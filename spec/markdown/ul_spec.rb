@@ -32,9 +32,9 @@ describe MarkdownString do
         case_title: 'each element nil case',
         input: [nil, nil, nil],
         expected: <<-EOS
-*
-*
-*
+* 
+* 
+* 
         EOS
       },
     ]
