@@ -31,11 +31,7 @@ describe MarkdownString do
         case_no: 4,
         case_title: 'each element nil case',
         input: [nil, nil, nil],
-        expected: <<-EOS
-* 
-* 
-* 
-        EOS
+        expected: "* \n* \n* \n"
       },
     ]
 

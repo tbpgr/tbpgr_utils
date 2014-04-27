@@ -100,6 +100,7 @@ Or install it yourself as:
 |[MarkdownString.heading5](#markdownstringheading5)                                                                 |Return markdown heading level5 from text                                                                             |
 |[MarkdownString.heading6](#markdownstringheading6)                                                                 |Return markdown heading level6 from text                                                                             |
 |[MarkdownString.hr](#markdownstringhr)                                                                             |Return markdown hr                                                                                                   |
+|[MarkdownString.italic](#markdownstringitalic)                                                                     |Return markdown italic                                                                                               |
 |[MarkdownString.ol](#markdownstringol)                                                                             |Return markdown ol from array                                                                                        |
 |[MarkdownString.ul](#markdownstringul)                                                                             |Return markdown ul from array                                                                                        |
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
@@ -2362,6 +2363,14 @@ MarkdownString.hr # => '---'
 
 [back to list](#list)
 
+### MarkdownString.italic
+~~~ruby
+require 'markdown_string'
+MarkdownString.italic 'italic' # => '*italic*'
+~~~
+
+[back to list](#list)
+
 ### MarkdownString.ol
 case list  
 ~~~ruby
@@ -3434,6 +3443,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.110 : add MarkdownString#italic
 * version 0.0.109 : add MarkdownString#hr
 * version 0.0.108 : add MarkdownString#ol
 * version 0.0.107 : add MarkdownString#ul

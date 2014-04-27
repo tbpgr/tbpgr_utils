@@ -1,37 +1,33 @@
 # encoding: utf-8
 require 'spec_helper'
-require 'markdown/ol'
+require 'markdown/italic'
 
 describe MarkdownString do
-  context :ol do
+  context :italic do
     cases = [
       {
         case_no: 1,
-        case_title: 'array case',
-        input: %w{a b c},
-        expected: <<-EOS
-1. a
-1. b
-1. c
-        EOS
+        case_title: 'string case',
+        input: 'italic',
+        expected: '*italic*'
       },
       {
         case_no: 2,
-        case_title: 'not list case',
-        input: 'hoge',
-        expected: 'hoge',
+        case_title: 'empty case',
+        input: '',
+        expected: '**',
       },
       {
         case_no: 3,
-        case_title: 'empty list case',
-        input: [],
-        expected: '',
+        case_title: 'nil case',
+        input: nil,
+        expected: '**',
       },
       {
         case_no: 4,
-        case_title: 'each element nil case',
-        input: [nil, nil, nil],
-        expected: "1. \n1. \n1. \n"
+        case_title: 'not string case',
+        input: 1,
+        expected: 1,
       },
     ]
 
@@ -44,7 +40,7 @@ describe MarkdownString do
           # nothing
 
           # -- when --
-          actual = MarkdownString.ol c[:input]
+          actual = MarkdownString.italic c[:input]
 
           # -- then --
           expect(actual).to eq(c[:expected])
