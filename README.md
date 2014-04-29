@@ -93,6 +93,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#null](#kernelnull)                                                                              |null is alias of nil                                                                                                 |
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
+|[MarkdownString.backquotes](#markdownstringbackquotes)                                                             |Return markdown backquotes                                                                                           |
 |[MarkdownString.bold](#markdownstringbold)                                                                         |Return markdown bold                                                                                                 |
 |[MarkdownString.heading1](#markdownstringheading1)                                                                 |Return markdown heading level1 from text                                                                             |
 |[MarkdownString.heading2](#markdownstringheading2)                                                                 |Return markdown heading level2 from text                                                                             |
@@ -2293,6 +2294,26 @@ EvalHelperTest.new.hoge(hash) # => return 'default'
 
 [back to list](#list)
 
+### MarkdownString.backquotes
+~~~ruby
+require 'markdown_string'
+MarkdownString.backquotes <<-EOS
+hoge
+hige
+hage
+EOS
+~~~
+
+result
+
+~~~
+>hoge  
+>hige  
+>hage  
+~~~
+
+[back to list](#list)
+
 ### MarkdownString.bold
 ~~~ruby
 require 'markdown_string'
@@ -3454,6 +3475,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.112 : add MarkdownString#backquotes
 * version 0.0.111 : add MarkdownString#bold
 * version 0.0.110 : add MarkdownString#italic
 * version 0.0.109 : add MarkdownString#hr
