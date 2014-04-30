@@ -103,6 +103,7 @@ Or install it yourself as:
 |[MarkdownString.heading6](#markdownstringheading6)                                                                 |Return markdown heading level6 from text                                                                             |
 |[MarkdownString.hr](#markdownstringhr)                                                                             |Return markdown hr                                                                                                   |
 |[MarkdownString.italic](#markdownstringitalic)                                                                     |Return markdown italic                                                                                               |
+|[MarkdownString.link](#markdownstringlink)                                                                         |Return markdown link                                                                                                 |
 |[MarkdownString.ol](#markdownstringol)                                                                             |Return markdown ol from array                                                                                        |
 |[MarkdownString.ul](#markdownstringul)                                                                             |Return markdown ul from array                                                                                        |
 |[MetasyntacticVariable](#metasyntacticvariable)                                                                    |META variable, META variable for classes                                                                             |
@@ -2403,6 +2404,14 @@ MarkdownString.italic 'italic' # => '*italic*'
 
 [back to list](#list)
 
+### MarkdownString.link
+~~~ruby
+require 'markdown_string'
+MarkdownString.link 'label', 'http://not_exists.com' # => '[label](http://not_exists.com)'
+~~~
+
+[back to list](#list)
+
 ### MarkdownString.ol
 case list  
 ~~~ruby
@@ -3475,6 +3484,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.113 : add MarkdownString#link
 * version 0.0.112 : add MarkdownString#backquotes
 * version 0.0.111 : add MarkdownString#bold
 * version 0.0.110 : add MarkdownString#italic

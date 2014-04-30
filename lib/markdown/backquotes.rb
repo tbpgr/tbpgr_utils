@@ -9,9 +9,9 @@ class MarkdownString
   #
   # result
   #
-  #   >hoge  
-  #   >hige  
-  #   >hage  
+  #   >hoge
+  #   >hige
+  #   >hage
   #
   def self.backquotes(text)
     return '>' if text.nil?
