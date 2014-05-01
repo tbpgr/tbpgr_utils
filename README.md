@@ -95,6 +95,7 @@ Or install it yourself as:
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
 |[MarkdownString.backquotes](#markdownstringbackquotes)                                                             |Return markdown backquotes                                                                                           |
 |[MarkdownString.bold](#markdownstringbold)                                                                         |Return markdown bold                                                                                                 |
+|[MarkdownString.code](#markdownstringcode)                                                                         |Return markdown code                                                                                                 |
 |[MarkdownString.heading1](#markdownstringheading1)                                                                 |Return markdown heading level1 from text                                                                             |
 |[MarkdownString.heading2](#markdownstringheading2)                                                                 |Return markdown heading level2 from text                                                                             |
 |[MarkdownString.heading3](#markdownstringheading3)                                                                 |Return markdown heading level3 from text                                                                             |
@@ -2325,6 +2326,14 @@ MarkdownString.bold(nil) # => "****"
 
 [back to list](#list)
 
+### MarkdownString.code
+~~~ruby
+require 'markdown_string'
+MarkdownString.code('print "hoge"') # => '`print "hoge"`'
+~~~
+
+[back to list](#list)
+
 ### MarkdownString.heading1
 ~~~ruby
 require 'markdown_string'
@@ -3484,6 +3493,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.114 : add MarkdownString#code
 * version 0.0.113 : add MarkdownString#link
 * version 0.0.112 : add MarkdownString#backquotes
 * version 0.0.111 : add MarkdownString#bold
