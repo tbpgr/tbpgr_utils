@@ -8,7 +8,7 @@ describe MarkdownString do
       {
         case_no: 1,
         case_title: 'string case',
-        input: "class Hoge\n  def hoge\n    'hoge'\n  end\nend\n",
+        input: "class Hoge\n  def hoge\n    'hoge'\n  end\nend",
         lang: 'ruby',
         expected: <<-EOS
 ~~~ruby
@@ -23,7 +23,7 @@ end
       {
         case_no: 2,
         case_title: 'string no lang case',
-        input: "class Hoge\n  def hoge\n    'hoge'\n  end\nend\n",
+        input: "class Hoge\n  def hoge\n    'hoge'\n  end\nend",
         lang: nil,
         expected: <<-EOS
 ~~~
@@ -49,6 +49,7 @@ end
         lang: 'ruby',
         expected: <<-EOS
 ~~~ruby
+
 ~~~
         EOS
       },
@@ -59,6 +60,7 @@ end
         lang: 'ruby',
         expected: <<-EOS
 ~~~ruby
+
 ~~~
         EOS
       },

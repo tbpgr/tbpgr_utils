@@ -21,6 +21,6 @@ class MarkdownString
     lang = '' if lang.nil?
     text = '' if text.nil?
     return text unless text.is_a?(String)
-    "~~~#{lang}\n#{text}~~~\n"
+    "~~~#{lang}\n#{text}\n~~~\n"
   end
 end
