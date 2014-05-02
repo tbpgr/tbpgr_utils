@@ -3,6 +3,7 @@
 require 'markdown/backquotes'
 require 'markdown/bold'
 require 'markdown/code'
+require 'markdown/codes'
 require 'markdown/heading'
 require 'markdown/hr'
 require 'markdown/italic'
