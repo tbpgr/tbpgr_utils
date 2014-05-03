@@ -24,6 +24,7 @@ Or install it yourself as:
 ### List
 | class/module/method                                                                                               | mean                                                                                                                |
 |:-----------                                                                                                       |:------------                                                                                                        |
+|[TbpgrUtils Array#>>](#array>>)                                                                                    |alias of map(&:method_symbol)                                                                                        |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
 |[TbpgrUtils Array#to_html_table](#arrayto_html_table)                                                              |Array(Array, Array...) to html table format.                                                                         |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
@@ -156,6 +157,15 @@ Or install it yourself as:
 |[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
+
+### Array#>>
+~~~ruby
+require 'tbpgr_utils'
+[*'a'..'c']>>:ord # => [97, 98, 99]
+[*'a'..'c']>>:upcase # => ["A", "B", "C"]
+~~~
+
+[back to list](#list)
 
 ### Array#to_table
 ~~~ruby
@@ -3514,6 +3524,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.116 : add Array#>>
 * version 0.0.115 : add MarkdownString#codes
 * version 0.0.114 : add MarkdownString#code
 * version 0.0.113 : add MarkdownString#link

@@ -52,3 +52,6 @@ UselessAssignment:
 
 WordArray:
   Enabled: false
+
+OpMethod:
+  Enabled: false

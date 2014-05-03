@@ -2,5 +2,5 @@
 
 # Tbpgr Utilities
 module TbpgrUtils
-  VERSION = '0.0.115'
+  VERSION = '0.0.116'
 end
