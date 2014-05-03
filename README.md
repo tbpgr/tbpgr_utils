@@ -24,7 +24,7 @@ Or install it yourself as:
 ### List
 | class/module/method                                                                                               | mean                                                                                                                |
 |:-----------                                                                                                       |:------------                                                                                                        |
-|[TbpgrUtils Array#>>](#array>>)                                                                                    |alias of map(&:method_symbol)                                                                                        |
+|[TbpgrUtils Array#>>](#array)                                                                                    |alias of map(&:method_symbol)                                                                                        |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
 |[TbpgrUtils Array#to_html_table](#arrayto_html_table)                                                              |Array(Array, Array...) to html table format.                                                                         |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
