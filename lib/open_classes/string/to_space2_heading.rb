@@ -29,7 +29,7 @@ class String
   end
 
   private
-    def to_space2(heading)
-      to_head(heading, SPACE2)
-    end
+  def to_space2(heading)
+    to_head(heading, SPACE2)
+  end
 end

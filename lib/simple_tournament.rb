@@ -46,12 +46,12 @@ class SimpleTournament
 
   private
 
-    def set_winner(winner, outer_index)
-      @tournament[0..-(outer_index + 1)].reverse_each do |replace_outer|
-        replace_outer.reverse_each.with_index do |reverse_inner, reverse_inner_index|
-          next unless reverse_inner.nil?
-          return replace_outer[-(reverse_inner_index + 1)] = winner
-        end
+  def set_winner(winner, outer_index)
+    @tournament[0..-(outer_index + 1)].reverse_each do |replace_outer|
+      replace_outer.reverse_each.with_index do |reverse_inner, reverse_inner_index|
+        next unless reverse_inner.nil?
+        return replace_outer[-(reverse_inner_index + 1)] = winner
       end
     end
+  end
 end

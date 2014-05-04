@@ -24,7 +24,8 @@ Or install it yourself as:
 ### List
 | class/module/method                                                                                               | mean                                                                                                                |
 |:-----------                                                                                                       |:------------                                                                                                        |
-|[TbpgrUtils Array#>>](#array)                                                                                    |alias of map(&:method_symbol)                                                                                        |
+|[TbpgrUtils Array#>>](#array)                                                                                      |alias of map(&:method_symbol)                                                                                        |
+|[TbpgrUtils Array#kernel_send](#arraykernel_send)                                                                  |alias of map {|v|send :some_kernel_method, v}                                                                        |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
 |[TbpgrUtils Array#to_html_table](#arrayto_html_table)                                                              |Array(Array, Array...) to html table format.                                                                         |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
@@ -163,6 +164,16 @@ Or install it yourself as:
 require 'tbpgr_utils'
 [*'a'..'c']>>:ord # => [97, 98, 99]
 [*'a'..'c']>>:upcase # => ["A", "B", "C"]
+~~~
+
+[back to list](#list)
+
+### Array#kernel_send
+~~~ruby
+require 'tbpgr_utils'
+[*1..3].kernel_send:Rational # => [(1/1), (2/1), (3/1)]
+[*1..3].kernel_send:print # => 123
+[*65..68].kernel_send :putc # => ABCD
 ~~~
 
 [back to list](#list)
@@ -3524,6 +3535,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.117 : add Array#kernel_send
 * version 0.0.116 : add Array#>>
 * version 0.0.115 : add MarkdownString#codes
 * version 0.0.114 : add MarkdownString#code

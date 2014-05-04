@@ -29,7 +29,7 @@ module EvalHelper
   #   end
   #
   def attr_init_class_code(class_name, fields)
-    tmp_fields = fields.map { |v|":#{v.to_s}" }.join(', ')
+    tmp_fields = fields.map { |v|":#{v}" }.join(', ')
     <<-EOS
 require 'attributes_initializable'
 

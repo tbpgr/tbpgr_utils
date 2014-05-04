@@ -28,7 +28,7 @@ class String
   #   hoge.stripe # => nil
   #
   def stripe(cap = :upper_cap)
-    updowns = %w{upcase downcase}
+    updowns = %w(upcase downcase)
     index = cap == :lower_cap ? 1 : 0
     chars.reduce([]) do |ret, char|
       ret << char.send(updowns[index % 2])

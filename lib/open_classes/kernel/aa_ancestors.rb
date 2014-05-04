@@ -47,24 +47,24 @@ module Kernel
 
   private
 
-    def max_size_class
-      ancestors.max_by { |v|v.to_s.size }
-    end
+  def max_size_class
+    ancestors.max_by { |v|v.to_s.size }
+  end
 
-    def centered_ancestors(max)
-      ancestors.reverse.map { |v|v.to_s.center max }
-    end
+  def centered_ancestors(max)
+    ancestors.reverse.map { |v|v.to_s.center max }
+  end
 
-    def surrounded_ancestors(ca)
-      ca.reduce([]) { |ret, k|ret << k.surround }
-    end
+  def surrounded_ancestors(ca)
+    ca.reduce([]) { |ret, k|ret << k.surround }
+  end
 
-    def connected_box_ancestors(ba, max)
-      ba.join(ancestors_connector(max))
-    end
+  def connected_box_ancestors(ba, max)
+    ba.join(ancestors_connector(max))
+  end
 
-    def ancestors_connector(max)
-      connector = '|'.rjust((max + 2) / 2)
-      "\n#{connector}\n"
-    end
+  def ancestors_connector(max)
+    connector = '|'.rjust((max + 2) / 2)
+    "\n#{connector}\n"
+  end
 end

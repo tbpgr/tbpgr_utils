@@ -8,7 +8,7 @@ describe MarkdownString do
       {
         case_no: 1,
         case_title: 'array case',
-        input: %w{a b c},
+        input: %w(a b c),
         expected: <<-EOS
 1. a
 1. b

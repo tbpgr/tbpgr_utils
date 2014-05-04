@@ -40,7 +40,7 @@ describe Array do
           # nothing
 
           # -- when --
-          actual = c[:inputs].send c[:method_name] {|first, second|eval c[:delete_block_code], binding }
+          actual = c[:inputs].send c[:method_name] { |first, second|eval c[:delete_block_code], binding }
 
           # -- then --
           expect(actual).to eq(c[:expected])

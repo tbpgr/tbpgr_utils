@@ -8,7 +8,7 @@ module HeadingHelper
       self_chars = chars
       level, index, word_ret, ret = 0, 0, [], []
       self_chars.each_with_index do |v, index|
-        key_word = v.in? %w{> + ^}
+        key_word = v.in? %w(> + ^)
 
         if key_word
           ret << leveled_word(level, word_ret)

@@ -17,16 +17,16 @@ class MarkdownString
     #   MarkdownString.heading1(12345) # => "# 12345"
     #
     [*1..6].each do |i|
-      define_method "heading#{i.to_s}".to_sym do |text|
+      define_method "heading#{i}".to_sym do |text|
         heading(text, i)
       end
     end
   end
 
   private
-    def self.heading(text, level)
-      return '#' * level + ' ' if text.nil?
-      return '#' * level + ' ' if text.respond_to?(:empty) && text.empty?
-      '#' * level + " #{text.to_s}"
-    end
+  def self.heading(text, level)
+    return '#' * level + ' ' if text.nil?
+    return '#' * level + ' ' if text.respond_to?(:empty) && text.empty?
+    '#' * level + " #{text}"
+  end
 end

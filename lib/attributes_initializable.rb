@@ -47,16 +47,16 @@ module AttributesInitializable
     def generate_attr(symbols, type)
       results = symbols.reduce([]) do |results, sym|
         fail TypeError, "invalid type #{sym.class}. you have to use Symbol" unless sym.class == Symbol
-        results << ":#{sym.to_s}"
+        results << ":#{sym}"
       end
-      class_eval "attr_#{type.to_s} #{results.join(',')}"
+      class_eval "attr_#{type} #{results.join(',')}"
     end
 
     def generate_initializer(symbols)
       instance_eval do
         define_method :initialize do |values = nil, &block|
           return block.call self if block
-          symbols.each { |symbol|instance_variable_set("@#{symbol.to_s}", values[symbol]) }
+          symbols.each { |symbol|instance_variable_set("@#{symbol}", values[symbol]) }
         end
       end
     end

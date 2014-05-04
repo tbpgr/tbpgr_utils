@@ -55,7 +55,7 @@ describe Array do
 
           # -- when --
           if c[:has_block]
-            actual = c[:inputs].send c[:method_name], c[:fill_value] {|i|eval c[:block_logic], binding }
+            actual = c[:inputs].send c[:method_name], c[:fill_value] { |i|eval c[:block_logic], binding }
           else
             actual = c[:inputs].send c[:method_name], c[:fill_value]
           end

@@ -8,13 +8,13 @@ describe Array do
       {
         case_no: 1,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w{one two three}],
+        inputs: [[1, 2, 3], %w(one two three)],
         expected: ['0:1:one', '1:2:two', '2:3:three'],
       },
       {
         case_no: 2,
         case_title: 'contain nil case',
-        inputs: [[1, 2, 3], %w{one two}],
+        inputs: [[1, 2, 3], %w(one two)],
         expected: ['0:1:one', '1:2:two', '2:3:'],
       },
     ]
@@ -30,7 +30,7 @@ describe Array do
           # -- when/then --
           actual = []
           c[:inputs].together_with_index do |first, second, index|
-            actual << "#{index.to_s}:#{first}:#{second}"
+            actual << "#{index}:#{first}:#{second}"
           end
 
           expect(actual).to eq(c[:expected])

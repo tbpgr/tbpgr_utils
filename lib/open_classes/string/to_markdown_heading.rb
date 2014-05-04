@@ -31,7 +31,7 @@ class String
   end
 
   private
-    def to_markdown(heading)
-      to_head(heading, MARKDOWN, separator: SEPARATOR, start_level: 1)
-    end
+  def to_markdown(heading)
+    to_head(heading, MARKDOWN, separator: SEPARATOR, start_level: 1)
+  end
 end

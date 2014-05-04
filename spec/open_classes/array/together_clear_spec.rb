@@ -8,14 +8,14 @@ describe Array do
       {
         case_no: 1,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w{one two three}],
+        inputs: [[1, 2, 3], %w(one two three)],
         method_name: :together_clear,
         expected: [[], []],
       },
       {
         case_no: 2,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w{one two three}],
+        inputs: [[1, 2, 3], %w(one two three)],
         method_name: :tclear,
         expected: [[], []],
       },

@@ -25,7 +25,8 @@ describe 'EvalHelper' do
             value: '"value2"',
           },
         ],
-        expected: %!name1 = "value1"\nname2 = "value2"!
+        expected: %(name1 = "value1"
+name2 = "value2")
       },
       {
         case_no: 2,

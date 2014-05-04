@@ -3,19 +3,14 @@ require 'spec_helper'
 require 'tbpgr_utils'
 
 describe Array do
-  context :together do
+  context :kernel_send do
     cases = [
       {
         case_no: 1,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w(one two three)],
-        expected: ['1:one', '2:two', '3:three'],
-      },
-      {
-        case_no: 2,
-        case_title: 'contain nil case',
-        inputs: [[1, 2, 3], %w(one two)],
-        expected: ['1:one', '2:two', '3:'],
+        input: [*1..3],
+        method_name: :Rational,
+        expected: [(1 / 1), (2 / 1), (3 / 1)],
       },
     ]
 
@@ -28,10 +23,7 @@ describe Array do
           # nothing
 
           # -- when/then --
-          actual = []
-          c[:inputs].together do |first, second|
-            actual << "#{first}:#{second}"
-          end
+          actual = c[:input].kernel_send c[:method_name]
 
           expect(actual).to eq(c[:expected])
         ensure

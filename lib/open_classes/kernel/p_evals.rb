@@ -35,8 +35,8 @@ module Kernel
   end
 
   private
-    def exec_eval(code, binding)
-      ret = eval code, binding
-      "#{code} # => #{ret.inspect}"
-    end
+  def exec_eval(code, binding)
+    ret = eval code, binding
+    "#{code} # => #{ret.inspect}"
+  end
 end

@@ -8,7 +8,7 @@ describe Array do
       {
         case_no: 1,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w{one two three}],
+        inputs: [[1, 2, 3], %w(one two three)],
         index: 2,
         method_name: :together_at,
         expected: [3, 'three'],
@@ -16,7 +16,7 @@ describe Array do
       {
         case_no: 2,
         case_title: 'contain nil case',
-        inputs: [[1, 2, 3], %w{one two}],
+        inputs: [[1, 2, 3], %w(one two)],
         index: 2,
         method_name: :together_at,
         expected: [3, nil],
@@ -24,7 +24,7 @@ describe Array do
       {
         case_no: 3,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w{one two three}],
+        inputs: [[1, 2, 3], %w(one two three)],
         index: 2,
         method_name: :tat,
         expected: [3, 'three'],

@@ -4,13 +4,13 @@ require 'markdown/heading'
 
 describe MarkdownString do
   [*1..6].each do |i|
-    context "heading#{i.to_s}" do
+    context "heading#{i}" do
       cases = [
         {
           case_no: 1,
           case_title: 'normal case',
-          input: "heading#{i.to_s}",
-          expected: "#{'#' * i} heading#{i.to_s}",
+          input: "heading#{i}",
+          expected: "#{'#' * i} heading#{i}",
         },
         {
           case_no: 2,
@@ -41,7 +41,7 @@ describe MarkdownString do
             # nothing
 
             # -- when --
-            actual = MarkdownString.send "heading#{i.to_s}", c[:input]
+            actual = MarkdownString.send "heading#{i}", c[:input]
 
             # -- then --
             expect(actual).to eq(c[:expected])

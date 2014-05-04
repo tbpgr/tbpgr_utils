@@ -29,7 +29,7 @@ class String
   end
 
   private
-    def to_hatena(heading)
-      to_head(heading, HATENA, start_level: 1)
-    end
+  def to_hatena(heading)
+    to_head(heading, HATENA, start_level: 1)
+  end
 end

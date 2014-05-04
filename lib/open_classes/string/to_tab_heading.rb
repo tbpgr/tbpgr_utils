@@ -29,7 +29,7 @@ class String
   end
 
   private
-    def to_tab(heading)
-      to_head(heading, TAB)
-    end
+  def to_tab(heading)
+    to_head(heading, TAB)
+  end
 end

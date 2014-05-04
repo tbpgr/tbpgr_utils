@@ -4,3 +4,54 @@ LineLength:
   Enabled: false
 Semicolon:
   Enabled: false
+
+AccessModifierIndentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+EmptyLineBetweenDefs:
+  Enabled: false
+
+EmptyLines:
+  Enabled: false
+
+EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+Encoding:
+  Enabled: false
+
+Eval:
+  Enabled: false
+
+Lambda:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+NestedTernaryOperator:
+  Enabled: false
+
+ParenthesesAroundCondition:
+  Enabled: false
+
+RaiseArgs:
+  Enabled: false
+
+ShadowingOuterLocalVariable:
+  Enabled: false
+
+UselessAssignment:
+  Enabled: false
+
+WordArray:
+  Enabled: false
+
+OpMethod:
+  Enabled: false

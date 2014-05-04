@@ -8,7 +8,7 @@ describe Array do
       {
         case_no: 1,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w{one two three}],
+        inputs: [[1, 2, 3], %w(one two three)],
         add_list: [4, 5, 6],
         method_name: :together_concat,
         expected: [[1, 2, 3, 4, 5, 6], ['one', 'two', 'three', 4, 5, 6]],
@@ -16,7 +16,7 @@ describe Array do
       {
         case_no: 2,
         case_title: 'valid case',
-        inputs: [[1, 2, 3], %w{one two three}],
+        inputs: [[1, 2, 3], %w(one two three)],
         add_list: [4, 5, 6],
         method_name: :tconcat,
         expected: [[1, 2, 3, 4, 5, 6], ['one', 'two', 'three', 4, 5, 6]],
