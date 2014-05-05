@@ -153,7 +153,7 @@ Or install it yourself as:
 |[TbpgrUtils String#to_space4_heading](#stringto_space4_heading)                                                    |create space4-format heading string with Emmet-like grammar                                                          |
 |[TbpgrUtils String#to_tab_heading](#stringto_tab_heading)                                                          |create tab-format heading string with Emmet-like grammar                                                             |
 |[TbpgrUtils String#unescape_double_quote](#stringunescape_double_quote)                                            |unescape double quote                                                                                                |
-|[TbpgrUtils String#unescape_quote](#stringunescape_quote)                                                          |unescape single quote                                                                                                |
+|[TbpgrUtils String#uniq](#stringuniq)                                                                              |return uniq string                                                                                                   |
 |[TbpgrUtils String#winpath_to_cygwinpath](#stringwinpath_to_cygwinpath)                                            |convert windows path to cygwin path                                                                                  |
 |[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
@@ -3417,6 +3417,14 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#uniq
+~~~ruby
+require 'tbpgr_utils'
+'abcdac'.uniq # => 'abcd'
+~~~
+
+[back to list](#list)
+
 ### String#winpath_to_cygwinpath
 ~~~ruby
 require 'tbpgr_utils'
@@ -3535,6 +3543,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.118 : add String#uniq
 * version 0.0.117 : add Array#kernel_send
 * version 0.0.116 : add Array#>>
 * version 0.0.115 : add MarkdownString#codes
