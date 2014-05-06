@@ -90,8 +90,9 @@ Or install it yourself as:
 |[TestToolbox Kernel#dp_line](#kerneldp_line)                                                                       |debug print line for print-debugging                                                                                 |
 |[TbpgrUtils Kernel#aa_ancestors](#kernelaa_ancestors)                                                              |Ascii Art Ancestors                                                                                                  |
 |[TbpgrUtils Kernel#bulk_puts_eval](#kernelbulk_puts_eval)                                                          |Puts each-line-code + eval result                                                                                    |
-|[TbpgrUtils Kernel#evalb](#kernelevalb)                                                                            |set attributes from hash                                                                                             |
-|[TbpgrUtils Kernel#hash_to_attributes](#kernelhash_to_attributes)                                                  |eval block version                                                                                                   |
+|[TbpgrUtils Kernel#evalb](#kernelevalb)                                                                            |eval block version                                                                                                   |
+|[TbpgrUtils Kernel#exchange](#kernelexchange)                                                                      |exchange variable a for b                                                                                            |
+|[TbpgrUtils Kernel#hash_to_attributes](#kernelhash_to_attributes)                                                  |set attributes from hash                                                                                             |
 |[TbpgrUtils Kernel#null](#kernelnull)                                                                              |null is alias of nil                                                                                                 |
 |[TbpgrUtils Kernel#print_eval](#kernelprint_eval)                                                                  |Print code + eval result                                                                                             |
 |[TbpgrUtils Kernel#puts_eval](#kernelputs_eval)                                                                    |Puts code + eval result                                                                                              |
@@ -1619,6 +1620,17 @@ n = n + 2
 end
 
 print actual # => 4
+~~~
+
+[back to list](#list)
+
+### Kernel#exchange
+~~~ruby
+a = 1
+b = 2
+a, b = exchange(a, b)
+a # => 2
+b # => 1
 ~~~
 
 [back to list](#list)
@@ -3543,6 +3555,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.119 : add Kernel#exchange
 * version 0.0.118 : add String#uniq
 * version 0.0.117 : add Array#kernel_send
 * version 0.0.116 : add Array#>>
