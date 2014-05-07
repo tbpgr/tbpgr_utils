@@ -26,6 +26,7 @@ Or install it yourself as:
 |:-----------                                                                                                       |:------------                                                                                                        |
 |[TbpgrUtils Array#>>](#array)                                                                                      |alias of map(&:method_symbol)                                                                                        |
 |[TbpgrUtils Array#kernel_send](#arraykernel_send)                                                                  |alias of map {|v|send :some_kernel_method, v}                                                                        |
+|[TbpgrUtils Array#sum](#arraysum)                                                                                  |alias of Array#reduce(&:+).                                                                                          |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
 |[TbpgrUtils Array#to_html_table](#arrayto_html_table)                                                              |Array(Array, Array...) to html table format.                                                                         |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
@@ -3555,6 +3556,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.120 : add Array#sum
 * version 0.0.119 : add Kernel#exchange
 * version 0.0.118 : add String#uniq
 * version 0.0.117 : add Array#kernel_send
