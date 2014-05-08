@@ -25,6 +25,7 @@ Or install it yourself as:
 | class/module/method                                                                                               | mean                                                                                                                |
 |:-----------                                                                                                       |:------------                                                                                                        |
 |[TbpgrUtils Array#>>](#array)                                                                                      |alias of map(&:method_symbol)                                                                                        |
+|[TbpgrUtils Array#average](#arrayaverage)                                                                          |return average                                                                                                       |
 |[TbpgrUtils Array#kernel_send](#arraykernel_send)                                                                  |alias of map {|v|send :some_kernel_method, v}                                                                        |
 |[TbpgrUtils Array#sum](#arraysum)                                                                                  |alias of Array#reduce(&:+).                                                                                          |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
@@ -166,6 +167,16 @@ Or install it yourself as:
 require 'tbpgr_utils'
 [*'a'..'c']>>:ord # => [97, 98, 99]
 [*'a'..'c']>>:upcase # => ["A", "B", "C"]
+~~~
+
+[back to list](#list)
+
+### Array#average
+~~~ruby
+require 'tbpgr_utils'
+[*1..6].average # => 3.5
+[1.5, 2.5].average # => 2.0
+[*'a'..'z'].average # => raise TypeError
 ~~~
 
 [back to list](#list)
@@ -3556,6 +3567,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.121 : add Array#average
 * version 0.0.120 : add Array#sum
 * version 0.0.119 : add Kernel#exchange
 * version 0.0.118 : add String#uniq
