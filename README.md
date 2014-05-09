@@ -144,6 +144,7 @@ Or install it yourself as:
 |[TbpgrUtils String#escape_double_quote](#stringescape_double_quote)                                                |escape double quote                                                                                                  |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
 |[TbpgrUtils String#is_meta_variable?](#stringis_meta_variable)                                                     |is meta variable.                                                                                                    |
+|[TbpgrUtils String#justify_char](#stringjustify_char)                                                              |justify pipe format char string                                                                                      |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
 |[TbpgrUtils String#spacing](#stringspacing)                                                                        |get spacing string                                                                                                   |
@@ -3157,6 +3158,29 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#justify_char
+~~~ruby
+require 'tbpgr_utils'
+
+str =<<-EOS
+print 'hoge' # => 'hoge'
+print 'hoge' * 2 # => 'hogehoge'
+print 'hoge' + 'hige' # => 'hogehige'
+EOS
+
+str.justify_char('#')
+~~~
+
+output  
+
+~~~
+print 'hoge'          # => 'hoge'
+print 'hoge' * 2      # => 'hogehoge'
+print 'hoge' + 'hige' # => 'hogehige'
+~~~
+
+[back to list](#list)
+
 ### String#justify_table
 ~~~ruby
 require 'tbpgr_utils'
@@ -3170,7 +3194,8 @@ EOS
 puts str.justify_table
 ~~~
 
-output
+output  
+
 ~~~
 |* hogehogehoge|* hage|* hige                        |
 |test          |tester|testest                       |
@@ -3567,6 +3592,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.122 : add String#justify_char
 * version 0.0.121 : add Array#average
 * version 0.0.120 : add Array#sum
 * version 0.0.119 : add Kernel#exchange
