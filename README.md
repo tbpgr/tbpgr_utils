@@ -135,6 +135,7 @@ Or install it yourself as:
 |[TbpgrUtils Object#to_bool](#objectto_bool)                                                                        |syntax sugar of !!. convert [false, nil] => fasel, other => true.                                                    |
 |[TbpgrUtils Object#unless_guard](#objectunless_guard)                                                              |data type check for unless_guard                                                                                     |
 |[SimpleTournament](#simpletournament)                                                                              |simple tournament                                                                                                    |
+|[TbpgrUtils String.>>](#string)                                                                                    |self converto to Array. and execute method                                                                           |
 |[TbpgrUtils String#ascii1_other2_size](#stringascii1_other2_size)                                                  |count string size. ascii => count1, not ascii => count2                                                              |
 |[TbpgrUtils String#ascii_unicode_html_table](#stringascii_unicode_html_table)                                      |get ascii_unicode_html_table                                                                                         |
 |[TbpgrUtils String#ascii_unicode_table](#stringascii_unicode_table)                                                |get ascii_unicode_table                                                                                              |
@@ -3022,6 +3023,17 @@ print st.tournament # => [[3], [1, 3], [3, 2]]
 
 [back to list](#list)
 
+### String#>>
+~~~ruby
+require 'tbpgr_utils'
+
+"abc">>:ord # => [97, 98, 99]
+"abc">>'ord' # => [97, 98, 99]
+"abc">>-> (x) { (x.ord + 1).chr } # => ["c", "d", "e"]
+~~~
+
+[back to list](#list)
+
 ### String#ascii1_other2_size
 ~~~ruby
 require 'tbpgr_utils'
@@ -3592,6 +3604,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.123 : add String#>>
 * version 0.0.122 : add String#justify_char
 * version 0.0.121 : add Array#average
 * version 0.0.120 : add Array#sum

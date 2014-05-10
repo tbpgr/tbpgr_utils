@@ -41,12 +41,25 @@ print 'hoge' * 2      // => 'hogehoge'
 print 'hoge' + 'hige' // => 'hogehige'
     EOS
 
+    SAMPLE_JUSTIFIED_STRING4 = <<-EOS
+         print 'hoge' #     => 'hoge'
+     print 'hoge' * 2 # => 'hogehoge'
+print 'hoge' + 'hige' # => 'hogehige'
+    EOS
+
+    SAMPLE_JUSTIFIED_STRING5 = <<-EOS
+    print 'hoge'      #   => 'hoge'
+  print 'hoge' * 2    # => 'hogehoge'
+print 'hoge' + 'hige' # => 'hogehige'
+    EOS
+
     cases = [
       {
         case_no: 1,
         case_title: 'sharp justify case',
         input: SAMPLE_STRING1,
         separator: '#',
+        position: :left,
         expected: SAMPLE_JUSTIFIED_STRING1,
       },
       {
@@ -57,10 +70,27 @@ print 'hoge' + 'hige' // => 'hogehige'
       },
       {
         case_no: 3,
-        case_title: 'double stash justify case',
+        case_title: 'double slash justify case',
         input: SAMPLE_STRING3,
         separator: '//',
+        position: :left,
         expected: SAMPLE_JUSTIFIED_STRING3,
+      },
+      {
+        case_no: 4,
+        case_title: 'sharp right justify case',
+        input: SAMPLE_STRING1,
+        separator: '#',
+        position: :right,
+        expected: SAMPLE_JUSTIFIED_STRING4,
+      },
+      {
+        case_no: 5,
+        case_title: 'sharp center justify case',
+        input: SAMPLE_STRING1,
+        separator: '#',
+        position: :center,
+        expected: SAMPLE_JUSTIFIED_STRING5,
       },
     ]
 
@@ -74,7 +104,7 @@ print 'hoge' + 'hige' // => 'hogehige'
 
           # -- when --
           if (c[:separator])
-            actual = c[:input].justify_char c[:separator]
+            actual = c[:input].justify_char c[:separator], c[:position]
           else
             actual = c[:input].justify_char
           end
