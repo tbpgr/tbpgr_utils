@@ -23,7 +23,7 @@ describe String do
         case_no: 3,
         case_title: 'proc case',
         input: 'abc',
-        method_name: -> (x) { (x.ord + 2).chr },
+        method_name: proc { |x|(x.ord + 2).chr },
         expected: ['c', 'd', 'e'],
       },
     ]
