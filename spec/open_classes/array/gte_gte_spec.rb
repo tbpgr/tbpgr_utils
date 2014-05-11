@@ -7,24 +7,25 @@ describe Array do
     cases = [
       {
         case_no: 1,
-        case_title: 'valid case',
+        case_title: 'symbol case',
         input: [*'a'..'c'],
         method_name: :ord,
         expected: [97, 98, 99],
       },
       {
         case_no: 2,
-        case_title: 'valid case',
+        case_title: 'string case',
         input: [*'a'..'c'],
         method_name: 'ord',
         expected: [97, 98, 99],
       },
       {
         case_no: 3,
-        case_title: 'valid case',
-        input: [*'a'..'c'],
-        method_name: 1,
-        expected: [*'a'..'c'],
+        case_title: 'have args case',
+        input: [*'aa'..'ac'],
+        method_name: 'gsub',
+        args: ['a', 'c'],
+        expected: ['cc', 'cb', 'cc'],
       },
     ]
 
@@ -37,7 +38,11 @@ describe Array do
           # nothing
 
           # -- when/then --
-          actual = c[:input] >> c[:method_name]
+          if c[:args]
+            actual = c[:input].>>.send c[:method_name], *c[:args]
+          else
+            actual = c[:input].>>.send c[:method_name]
+          end
 
           expect(actual).to eq(c[:expected])
         ensure

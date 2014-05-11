@@ -1,21 +1,25 @@
 # encoding: utf-8
+require 'tbpgr_utils'
 
 # String
 class String
-  # self converto to Array. and applya operator to execute elements
+  # self convert to Array. execute each elements
   #
   # === Example
   #
-  #   "abc">>:ord # => [97, 98, 99]
-  #   "abc">>'ord' # => [97, 98, 99]
-  #   "abc">>-> (x) { (x.ord + 1).chr } # => ["c", "d", "e"]
+  #   "abc">> .next # => 'bcd'
+  #   "abc">> 'next' # => 'bcd'
+  #   "abc">> :+, "a" # => 'adbdcd'
   #
-  def >>(method_name)
+  def >>(method_name, *args)
     return self unless [Symbol, String, Proc].include? method_name.class
-    if method_name.is_a? Proc
-      split('').map { |v|method_name[v] }
-    else
-      split('').map(&method_name.to_sym)
-    end
+    array_context = split('').>>
+    rets = 
+      if args.size.nil? || args.size == 0
+        array_context.send method_name
+      else
+        array_context.send method_name, *args
+      end
+    rets.join
   end
 end

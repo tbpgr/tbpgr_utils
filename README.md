@@ -24,7 +24,7 @@ Or install it yourself as:
 ### List
 | class/module/method                                                                                               | mean                                                                                                                |
 |:-----------                                                                                                       |:------------                                                                                                        |
-|[TbpgrUtils Array#>>](#array)                                                                                      |alias of map(&:method_symbol)                                                                                        |
+|[TbpgrUtils Array#>>](#array)                                                                                      |return ArrayContext for each execute                                                                                 |
 |[TbpgrUtils Array#average](#arrayaverage)                                                                          |return average                                                                                                       |
 |[TbpgrUtils Array#kernel_send](#arraykernel_send)                                                                  |alias of map {|v|send :some_kernel_method, v}                                                                        |
 |[TbpgrUtils Array#sum](#arraysum)                                                                                  |alias of Array#reduce(&:+).                                                                                          |
@@ -167,8 +167,9 @@ Or install it yourself as:
 ### Array#>>
 ~~~ruby
 require 'tbpgr_utils'
-[*'a'..'c']>>:ord # => [97, 98, 99]
-[*'a'..'c']>>:upcase # => ["A", "B", "C"]
+[*'a'..'c'].>>.ord # => [97, 98, 99]
+[*'a'..'c'].>>.'ord' # => [97, 98, 99]
+[*'aa'..'cc'].>>.gsub("a", "c") # => ['cc', 'cb', 'cc']
 ~~~
 
 [back to list](#list)
@@ -3027,9 +3028,9 @@ print st.tournament # => [[3], [1, 3], [3, 2]]
 ~~~ruby
 require 'tbpgr_utils'
 
-"abc">>:ord # => [97, 98, 99]
-"abc">>'ord' # => [97, 98, 99]
-"abc">>-> (x) { (x.ord + 1).chr } # => ["c", "d", "e"]
+"abc">> .next # => 'bcd'
+"abc">> 'next' # => 'bcd'
+"abc">> :+, "a" # => 'adbdcd'
 ~~~
 
 [back to list](#list)
@@ -3604,6 +3605,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.124 : change spec of Array#>>, String#>>
 * version 0.0.123 : add String#>>
 * version 0.0.122 : add String#justify_char
 * version 0.0.121 : add Array#average

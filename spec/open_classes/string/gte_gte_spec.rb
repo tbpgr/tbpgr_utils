@@ -9,22 +9,23 @@ describe String do
         case_no: 1,
         case_title: 'string method case',
         input: 'abc',
-        method_name: 'ord',
-        expected: [97, 98, 99],
+        method_name: 'next',
+        expected: 'bcd',
       },
       {
         case_no: 2,
         case_title: 'symbol case',
         input: 'abc',
-        method_name: :ord,
-        expected: [97, 98, 99],
+        method_name: :next,
+        expected: 'bcd',
       },
       {
         case_no: 3,
-        case_title: 'proc case',
+        case_title: 'have args case',
         input: 'abc',
-        method_name: proc { |x|(x.ord + 2).chr },
-        expected: ['c', 'd', 'e'],
+        method_name: '+',
+        args: ['d'],
+        expected: 'adbdcd',
       },
     ]
 
@@ -37,7 +38,11 @@ describe String do
           # nothing
 
           # -- when/then --
-          actual = c[:input] >> c[:method_name]
+          if c[:args]
+            actual = c[:input].>> c[:method_name], *c[:args]
+          else
+            actual = c[:input].>> c[:method_name]
+          end
 
           expect(actual).to eq(c[:expected])
         ensure
