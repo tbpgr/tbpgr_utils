@@ -7,20 +7,13 @@ describe String do
     cases = [
       {
         case_no: 1,
-        case_title: 'string method case',
+        case_title: 'no args case',
         input: 'abc',
         method_name: 'next',
         expected: 'bcd',
       },
       {
         case_no: 2,
-        case_title: 'symbol case',
-        input: 'abc',
-        method_name: :next,
-        expected: 'bcd',
-      },
-      {
-        case_no: 3,
         case_title: 'have args case',
         input: 'abc',
         method_name: '+',

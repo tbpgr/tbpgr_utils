@@ -32,7 +32,7 @@ class Array
   #
   #   [*'a'..'c'].>>.ord # => [97, 98, 99]
   #   [*'a'..'c'].>>.'ord' # => [97, 98, 99]
-  #   [*'aa'..'cc'].>>.gsub("a", "c") # => ['cc', 'cb', 'cc']
+  #   [*'aa'..'ac'].>>.gsub("a", "c") # => ['cc', 'cb', 'cc']
   #
   def >>(dummy = nil)
     ArrayContext.new(self)

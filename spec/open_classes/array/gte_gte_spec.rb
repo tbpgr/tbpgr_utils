@@ -7,16 +7,9 @@ describe Array do
     cases = [
       {
         case_no: 1,
-        case_title: 'symbol case',
+        case_title: 'no args case',
         input: [*'a'..'c'],
         method_name: :ord,
-        expected: [97, 98, 99],
-      },
-      {
-        case_no: 2,
-        case_title: 'string case',
-        input: [*'a'..'c'],
-        method_name: 'ord',
         expected: [97, 98, 99],
       },
       {

@@ -168,8 +168,7 @@ Or install it yourself as:
 ~~~ruby
 require 'tbpgr_utils'
 [*'a'..'c'].>>.ord # => [97, 98, 99]
-[*'a'..'c'].>>.'ord' # => [97, 98, 99]
-[*'aa'..'cc'].>>.gsub("a", "c") # => ['cc', 'cb', 'cc']
+[*'aa'..'ac'].>>.gsub("a", "c") # => ['cc', 'cb', 'cc']
 ~~~
 
 [back to list](#list)
@@ -3028,9 +3027,8 @@ print st.tournament # => [[3], [1, 3], [3, 2]]
 ~~~ruby
 require 'tbpgr_utils'
 
-"abc">> .next # => 'bcd'
-"abc">> 'next' # => 'bcd'
-"abc">> :+, "a" # => 'adbdcd'
+"abc".>> .next # => 'bcd'
+"abc".>> :+, "a" # => 'adbdcd'
 ~~~
 
 [back to list](#list)

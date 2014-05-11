@@ -7,9 +7,8 @@ class String
   #
   # === Example
   #
-  #   "abc">> .next # => 'bcd'
-  #   "abc">> 'next' # => 'bcd'
-  #   "abc">> :+, "a" # => 'adbdcd'
+  #   "abc".>> :next # => 'bcd'
+  #   "abc".>> :+, "a" # => 'adbdcd'
   #
   def >>(method_name, *args)
     return self unless [Symbol, String, Proc].include? method_name.class
