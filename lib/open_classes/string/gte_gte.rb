@@ -13,7 +13,7 @@ class String
   def >>(method_name, *args)
     return self unless [Symbol, String, Proc].include? method_name.class
     array_context = split('').>>
-    rets = 
+    rets =
       if args.size.nil? || args.size == 0
         array_context.send method_name
       else

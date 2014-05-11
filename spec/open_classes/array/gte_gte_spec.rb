@@ -20,6 +20,13 @@ describe Array do
         args: ['a', 'c'],
         expected: ['cc', 'cb', 'cc'],
       },
+      {
+        case_no: 4,
+        case_title: 'have args case',
+        input: [*'aa'..'ac'],
+        method_name: 'to_a',
+        expected: [*'aa'..'ac'],
+      },
     ]
 
     cases.each do |c|
