@@ -83,6 +83,7 @@ Or install it yourself as:
 |[TbpgrUtils Fixnum to_fixnum_html_table](#fixnum-to_fixnum_html_table)                                             |return value is fixnum html table                                                                                    |
 |[TbpgrUtils Fixnum to_fixnum_table](#fixnumto_fixnum_table)                                                        |return value is fixnum table                                                                                         |
 |[Ghostable module](#ghostable)                                                                                     |help to create ghost method(dynamic method define by ussing method_missing + pattern-method-name)                    |
+|[TbpgrUtils Hash#>>](#hash)                                                                                        |return HashContext for each execute                                                                                  |
 |[TbpgrUtils Hash#html_table](#hashhtml_table)                                                                      |get html table string from key + value                                                                               |
 |[TbpgrUtils Hash#table](#hashtable)                                                                                |get pipe format table string from key + value                                                                        |
 |[TbpgrUtils Integer#palindromic_prime?](#integerpalindromic_prime)                                                 |Returns true if value is palindromic prime, false for a composite.                                                   |
@@ -1453,6 +1454,16 @@ dp_line __LINE__, filename: __FILE__
 dp_line __LINE__, filename: __FILE__, char: '@'
 # output is following. xx=filenamem, yy = line no.
 # => @@@@@@@@@@@@@@@@@@@@|filename=xx|line=yy$|@@@@@@@@@@@@@@@@@@@@\n
+~~~
+
+[back to list](#list)
+
+### Hash#>>
+~~~ruby
+require 'tbpgr_utils'
+h = {key1: "value1", key2: "value2"}
+h.>>.upcase # => {key1: "VALUE1", key2: "VALUE2"}
+h.>>.+('_hoge') # => {key1: "value1_hoge", key2: "value2_hoge"}
 ~~~
 
 [back to list](#list)
@@ -3603,6 +3614,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.125 : add Hash#>>
 * version 0.0.124 : change spec of Array#>>, String#>>
 * version 0.0.123 : add String#>>
 * version 0.0.122 : add String#justify_char
