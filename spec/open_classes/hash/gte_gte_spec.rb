@@ -8,24 +8,24 @@ describe Hash do
       {
         case_no: 1,
         case_title: 'no args case',
-        input: {key1: "value1", key2: "value2"},
+        input: { key1: 'value1', key2: 'value2' },
         method_name: :upcase,
-        expected: {key1: "VALUE1", key2: "VALUE2"},
+        expected: { key1: 'VALUE1', key2: 'VALUE2' },
       },
       {
         case_no: 2,
         case_title: 'have args case',
-        input: {key1: "value1", key2: "value2"},
+        input: { key1: 'value1', key2: 'value2' },
         method_name: :+,
-        args: "_hoge",
-        expected: {key1: "value1_hoge", key2: "value2_hoge"},
+        args: '_hoge',
+        expected: { key1: 'value1_hoge', key2: 'value2_hoge' },
       },
       {
         case_no: 3,
         case_title: 'to_h case',
-        input: {key1: "value1", key2: "value2"},
+        input: { key1: 'value1', key2: 'value2' },
         method_name: :to_h,
-        expected: {key1: "value1", key2: "value2"},
+        expected: { key1: 'value1', key2: 'value2' },
       },
     ]
 
