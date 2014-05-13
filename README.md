@@ -58,6 +58,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_shuffle](#arraytogether_shuffleor-tshuffle)                                             |together version of Array#shuffle. together_shuffle has alias :tshuffle                                              |
 |[TbpgrUtils Array#together_slice](#arraytogether_sliceor-tslice)                                                   |together version of Array#slice. together_slice has alias :tslice                                                    |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
+|[TbpgrUtils Array#uniq_size](#arrayuniq_size)                                                                      |return uniq size                                                                                                     |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
@@ -1064,6 +1065,17 @@ numbers = %w{1 2 3}
 [alpha, numbers].together_with_index do |first, second, index|
   print "#{index.to_s}:#{first}:#{second}\n"  # => output 0:one:1, 1:two:2, 2:three:3
 end
+~~~
+
+[back to list](#list)
+
+### Array#uniq_size
+~~~ruby
+require 'tbpgr_utils'
+
+([*1..6] + [2,3]).uniq_size # => 6
+[*1..6].uniq_size # => 6
+[].uniq_size # => 0
 ~~~
 
 [back to list](#list)
@@ -3614,6 +3626,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.126 : add Array#uniq_size
 * version 0.0.125 : add Hash#>>
 * version 0.0.124 : change spec of Array#>>, String#>>
 * version 0.0.123 : add String#>>
