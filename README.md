@@ -161,6 +161,7 @@ Or install it yourself as:
 |[TbpgrUtils String#to_tab_heading](#stringto_tab_heading)                                                          |create tab-format heading string with Emmet-like grammar                                                             |
 |[TbpgrUtils String#unescape_double_quote](#stringunescape_double_quote)                                            |unescape double quote                                                                                                |
 |[TbpgrUtils String#uniq](#stringuniq)                                                                              |return uniq string                                                                                                   |
+|[TbpgrUtils String#uniq_size](#stringuniq)                                                                         |return uniq size                                                                                                     |
 |[TbpgrUtils String#winpath_to_cygwinpath](#stringwinpath_to_cygwinpath)                                            |convert windows path to cygwin path                                                                                  |
 |[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
@@ -3508,6 +3509,16 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### String#uniq_size
+~~~ruby
+require 'tbpgr_utils'
+'abcdefa'.uniq_size # => 6
+'abcdef'.uniq_size # => 6
+''.uniq_size # => 0
+~~~
+
+[back to list](#list)
+
 ### String#winpath_to_cygwinpath
 ~~~ruby
 require 'tbpgr_utils'
@@ -3626,6 +3637,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.127 : add String#uniq_size
 * version 0.0.126 : add Array#uniq_size
 * version 0.0.125 : add Hash#>>
 * version 0.0.124 : change spec of Array#>>, String#>>
