@@ -26,6 +26,7 @@ Or install it yourself as:
 |:-----------                                                                                                       |:------------                                                                                                        |
 |[TbpgrUtils Array#>>](#array)                                                                                      |return ArrayContext for each execute                                                                                 |
 |[TbpgrUtils Array#average](#arrayaverage)                                                                          |return average                                                                                                       |
+|[TbpgrUtils Array#exchange](#arrayexchange )                                                                       |exchange array's elements                                                                                            |
 |[TbpgrUtils Array#kernel_send](#arraykernel_send)                                                                  |alias of map {|v|send :some_kernel_method, v}                                                                        |
 |[TbpgrUtils Array#sum](#arraysum)                                                                                  |alias of Array#reduce(&:+).                                                                                          |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
@@ -182,6 +183,17 @@ require 'tbpgr_utils'
 [*1..6].average # => 3.5
 [1.5, 2.5].average # => 2.0
 [*'a'..'z'].average # => raise TypeError
+~~~
+
+[back to list](#list)
+
+### Array#exchange
+~~~ruby
+require 'tbpgr_utils'
+[*1..6].exchange!(1, 5) # => [1, 6, 3, 4, 5, 2]
+[*1..6].exchange!(1, -1) # => [1, 6, 3, 4, 5, 2]
+[*1..6].exchange!(1, 6) # => [*1..6]
+[].exchange!(1, 2) # => []
 ~~~
 
 [back to list](#list)
@@ -3637,6 +3649,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.128 : add Array#exchange, change Kernel#bulk_puts_eval output format(justify)
 * version 0.0.127 : add String#uniq_size
 * version 0.0.126 : add Array#uniq_size
 * version 0.0.125 : add Hash#>>

@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'open_classes/array/average'
+require 'open_classes/array/exchange'
 require 'open_classes/array/gte_gte'
 require 'open_classes/array/kernel_send'
 require 'open_classes/array/sum'

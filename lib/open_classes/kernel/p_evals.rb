@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'open_classes/string'
 
 # Kernel
 module Kernel
@@ -31,7 +32,9 @@ module Kernel
   #   "hoge-#{message}1" # => "hoge-msg1"\n
   #   "hoge-#{message}2" # => "hoge-msg2"\n
   def bulk_puts_eval(binding, codes)
-    codes.each_line { |code|puts_eval(code.chop, binding) }
+    result = []
+    codes.each_line { |code|result << exec_eval(code.chop, binding) }
+    puts result.join("\n").justify_char '#'
   end
 
   private
