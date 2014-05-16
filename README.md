@@ -131,6 +131,7 @@ Or install it yourself as:
 |[TbpgrUtils Numeric to_oct_table](#numeric-to_oct_table)                                                           |oct table                                                                                                            |
 |[TbpgrUtils Object#any_of?](#objectany_of)                                                                         |if self match any one of items, return true                                                                          |
 |[TbpgrUtils Object#boolean?](#objectboolean)                                                                       |data type check for boolean                                                                                          |
+|[TbpgrUtils Object#grep_public_instance_method](#objectgrep_public_instance_method)                                |grep public instance method                                                                                          |
 |[TbpgrUtils Object#guard](#objectguard)                                                                            |data type check for guard                                                                                            |
 |[TbpgrUtils Object#method_nameable?](#objectmethod_nameable)                                                       |object can use method name or not                                                                                    |
 |[TbpgrUtils Object#my_methods](#objectmy_methods)                                                                  |return public/protected/private self define methods                                                                  |
@@ -2937,6 +2938,34 @@ hoge false # => "not guard"
 
 [back to list](#list)
 
+### Object#grep_public_instance_method
+~~~ruby
+require 'tbpbr_utils'
+
+# target class
+class GrepPublicInstanceMethod
+  def public_method1;end
+  def public_method2;end
+  def public_method11;end
+  protected
+  def protected_method1;end
+  def protected_method2;end
+  def protected_method11;end
+  private
+  def private_method1;end
+  def private_method2;end
+  def private_method11;end
+end
+
+# method call
+GrepPublicInstanceMethod.new.grep_public_instance_method :public_method1, false # => [:public_method1]
+GrepPublicInstanceMethod.new.grep_public_instance_method /public_method1/, false # => [:public_method1, :public_method11]
+GrepPublicInstanceMethod.new.grep_public_instance_method /public_method3/, false # => []
+GrepPublicInstanceMethod.new.grep_public_instance_method :equal?, true # => [:equal?]
+~~~
+
+[back to list](#list)
+
 ### Object#method_nameable?
 ~~~ruby
 require 'tbpbr_utils'
@@ -3649,6 +3678,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.129 : add Object#grep_public_instance_method
 * version 0.0.128 : add Array#exchange, change Kernel#bulk_puts_eval output format(justify)
 * version 0.0.127 : add String#uniq_size
 * version 0.0.126 : add Array#uniq_size
