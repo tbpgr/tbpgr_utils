@@ -2,6 +2,7 @@
 
 require 'open_classes/object/any_of'
 require 'open_classes/object/boolean'
+require 'open_classes/object/grep_method'
 require 'open_classes/object/grep_public_instance_method'
 require 'open_classes/object/guard'
 require 'open_classes/object/method_nameable'
