@@ -2945,7 +2945,7 @@ hoge false # => "not guard"
 target class
 
 ~~~ruby
-require 'tbpbr_utils'
+require 'tbpgr_utils'
 
 class GrepMethod
   def self.public_method1;end
@@ -2975,7 +2975,7 @@ GrepMethod.grep_method :__send__, true # => [:__send__]
 
 ### Object#grep_private_instance_method
 ~~~ruby
-require 'tbpbr_utils'
+require 'tbpgr_utils'
 
 # target class
 class GrepInstanceMethod
@@ -3003,7 +3003,7 @@ GrepInstanceMethod.new.grep_private_instance_method :equal?, true # => [:equal?]
 
 ### Object#grep_protected_instance_method
 ~~~ruby
-require 'tbpbr_utils'
+require 'tbpgr_utils'
 
 # target class
 class GrepInstanceMethod
@@ -3031,7 +3031,7 @@ GrepInstanceMethod.new.grep_protected_instance_method :equal?, true # => [:equal
 
 ### Object#grep_public_instance_method
 ~~~ruby
-require 'tbpbr_utils'
+require 'tbpgr_utils'
 
 # target class
 class GrepInstanceMethod
@@ -3059,7 +3059,7 @@ GrepInstanceMethod.new.grep_public_instance_method :equal?, true # => [:equal?]
 
 ### Object#method_nameable?
 ~~~ruby
-require 'tbpbr_utils'
+require 'tbpgr_utils'
 "string".method_nameable? # => true
 :symbol.method_nameable? # => true
 1.method_nameable? # => false
