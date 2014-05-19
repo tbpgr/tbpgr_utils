@@ -88,6 +88,7 @@ Or install it yourself as:
 |[TbpgrUtils Hash#>>](#hash)                                                                                        |return HashContext for each execute                                                                                  |
 |[TbpgrUtils Hash#html_table](#hashhtml_table)                                                                      |get html table string from key + value                                                                               |
 |[TbpgrUtils Hash#table](#hashtable)                                                                                |get pipe format table string from key + value                                                                        |
+|[TbpgrUtils Integer#each_digit](#integereach_digit)                                                                |provide iterator for number's each digit                                                                             |
 |[TbpgrUtils Integer#palindromic_prime?](#integerpalindromic_prime)                                                 |Returns true if value is palindromic prime, false for a composite.                                                   |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
@@ -1544,6 +1545,16 @@ result
 |key_1  |value1___________________|
 |key__2 |value2                   |
 |key___3|value3                   |
+~~~
+
+[back to list](#list)
+
+### Integer#each_digit
+~~~ruby
+require 'tbpgr_utils'
+ret=[];
+12345.each_digit { |v|ret << v+1 };
+print ret # => [2,3,4,5,6]
 ~~~
 
 [back to list](#list)
@@ -3769,6 +3780,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.132 : add Integer#each_digit
 * version 0.0.131 : add Object#grep_protected_instance_method, Object#grep_private_instance_method
 * version 0.0.130 : add Object#grep_method
 * version 0.0.129 : add Object#grep_public_instance_method
