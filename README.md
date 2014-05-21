@@ -91,6 +91,7 @@ Or install it yourself as:
 |[TbpgrUtils Integer#each_digit](#integereach_digit)                                                                |provide iterator for number's each digit                                                                             |
 |[TbpgrUtils Integer#each_digit_with_index](#integereach_digit_with_index)                                          |provide iterator for number's each digit with index                                                                  |
 |[TbpgrUtils Integer#palindromic_prime?](#integerpalindromic_prime)                                                 |Returns true if value is palindromic prime, false for a composite.                                                   |
+|[TbpgrUtils Integer#reverse_each_digit](#integerreverse_each_digit)                                                |provide reverse iterator for number's each digit                                                                     |
 |[TbpgrUtils Kernel booleans](#kerne-booleans)                                                                      |True or False instance aliases.                                                                                      |
 |[TbpgrUtils Kernel#bulk_define_methods](#kernelbulk_define_methods)                                                |define methods to classes. methods have simple return value.                                                         |
 |[TestToolbox Kernel#capture_stdout](#kernelcapture_stdout)                                                         |capture STDOUT                                                                                                       |
@@ -1579,6 +1580,16 @@ require 'tbpgr_utils'
 11.palindromic_prime? # => true
 757.palindromic_prime? # => true
 758.palindromic_prime? # => false
+~~~
+
+[back to list](#list)
+
+### Integer#reverse_each_digit
+~~~ruby
+require 'tbpgr_utils'
+ret=[];
+12345.reverse_each_digit { |v|ret << v + 1 };
+print ret # => [6, 5, 4, 3, 2]
 ~~~
 
 [back to list](#list)
@@ -3791,6 +3802,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.134 : add Integer#reverse_each_digit
 * version 0.0.133 : add Integer#each_digit_with_index
 * version 0.0.132 : add Integer#each_digit
 * version 0.0.131 : add Object#grep_protected_instance_method, Object#grep_private_instance_method
