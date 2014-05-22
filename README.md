@@ -60,6 +60,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_slice](#arraytogether_sliceor-tslice)                                                   |together version of Array#slice. together_slice has alias :tslice                                                    |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
 |[TbpgrUtils Array#uniq_size](#arrayuniq_size)                                                                      |return uniq size                                                                                                     |
+|[AttrEnumerable#each_attr](#attrenumerable_each_attr)                                                              |define each_xxx. it call Class attributes(collection)'s attribute iterator                                           |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
@@ -1096,6 +1097,40 @@ require 'tbpgr_utils'
 ([*1..6] + [2,3]).uniq_size # => 6
 [*1..6].uniq_size # => 6
 [].uniq_size # => 0
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.each_attr
+~~~ruby
+require 'attr_enumerable'
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
+persons.each_name do |name|
+  puts name # => "tanaka", "suzuki"
+end
+
+persons.each_age do |age|
+  puts age # => 84, 103
+end
 ~~~
 
 [back to list](#list)
@@ -3802,6 +3837,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.135 : add AttrEnumerable.each_attr
 * version 0.0.134 : add Integer#reverse_each_digit
 * version 0.0.133 : add Integer#each_digit_with_index
 * version 0.0.132 : add Integer#each_digit
