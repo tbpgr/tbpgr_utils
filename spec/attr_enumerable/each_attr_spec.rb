@@ -29,8 +29,8 @@ describe AttrEnumerable do
         case_title: 'name case',
         klass: AttrEnumerablePersons.new(
           [
-            AttrEnumerablePerson.new("tanaka", 84),
-            AttrEnumerablePerson.new("suzuki", 103)
+            AttrEnumerablePerson.new('tanaka', 84),
+            AttrEnumerablePerson.new('suzuki', 103)
           ]
         ),
         method: :each_name,
@@ -41,8 +41,8 @@ describe AttrEnumerable do
         case_title: 'age case',
         klass: AttrEnumerablePersons.new(
           [
-            AttrEnumerablePerson.new("tanaka", 84),
-            AttrEnumerablePerson.new("suzuki", 103)
+            AttrEnumerablePerson.new('tanaka', 84),
+            AttrEnumerablePerson.new('suzuki', 103)
           ]
         ),
         method: :each_age,
