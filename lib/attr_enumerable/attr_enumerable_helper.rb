@@ -12,7 +12,7 @@ module AttrEnumerable
   # call attr enumerable method.
   def method_missing(method_name, *args, &block)
     attr_method = detect(method_name)
-    send(attr_method[:call_method], attr_method[:attribute], method_name,*args, &block)
+    send(attr_method[:call_method], attr_method[:attribute], method_name, *args, &block)
   rescue
    super(method_name, *args, &block)
   end

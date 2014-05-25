@@ -3904,6 +3904,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.137 : add AttrEnumerable.reverse_attr
 * version 0.0.136 : add AttrEnumerable.each_attr_with_index
 * version 0.0.135 : add AttrEnumerable.each_attr
 * version 0.0.134 : add Integer#reverse_each_digit
