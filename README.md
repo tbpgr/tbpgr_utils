@@ -62,6 +62,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#uniq_size](#arrayuniq_size)                                                                      |return uniq size                                                                                                     |
 |[AttrEnumerable.each_attr](#attrenumerableeach_attr)                                                               |define each_xxx. it call Class attributes(collection)'s attribute iterator                                           |
 |[AttrEnumerable.each_attr_with_index](#attrenumerableeach_attr_with_index)                                         |define each_xxx_with_index. it call Class attributes(collection)'s attribute iterator with index                     |
+|[AttrEnumerable.reverse_attr](#attrenumerablereverse_attr)                                                         |define reverse_xxx. it returns Class attributes(collection)'s reverse Array                                          |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
@@ -1132,6 +1133,37 @@ end
 persons.each_age_with_index do |age, i|
   puts "#{age.to_s}:#{i}" # => "84:0", "103:0"
 end
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.reverse_attr
+~~~ruby
+require 'attr_enumerable'
+
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
+print persons.reverse_name # => ['suzuki', 'tanaka']
+
+print persons.reverse_age # => [103, 84]
 ~~~
 
 [back to list](#list)

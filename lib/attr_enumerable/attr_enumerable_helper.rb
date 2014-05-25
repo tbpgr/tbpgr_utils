@@ -5,14 +5,15 @@ require 'active_support/inflector'
 module AttrEnumerable
   ATTR_METHODS = [
     { regexp: /^each_(.*)_with_index$/, call_method: :each_attr_with_index },
-    { regexp: /^each_(.*)$/, call_method: :each_attr }
+    { regexp: /^each_(.*)$/, call_method: :each_attr },
+    { regexp: /^reverse_(.*)$/, call_method: :reverse_attr }
                  ]
 
   # call attr enumerable method.
   def method_missing(method_name, *args, &block)
     attr_method = detect(method_name)
-    send(attr_method[:call_method], attr_method[:attribute], &block)
- rescue
+    send(attr_method[:call_method], attr_method[:attribute], method_name,*args, &block)
+  rescue
    super(method_name, *args, &block)
   end
 
