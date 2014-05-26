@@ -1105,8 +1105,6 @@ require 'tbpgr_utils'
 [back to list](#list)
 
 ### AttrEnumerable.at_attr
-
-### AttrEnumerable.each_attr
 ~~~ruby
 require 'attr_enumerable'
 class Person
