@@ -60,6 +60,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_slice](#arraytogether_sliceor-tslice)                                                   |together version of Array#slice. together_slice has alias :tslice                                                    |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
 |[TbpgrUtils Array#uniq_size](#arrayuniq_size)                                                                      |return uniq size                                                                                                     |
+|[AttrEnumerable.at_attr](#attrenumerableat_attr)                                                                   |define at_xxx. it returns Class attributes(collection)'s at result.                                                  |
 |[AttrEnumerable.each_attr](#attrenumerableeach_attr)                                                               |define each_xxx. it call Class attributes(collection)'s attribute iterator                                           |
 |[AttrEnumerable.each_attr_with_index](#attrenumerableeach_attr_with_index)                                         |define each_xxx_with_index. it call Class attributes(collection)'s attribute iterator with index                     |
 |[AttrEnumerable.reverse_attr](#attrenumerablereverse_attr)                                                         |define reverse_xxx. it returns Class attributes(collection)'s reverse Array                                          |
@@ -1103,6 +1104,77 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### AttrEnumerable.at_attr
+
+### AttrEnumerable.each_attr
+~~~ruby
+require 'attr_enumerable'
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
+persons.at_name 0 # => 'tanaka'
+persons.at_name 1 # => 'suzuki'
+persons.at_name -1 # => 'suzuki'
+persons.at_age 0 # => 84
+persons.at_age 2 # => nil
+
+persons = Persons.new([])
+persons.at_name 0 # => nil
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.each_attr
+~~~ruby
+require 'attr_enumerable'
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
+persons.each_name do |name|
+  puts name # => "tanaka", "suzuki"
+end
+
+persons.each_age do |age|
+  puts age # => 84, 103
+end
+~~~
+
+[back to list](#list)
+
 ### AttrEnumerable.each_attr_with_index
 ~~~ruby
 require 'attr_enumerable'
@@ -1164,40 +1236,6 @@ persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
 print persons.reverse_name # => ['suzuki', 'tanaka']
 
 print persons.reverse_age # => [103, 84]
-~~~
-
-[back to list](#list)
-
-### AttrEnumerable.each_attr
-~~~ruby
-require 'attr_enumerable'
-class Person
-  attr_reader :name, :age
-  def initialize(name, age)
-    @name, @age = name, age
-  end
-end
-
-class Persons
-  attr_reader :persons
-  include AttrEnumerable
-  def initialize(persons = [])
-    @persons = persons
-  end
-
-  def <<(person)
-    @persons << person
-  end
-end
-
-persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
-persons.each_name do |name|
-  puts name # => "tanaka", "suzuki"
-end
-
-persons.each_age do |age|
-  puts age # => 84, 103
-end
 ~~~
 
 [back to list](#list)
@@ -3904,6 +3942,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.138 : add AttrEnumerable.at_attr
 * version 0.0.137 : add AttrEnumerable.reverse_attr
 * version 0.0.136 : add AttrEnumerable.each_attr_with_index
 * version 0.0.135 : add AttrEnumerable.each_attr
