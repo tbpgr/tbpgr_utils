@@ -61,6 +61,7 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
 |[TbpgrUtils Array#uniq_size](#arrayuniq_size)                                                                      |return uniq size                                                                                                     |
 |[AttrEnumerable.at_attr](#attrenumerableat_attr)                                                                   |define at_xxx. it returns Class attributes(collection)'s at result.                                                  |
+|[AttrEnumerable.compact_attr](#attrenumerablecompact_attr)                                                         |define compact_xxx. it returns Class attributes(collection)'s that exclude nil elements.                             |
 |[AttrEnumerable.each_attr](#attrenumerableeach_attr)                                                               |define each_xxx. it call Class attributes(collection)'s attribute iterator                                           |
 |[AttrEnumerable.each_attr_with_index](#attrenumerableeach_attr_with_index)                                         |define each_xxx_with_index. it call Class attributes(collection)'s attribute iterator with index                     |
 |[AttrEnumerable.reverse_attr](#attrenumerablereverse_attr)                                                         |define reverse_xxx. it returns Class attributes(collection)'s reverse Array                                          |
@@ -1135,6 +1136,38 @@ persons.at_age 2 # => nil
 
 persons = Persons.new([])
 persons.at_name 0 # => nil
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.compact_attr
+~~~ruby
+require 'attr_enumerable'
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new(nil, 99), Person.new("suzuki", nil)])
+persons.compact_name # => ['tanaka', 'suzuki']
+persons.compact_age # => [84, 99]
+
+persons = Persons.new([])
+persons.compact_name 0 # => []
 ~~~
 
 [back to list](#list)
@@ -3940,6 +3973,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.139 : add AttrEnumerable.compact_attr
 * version 0.0.138 : add AttrEnumerable.at_attr
 * version 0.0.137 : add AttrEnumerable.reverse_attr
 * version 0.0.136 : add AttrEnumerable.each_attr_with_index
