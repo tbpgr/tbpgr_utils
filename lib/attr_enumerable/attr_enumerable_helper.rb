@@ -8,7 +8,8 @@ module AttrEnumerable
     { regexp: /^each_(.*)$/, call_method: :each_attr },
     { regexp: /^reverse_(.*)$/, call_method: :reverse_attr },
     { regexp: /^at_(.*)$/, call_method: :at_attr },
-    { regexp: /^compact_(.*)$/, call_method: :compact_attr }
+    { regexp: /^compact_(.*)$/, call_method: :compact_attr },
+    { regexp: /^concat_(.*)$/, call_method: :concat_attr }
                  ]
 
   # call attr enumerable method.
