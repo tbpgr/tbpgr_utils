@@ -3,11 +3,15 @@ require 'active_support/inflector'
 
 # AttrEnumerable
 module AttrEnumerable
-  TARGET_METHOD_FILES = Dir.glob("#{File.dirname(__FILE__)}/*_attr*.rb").map { |file|File.basename(file, '.rb') }
-  TARGET_METHODS = TARGET_METHOD_FILES.map do |v|
-    regexp = v.gsub('attr', '(.*)')
-    { regexp: /^#{regexp}$/, call_method: v.to_sym }
-  end.reverse
+  ATTR_METHODS = [
+    { regexp: /^each_(.*)_with_index$/, call_method: :each_attr_with_index },
+    { regexp: /^each_(.*)$/, call_method: :each_attr },
+    { regexp: /^reverse_(.*)$/, call_method: :reverse_attr },
+    { regexp: /^at_(.*)$/, call_method: :at_attr },
+    { regexp: /^compact_(.*)$/, call_method: :compact_attr },
+    { regexp: /^concat_(.*)$/, call_method: :concat_attr },
+    { regexp: /^delete_(.*)$/, call_method: :delete_attr }
+  ]
 
   # call attr enumerable method.
   def method_missing(method_name, *args, &block)
@@ -19,7 +23,7 @@ module AttrEnumerable
 
   private
   def detect(method_name)
-    TARGET_METHODS.each do |target_method|
+    ATTR_METHODS.each do |target_method|
       regexp = target_method[:regexp]
       if method_name.to_s =~ regexp
         attribute = method_name.to_s.scan(regexp).first.first
