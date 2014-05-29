@@ -9,9 +9,6 @@ module AttrEnumerable
     { regexp: /^#{regexp}$/, call_method: v.to_sym }
   end.reverse
 
-  require 'pp'
-  pp TARGET_METHODS
-
   # call attr enumerable method.
   def method_missing(method_name, *args, &block)
     target_method = detect(method_name)
