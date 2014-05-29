@@ -63,6 +63,7 @@ Or install it yourself as:
 |[AttrEnumerable.at_attr](#attrenumerableat_attr)                                                                   |define at_xxx. it returns Class attributes(collection)'s at result.                                                  |
 |[AttrEnumerable.compact_attr](#attrenumerablecompact_attr)                                                         |define compact_xxx. it returns Class attributes(collection)'s that exclude nil elements.                             |
 |[AttrEnumerable.concat_attr](#attrenumerableconcat_attr)                                                           |define concat_xxx. it returns Class attributes(collection) and argument array                                        |
+|[AttrEnumerable.delete_attr](#attrenumerabledelete_attr)                                                           |define delete_xxx. it delete Class attributes(collection) that match delete condition                                |
 |[AttrEnumerable.each_attr](#attrenumerableeach_attr)                                                               |define each_xxx. it call Class attributes(collection)'s attribute iterator                                           |
 |[AttrEnumerable.each_attr_with_index](#attrenumerableeach_attr_with_index)                                         |define each_xxx_with_index. it call Class attributes(collection)'s attribute iterator with index                     |
 |[AttrEnumerable.reverse_attr](#attrenumerablereverse_attr)                                                         |define reverse_xxx. it returns Class attributes(collection)'s reverse Array                                          |
@@ -1201,6 +1202,36 @@ persons.concat_age([20, 1]) # => [84, 99, nil, 20, 1]
 
 persons = Persons.new([])
 persons.concat_name(["sato", "matsumoto"]) # => ["sato", "matsumoto"]
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.delete_attr
+~~~ruby
+require 'attr_enumerable'
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("tanaka", 99), Person.new("suzuki", 99)])
+persons.delete_name("tanaka") # => persons =  Persons.new(Person.new("suzuki", 99)])
+persons = Persons.new([Person.new("tanaka", 84), Person.new("tanaka", 99), Person.new("suzuki", 99)])
+persons.delete_age(99) # => persons =  Persons.new([Person.new("tanaka", 84)])
 ~~~
 
 [back to list](#list)
@@ -4006,6 +4037,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.141 : add AttrEnumerable.delete_attr
 * version 0.0.140 : add AttrEnumerable.concat_attr
 * version 0.0.139 : add AttrEnumerable.compact_attr
 * version 0.0.138 : add AttrEnumerable.at_attr

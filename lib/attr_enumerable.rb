@@ -2,10 +2,6 @@
 
 # AttrEnumerable
 module AttrEnumerable
-  require 'attr_enumerable/at_attr'
-  require 'attr_enumerable/compact_attr'
-  require 'attr_enumerable/concat_attr'
-  require 'attr_enumerable/each_attr'
-  require 'attr_enumerable/each_attr_with_index'
-  require 'attr_enumerable/reverse_attr'
+  REQUIRES = Dir.glob("#{File.dirname(__FILE__)}/attr_enumerable/*_attr*.rb").map { |file|File.basename(file, '.rb') }
+  REQUIRES.each { |require_lib|require "attr_enumerable/#{require_lib}" }
 end
