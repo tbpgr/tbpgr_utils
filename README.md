@@ -64,6 +64,7 @@ Or install it yourself as:
 |[AttrEnumerable.compact_attr](#attrenumerablecompact_attr)                                                         |define compact_xxx. it returns Class attributes(collection)'s that exclude nil elements.                             |
 |[AttrEnumerable.concat_attr](#attrenumerableconcat_attr)                                                           |define concat_xxx. it returns Class attributes(collection) and argument array                                        |
 |[AttrEnumerable.delete_attr](#attrenumerabledelete_attr)                                                           |define delete_xxx. it delete Class attributes(collection) that match delete condition                                |
+|[AttrEnumerable.first_attr](#attrenumerablefirst_attr)                                                             |define first_xxx. it returns Class attributes(collection) first N elementthat                                        |
 |[AttrEnumerable.each_attr](#attrenumerableeach_attr)                                                               |define each_xxx. it call Class attributes(collection)'s attribute iterator                                           |
 |[AttrEnumerable.each_attr_with_index](#attrenumerableeach_attr_with_index)                                         |define each_xxx_with_index. it call Class attributes(collection)'s attribute iterator with index                     |
 |[AttrEnumerable.reverse_attr](#attrenumerablereverse_attr)                                                         |define reverse_xxx. it returns Class attributes(collection)'s reverse Array                                          |
@@ -1300,6 +1301,40 @@ end
 persons.each_age_with_index do |age, i|
   puts "#{age.to_s}:#{i}" # => "84:0", "103:0"
 end
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.first_attr
+~~~ruby
+require 'attr_enumerable'
+
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("tanaka", 20), Person.new("suzuki", 20)])
+print persons.first_name # => 'tanaka'
+print persons.first_name(2) # => ['tanaka', 'tanaka']
+print persons.first_age(4) # => [84, 20, 20]
+
+persons = Persons.new([])
+print persons.first_age(4) # => []
 ~~~
 
 [back to list](#list)
@@ -4037,6 +4072,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.142 : add AttrEnumerable.first_attr
 * version 0.0.141 : add AttrEnumerable.delete_attr
 * version 0.0.140 : add AttrEnumerable.concat_attr
 * version 0.0.139 : add AttrEnumerable.compact_attr

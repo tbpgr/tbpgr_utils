@@ -10,7 +10,8 @@ module AttrEnumerable
     { regexp: /^at_(.*)$/, call_method: :at_attr },
     { regexp: /^compact_(.*)$/, call_method: :compact_attr },
     { regexp: /^concat_(.*)$/, call_method: :concat_attr },
-    { regexp: /^delete_(.*)$/, call_method: :delete_attr }
+    { regexp: /^delete_(.*)$/, call_method: :delete_attr },
+    { regexp: /^first_(.*)$/, call_method: :first_attr }
   ]
 
   # call attr enumerable method.
@@ -18,7 +19,7 @@ module AttrEnumerable
     target_method = detect(method_name)
     send(target_method[:call_method], target_method[:attribute], method_name, *args, &block)
   rescue
-   super(method_name, *args, &block)
+   raise
   end
 
   private
