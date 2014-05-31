@@ -11,7 +11,8 @@ module AttrEnumerable
     { regexp: /^compact_(.*)$/, call_method: :compact_attr },
     { regexp: /^concat_(.*)$/, call_method: :concat_attr },
     { regexp: /^delete_(.*)$/, call_method: :delete_attr },
-    { regexp: /^first_(.*)$/, call_method: :first_attr }
+    { regexp: /^first_(.*)$/, call_method: :first_attr },
+    { regexp: /^include_(.*)\?$/, call_method: :include_attribute? }
   ]
 
   # call attr enumerable method.
