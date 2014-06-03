@@ -14,7 +14,8 @@ module AttrEnumerable
     { regexp: /^first_(.*)$/, call_method: :first_attr },
     { regexp: /^include_(.*)\?$/, call_method: :include_attribute? },
     { regexp: /^last_(.*)$/, call_method: :last_attr },
-    { regexp: /^map_(.*)$/, call_method: :map_attr }
+    { regexp: /^map_(.*)$/, call_method: :map_attr },
+    { regexp: /^reduce_(.*)$/, call_method: :reduce_attr }
   ]
 
   # call attr enumerable method.

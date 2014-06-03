@@ -71,6 +71,7 @@ Or install it yourself as:
 |[AttrEnumerable.last_attr](#attrenumerablelast_attr)                                                               |define last_xxx. it returns Class attributes(collection) last N elementt                                             |
 |[AttrEnumerable.reverse_attr](#attrenumerablereverse_attr)                                                         |define reverse_xxx. it returns Class attributes(collection)'s reverse Array                                          |
 |[AttrEnumerable.map_attr](#attrenumerablemap_attr)                                                                 |define map_xxx. it returns Class attributes(collection)'s Array map each value                                       |
+|[AttrEnumerable.reduce_attr](#attrenumerablereduce_attr)                                                           |define reduce_xxx. it returns Class attributes(collection)'s Array reduce each value                                 |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
@@ -1465,6 +1466,36 @@ end
 persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
 print persons.map_name { |v|v.upcase } # => ['TANAKA', 'SUZUKI']
 print persons.map_age { |v|v += 1 } # => [85, 104]
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.reduce_attr
+~~~ruby
+require 'attr_enumerable'
+
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
+print persons.reduce_name('') { |a, e|a = "#{a}#{e.upcase}"; a } # => 'TANAKASUZUKI'
+print persons.reduce_age { |a, e|a += e + 1; a } # => 189
 ~~~
 
 [back to list](#list)
@@ -4171,6 +4202,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.146 : add AttrEnumerable.reduce_attr
 * version 0.0.145 : add AttrEnumerable.map_attr
 * version 0.0.144 : add AttrEnumerable.last_attr
 * version 0.0.143 : add AttrEnumerable.include_attr?
