@@ -1556,7 +1556,7 @@ class Persons
   end
 end
 
-persons = Persons.new([Person.new("tanaka", 84), [Person.new("tanaka", 20), Person.new("suzuki", 20)])
+persons = Persons.new([Person.new("tanaka", 84), Person.new("tanaka", 20), Person.new("suzuki", 20)])
 print persons.select_name { |v|v == 'tanaka' } # => ['tanaka' ,'tanaka']
 print persons.select_age { |v|v == 20 } # => [20 ,20]
 ~~~
@@ -4265,6 +4265,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.148 : add AttrEnumerable.select_attr
 * version 0.0.147 : add AttrEnumerable.sample_attr
 * version 0.0.146 : add AttrEnumerable.reduce_attr
 * version 0.0.145 : add AttrEnumerable.map_attr
