@@ -74,6 +74,7 @@ Or install it yourself as:
 |[AttrEnumerable.reduce_attr](#attrenumerablereduce_attr)                                                           |define reduce_xxx. it returns Class attributes(collection)'s Array reduce each value                                 |
 |[AttrEnumerable.sample_attr](#attrenumerablesample_attr)                                                           |define sample_xxx. it returns Class attributes(collection)'s Array sample value                                      |
 |[AttrEnumerable.select_attr](#attrenumerableselect_attr)                                                           |define select_xxx. it returns Class attributes(collection)'s Array select value                                      |
+|[AttrEnumerable.shuffle_attr](#attrenumerableshuffle_attr)                                                         |define shuffle_xxx. it returns Class attributes(collection)'s Array shuffle value                                    |
 |[AttributesHashable.to_hash](#attributeshashableto_hash)                                                           |define to_hash method for get instance_values                                                                        |
 |[AttributesInitializable::ClassMethods.attr_accessor_init](#attributesinitializableclassmethodsattr_accessor_init) |generate attr_accessor + initializer                                                                                 |
 |[AttributesInitializable::ClassMethods.attr_reader_init](#attributesinitializableclassmethodsattr_reader_init)     |generate attr_reader + initializer                                                                                   |
@@ -1559,6 +1560,36 @@ end
 persons = Persons.new([Person.new("tanaka", 84), Person.new("tanaka", 20), Person.new("suzuki", 20)])
 print persons.select_name { |v|v == 'tanaka' } # => ['tanaka' ,'tanaka']
 print persons.select_age { |v|v == 20 } # => [20 ,20]
+~~~
+
+[back to list](#list)
+
+### AttrEnumerable.shuffle_attr
+~~~ruby
+require 'attr_enumerable'
+
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+end
+
+class Persons
+  attr_reader :persons
+  include AttrEnumerable
+  def initialize(persons = [])
+    @persons = persons
+  end
+
+  def <<(person)
+    @persons << person
+  end
+end
+
+persons = Persons.new([Person.new("tanaka", 84), Person.new("suzuki", 103)])
+print persons.shuffle_name # => ['tanaka', 'suzuki'] or['suzuki', 'tanaka']
+print persons.shuffle_age # => [84, 103] or [103, 84]
 ~~~
 
 [back to list](#list)
@@ -4265,6 +4296,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.149 : add AttrEnumerable.shuffle_attr
 * version 0.0.148 : add AttrEnumerable.select_attr
 * version 0.0.147 : add AttrEnumerable.sample_attr
 * version 0.0.146 : add AttrEnumerable.reduce_attr

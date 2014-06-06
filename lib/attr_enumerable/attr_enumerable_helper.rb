@@ -17,7 +17,8 @@ module AttrEnumerable
     { regexp: /^map_(.*)$/, call_method: :map_attr },
     { regexp: /^reduce_(.*)$/, call_method: :reduce_attr },
     { regexp: /^sample_(.*)$/, call_method: :sample_attr },
-    { regexp: /^select_(.*)$/, call_method: :select_attr }
+    { regexp: /^select_(.*)$/, call_method: :select_attr },
+    { regexp: /^shuffle_(.*)$/, call_method: :shuffle_attr }
   ]
 
   # call attr enumerable method.
