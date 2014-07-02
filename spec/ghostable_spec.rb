@@ -6,7 +6,7 @@ describe Ghostable do
   context :ghost_method do
     module Checkable
       include Ghostable
-      ghost_method /check_range_.*\?$/, :check_range do |method_name, *args, &block|
+      ghost_method(/check_range_.*\?$/, :check_range) do |method_name, *args, &block|
         method_name.to_s =~ /(check_range_)(\d+)(_to_)(\d*)/
         from = Regexp.last_match[2].to_i
         to = Regexp.last_match[4].to_i
@@ -14,7 +14,7 @@ describe Ghostable do
         (from..to).include? value
       end
 
-      ghost_method /^contain_.*\?$/, :check_contain do |method_name, *args, &block|
+      ghost_method(/^contain_.*\?$/, :check_contain) do |method_name, *args, &block|
         method_name.to_s =~ /^(contain_)(.*)(\?)/
         word = Regexp.last_match[2]
         value = args.first

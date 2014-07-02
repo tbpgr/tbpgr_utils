@@ -12,7 +12,7 @@ module Templatable
       end
 
       define_method :get_placeholders do
-        ret = template.scan /<%=placeholders\[:(.*)\]%>/
+        ret = template.scan(/<%=placeholders\[:(.*)\]%>/)
         ret_hash = {}
         ret.each { |v| ret_hash[v.first.to_sym] = v.first }
         ret_hash

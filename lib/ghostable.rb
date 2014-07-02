@@ -21,7 +21,7 @@ module Ghostable
 
   def method_missing(method_name, *args, &block)
     get_patterns.each do |basename, pattern|
-      return method(basename).call(method_name, *args, &block) if method_name.to_s.match /#{pattern}/
+      return method(basename).call(method_name, *args, &block) if method_name.to_s.match(/#{pattern}/)
     end
     super
   end
