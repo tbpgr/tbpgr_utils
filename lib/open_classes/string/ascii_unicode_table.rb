@@ -24,7 +24,7 @@ class String
     chars.each do |c|
       each_ret = []
       each_ret << "|#{c}"
-      if c.ord.is_ascii?
+      if c.ord.ascii?
         each_ret << c.ord
         each_ret << c.ord.to_s(2)
         each_ret << '--'

@@ -45,7 +45,7 @@ class String
     chars.each do |c|
       each_ret = []
       each_ret << "  <tr>\n    <td>#{c}</td>"
-      if c.ord.is_ascii?
+      if c.ord.ascii?
         each_ret << "    <td>#{c.ord}</td>"
         each_ret << "    <td>#{c.ord.to_s(2)}</td>"
         each_ret << "    <td>--</td>\n  </tr>"

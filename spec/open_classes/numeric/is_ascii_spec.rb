@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'tbpgr_utils'
 
 describe Numeric do
-  context :is_ascii? do
+  context :ascii? do
     cases = [
       {
         case_no: 1,
@@ -34,7 +34,7 @@ describe Numeric do
           # nothing
 
           # -- when --
-          actual = c[:input].is_ascii?
+          actual = c[:input].ascii?
 
           # -- then --
           expect(actual).to eq(c[:expected])

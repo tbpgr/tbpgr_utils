@@ -47,10 +47,10 @@ describe String do
 
           # -- when --
           if c[:expect_error]
-            lambda { c[:input].is_meta_variable?(c[:option]) }.should raise_error(StandardError)
+            lambda { c[:input].meta_variable?(c[:option]) }.should raise_error(StandardError)
             next
           end
-          actual = c[:option] ? c[:input].is_meta_variable?(c[:option]) : c[:input].is_meta_variable?
+          actual = c[:option] ? c[:input].meta_variable?(c[:option]) : c[:input].meta_variable?
 
           # -- then --
           expect(actual).to eq(c[:expected])

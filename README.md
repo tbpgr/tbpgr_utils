@@ -139,7 +139,7 @@ Or install it yourself as:
 |[TbpgrUtils Module.alias_methods](#modulealias_methods)                                                            |create alias methods                                                                                                 |
 |[TbpgrUtils Numeric#dice_back](#numericdice_back)                                                                  |return dice back number                                                                                              |
 |[TbpgrUtils Numeric#dozen](#numericdozen)                                                                          |get dozen number                                                                                                     |
-|[TbpgrUtils Numeric#is_ascii?](#numericis_ascii)                                                                   |get is_ascii number                                                                                                  |
+|[TbpgrUtils Numeric#ascii?](#numericascii)                                                                         |get ascii number                                                                                                     |
 |[TbpgrUtils Numeric to_binary_html_table](#numeric-to_binary_html_table)                                           |binary html table                                                                                                    |
 |[TbpgrUtils Numeric to_binary_table](#numeric-to_binary_table)                                                     |binary table                                                                                                         |
 |[TbpgrUtils Numeric to_digit_html_table](#numeric-to_digit_html_table)                                             |digit html table                                                                                                     |
@@ -170,7 +170,7 @@ Or install it yourself as:
 |[TbpgrUtils String#escape_quote](#stringescape_quote)                                                              |escape quote                                                                                                         |
 |[TbpgrUtils String#escape_double_quote](#stringescape_double_quote)                                                |escape double quote                                                                                                  |
 |[TbpgrUtils String#hyphen_to_a](#stringhyphen_to_a)                                                                |hyphen-format string to array                                                                                        |
-|[TbpgrUtils String#is_meta_variable?](#stringis_meta_variable)                                                     |is meta variable.                                                                                                    |
+|[TbpgrUtils String#meta_variable?](#stringmeta_variable)                                                           |is meta variable.                                                                                                    |
 |[TbpgrUtils String#justify_char](#stringjustify_char)                                                              |justify pipe format char string                                                                                      |
 |[TbpgrUtils String#justify_table](#stringjustify_table)                                                            |justify pipe format table string                                                                                     |
 |[TbpgrUtils String#say](#stringsay)                                                                                |say string                                                                                                           |
@@ -187,7 +187,7 @@ Or install it yourself as:
 |[TbpgrUtils String#uniq](#stringuniq)                                                                              |return uniq string                                                                                                   |
 |[TbpgrUtils String#uniq_size](#stringuniq)                                                                         |return uniq size                                                                                                     |
 |[TbpgrUtils String#winpath_to_cygwinpath](#stringwinpath_to_cygwinpath)                                            |convert windows path to cygwin path                                                                                  |
-|[TbpgrUtils Symbol#is_meta_variable?](#symbolis_meta_variable)                                                     |is meta variable.                                                                                                    |
+|[TbpgrUtils Symbol#meta_variable?](#symbolmeta_variable)                                                           |is meta variable.                                                                                                    |
 |[Templatable module](#templatable)                                                                                 |get result from template + placeholder                                                                               |
 |[TemplateMethodable module](#templatemethodable)                                                                   |for Template Method Pattern                                                                                          |
 
@@ -3254,15 +3254,15 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
-### Numeric#is_ascii?
+### Numeric#ascii?
 
 1,127,128 case  
 ~~~ruby
 require 'tbpgr_utils'
 
-1.is_ascii? # => return true
-127.is_ascii? # => return true
-128.is_ascii? # => return false
+1.ascii? # => return true
+127.ascii? # => return true
+128.ascii? # => return false
 ~~~
 
 [back to list](#list)
@@ -3874,13 +3874,13 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
-### String#is_meta_variable?
+### String#meta_variable?
 ~~~ruby
-'foo'.is_meta_variable? # => true
-'bar'.is_meta_variable? # => true
-'baz'.is_meta_variable? # => true
-'aaa'.is_meta_variable? # => false
-''.is_meta_variable? # => false
+'foo'.meta_variable? # => true
+'bar'.meta_variable? # => true
+'baz'.meta_variable? # => true
+'aaa'.meta_variable? # => false
+''.meta_variable? # => false
 ~~~
 
 [back to list](#list)
@@ -4219,12 +4219,12 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
-### Symbol#is_meta_variable?
+### Symbol#meta_variable?
 ~~~ruby
-:foo.is_meta_variable? # => true
-:bar.is_meta_variable? # => true
-:baz.is_meta_variable? # => true
-:aaa.is_meta_variable? # => false
+:foo.meta_variable? # => true
+:bar.meta_variable? # => true
+:baz.meta_variable? # => true
+:aaa.meta_variable? # => false
 ~~~
 
 [back to list](#list)
@@ -4402,8 +4402,8 @@ https://github.com/tbpgr/tbpgr_utils_snippets
 * version 0.0.80 : add Numeric to_binary_table
 * version 0.0.79 : add Array#to_table
 * version 0.0.78 : add String#ascii_unicode_table
-* version 0.0.77 : add String#is_meta_variable?, Symbol#is_meta_variable?
-* version 0.0.76 : add EvalHelper#attr_init_class_code, Numeric#is_ascii?, String#ascii1_other2_size
+* version 0.0.77 : add String#meta_variable?, Symbol#meta_variable?
+* version 0.0.76 : add EvalHelper#attr_init_class_code, Numeric#ascii?, String#ascii1_other2_size
 * version 0.0.75 : add Object#method_nameable?
 * version 0.0.74 : add Hash#table
 * version 0.0.73 : add Kernel#evalb

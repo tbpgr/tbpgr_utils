@@ -7,12 +7,12 @@ class Symbol
   #
   # ==== Examples
   #
-  #   :foo.is_meta_variable? # => true
-  #   :bar.is_meta_variable? # => true
-  #   :baz.is_meta_variable? # => true
-  #   :aaa.is_meta_variable? # => false
+  #   :foo.meta_variable? # => true
+  #   :bar.meta_variable? # => true
+  #   :baz.meta_variable? # => true
+  #   :aaa.meta_variable? # => false
   #
-  def is_meta_variable?
+  def meta_variable?
     MetasyntacticVariable.meta_variables.include? self
   end
 end

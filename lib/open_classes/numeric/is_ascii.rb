@@ -8,11 +8,11 @@ class Numeric
   #
   # 1,127,128 case
   #
-  #   1.is_ascii? # => return true
-  #   127.is_ascii? # => return true
-  #   128.is_ascii? # => return false
+  #   1.ascii? # => return true
+  #   127.ascii? # => return true
+  #   128.ascii? # => return false
   #
-  def is_ascii?
+  def ascii?
     self < 128
   end
 end
