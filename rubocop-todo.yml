@@ -6,10 +6,6 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 2
-RegexpLiteral:
-  MaxSlashes: 0
-
-# Offense count: 2
 SelfAssignment:
   Enabled: false
 
