@@ -20,14 +20,14 @@ class String
   #   |yusei       |matsui       |
   def justify_table(position = :left)
     return self if self.empty?
-    max_sizes = get_column_maxes_table
+    max_sizes = column_maxes_table
     return self if max_sizes.nil?
     justify_lines_table max_sizes, position
   end
 
   private
 
-  def get_column_maxes_table
+  def column_maxes_table
     max_sizes = []
     each_line do |line|
       return nil unless table? line

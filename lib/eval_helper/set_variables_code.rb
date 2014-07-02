@@ -32,7 +32,7 @@ module EvalHelper
   #   name1 = "value1"
   #   name2 = "value2"
   #
-  def set_variables_code(variables)
+  def setting_variables_code(variables)
     fail TypeError, "invalid type #{variables.class}. you have to use Array" unless variables.is_a? Array
     variables.reduce([]) do |ret, variable|
       fail TypeError, "invalid type #{variable.class}. you have to use Hash" unless variable.is_a? Hash

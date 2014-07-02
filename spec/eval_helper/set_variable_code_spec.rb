@@ -3,12 +3,12 @@ require 'spec_helper'
 require 'eval_helper'
 
 describe 'EvalHelper' do
-  context :set_variable_code do
+  context :setting_variable_code do
     class EvalHelperSetVariableTest
       include EvalHelper
 
       def hoge(name, value)
-        set_variable_code(name, value)
+        setting_variable_code(name, value)
       end
     end
     cases = [

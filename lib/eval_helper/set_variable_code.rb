@@ -45,7 +45,7 @@ module EvalHelper
   #
   #   hoge_num = 1
   #
-  def set_variable_code(name, value)
+  def setting_variable_code(name, value)
     "#{name} = #{value}"
   end
 end
