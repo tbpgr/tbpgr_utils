@@ -13,6 +13,6 @@ class Object
   #   'false'.to_bool # => true
   #   nil.to_bool # => false
   def to_bool
-    !!self
+    !!self # rubocop:disable DoubleNegation
   end
 end
