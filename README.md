@@ -1,5 +1,6 @@
 # TbpgrUtils
 
+[![Gem Version](https://badge.fury.io/rb/tbpgr_utils.svg)](http://badge.fury.io/rb/tbpgr_utils)
 [![Build Status](https://travis-ci.org/tbpgr/tbpgr_utils.png?branch=master)](https://travis-ci.org/tbpgr/tbpgr_utils)
 [![Coverage Status](https://coveralls.io/repos/tbpgr/tbpgr_utils/badge.png)](https://coveralls.io/r/tbpgr/tbpgr_utils)
 [![Code Climate](https://codeclimate.com/github/tbpgr/tbpgr_utils.png)](https://codeclimate.com/github/tbpgr/tbpgr_utils)
