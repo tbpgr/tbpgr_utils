@@ -43,7 +43,7 @@ class Array
   def together_include?(value, is_multi = false)
     if_not_contain_array_rails_type_error
     return reduce([]) { |ret, list|ret << list.include?(value) } if is_multi
-    reduce(false) { |ret, list|ret = ret || list.include?(value) }
+    reduce(false) { |ret, list|ret ||= list.include?(value) }
   end
 
   alias_method :tinclude?, :together_include?

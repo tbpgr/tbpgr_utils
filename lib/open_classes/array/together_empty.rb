@@ -23,7 +23,7 @@ class Array
   def together_empty?
     if_not_contain_array_rails_type_error
     is_empty = true
-    each { |list|is_empty = is_empty && list.empty? }
+    each { |list|is_empty &&= list.empty? }
     is_empty
   end
 

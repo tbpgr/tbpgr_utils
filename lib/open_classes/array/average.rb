@@ -12,6 +12,6 @@ class Array
   #
   def average
     fail TypeError, 'you have to use elements that is Numeric' if any? { |v|!v.is_a? Numeric }
-    reduce(0.0) { |r, v|r = r + v.to_f; r } / size
+    reduce(0.0) { |r, v|r += v.to_f; r } / size
   end
 end
