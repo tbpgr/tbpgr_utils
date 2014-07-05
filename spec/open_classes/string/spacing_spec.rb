@@ -9,7 +9,7 @@ describe String do
         case_no: 1,
         case_title: 'no option case',
         input: 'hoge',
-        expected: 'h o g e',
+        expected: 'h o g e'
       },
       {
         case_no: 2,
@@ -17,9 +17,9 @@ describe String do
         input: 'hoge',
         options: {
           char: '_',
-          size: 2,
+          size: 2
         },
-        expected: 'h__o__g__e',
+        expected: 'h__o__g__e'
       },
       {
         case_no: 3,
@@ -27,10 +27,10 @@ describe String do
         input: 'hoge',
         options: {
           invalid_char: '_',
-          invalid_size: 2,
+          invalid_size: 2
         },
-        expected: 'h o g e',
-      },
+        expected: 'h o g e'
+      }
     ]
 
     cases.each do |c|
