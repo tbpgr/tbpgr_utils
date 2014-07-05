@@ -9,14 +9,14 @@ describe String do
         case_no: 1,
         case_title: 'exist double quote case',
         input: 'hoge""h""ige',
-        expected: 'hoge"h"ige',
+        expected: 'hoge"h"ige'
       },
       {
         case_no: 2,
         case_title: 'not exist double quote case',
         input: 'hogehige',
-        expected: 'hogehige',
-      },
+        expected: 'hogehige'
+      }
     ]
 
     cases.each do |c|
