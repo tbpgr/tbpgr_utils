@@ -9,20 +9,20 @@ describe String do
         case_no: 1,
         case_title: 'normal case',
         input: 'abcdac',
-        expected: 'abcd',
+        expected: 'abcd'
       },
       {
         case_no: 2,
         case_title: 'not exist duplication case',
         input: 'abc',
-        expected: 'abc',
+        expected: 'abc'
       },
       {
         case_no: 3,
         case_title: 'empty case',
         input: '',
-        expected: '',
-      },
+        expected: ''
+      }
     ]
 
     cases.each do |c|
