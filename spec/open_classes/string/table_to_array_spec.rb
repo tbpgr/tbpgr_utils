@@ -11,7 +11,7 @@ describe String do
         case_title: '> case',
         input: [['header1', 'header2 ', 'header3'], ['line1_1', 'line1_2', 'line1_3']].to_table,
         expected: [['header1', 'header2', 'header3'], ['line1_1', 'line1_2', 'line1_3']]
-      },
+      }
     ]
 
     cases.each do |c|
