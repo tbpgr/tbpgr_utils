@@ -69,7 +69,7 @@ finish coding
         difficulty: BaseDeveloper::DIFFICILTY::NORMAL,
         expect_error: true,
         error_class: NotImplementedError
-      },
+      }
     ]
 
     cases.each do |c|
