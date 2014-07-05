@@ -9,26 +9,26 @@ describe String do
         case_no: 1,
         case_title: '> case',
         input: 'hoge>hige',
-        expected: "hoge\n\thige",
+        expected: "hoge\n\thige"
       },
       {
         case_no: 2,
         case_title: '+ case',
         input: 'hoge+hige',
-        expected: "hoge\nhige",
+        expected: "hoge\nhige"
       },
       {
         case_no: 3,
         case_title: '^ case',
         input: 'hoge>hige^hege',
-        expected: "hoge\n\thige\nhege",
+        expected: "hoge\n\thige\nhege"
       },
       {
         case_no: 4,
         case_title: 'mix case',
         input: 'hoge>hige1+hige2^hege',
-        expected: "hoge\n\thige1\n\thige2\nhege",
-      },
+        expected: "hoge\n\thige1\n\thige2\nhege"
+      }
     ]
 
     cases.each do |c|
