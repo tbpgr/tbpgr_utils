@@ -9,14 +9,14 @@ describe SimpleTournament do
         case_no: 1,
         case_title: '3 case',
         number: 3,
-        expected: [[nil], [nil, nil], [nil, nil]],
+        expected: [[nil], [nil, nil], [nil, nil]]
       },
       {
         case_no: 2,
         case_title: '4 case',
         number: 4,
-        expected: [[nil], [nil, nil], [nil, nil, nil, nil]],
-      },
+        expected: [[nil], [nil, nil], [nil, nil, nil, nil]]
+      }
     ]
 
     cases.each do |c|
@@ -55,15 +55,15 @@ describe SimpleTournament do
         case_title: '3 case',
         number: 3,
         challengers: [*1..3],
-        expected: [[nil], [1, nil], [3, 2]],
+        expected: [[nil], [1, nil], [3, 2]]
       },
       {
         case_no: 2,
         case_title: '4 case',
         number: 4,
         challengers: [*1..4],
-        expected: [[nil], [nil, nil], [4, 3, 2, 1]],
-      },
+        expected: [[nil], [nil, nil], [4, 3, 2, 1]]
+      }
     ]
 
     cases.each do |c|
@@ -109,7 +109,7 @@ describe SimpleTournament do
           rets << level = "level=#{level} #{one} : #{other} 's winner is #{winner}"
           rets
         end,
-        expected: [[3], [1, 3], [3, 2]],
+        expected: [[3], [1, 3], [3, 2]]
       },
       {
         case_no: 2,
@@ -123,8 +123,8 @@ describe SimpleTournament do
           rets << "level=#{level} #{one} : #{other} 's winner is #{winner}"
           rets
         end,
-        expected: [[4], [4, 2], [4, 3, 2, 1]],
-      },
+        expected: [[4], [4, 2], [4, 3, 2, 1]]
+      }
     ]
 
     cases.each do |c|
