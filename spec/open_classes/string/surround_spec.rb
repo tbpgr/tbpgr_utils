@@ -45,7 +45,7 @@ describe String do
 !hoge!
 ======
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
