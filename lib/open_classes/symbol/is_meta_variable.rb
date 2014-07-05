@@ -1,5 +1,5 @@
 # encoding: utf-8
-require'metasyntactic_variable'
+require 'metasyntactic_variable'
 
 # Symbol
 class Symbol
