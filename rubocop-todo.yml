@@ -7,8 +7,8 @@
 
 # Offense count: 447
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
-TrailingComma:
-  Enabled: false
+# TrailingComma:
+#   Enabled: false
 
 # Offense count: 33
 UnusedBlockArgument:

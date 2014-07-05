@@ -9,14 +9,14 @@ describe Kernel do
         case_no: 1,
         case_title: 'have STDOUT case',
         code: "print 'hoge'",
-        expected: 'hoge',
+        expected: 'hoge'
       },
       {
         case_no: 2,
         case_title: "don't have STDOUT case",
         code: '',
-        expected: '',
-      },
+        expected: ''
+      }
     ]
 
     cases.each do |c|
@@ -54,7 +54,7 @@ describe Kernel do
         case_title: 'default case',
         have_filename: true,
         have_char: false,
-        expected: "--------------------|filename=$filename$|line=$line$|--------------------\n",
+        expected: "--------------------|filename=$filename$|line=$line$|--------------------\n"
       },
       {
         case_no: 2,
@@ -62,15 +62,15 @@ describe Kernel do
         have_filename: false,
         have_char: true,
         char: '@',
-        expected: "@@@@@@@@@@@@@@@@@@@@|filename=$filename$|line=$line$|@@@@@@@@@@@@@@@@@@@@\n",
+        expected: "@@@@@@@@@@@@@@@@@@@@|filename=$filename$|line=$line$|@@@@@@@@@@@@@@@@@@@@\n"
       },
       {
         case_no: 3,
         case_title: 'no options case',
         have_filename: false,
         have_char: false,
-        expected: "--------------------|filename=$filename$|line=$line$|--------------------\n",
-      },
+        expected: "--------------------|filename=$filename$|line=$line$|--------------------\n"
+      }
     ]
 
     cases.each do |c|
