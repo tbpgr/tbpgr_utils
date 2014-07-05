@@ -33,6 +33,6 @@ module EvalHelper
   #
   def require_relative_code(*args)
     args = args.is_a?(Array) ? args.flatten : [args]
-    args.reduce([]) { |ret, v|ret << "require_relative '#{v}'\n" }.join
+    args.reduce([]) { |a, e|a << "require_relative '#{e}'\n" }.join
   end
 end

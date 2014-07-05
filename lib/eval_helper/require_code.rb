@@ -33,6 +33,6 @@ module EvalHelper
   #
   def require_code(*args)
     args = args.is_a?(Array) ? args.flatten : [args]
-    args.reduce([]) { |ret, v|ret << "require '#{v}'\n" }.join
+    args.reduce([]) { |a, e|a << "require '#{e}'\n" }.join
   end
 end

@@ -15,7 +15,7 @@ class Array
   #
   def to_table(position = :right)
     ret = reduce([]) do |rets, lines|
-      ret = lines.reduce([]) { |ret, column|ret << column; ret }
+      ret = lines.reduce([]) { |a, e|a << e; a }
       rets << "|#{ret.join('|')}|"
     end.join("\n") + "\n"
     ret.justify_table(position)

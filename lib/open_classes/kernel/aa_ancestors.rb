@@ -56,7 +56,7 @@ module Kernel
   end
 
   def surrounded_ancestors(ca)
-    ca.reduce([]) { |ret, k|ret << k.surround }
+    ca.reduce([]) { |a, e|a << e.surround }
   end
 
   def connected_box_ancestors(ba, max)

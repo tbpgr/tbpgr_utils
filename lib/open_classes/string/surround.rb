@@ -47,7 +47,7 @@ class String
     side = init_side(options)
     inner_width = line_max
     top_bottom = top_bottoms(top_bottom, inner_width)
-    ret = *each_line.reduce(["#{top_bottom}"]) { |ret, line|ret << "#{side}#{line.chomp.ljust(inner_width)}#{side}" }
+    ret = *each_line.reduce(["#{top_bottom}"]) { |a, e|a << "#{side}#{e.chomp.ljust(inner_width)}#{side}" }
     ret.push("#{top_bottom}").join("\n")
   end
 

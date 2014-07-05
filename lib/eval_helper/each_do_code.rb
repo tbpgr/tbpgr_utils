@@ -20,7 +20,7 @@ module EvalHelper
   #   EvalHelperEacjBraceTest.new.hoge(hash) # => return "[:a, :b].each do |v|\n  puts \"\#{v}1\"\n  puts \"\#{v}2\"\nend"
   #
   def each_do_code(target, proc)
-    indented = proc.split("\n").reduce([]) { |ret, v|ret << "  #{v}" ; ret }.join("\n")
+    indented = proc.split("\n").reduce([]) { |a, e|a << "  #{e}" ; a }.join("\n")
     "#{target}.each do |v|\n#{indented}\nend"
   end
 end

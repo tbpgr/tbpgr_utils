@@ -9,6 +9,6 @@ module AttrEnumerable
       return [] if col.empty?
       fail ArgumentError, "invalid attribute #{attribute}" unless include_attr?(col.first, attribute)
       attrs = col.map { |v|v.send(attribute) }
-      attrs.reduce([]) { |r, v|r << yield(v); r }
+      attrs.reduce([]) { |a, e|a << yield(e); a }
     end
 end

@@ -55,9 +55,9 @@ module EvalHelper
       atrs = attribute
     end
 
-    accessors = atrs.reduce([]) { |ret, v|ret << ":#{v}" }.join(', ')
-    init_variables = atrs.reduce([]) { |ret, v|ret << "#{v}" }.join(', ')
-    set_variables = atrs.reduce([]) { |ret, v|ret << "  @#{v} = #{v}" }.join("\n")
+    accessors = atrs.reduce([]) { |a, e|a << ":#{e}" }.join(', ')
+    init_variables = atrs.reduce([]) { |a, e|a << "#{e}" }.join(', ')
+    set_variables = atrs.reduce([]) { |a, e|a << "  @#{e} = #{e}" }.join("\n")
     ret_code = <<-EOS
 attr_accessor #{accessors}
 
