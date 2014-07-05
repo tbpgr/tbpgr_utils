@@ -9,20 +9,20 @@ describe Array do
         case_no: 1,
         case_title: 'normal case',
         input: [*1..6] + [2, 3],
-        expected: 6,
+        expected: 6
       },
       {
         case_no: 2,
         case_title: 'not exist duplicate value case',
         input: [*1..6],
-        expected: 6,
+        expected: 6
       },
       {
         case_no: 3,
         case_title: 'empty case',
         input: [],
-        expected: 0,
-      },
+        expected: 0
+      }
     ]
 
     cases.each do |c|
