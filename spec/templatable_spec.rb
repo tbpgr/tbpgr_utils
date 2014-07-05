@@ -31,8 +31,8 @@ line2:hige-sample
         case_title: 'valid case',
         klass: TemplateUser,
         input: 'sample',
-        expected: RESULT_CASE1,
-      },
+        expected: RESULT_CASE1
+      }
     ]
 
     cases.each do |c|
