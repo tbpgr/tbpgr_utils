@@ -28,7 +28,7 @@ describe Symbol do
         case_title: 'not meta variable case',
         input: :aaa,
         expected: false
-      },
+      }
     ]
 
     cases.each do |c|
