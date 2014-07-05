@@ -9,14 +9,14 @@ describe String do
         case_no: 1,
         case_title: 'file case',
         input: 'C:\hoge\hoge.txt',
-        expected: '/cygdrive/c/hoge/hoge.txt',
+        expected: '/cygdrive/c/hoge/hoge.txt'
       },
       {
         case_no: 2,
         case_title: 'dir case',
         input: 'D:\hoge',
-        expected: '/cygdrive/d/hoge',
-      },
+        expected: '/cygdrive/d/hoge'
+      }
     ]
 
     cases.each do |c|
