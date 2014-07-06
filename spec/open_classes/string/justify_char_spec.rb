@@ -60,13 +60,13 @@ print 'hoge' + 'hige' # => 'hogehige'
         input: SAMPLE_STRING1,
         separator: '#',
         position: :left,
-        expected: SAMPLE_JUSTIFIED_STRING1,
+        expected: SAMPLE_JUSTIFIED_STRING1
       },
       {
         case_no: 2,
         case_title: 'use default separator(pipe) justify case',
         input: SAMPLE_STRING2,
-        expected: SAMPLE_JUSTIFIED_STRING2,
+        expected: SAMPLE_JUSTIFIED_STRING2
       },
       {
         case_no: 3,
@@ -74,7 +74,7 @@ print 'hoge' + 'hige' # => 'hogehige'
         input: SAMPLE_STRING3,
         separator: '//',
         position: :left,
-        expected: SAMPLE_JUSTIFIED_STRING3,
+        expected: SAMPLE_JUSTIFIED_STRING3
       },
       {
         case_no: 4,
@@ -82,7 +82,7 @@ print 'hoge' + 'hige' # => 'hogehige'
         input: SAMPLE_STRING1,
         separator: '#',
         position: :right,
-        expected: SAMPLE_JUSTIFIED_STRING4,
+        expected: SAMPLE_JUSTIFIED_STRING4
       },
       {
         case_no: 5,
@@ -90,8 +90,8 @@ print 'hoge' + 'hige' # => 'hogehige'
         input: SAMPLE_STRING1,
         separator: '#',
         position: :center,
-        expected: SAMPLE_JUSTIFIED_STRING5,
-      },
+        expected: SAMPLE_JUSTIFIED_STRING5
+      }
     ]
 
     cases.each do |c|
