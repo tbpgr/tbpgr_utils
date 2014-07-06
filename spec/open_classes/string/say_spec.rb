@@ -45,8 +45,8 @@ describe String do
         input: 'hoge',
         option: :invalid,
         expected: '-hoge-',
-        expect_error: true,
-      },
+        expect_error: true
+      }
     ]
 
     cases.each do |c|
