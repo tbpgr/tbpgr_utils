@@ -50,33 +50,33 @@ csv_column2_1, csv_column2_2
         case_no: 1,
         case_title: 'valid justify case',
         input: SAMPLE_TABLE,
-        expected: SAMPLE_JUSTIFIED_TABLE,
+        expected: SAMPLE_JUSTIFIED_TABLE
       },
       {
         case_no: 2,
         case_title: 'not table case',
         input: SAMPLE_NOT_TABLE,
-        expected: SAMPLE_NOT_TABLE,
+        expected: SAMPLE_NOT_TABLE
       },
       {
         case_no: 3,
         case_title: 'empty case',
         input: '',
-        expected: '',
+        expected: ''
       },
       {
         case_no: 4,
         case_title: 'ascii/other code mix valid justify case',
         input: SAMPLE_TABLE4,
-        expected: SAMPLE_JUSTIFIED_TABLE4,
+        expected: SAMPLE_JUSTIFIED_TABLE4
       },
       {
         case_no: 5,
         case_title: 'ascii/other code mix valid justify case(right)',
         input: SAMPLE_TABLE4,
         position: :right,
-        expected: SAMPLE_JUSTIFIED_TABLE5,
-      },
+        expected: SAMPLE_JUSTIFIED_TABLE5
+      }
     ]
 
     cases.each do |c|
