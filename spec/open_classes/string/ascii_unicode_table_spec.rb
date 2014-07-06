@@ -15,7 +15,7 @@ describe String do
 | あ | --  |  --   |0x3042 |
 | b  | 98  |1100010|  --   |
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
