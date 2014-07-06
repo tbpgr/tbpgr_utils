@@ -34,7 +34,7 @@ describe String do
         case_title: 'empty case',
         input: '',
         expected: false
-      },
+      }
     ]
 
     cases.each do |c|
