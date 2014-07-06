@@ -10,7 +10,7 @@ describe String do
         case_title: 'no args case',
         input: 'abc',
         method_name: 'next',
-        expected: 'bcd',
+        expected: 'bcd'
       },
       {
         case_no: 2,
@@ -18,8 +18,8 @@ describe String do
         input: 'abc',
         method_name: '+',
         args: ['d'],
-        expected: 'adbdcd',
-      },
+        expected: 'adbdcd'
+      }
     ]
 
     cases.each do |c|
