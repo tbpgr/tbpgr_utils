@@ -16,7 +16,7 @@ describe String do
         case_title: 'commma case',
         input: '1,5,9',
         expected: ['1', '5', '9']
-      },
+      }
     ]
 
     cases.each do |c|
