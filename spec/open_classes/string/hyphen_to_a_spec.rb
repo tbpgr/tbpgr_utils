@@ -16,7 +16,7 @@ describe String do
         case_title: 'alphabet case',
         input: '"a"-"e"',
         expected: ['a', 'b', 'c', 'd', 'e']
-      },
+      }
     ]
 
     cases.each do |c|
