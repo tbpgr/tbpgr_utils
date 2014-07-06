@@ -9,26 +9,26 @@ describe String do
         case_no: 1,
         case_title: 'only ascii case',
         input: 'abc',
-        expected: 3,
+        expected: 3
       },
       {
         case_no: 2,
         case_title: 'only other case',
         input: 'ａｂｃ',
-        expected: 6,
+        expected: 6
       },
       {
         case_no: 3,
         case_title: 'mix case',
         input: 'aａbｂcｃ',
-        expected: 9,
+        expected: 9
       },
       {
         case_no: 4,
         case_title: 'han-kana case',
         input: 'ｱﾝ',
-        expected: 2,
-      },
+        expected: 2
+      }
     ]
 
     cases.each do |c|
