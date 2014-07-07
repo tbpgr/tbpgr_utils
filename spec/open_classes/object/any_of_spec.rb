@@ -10,36 +10,36 @@ describe Object do
         case_title: 'true case',
         input: 'hoge',
         check: %w(hoge hige),
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
         case_title: 'true case',
         input: 'hige',
         check: %w(hoge hige),
-        expected: true,
+        expected: true
       },
       {
         case_no: 3,
         case_title: 'false case',
         input: 'hege',
         check: %w(hoge hige),
-        expected: false,
+        expected: false
       },
       {
         case_no: 4,
         case_title: 'number true case',
         input: 1,
         check: [1, 2, 3, 4, 5],
-        expected: true,
+        expected: true
       },
       {
         case_no: 5,
         case_title: 'number true case',
         input: 6,
         check: [1, 2, 3, 4, 5],
-        expected: false,
-      },
+        expected: false
+      }
     ]
 
     cases.each do |c|
