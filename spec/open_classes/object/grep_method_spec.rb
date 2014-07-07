@@ -24,36 +24,36 @@ describe Object do
         case_title: 'String case',
         search: 'public_method1',
         all: false,
-        expected: [:public_method1],
+        expected: [:public_method1]
       },
       {
         case_no: 2,
         case_title: 'Symbol case',
         search: :public_method1,
         all: false,
-        expected: [:public_method1],
+        expected: [:public_method1]
       },
       {
         case_no: 3,
         case_title: 'Regexp case',
         search: /public_method1/,
         all: false,
-        expected: [:public_method1, :public_method11],
+        expected: [:public_method1, :public_method11]
       },
       {
         case_no: 4,
         case_title: 'not hit case',
         search: /public_method3/,
         all: false,
-        expected: [],
+        expected: []
       },
       {
         case_no: 5,
         case_title: 'all case',
         search: :__send__,
         all: true,
-        expected: [:__send__],
-      },
+        expected: [:__send__]
+      }
     ]
 
     cases.each do |c|
