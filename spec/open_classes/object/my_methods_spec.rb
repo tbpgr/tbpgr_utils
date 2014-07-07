@@ -27,8 +27,8 @@ describe Object do
         case_no: 1,
         case_title: 'true case',
         input: SampleClass.new,
-        expected: [:public_hello, :protected_hello, :private_hello],
-      },
+        expected: [:public_hello, :protected_hello, :private_hello]
+      }
     ]
 
     cases.each do |c|
