@@ -9,20 +9,20 @@ describe Object do
         case_no: 1,
         case_title: 'String case',
         input: 'string',
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
         case_title: 'Symbol case',
         input: :symbol,
-        expected: true,
+        expected: true
       },
       {
         case_no: 3,
         case_title: 'other case',
         input: 1,
-        expected: false,
-      },
+        expected: false
+      }
     ]
 
     cases.each do |c|
