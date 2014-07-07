@@ -37,7 +37,7 @@ describe String do
   </tr>
 </table>
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
