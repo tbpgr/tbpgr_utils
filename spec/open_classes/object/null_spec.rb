@@ -23,7 +23,7 @@ describe Object do
         case_title: 'nil case',
         input: nil,
         expected: true
-      },
+      }
     ]
 
     cases.each do |c|
