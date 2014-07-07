@@ -24,29 +24,29 @@ describe Object do
         case_title: 'String case',
         search: 'public_method1',
         all: false,
-        expected: [:public_method1],
+        expected: [:public_method1]
       },
       {
         case_no: 2,
         case_title: 'Symbol case',
         search: :public_method1,
         all: false,
-        expected: [:public_method1],
+        expected: [:public_method1]
       },
       {
         case_no: 3,
         case_title: 'Regexp case',
         search: /public_method1/,
         all: false,
-        expected: [:public_method1, :public_method11],
+        expected: [:public_method1, :public_method11]
       },
       {
         case_no: 4,
         case_title: 'not hit case',
         search: /public_method3/,
         all: false,
-        expected: [],
-      },
+        expected: []
+      }
     ]
 
     cases.each do |c|
@@ -84,29 +84,29 @@ describe Object do
         case_title: 'String case',
         search: 'protected_method1',
         all: false,
-        expected: [:protected_method1],
+        expected: [:protected_method1]
       },
       {
         case_no: 2,
         case_title: 'Symbol case',
         search: :protected_method1,
         all: false,
-        expected: [:protected_method1],
+        expected: [:protected_method1]
       },
       {
         case_no: 3,
         case_title: 'Regexp case',
         search: /protected_method1/,
         all: false,
-        expected: [:protected_method1, :protected_method11],
+        expected: [:protected_method1, :protected_method11]
       },
       {
         case_no: 4,
         case_title: 'not hit case',
         search: /public_method3/,
         all: false,
-        expected: [],
-      },
+        expected: []
+      }
     ]
 
     cases.each do |c|
@@ -144,29 +144,29 @@ describe Object do
         case_title: 'String case',
         search: 'private_method1',
         all: false,
-        expected: [:private_method1],
+        expected: [:private_method1]
       },
       {
         case_no: 2,
         case_title: 'Symbol case',
         search: :private_method1,
         all: false,
-        expected: [:private_method1],
+        expected: [:private_method1]
       },
       {
         case_no: 3,
         case_title: 'Regexp case',
         search: /private_method1/,
         all: false,
-        expected: [:private_method1, :private_method11],
+        expected: [:private_method1, :private_method11]
       },
       {
         case_no: 4,
         case_title: 'not hit case',
         search: /public_method3/,
         all: false,
-        expected: [],
-      },
+        expected: []
+      }
     ]
 
     cases.each do |c|
