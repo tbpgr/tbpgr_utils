@@ -21,14 +21,14 @@ describe Object do
         case_title: 'gard return case',
         input: true,
         action: "return 'guard!!'",
-        expected: 'guard!!',
+        expected: 'guard!!'
       },
       {
         case_no: 2,
         case_title: 'not gard return case',
         input: false,
         action: "return 'guard!!'",
-        expected: 'not guard return',
+        expected: 'not guard return'
       },
       {
         case_no: 3,
@@ -44,8 +44,8 @@ describe Object do
         input: false,
         action: "fail ArgumentError, 'error!!'",
         fail: true,
-        expected: 'not guard fail',
-      },
+        expected: 'not guard fail'
+      }
     ]
 
     cases.each do |c|
@@ -106,14 +106,14 @@ describe Object do
         case_title: 'unless_gard return case',
         input: false,
         action: "return 'unless_guard!!'",
-        expected: 'unless_guard!!',
+        expected: 'unless_guard!!'
       },
       {
         case_no: 2,
         case_title: 'not unless_gard return case',
         input: true,
         action: "return 'unless_guard!!'",
-        expected: 'not unless_guard return',
+        expected: 'not unless_guard return'
       },
       {
         case_no: 3,
@@ -129,8 +129,8 @@ describe Object do
         input: true,
         action: "fail ArgumentError, 'error!!'",
         fail: true,
-        expected: 'not unless_guard fail',
-      },
+        expected: 'not unless_guard fail'
+      }
     ]
 
     cases.each do |c|
