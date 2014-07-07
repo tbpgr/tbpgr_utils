@@ -9,32 +9,32 @@ describe Object do
         case_no: 1,
         case_title: 'true case',
         input: true,
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
         case_title: 'false case',
         input: false,
-        expected: true,
+        expected: true
       },
       {
         case_no: 3,
         case_title: "string 'true' case",
         input: 'true',
-        expected: false,
+        expected: false
       },
       {
         case_no: 4,
         case_title: 'empty case',
         input: '',
-        expected: false,
+        expected: false
       },
       {
         case_no: 5,
         case_title: 'nil case',
         input: nil,
-        expected: false,
-      },
+        expected: false
+      }
     ]
 
     cases.each do |c|
