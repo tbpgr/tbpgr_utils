@@ -66,7 +66,7 @@ describe Numeric do
   </tr>
 </table>
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
