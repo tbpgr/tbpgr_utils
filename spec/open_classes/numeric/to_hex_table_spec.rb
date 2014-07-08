@@ -27,7 +27,7 @@ describe Numeric do
 |  65535|0000ffff|
 |  65536|00010000|
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
