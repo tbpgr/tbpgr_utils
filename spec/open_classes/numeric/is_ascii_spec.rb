@@ -9,20 +9,20 @@ describe Numeric do
         case_no: 1,
         case_title: '1 case',
         input: 1,
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
         case_title: '127 case',
         input: 127,
-        expected: true,
+        expected: true
       },
       {
         case_no: 3,
         case_title: '128 case',
         input: 128,
-        expected: false,
-      },
+        expected: false
+      }
     ]
 
     cases.each do |c|
