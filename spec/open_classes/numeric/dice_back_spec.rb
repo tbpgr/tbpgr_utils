@@ -9,44 +9,44 @@ describe Numeric do
         case_no: 1,
         case_title: '1 case',
         input: 1,
-        expected: 6,
+        expected: 6
       },
       {
         case_no: 2,
         case_title: '2 case',
         input: 2,
-        expected: 5,
+        expected: 5
       },
       {
         case_no: 3,
         case_title: '3 case',
         input: 3,
-        expected: 4,
+        expected: 4
       },
       {
         case_no: 4,
         case_title: '4 case',
         input: 4,
-        expected: 3,
+        expected: 3
       },
       {
         case_no: 5,
         case_title: '5 case',
         input: 5,
-        expected: 2,
+        expected: 2
       },
       {
         case_no: 6,
         case_title: '6 case',
         input: 6,
-        expected: 1,
+        expected: 1
       },
       {
         case_no: 7,
         case_title: '7 case',
         input: 7,
-        expected: 7,
-      },
+        expected: 7
+      }
     ]
 
     cases.each do |c|
