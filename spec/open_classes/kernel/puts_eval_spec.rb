@@ -10,15 +10,15 @@ describe Kernel do
         case_no: 1,
         case_title: 'no bind case',
         code: '8/4',
-        expected: "8/4 # => 2\n",
+        expected: "8/4 # => 2\n"
       },
       {
         case_no: 2,
         case_title: 'with bind case',
         code: '"hoge-#{message}"',
         bind: 'msg',
-        expected: '"hoge-#{message}" # => "hoge-msg"' + "\n",
-      },
+        expected: '"hoge-#{message}" # => "hoge-msg"' + "\n"
+      }
     ]
 
     cases.each do |c|
