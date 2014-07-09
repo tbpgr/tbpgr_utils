@@ -13,7 +13,7 @@ describe Kernel do
         methods: [:blank?, :present?],
         contents: [true, false],
         instances: [nil, false],
-        expecteds: [true, false, true, false],
+        expecteds: [true, false, true, false]
       },
       {
         case_no: 2,
@@ -22,7 +22,7 @@ describe Kernel do
         methods: 'hoge',
         contents: 'ret hoge',
         instances: [nil],
-        expecteds: ['ret hoge'],
+        expecteds: ['ret hoge']
       },
       {
         case_no: 3,
@@ -30,7 +30,7 @@ describe Kernel do
         classes: :NilClass,
         methods: 'hoge',
         contents: 'ret hoge',
-        expect_error: true,
+        expect_error: true
       },
       {
         case_no: 4,
@@ -38,8 +38,8 @@ describe Kernel do
         classes: NilClass,
         methods: 1,
         contents: 'ret hoge',
-        expect_error: true,
-      },
+        expect_error: true
+      }
     ]
 
     cases.each do |c|
