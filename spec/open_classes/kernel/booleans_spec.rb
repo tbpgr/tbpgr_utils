@@ -40,7 +40,7 @@ describe Kernel do
         case_title: 'bad case',
         input: bad,
         expected: false
-      },
+      }
     ]
 
     cases.each do |c|
