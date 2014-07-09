@@ -14,11 +14,11 @@ describe Kernel do
         case_title: 'valid hash case',
         hash: {
           name: 'hoge',
-          age: 33,
+          age: 33
         },
         expected_name: 'hoge',
-        expected_age: 33,
-      },
+        expected_age: 33
+      }
     ]
 
     cases.each do |c|
