@@ -12,8 +12,8 @@ describe Kernel do
         input_a: 'aaa',
         input_b: 'bbb',
         expected_a: 'bbb',
-        expected_b: 'aaa',
-      },
+        expected_b: 'aaa'
+      }
     ]
 
     cases.each do |c|
