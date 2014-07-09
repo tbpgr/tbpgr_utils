@@ -38,7 +38,7 @@ describe Kernel do
         code: BULK_CODE1,
         bind: 'msg',
         expected: BULK_EXPECTED1
-      },
+      }
     ]
 
     cases.each do |c|
