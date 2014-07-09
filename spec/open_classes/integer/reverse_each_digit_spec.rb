@@ -9,8 +9,8 @@ describe Integer do
         case_no: 1,
         case_title: 'valid case',
         input: 12_345,
-        expected: [6, 5, 4, 3, 2],
-      },
+        expected: [6, 5, 4, 3, 2]
+      }
     ]
 
     cases.each do |c|
