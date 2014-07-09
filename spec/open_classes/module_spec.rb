@@ -18,14 +18,14 @@ describe Module do
         klass: Hoge,
         target: :hoge,
         inputs: [:hige, :hege, :huge],
-        expected: 'hoge',
+        expected: 'hoge'
       },
       {
         case_no: 2,
         case_title: 'not Array error case',
         klass: Hoge,
-        expect_error: true,
-      },
+        expect_error: true
+      }
     ]
 
     cases.each do |c|
