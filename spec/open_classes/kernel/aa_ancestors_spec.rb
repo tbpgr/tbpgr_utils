@@ -40,7 +40,7 @@ describe Kernel do
 |               HogeForAncestors               |
 ------------------------------------------------
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
