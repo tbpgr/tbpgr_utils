@@ -10,8 +10,8 @@ describe Kernel do
         case_title: 'valid case',
         input: 1,
         eval_code: "n = n + 1\nn = n + 2",
-        expected: 4,
-      },
+        expected: 4
+      }
     ]
 
     cases.each do |c|
