@@ -10,7 +10,7 @@ describe Kernel do
         case_title: 'null case',
         input: null,
         expected: nil
-      },
+      }
     ]
 
     cases.each do |c|
