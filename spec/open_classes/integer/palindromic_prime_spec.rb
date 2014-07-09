@@ -9,32 +9,32 @@ describe Integer do
         case_no: 1,
         case_title: '0 case',
         input: 0,
-        expected: false,
+        expected: false
       },
       {
         case_no: 2,
         case_title: '1 case',
         input: 1,
-        expected: false,
+        expected: false
       },
       {
         case_no: 3,
         case_title: 'palindromic_primes case(2)',
         input: 2,
-        expected: true,
+        expected: true
       },
       {
         case_no: 4,
         case_title: 'palindromic_primes case(757)',
         input: 757,
-        expected: true,
+        expected: true
       },
       {
         case_no: 5,
         case_title: 'not palindromic_primes case(758)',
         input: 758,
-        expected: false,
-      },
+        expected: false
+      }
     ]
 
     cases.each do |c|
