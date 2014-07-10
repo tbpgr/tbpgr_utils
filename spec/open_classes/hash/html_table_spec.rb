@@ -11,7 +11,7 @@ describe Hash do
         input: {
           key_1: :value1,
           key__2: :value2,
-          key___3: :value3,
+          key___3: :value3
         },
         expected: <<-EOS
 <table>
@@ -29,7 +29,7 @@ describe Hash do
   </tr>
 </table>
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
