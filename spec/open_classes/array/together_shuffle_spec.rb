@@ -12,7 +12,7 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'together_shuffle',
         expected_first: 'actual[0].sort == c[:inputs][0]',
-        expected_second: 'actual[1].sort == c[:inputs][1]',
+        expected_second: 'actual[1].sort == c[:inputs][1]'
       },
       {
         case_no: 2,
@@ -20,8 +20,8 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'tshuffle',
         expected_first: 'actual[0].sort == c[:inputs][0]',
-        expected_second: 'actual[1].sort == c[:inputs][1]',
-      },
+        expected_second: 'actual[1].sort == c[:inputs][1]'
+      }
     ]
 
     cases.each do |c|
