@@ -11,14 +11,14 @@ describe Hash do
         input: {
           key_1: :value1___________________,
           key__2: :value2,
-          key___3: :value3,
+          key___3: :value3
         },
         expected: <<-EOS
 |key_1  |value1___________________|
 |key__2 |value2                   |
 |key___3|value3                   |
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
