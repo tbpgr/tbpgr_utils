@@ -53,7 +53,7 @@ describe Fixnum do
         to: '10',
         by: 2,
         expected: ''
-      },
+      }
     ]
 
     cases.each do |c|
