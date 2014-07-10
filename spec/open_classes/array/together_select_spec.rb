@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         condition: 'first == second',
         method_name: :together_select,
-        expected: [[2, 3], [2, 3]],
+        expected: [[2, 3], [2, 3]]
       },
       {
         case_no: 2,
@@ -19,7 +19,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         condition: '[first.odd?, second.even?]',
         expected: [[1, 3], [4, 2]],
-        method_name: :together_select,
+        method_name: :together_select
       },
       {
         case_no: 3,
@@ -27,7 +27,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         condition: '[first.odd?, second.even?]',
         expected: [[1, 3], [4, 2]],
-        method_name: :tselect,
+        method_name: :tselect
       },
       {
         case_no: 4,
@@ -35,7 +35,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         condition: '[first.odd?, second.even?]',
         expected: [[1, 3], [4, 2]],
-        method_name: :together_find_all,
+        method_name: :together_find_all
       },
       {
         case_no: 5,
@@ -43,8 +43,8 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         condition: '[first.odd?, second.even?]',
         expected: [[1, 3], [4, 2]],
-        method_name: :tfindall,
-      },
+        method_name: :tfindall
+      }
     ]
 
     cases.each do |c|
