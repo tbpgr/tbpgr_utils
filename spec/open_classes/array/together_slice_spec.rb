@@ -12,7 +12,7 @@ describe Array do
         inputs: [[*1..5], [*6..10]],
         method_name: 'together_slice',
         args1: 2,
-        expected: [3, 8],
+        expected: [3, 8]
       },
       {
         case_no: 2,
@@ -21,7 +21,7 @@ describe Array do
         method_name: 'together_slice',
         args1: 2,
         args2: 2,
-        expected: [[3, 4], [8, 9]],
+        expected: [[3, 4], [8, 9]]
       },
       {
         case_no: 3,
@@ -29,7 +29,7 @@ describe Array do
         inputs: [[*1..5], [*6..10]],
         method_name: 'together_slice',
         args1: (2..3),
-        expected: [[3, 4], [8, 9]],
+        expected: [[3, 4], [8, 9]]
       },
       {
         case_no: 4,
@@ -37,8 +37,8 @@ describe Array do
         inputs: [[*1..5], [*6..10]],
         method_name: 'tslice',
         args1: 2,
-        expected: [3, 8],
-      },
+        expected: [3, 8]
+      }
     ]
 
     cases.each do |c|
