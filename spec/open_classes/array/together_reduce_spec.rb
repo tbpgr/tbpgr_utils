@@ -12,7 +12,7 @@ describe Array do
         init: nil,
         logic: 'memo + first + second',
         method_name: :together_reduce,
-        expected: 20,
+        expected: 20
       },
       {
         case_no: 2,
@@ -21,7 +21,7 @@ describe Array do
         init: 10,
         logic: 'memo + first + second',
         method_name: :together_reduce,
-        expected: 30,
+        expected: 30
       },
       {
         case_no: 5,
@@ -29,7 +29,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         logic: 'memo + first + second',
         expected: 20,
-        method_name: :treduce,
+        method_name: :treduce
       },
       {
         case_no: 6,
@@ -37,7 +37,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         logic: 'memo + first + second',
         expected: 20,
-        method_name: :together_inject,
+        method_name: :together_inject
       },
       {
         case_no: 7,
@@ -45,7 +45,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [4, 2, 3, 1]],
         logic: 'memo + first + second',
         expected: 20,
-        method_name: :tinject,
+        method_name: :tinject
       },
       {
         case_no: 8,
@@ -54,7 +54,7 @@ describe Array do
         init: [],
         logic: 'memo << first + second',
         method_name: :together_reduce,
-        expected: [5, 4, 6, 5],
+        expected: [5, 4, 6, 5]
       },
       {
         case_no: 9,
@@ -63,8 +63,8 @@ describe Array do
         init: {},
         logic: 'memo[first] = second; memo',
         method_name: :together_reduce,
-        expected: { 1 => 4, 2 => 2, 3 => 3, 4 => 1 },
-      },
+        expected: { 1 => 4, 2 => 2, 3 => 3, 4 => 1 }
+      }
     ]
 
     cases.each do |c|
