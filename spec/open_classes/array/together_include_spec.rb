@@ -12,7 +12,7 @@ describe Array do
         value: 5,
         method_name: :together_include?,
         expected: true,
-        is_multi: false,
+        is_multi: false
       },
       {
         case_no: 2,
@@ -21,7 +21,7 @@ describe Array do
         value: 9,
         method_name: :together_include?,
         expected: true,
-        is_multi: false,
+        is_multi: false
       },
       {
         case_no: 3,
@@ -30,7 +30,7 @@ describe Array do
         value: 10,
         method_name: :together_include?,
         expected: false,
-        is_multi: false,
+        is_multi: false
       },
       {
         case_no: 4,
@@ -39,7 +39,7 @@ describe Array do
         value: 5,
         method_name: :together_include?,
         expected: [true, true],
-        is_multi: true,
+        is_multi: true
       },
       {
         case_no: 5,
@@ -48,7 +48,7 @@ describe Array do
         value: 9,
         method_name: :together_include?,
         expected: [false, true],
-        is_multi: true,
+        is_multi: true
       },
       {
         case_no: 6,
@@ -57,7 +57,7 @@ describe Array do
         value: 10,
         method_name: :together_include?,
         expected: [false, false],
-        is_multi: true,
+        is_multi: true
       },
       {
         case_no: 7,
@@ -66,8 +66,8 @@ describe Array do
         value: 5,
         method_name: :tinclude?,
         expected: true,
-        is_multi: false,
-      },
+        is_multi: false
+      }
     ]
 
     cases.each do |c|
