@@ -11,7 +11,7 @@ describe Array do
         inputs: [[*1..5], [*6..10]],
         method_name: :together_first,
         expected: [1, 6],
-        has_args: false,
+        has_args: false
       },
       {
         case_no: 2,
@@ -20,7 +20,7 @@ describe Array do
         args: 2,
         method_name: :together_first,
         expected: [[1, 2], [6, 7]],
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 3,
@@ -29,7 +29,7 @@ describe Array do
         args: 0,
         method_name: :together_first,
         expected: [[], []],
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 4,
@@ -38,7 +38,7 @@ describe Array do
         args: 6,
         method_name: :together_first,
         expected: [[*1..5], [*6..10]],
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 5,
@@ -46,8 +46,8 @@ describe Array do
         inputs: [[*1..5], [*6..10]],
         method_name: :tfirst,
         expected: [1, 6],
-        has_args: false,
-      },
+        has_args: false
+      }
     ]
 
     cases.each do |c|
