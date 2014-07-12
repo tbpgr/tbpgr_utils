@@ -12,7 +12,7 @@ describe Array do
         fill_value: 99,
         method_name: :together_fill,
         expected: [[99, 99, 99, 99, 99], [99, 99, 99, 99, 99]],
-        has_block: false,
+        has_block: false
       },
       {
         case_no: 2,
@@ -22,7 +22,7 @@ describe Array do
         method_name: :together_fill,
         expected: [[2, 3, 4, 5, 6], [2, 3, 4, 5, 6]],
         block_logic: '(i + 1) + 1',
-        has_block: true,
+        has_block: true
       },
       {
         case_no: 3,
@@ -32,7 +32,7 @@ describe Array do
         method_name: :together_fill,
         expected: [[1, 2, 4, 5, 6], [6, 7, 4, 5, 6]],
         block_logic: '(i + 1) + 1',
-        has_block: true,
+        has_block: true
       },
       {
         case_no: 4,
@@ -41,8 +41,8 @@ describe Array do
         fill_value: 99,
         method_name: :tfill,
         expected: [[99, 99, 99, 99, 99], [99, 99, 99, 99, 99]],
-        has_block: false,
-      },
+        has_block: false
+      }
     ]
 
     cases.each do |c|
