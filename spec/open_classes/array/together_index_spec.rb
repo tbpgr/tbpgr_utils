@@ -11,7 +11,7 @@ describe Array do
         inputs: [[*1..5], [*5..9]],
         value: 5,
         method_name: :together_index,
-        expected: [4, 0],
+        expected: [4, 0]
       },
       {
         case_no: 2,
@@ -19,7 +19,7 @@ describe Array do
         inputs: [[*1..5], [*5..9]],
         value: 4,
         method_name: :together_index,
-        expected: [3, nil],
+        expected: [3, nil]
       },
       {
         case_no: 3,
@@ -27,7 +27,7 @@ describe Array do
         inputs: [[*1..5], [*5..9]],
         value: 10,
         method_name: :together_index,
-        expected: [nil, nil],
+        expected: [nil, nil]
       },
       {
         case_no: 4,
@@ -35,8 +35,8 @@ describe Array do
         inputs: [[*1..5], [*5..9]],
         value: 5,
         method_name: :tindex,
-        expected: [4, 0],
-      },
+        expected: [4, 0]
+      }
     ]
 
     cases.each do |c|
