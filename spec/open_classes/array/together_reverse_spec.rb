@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'together_reverse',
         expected_ret: [[2, 1], [6, 5]],
-        expected_self: [[1, 2], [5, 6]],
+        expected_self: [[1, 2], [5, 6]]
       },
       {
         case_no: 2,
@@ -19,7 +19,7 @@ describe Array do
         inputs: [[1, 2], []],
         method_name: 'together_reverse',
         expected_ret: [[2, 1], []],
-        expected_self: [[1, 2], []],
+        expected_self: [[1, 2], []]
       },
       {
         case_no: 3,
@@ -27,8 +27,8 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'treverse',
         expected_ret: [[2, 1], [6, 5]],
-        expected_self: [[1, 2], [5, 6]],
-      },
+        expected_self: [[1, 2], [5, 6]]
+      }
     ]
 
     cases.each do |c|
