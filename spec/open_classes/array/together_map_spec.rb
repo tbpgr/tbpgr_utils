@@ -10,14 +10,14 @@ describe Array do
         case_title: 'valid case',
         method_name: :together_map,
         inputs: [[1, 2, 3], %w(one two three)],
-        expected: ['1:one', '2:two', '3:three'],
+        expected: ['1:one', '2:two', '3:three']
       },
       {
         case_no: 2,
         case_title: 'contain nil case',
         method_name: :together_map,
         inputs: [[1, 2, 3], %w(one two)],
-        expected: ['1:one', '2:two', '3:'],
+        expected: ['1:one', '2:two', '3:']
       },
       {
         case_no: 3,
@@ -25,29 +25,29 @@ describe Array do
         method_name: :together_map,
         inputs: [[1, 2, 3], %w(one two three)],
         expected: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
-        is_multi: true,
+        is_multi: true
       },
       {
         case_no: 4,
         case_title: 'valid case(alias together_collect)',
         method_name: :together_collect,
         inputs: [[1, 2, 3], %w(one two three)],
-        expected: ['1:one', '2:two', '3:three'],
+        expected: ['1:one', '2:two', '3:three']
       },
       {
         case_no: 5,
         case_title: 'valid case(alias tmap)',
         method_name: :tmap,
         inputs: [[1, 2, 3], %w(one two three)],
-        expected: ['1:one', '2:two', '3:three'],
+        expected: ['1:one', '2:two', '3:three']
       },
       {
         case_no: 6,
         case_title: 'valid case(alias tcollect)',
         method_name: :tcollect,
         inputs: [[1, 2, 3], %w(one two three)],
-        expected: ['1:one', '2:two', '3:three'],
-      },
+        expected: ['1:one', '2:two', '3:three']
+      }
     ]
 
     cases.each do |c|
@@ -89,7 +89,7 @@ describe Array do
         method_name: :together_map!,
         inputs: [[1, 2, 3], %w(one two three)],
         expected_ret: ['1:one', '2:two', '3:three'],
-        expected_self: ['1:one', '2:two', '3:three'],
+        expected_self: ['1:one', '2:two', '3:three']
       },
       {
         case_no: 2,
@@ -97,7 +97,7 @@ describe Array do
         method_name: :together_map!,
         inputs: [[1, 2, 3], %w(one two)],
         expected_ret: ['1:one', '2:two', '3:'],
-        expected_self: ['1:one', '2:two', '3:'],
+        expected_self: ['1:one', '2:two', '3:']
       },
       {
         case_no: 3,
@@ -106,7 +106,7 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         expected_ret: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
         expected_self: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
-        is_multi: true,
+        is_multi: true
       },
       {
         case_no: 4,
@@ -115,7 +115,7 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         expected_ret: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
         expected_self: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
-        is_multi: true,
+        is_multi: true
       },
       {
         case_no: 5,
@@ -124,7 +124,7 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         expected_ret: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
         expected_self: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
-        is_multi: true,
+        is_multi: true
       },
       {
         case_no: 6,
@@ -133,8 +133,8 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         expected_ret: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
         expected_self: [['1:one', '2:two', '3:three'], ['one:1', 'two:2', 'three:3']],
-        is_multi: true,
-      },
+        is_multi: true
+      }
     ]
 
     cases.each do |c|
