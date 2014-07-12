@@ -12,7 +12,7 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'together_sample',
         expected_first: 'actual[0].in? [1, 2]',
-        expected_second: 'actual[1].in? [5, 6]',
+        expected_second: 'actual[1].in? [5, 6]'
       },
       {
         case_no: 2,
@@ -20,7 +20,7 @@ describe Array do
         inputs: [[1, 2], []],
         method_name: 'together_sample',
         expected_first: 'actual[0].in? [1, 2]',
-        expected_second: 'actual[1].nil?',
+        expected_second: 'actual[1].nil?'
       },
       {
         case_no: 3,
@@ -28,7 +28,7 @@ describe Array do
         inputs: [[], []],
         method_name: 'together_sample',
         expected_first: 'actual[0].nil?',
-        expected_second: 'actual[1].nil?',
+        expected_second: 'actual[1].nil?'
       },
       {
         case_no: 4,
@@ -39,7 +39,7 @@ describe Array do
         expected_size: 2,
         expected_first: 'f.in? [1, 2]',
         expected_second: 's.in? [5, 6]',
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 5,
@@ -50,7 +50,7 @@ describe Array do
         expected_size: 0,
         expected_ret: [[], []],
         expected_self: [[], []],
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 6,
@@ -61,7 +61,7 @@ describe Array do
         expected_size: 2,
         expected_first: 'f.in? [1, 2]',
         expected_second: 's.in? [5, 6]',
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 7,
@@ -69,8 +69,8 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'tsample',
         expected_first: 'actual[0].in? [1, 2]',
-        expected_second: 'actual[1].in? [5, 6]',
-      },
+        expected_second: 'actual[1].in? [5, 6]'
+      }
     ]
 
     cases.each do |c|
