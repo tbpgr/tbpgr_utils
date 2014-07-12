@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'together_pop',
         expected_ret: [2, 6],
-        expected_self: [[1], [5]],
+        expected_self: [[1], [5]]
       },
       {
         case_no: 2,
@@ -19,7 +19,7 @@ describe Array do
         inputs: [[1, 2], []],
         method_name: 'together_pop',
         expected_ret: [2, nil],
-        expected_self: [[1], []],
+        expected_self: [[1], []]
       },
       {
         case_no: 3,
@@ -27,7 +27,7 @@ describe Array do
         inputs: [[], []],
         method_name: 'together_pop',
         expected_ret: [nil, nil],
-        expected_self: [[], []],
+        expected_self: [[], []]
       },
       {
         case_no: 4,
@@ -37,7 +37,7 @@ describe Array do
         args: 2,
         expected_ret: [[1, 2], [5, 6]],
         expected_self: [[], []],
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 5,
@@ -47,7 +47,7 @@ describe Array do
         args: 2,
         expected_ret: [[1, 2], []],
         expected_self: [[], []],
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 6,
@@ -57,7 +57,7 @@ describe Array do
         args: 2,
         expected_ret: [[], []],
         expected_self: [[], []],
-        has_args: true,
+        has_args: true
       },
       {
         case_no: 7,
@@ -65,8 +65,8 @@ describe Array do
         inputs: [[1, 2], [5, 6]],
         method_name: 'tpop',
         expected_ret: [2, 6],
-        expected_self: [[1], [5]],
-      },
+        expected_self: [[1], [5]]
+      }
     ]
 
     cases.each do |c|
