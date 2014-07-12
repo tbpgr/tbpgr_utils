@@ -10,22 +10,22 @@ describe Array do
         case_title: 'empty case',
         inputs: [[], []],
         method_name: :together_empty?,
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
         case_title: 'not empty case',
         inputs: [[1], []],
         method_name: :together_empty?,
-        expected: false,
+        expected: false
       },
       {
         case_no: 3,
         case_title: 'empty case(alias tempty?)',
         inputs: [[], []],
         method_name: :tempty?,
-        expected: true,
-      },
+        expected: true
+      }
     ]
 
     cases.each do |c|
