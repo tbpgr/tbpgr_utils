@@ -12,7 +12,7 @@ describe Array do
         delete_value: 2,
         method_name: :together_delete,
         expected: [[1, 3, 4], [3, 4, 5]],
-        ret: 2,
+        ret: 2
       },
       {
         case_no: 2,
@@ -23,7 +23,7 @@ describe Array do
         expected: [[1, 2, 3, 4], [2, 3, 4, 5]],
         ret: :ret,
         has_block: true,
-        block: :ret,
+        block: :ret
       },
       {
         case_no: 3,
@@ -32,7 +32,7 @@ describe Array do
         delete_value: 6,
         method_name: :together_delete,
         expected: [[1, 2, 3, 4], [2, 3, 4, 5]],
-        ret: nil,
+        ret: nil
       },
       {
         case_no: 4,
@@ -41,8 +41,8 @@ describe Array do
         delete_value: 2,
         method_name: :tdelete,
         expected: [[1, 3, 4], [3, 4, 5]],
-        ret: 2,
-      },
+        ret: 2
+      }
     ]
 
     cases.each do |c|
