@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2, 3, 4], [6, 4, 6, 8]],
         delete_block_code: '(first + second).odd?',
         method_name: :together_delete_if,
-        expected: [[2, 4], [4, 8]],
+        expected: [[2, 4], [4, 8]]
       },
       {
         case_no: 2,
@@ -19,7 +19,7 @@ describe Array do
         inputs: [[2, 2, 4, 4], [6, 4, 6, 8]],
         delete_block_code: '(first + second).odd?',
         method_name: :together_delete_if,
-        expected: nil,
+        expected: nil
       },
       {
         case_no: 3,
@@ -27,8 +27,8 @@ describe Array do
         inputs: [[1, 2, 3, 4], [6, 4, 6, 8]],
         delete_block_code: '(first + second).odd?',
         method_name: :tdelete_if,
-        expected: [[2, 4], [4, 8]],
-      },
+        expected: [[2, 4], [4, 8]]
+      }
     ]
 
     cases.each do |c|
