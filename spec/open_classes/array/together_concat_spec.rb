@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         add_list: [4, 5, 6],
         method_name: :together_concat,
-        expected: [[1, 2, 3, 4, 5, 6], ['one', 'two', 'three', 4, 5, 6]],
+        expected: [[1, 2, 3, 4, 5, 6], ['one', 'two', 'three', 4, 5, 6]]
       },
       {
         case_no: 2,
@@ -19,8 +19,8 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         add_list: [4, 5, 6],
         method_name: :tconcat,
-        expected: [[1, 2, 3, 4, 5, 6], ['one', 'two', 'three', 4, 5, 6]],
-      },
+        expected: [[1, 2, 3, 4, 5, 6], ['one', 'two', 'three', 4, 5, 6]]
+      }
     ]
 
     cases.each do |c|
