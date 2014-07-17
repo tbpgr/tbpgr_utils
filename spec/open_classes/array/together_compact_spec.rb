@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2, nil, 3], ['a', 'b', 'c', nil, 'd']],
         method_name: :together_compact,
         expected_self: [[1, 2, nil, 3], ['a', 'b', 'c', nil, 'd']],
-        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']],
+        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']]
       },
       {
         case_no: 2,
@@ -19,8 +19,8 @@ describe Array do
         inputs: [[1, 2, nil, 3], ['a', 'b', 'c', nil, 'd']],
         method_name: :tcompact,
         expected_self: [[1, 2, nil, 3], ['a', 'b', 'c', nil, 'd']],
-        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']],
-      },
+        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']]
+      }
     ]
 
     cases.each do |c|
@@ -60,7 +60,7 @@ describe Array do
         inputs: [[1, 2, nil, 3], ['a', 'b', 'c', nil, 'd']],
         method_name: :together_compact!,
         expected_self: [[1, 2, 3], ['a', 'b', 'c', 'd']],
-        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']],
+        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']]
       },
       {
         case_no: 2,
@@ -68,8 +68,8 @@ describe Array do
         inputs: [[1, 2, nil, 3], ['a', 'b', 'c', nil, 'd']],
         method_name: :tcompact!,
         expected_self: [[1, 2, 3], ['a', 'b', 'c', 'd']],
-        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']],
-      },
+        expected_ret: [[1, 2, 3], ['a', 'b', 'c', 'd']]
+      }
     ]
 
     cases.each do |c|
