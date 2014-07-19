@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         index: 2,
         method_name: :together_at,
-        expected: [3, 'three'],
+        expected: [3, 'three'],\
       },
       {
         case_no: 2,
@@ -19,7 +19,7 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two)],
         index: 2,
         method_name: :together_at,
-        expected: [3, nil],
+        expected: [3, nil]
       },
       {
         case_no: 3,
@@ -27,8 +27,8 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         index: 2,
         method_name: :tat,
-        expected: [3, 'three'],
-      },
+        expected: [3, 'three']
+      }
     ]
 
     cases.each do |c|
