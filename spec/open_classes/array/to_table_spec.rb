@@ -10,10 +10,10 @@ describe Array do
         case_title: 'valid case',
         inputs: [
           ['header1', 'header2', 'header3'],
-          ['line1_1', 'line1_2', 'line1_3'],
+          ['line1_1', 'line1_2', 'line1_3']
         ],
         expected: "|header1|header2|header3|\n|line1_1|line1_2|line1_3|\n"
-      },
+      }
     ]
 
     cases.each do |c|
