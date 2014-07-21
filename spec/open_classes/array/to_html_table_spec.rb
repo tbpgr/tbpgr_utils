@@ -10,7 +10,7 @@ describe Array do
         case_title: 'valid case',
         inputs: [
           ['header1', 'header2', 'header3'],
-          ['line1_1', 'line1_2', 'line1_3'],
+          ['line1_1', 'line1_2', 'line1_3']
         ],
         expected: <<-EOS
 <table>
@@ -32,7 +32,7 @@ describe Array do
         case_title: 'no header option case',
         inputs: [
           ['not_header1', 'not_header2', 'not_header3'],
-          ['line1_1', 'line1_2', 'line1_3'],
+          ['line1_1', 'line1_2', 'line1_3']
         ],
         options: { no_header: true },
         expected: <<-EOS
@@ -49,7 +49,7 @@ describe Array do
   </tr>
 </table>
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
