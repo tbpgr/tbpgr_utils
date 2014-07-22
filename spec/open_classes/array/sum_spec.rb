@@ -9,14 +9,14 @@ describe Array do
         case_no: 1,
         case_title: 'numbers case',
         input: [*1..5],
-        expected: 15,
+        expected: 15
       },
       {
         case_no: 2,
         case_title: 'charactors case',
         input: [*'a'..'z'],
-        expected: 'abcdefghijklmnopqrstuvwxyz',
-      },
+        expected: 'abcdefghijklmnopqrstuvwxyz'
+      }
     ]
 
     cases.each do |c|
