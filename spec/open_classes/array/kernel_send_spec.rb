@@ -10,8 +10,8 @@ describe Array do
         case_title: 'valid case',
         input: [*1..3],
         method_name: :Rational,
-        expected: [(1 / 1), (2 / 1), (3 / 1)],
-      },
+        expected: [(1 / 1), (2 / 1), (3 / 1)]
+      }
     ]
 
     cases.each do |c|
