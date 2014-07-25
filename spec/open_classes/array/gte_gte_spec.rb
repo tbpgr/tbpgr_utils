@@ -10,7 +10,7 @@ describe Array do
         case_title: 'no args case',
         input: [*'a'..'c'],
         method_name: :ord,
-        expected: [97, 98, 99],
+        expected: [97, 98, 99]
       },
       {
         case_no: 3,
@@ -18,15 +18,15 @@ describe Array do
         input: [*'aa'..'ac'],
         method_name: 'gsub',
         args: ['a', 'c'],
-        expected: ['cc', 'cb', 'cc'],
+        expected: ['cc', 'cb', 'cc']
       },
       {
         case_no: 4,
         case_title: 'have args case',
         input: [*'aa'..'ac'],
         method_name: 'to_a',
-        expected: [*'aa'..'ac'],
-      },
+        expected: [*'aa'..'ac']
+      }
     ]
 
     cases.each do |c|
