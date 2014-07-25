@@ -11,7 +11,7 @@ describe Array do
         input: [*1..6],
         one_index: 1,
         other_index: 5,
-        expected: [1, 6, 3, 4, 5, 2],
+        expected: [1, 6, 3, 4, 5, 2]
       },
       {
         case_no: 2,
@@ -19,7 +19,7 @@ describe Array do
         input: [*1..6],
         one_index: 1,
         other_index: -1,
-        expected: [1, 6, 3, 4, 5, 2],
+        expected: [1, 6, 3, 4, 5, 2]
       },
       {
         case_no: 3,
@@ -27,7 +27,7 @@ describe Array do
         input: [*1..6],
         one_index: 1,
         other_index: 6,
-        expected: [*1..6],
+        expected: [*1..6]
       },
       {
         case_no: 4,
@@ -35,7 +35,7 @@ describe Array do
         input: [*1..6],
         one_index: 1,
         other_index: -6,
-        expected: [*1..6],
+        expected: [*1..6]
       },
       {
         case_no: 5,
@@ -43,8 +43,8 @@ describe Array do
         input: [],
         one_index: 1,
         other_index: 6,
-        expected: [],
-      },
+        expected: []
+      }
     ]
 
     cases.each do |c|
