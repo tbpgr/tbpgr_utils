@@ -9,20 +9,20 @@ describe Array do
         case_no: 1,
         case_title: 'numbers(integer) case',
         input: [*1..6],
-        expected: 3.5,
+        expected: 3.5
       },
       {
         case_no: 2,
         case_title: 'numbers(float) case',
         input: [1.5, 2.5],
-        expected: 2.0,
+        expected: 2.0
       },
       {
         case_no: 3,
         case_title: 'not numbers case',
         input: [*'a'..'z'],
-        expect_error: true,
-      },
+        expect_error: true
+      }
     ]
 
     cases.each do |c|
