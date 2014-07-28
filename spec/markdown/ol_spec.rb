@@ -19,20 +19,20 @@ describe MarkdownString do
         case_no: 2,
         case_title: 'not list case',
         input: 'hoge',
-        expected: 'hoge',
+        expected: 'hoge'
       },
       {
         case_no: 3,
         case_title: 'empty list case',
         input: [],
-        expected: '',
+        expected: ''
       },
       {
         case_no: 4,
         case_title: 'each element nil case',
         input: [nil, nil, nil],
         expected: "1. \n1. \n1. \n"
-      },
+      }
     ]
 
     cases.each do |c|
