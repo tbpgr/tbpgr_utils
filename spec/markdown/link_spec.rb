@@ -25,7 +25,7 @@ describe MarkdownString do
         label: nil,
         url: nil,
         expected: '[]()'
-      },
+      }
     ]
 
     cases.each do |c|
