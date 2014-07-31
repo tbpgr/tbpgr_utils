@@ -9,7 +9,7 @@ describe MarkdownString do
         case_no: 1,
         case_title: 'valid case',
         expected: '---'
-      },
+      }
     ]
 
     cases.each do |c|
