@@ -40,7 +40,7 @@ end
         case_title: 'not string case',
         input: 1,
         lang: 'ruby',
-        expected: 1,
+        expected: 1
       },
       {
         case_no: 4,
@@ -63,7 +63,7 @@ end
 
 ~~~
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
