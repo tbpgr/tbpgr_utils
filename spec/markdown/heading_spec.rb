@@ -10,26 +10,26 @@ describe MarkdownString do
           case_no: 1,
           case_title: 'normal case',
           input: "heading#{i}",
-          expected: "#{'#' * i} heading#{i}",
+          expected: "#{'#' * i} heading#{i}"
         },
         {
           case_no: 2,
           case_title: 'empty case',
           input: '',
-          expected: "#{'#' * i} ",
+          expected: "#{'#' * i} "
         },
         {
           case_no: 3,
           case_title: 'nil case',
           input: '',
-          expected: "#{'#' * i} ",
+          expected: "#{'#' * i} "
         },
         {
           case_no: 4,
           case_title: 'not String case',
           input: 12_345,
-          expected: "#{'#' * i} 12345",
-        },
+          expected: "#{'#' * i} 12345"
+        }
       ]
 
       cases.each do |c|
