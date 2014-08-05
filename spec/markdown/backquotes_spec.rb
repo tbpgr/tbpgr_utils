@@ -15,20 +15,20 @@ describe MarkdownString do
         case_no: 2,
         case_title: 'not string case',
         input: 1,
-        expected: 1,
+        expected: 1
       },
       {
         case_no: 3,
         case_title: 'empty case',
         input: '',
-        expected: '>',
+        expected: '>'
       },
       {
         case_no: 4,
         case_title: 'nil case',
         input: nil,
-        expected: '>',
-      },
+        expected: '>'
+      }
     ]
 
     cases.each do |c|
