@@ -13,11 +13,11 @@ describe Familyable::Family do
           b = Familyable::Person.new(id: 2, parent_ids: []),
           c = Familyable::Person.new(id: 3, parent_ids: [4]),
           d = Familyable::Person.new(id: 4, parent_ids: []),
-          e = Familyable::Person.new(id: 5, parent_ids: [2]),
+          e = Familyable::Person.new(id: 5, parent_ids: [2])
         ],
         index: 0,
         expected: [1, 2]
-      },
+      }
     ]
 
     cases.each do |c|
@@ -61,11 +61,11 @@ describe Familyable::Family do
           b = Familyable::Person.new(id: 2, parent_ids: []),
           c = Familyable::Person.new(id: 3, parent_ids: [4]),
           d = Familyable::Person.new(id: 4, parent_ids: []),
-          e = Familyable::Person.new(id: 5, parent_ids: [2]),
+          e = Familyable::Person.new(id: 5, parent_ids: [2])
         ],
         index: 1,
         expected: [0, 4]
-      },
+      }
     ]
 
     cases.each do |c|
@@ -109,11 +109,11 @@ describe Familyable::Family do
           b = Familyable::Person.new(id: 2, parent_ids: []),
           c = Familyable::Person.new(id: 3, parent_ids: [4]),
           d = Familyable::Person.new(id: 4, parent_ids: [3]),
-          e = Familyable::Person.new(id: 5, parent_ids: [2]),
+          e = Familyable::Person.new(id: 5, parent_ids: [2])
         ],
         index: 0,
         expected: [3, 4]
-      },
+      }
     ]
 
     cases.each do |c|
