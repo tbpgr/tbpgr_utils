@@ -22,7 +22,7 @@ describe 'EvalHelper' do
         input: 'not_test',
         unless_cond: "msg == 'test'",
         unless_proc: 'ret = "true"',
-        expected: 'true',
+        expected: 'true'
       },
       {
         case_no: 2,
@@ -30,8 +30,8 @@ describe 'EvalHelper' do
         input: 'test',
         unless_cond: "msg == 'test'",
         unless_proc: 'ret = "true"',
-        expected: 'dafault',
-      },
+        expected: 'dafault'
+      }
     ]
 
     cases.each do |c|
