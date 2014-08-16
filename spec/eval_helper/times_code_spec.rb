@@ -30,7 +30,7 @@ describe 'EvalHelper' do
   puts \"\#{i*2}times\"
 end
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
