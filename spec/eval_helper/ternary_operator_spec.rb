@@ -26,7 +26,7 @@ describe 'EvalHelper' do
         cond: "msg == 'test'",
         true_case: 'true',
         false_case: 'false',
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
@@ -35,7 +35,7 @@ describe 'EvalHelper' do
         cond: "msg == 'test'",
         true_case: 'true',
         false_case: 'false',
-        expected: false,
+        expected: false
       },
       {
         case_no: 3,
@@ -45,7 +45,7 @@ describe 'EvalHelper' do
         true_case: 'true',
         false_case: 'false',
         ret: 'result',
-        expected: true,
+        expected: true
       },
       {
         case_no: 4,
@@ -55,8 +55,8 @@ describe 'EvalHelper' do
         true_case: 'true',
         false_case: 'false',
         ret: 'result',
-        expected: false,
-      },
+        expected: false
+      }
     ]
 
     cases.each do |c|
