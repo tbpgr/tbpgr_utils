@@ -18,12 +18,12 @@ describe 'EvalHelper' do
         variables: [
           {
             name: 'name1',
-            value: '"value1"',
+            value: '"value1"'
           },
           {
             name: 'name2',
-            value: '"value2"',
-          },
+            value: '"value2"'
+          }
         ],
         expected: %(name1 = "value1"
 name2 = "value2")
@@ -32,7 +32,7 @@ name2 = "value2")
         case_no: 2,
         case_title: 'not hash case',
         variables: 'hoge',
-        expect_error: true,
+        expect_error: true
       },
       {
         case_no: 3,
@@ -40,14 +40,14 @@ name2 = "value2")
         variables: [
           {
             not_name: 'name1',
-            value: '"value1"',
+            value: '"value1"'
           },
           {
             not_name: 'name2',
-            value: '"value3"',
-          },
+            value: '"value3"'
+          }
         ],
-        expect_error: true,
+        expect_error: true
       },
       {
         case_no: 4,
@@ -55,15 +55,15 @@ name2 = "value2")
         variables: [
           {
             name: 'name1',
-            not_value: '"value1"',
+            not_value: '"value1"'
           },
           {
             name: 'name2',
-            not_value: '"value3"',
-          },
+            not_value: '"value3"'
+          }
         ],
-        expect_error: true,
-      },
+        expect_error: true
+      }
     ]
 
     cases.each do |c|
