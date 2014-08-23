@@ -25,7 +25,7 @@ describe 'EvalHelper' do
         name: 'hoge_num',
         value: '1',
         expected: 'hoge_num = 1'
-      },
+      }
     ]
 
     cases.each do |c|
