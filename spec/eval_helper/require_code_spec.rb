@@ -16,14 +16,14 @@ describe 'EvalHelper' do
         case_no: 1,
         case_title: 'single require case',
         inputs: 'tbpgr_utils',
-        expected: "require 'tbpgr_utils'\n",
+        expected: "require 'tbpgr_utils'\n"
       },
       {
         case_no: 2,
         case_title: 'multi require case',
         inputs: ['tbpgr_utils', 'eval_helper'],
-        expected: "require 'tbpgr_utils'\nrequire 'eval_helper'\n",
-      },
+        expected: "require 'tbpgr_utils'\nrequire 'eval_helper'\n"
+      }
     ]
 
     cases.each do |c|
