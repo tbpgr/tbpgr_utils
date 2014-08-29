@@ -21,7 +21,7 @@ describe 'EvalHelper' do
         if_cond: "msg == 'test'",
         if_proc: 'true',
         else_proc: 'false',
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
@@ -30,8 +30,8 @@ describe 'EvalHelper' do
         if_cond: "msg == 'test'",
         if_proc: 'true',
         else_proc: 'false',
-        expected: false,
-      },
+        expected: false
+      }
     ]
 
     cases.each do |c|
