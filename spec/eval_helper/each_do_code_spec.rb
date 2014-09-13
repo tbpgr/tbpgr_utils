@@ -17,7 +17,7 @@ describe 'EvalHelper' do
         case_title: 'valid case',
         target: '[:a, :b]',
         proc: "puts \"\#{v}1\"\nputs \"\#{v}2\"\n",
-        expected: "[:a, :b].each do |v|\n  puts \"\#{v}1\"\n  puts \"\#{v}2\"\nend",
+        expected: "[:a, :b].each do |v|\n  puts \"\#{v}1\"\n  puts \"\#{v}2\"\nend"
       }
     ]
 
