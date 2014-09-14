@@ -17,8 +17,8 @@ describe 'EvalHelper' do
         case_title: 'unless case',
         target: '[:a, :b]',
         proc: 'puts v',
-        expected: '[:a, :b].each { |v|puts v }',
-      },
+        expected: '[:a, :b].each { |v|puts v }'
+      }
     ]
 
     cases.each do |c|
