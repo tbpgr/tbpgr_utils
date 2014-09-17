@@ -25,7 +25,7 @@ class Hoge
   attr_accessor_init :hoge1, :hoge2, :hoge3
 end
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
