@@ -36,7 +36,7 @@ def initialize(atr1, atr2)
   @atr2 = atr2
 end
         EOS
-      },
+      }
     ]
 
     cases.each do |c|
