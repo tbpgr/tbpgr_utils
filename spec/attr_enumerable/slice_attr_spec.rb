@@ -68,7 +68,7 @@ describe AttrEnumerable do
         index_or_range: 1..2,
         length: nil,
         expected_array: ['tanaka', 'suzuki']
-      },
+      }
     ]
 
     cases.each do |c|
