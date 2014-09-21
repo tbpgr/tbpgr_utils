@@ -49,7 +49,7 @@ describe AttrEnumerable do
         ),
         method: :shuffle_age,
         expected_array: [84, 20, 20]
-      },
+      }
     ]
 
     cases.each do |c|
