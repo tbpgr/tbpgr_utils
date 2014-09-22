@@ -36,7 +36,7 @@ describe AttrEnumerable do
         ),
         method: :select_name,
         block: proc { |v|v == 'tanaka' },
-        expected: ['tanaka', 'tanaka'],
+        expected: ['tanaka', 'tanaka']
       },
       {
         case_no: 2,
@@ -50,7 +50,7 @@ describe AttrEnumerable do
         ),
         method: :select_age,
         block: proc { |v|v == 20 },
-        expected: [20, 20],
+        expected: [20, 20]
       }
     ]
 
