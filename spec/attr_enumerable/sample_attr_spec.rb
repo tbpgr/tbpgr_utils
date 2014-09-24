@@ -37,7 +37,7 @@ describe AttrEnumerable do
         method: :sample_name,
         count: 2,
         expected_array: ['tanaka', 'suzuki'],
-        expected_size: 2,
+        expected_size: 2
       },
       {
         case_no: 2,
@@ -52,8 +52,8 @@ describe AttrEnumerable do
         method: :sample_age,
         count: nil,
         expected_array: [84, 20],
-        expected_size: 1,
-      },
+        expected_size: 1
+      }
     ]
 
     cases.each do |c|
