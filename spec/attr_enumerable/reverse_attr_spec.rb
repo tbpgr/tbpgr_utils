@@ -47,7 +47,7 @@ describe AttrEnumerable do
         ),
         method: :reverse_age,
         expected: [103, 84]
-      },
+      }
     ]
 
     cases.each do |c|
