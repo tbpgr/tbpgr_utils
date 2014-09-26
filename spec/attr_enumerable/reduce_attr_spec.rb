@@ -36,7 +36,7 @@ describe AttrEnumerable do
         ),
         method: :reduce_name,
         block: lambda { |r, x|r ||= ''; r = "#{r}#{x.upcase}"; r },
-        expected: '0TANAKATANAKASUZUKI',
+        expected: '0TANAKATANAKASUZUKI'
       },
       {
         case_no: 2,
@@ -50,7 +50,7 @@ describe AttrEnumerable do
         ),
         method: :reduce_age,
         block: lambda { |r, x|r ||= 0; r += x + 1; r },
-        expected: 127,
+        expected: 127
       },
       {
         case_no: 3,
@@ -58,7 +58,7 @@ describe AttrEnumerable do
         klass: AttrEnumerablePersons.new([]),
         method: :reduce_name,
         block: lambda { |x|x += 1 },
-        expected: 0,
+        expected: 0
       }
     ]
 
