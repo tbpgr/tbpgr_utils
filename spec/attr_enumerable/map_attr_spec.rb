@@ -36,7 +36,7 @@ describe AttrEnumerable do
         ),
         method: :map_name,
         block: lambda { |x|x.upcase },
-        expected: ['TANAKA' , 'TANAKA', 'SUZUKI'],
+        expected: ['TANAKA' , 'TANAKA', 'SUZUKI']
       },
       {
         case_no: 2,
@@ -50,7 +50,7 @@ describe AttrEnumerable do
         ),
         method: :map_age,
         block: lambda { |x|x += 1 },
-        expected: [85, 21, 21],
+        expected: [85, 21, 21]
       },
       {
         case_no: 3,
@@ -58,7 +58,7 @@ describe AttrEnumerable do
         klass: AttrEnumerablePersons.new([]),
         method: :map_name,
         block: lambda { |x|x += 1 },
-        expected: [],
+        expected: []
       }
     ]
 
