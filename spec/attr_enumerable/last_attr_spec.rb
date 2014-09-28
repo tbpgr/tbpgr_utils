@@ -36,7 +36,7 @@ describe AttrEnumerable do
         ),
         method: :last_name,
         last: nil,
-        expected: ['suzuki'],
+        expected: ['suzuki']
       },
       {
         case_no: 2,
@@ -50,7 +50,7 @@ describe AttrEnumerable do
         ),
         method: :last_age,
         last: 2,
-        expected: [20, 20],
+        expected: [20, 20]
       },
       {
         case_no: 3,
@@ -64,7 +64,7 @@ describe AttrEnumerable do
         ),
         method: :last_age,
         last: 4,
-        expected: [20, 20, 84],
+        expected: [20, 20, 84]
       },
       {
         case_no: 4,
@@ -72,7 +72,7 @@ describe AttrEnumerable do
         klass: AttrEnumerablePersons.new([]),
         method: :last_name,
         last: nil,
-        expected: [],
+        expected: []
       }
     ]
 
