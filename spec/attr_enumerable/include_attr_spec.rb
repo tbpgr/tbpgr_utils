@@ -36,7 +36,7 @@ describe AttrEnumerable do
         ),
         method: :include_name?,
         value: 'tanaka',
-        expected: true,
+        expected: true
       },
       {
         case_no: 2,
@@ -50,7 +50,7 @@ describe AttrEnumerable do
         ),
         method: :include_age?,
         value: 84,
-        expected: true,
+        expected: true
       },
       {
         case_no: 3,
@@ -64,7 +64,7 @@ describe AttrEnumerable do
         ),
         method: :include_name?,
         value: 'sato',
-        expected: false,
+        expected: false
       },
       {
         case_no: 4,
@@ -72,7 +72,7 @@ describe AttrEnumerable do
         klass: AttrEnumerablePersons.new([]),
         method: :include_name?,
         value: 'tanaka',
-        expected: false,
+        expected: false
       }
     ]
 
