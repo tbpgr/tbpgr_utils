@@ -11,7 +11,7 @@ class Array
   #   [*'a'..'z'].average # => raise TypeError
   #
   def average
-    fail TypeError, 'you have to use elements that is Numeric' if any? { |v|!v.is_a? Numeric }
-    reduce(0.0) { |r, v|r += v.to_f; r } / size
+    fail TypeError, 'you have to use elements that is Numeric' unless all? { |v|v.is_a? Numeric }
+    sum.to_f / size
   end
 end

@@ -2,8 +2,6 @@
 require 'open_classes/array/average'
 require 'open_classes/array/exchange'
 require 'open_classes/array/gte_gte'
-require 'open_classes/array/kernel_send'
-require 'open_classes/array/sum'
 require 'open_classes/array/to_html_table'
 require 'open_classes/array/to_table'
 require 'open_classes/array/together'

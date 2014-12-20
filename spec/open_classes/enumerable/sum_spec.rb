@@ -16,6 +16,12 @@ describe Array do
         case_title: 'charactors case',
         input: [*'a'..'z'],
         expected: 'abcdefghijklmnopqrstuvwxyz'
+      },
+      {
+        case_no: 3,
+        case_title: 'numbers case (Range)',
+        input: 1..5,
+        expected: 15
       }
     ]
 

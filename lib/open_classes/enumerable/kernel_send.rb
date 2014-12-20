@@ -1,7 +1,7 @@
 # encoding: utf-8
 
-# Array
-class Array
+# Enumerable
+module Enumerable
   # alias of map {|v|send :some_kernel_method, v}
   #
   # === Example

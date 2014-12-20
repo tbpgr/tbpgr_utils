@@ -8,7 +8,6 @@ class Object
   #   "hige".any_of? %w{hoge hige} # => true
   #   "hege".any_of? %w{hoge hige} # => false
   def any_of?(*args)
-    args.each { |value|return true if self == value }
-    false
+    args.include?(self)
   end
 end

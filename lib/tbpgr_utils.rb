@@ -4,6 +4,7 @@ require 'tbpgr_utils/version'
 # Tbpgr Utilities
 module TbpgrUtils
   require 'open_classes/array'
+  require 'open_classes/enumerable'
   require 'open_classes/fixnum'
   require 'open_classes/hash'
   require 'open_classes/integer'

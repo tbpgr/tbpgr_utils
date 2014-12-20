@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-# Array
-class Array
-  # alias of Array#reduce(&:+)
+# Enumerable
+module Enumerable
+  # alias of Enumerable#reduce(&:+)
   #
   # === Example
   #

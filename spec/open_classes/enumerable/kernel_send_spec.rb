@@ -2,13 +2,20 @@
 require 'spec_helper'
 require 'tbpgr_utils'
 
-describe Array do
+describe Enumerable do
   context :kernel_send do
     cases = [
       {
         case_no: 1,
-        case_title: 'valid case',
+        case_title: 'Array',
         input: [*1..3],
+        method_name: :Rational,
+        expected: [(1 / 1), (2 / 1), (3 / 1)]
+      },
+      {
+        case_no: 2,
+        case_title: 'Range',
+        input: 1..3,
         method_name: :Rational,
         expected: [(1 / 1), (2 / 1), (3 / 1)]
       }
