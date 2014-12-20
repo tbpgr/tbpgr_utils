@@ -2383,6 +2383,15 @@ require 'tbpgr_utils'
 
 [back to list](#list)
 
+### Enumerable#sum
+~~~ruby
+require 'tbpgr_utils'
+[*1..5].sum # => 15
+[*?a..?e].sum # => "abcde"
+~~~
+
+[back to list](#list)
+
 ### EvalHelper Object
 
 enable to use EvalHelper in Object
