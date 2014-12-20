@@ -28,8 +28,6 @@ Or install it yourself as:
 |[TbpgrUtils Array#>>](#array)                                                                                      |return ArrayContext for each execute                                                                                 |
 |[TbpgrUtils Array#average](#arrayaverage)                                                                          |return average                                                                                                       |
 |[TbpgrUtils Array#exchange](#arrayexchange )                                                                       |exchange array's elements                                                                                            |
-|[TbpgrUtils Array#kernel_send](#arraykernel_send)                                                                  |alias of map {|v|send :some_kernel_method, v}                                                                        |
-|[TbpgrUtils Array#sum](#arraysum)                                                                                  |alias of Array#reduce(&:+).                                                                                          |
 |[TbpgrUtils Array#to_table](#arrayto_table)                                                                        |Array(Array, Array...) to table format.                                                                              |
 |[TbpgrUtils Array#to_html_table](#arrayto_html_table)                                                              |Array(Array, Array...) to html table format.                                                                         |
 |[TbpgrUtils Array#together](#arraytogether)                                                                        |loop all arrays by block                                                                                             |
@@ -61,6 +59,9 @@ Or install it yourself as:
 |[TbpgrUtils Array#together_slice](#arraytogether_sliceor-tslice)                                                   |together version of Array#slice. together_slice has alias :tslice                                                    |
 |[TbpgrUtils Array#together_with_index](#arraytogether_with_index)                                                  |loop all arrays by block with index                                                                                  |
 |[TbpgrUtils Array#uniq_size](#arrayuniq_size)                                                                      |return uniq size                                                                                                     |
+|[TbpgrUtils Enumerable#if_else_map](#enumerableif_else_map)                                                        |alias of map {|v|v.condition ? a : b}                                                                                |
+|[TbpgrUtils Enumerable#kernel_send](#enumerablekernel_send)                                                        |alias of map {|v|send :some_kernel_method, v}                                                                        |
+|[TbpgrUtils Enumerable#sum](#enumerablesum)                                                                        |alias of Enumerable#reduce(&:+).                                                                                     |
 |[AttrEnumerable.at_attr](#attrenumerableat_attr)                                                                   |define at_xxx. it returns Class attributes(collection)'s at result.                                                  |
 |[AttrEnumerable.compact_attr](#attrenumerablecompact_attr)                                                         |define compact_xxx. it returns Class attributes(collection)'s that exclude nil elements.                             |
 |[AttrEnumerable.concat_attr](#attrenumerableconcat_attr)                                                           |define concat_xxx. it returns Class attributes(collection) and argument array                                        |
@@ -218,16 +219,6 @@ require 'tbpgr_utils'
 [*1..6].exchange!(1, -1) # => [1, 6, 3, 4, 5, 2]
 [*1..6].exchange!(1, 6) # => [*1..6]
 [].exchange!(1, 2) # => []
-~~~
-
-[back to list](#list)
-
-### Array#kernel_send
-~~~ruby
-require 'tbpgr_utils'
-[*1..3].kernel_send:Rational # => [(1/1), (2/1), (3/1)]
-[*1..3].kernel_send:print # => 123
-[*65..68].kernel_send :putc # => ABCD
 ~~~
 
 [back to list](#list)
@@ -2331,6 +2322,67 @@ output
 
 [back to list](#list)
 
+### Enumerable#if_else_map
+~~~ruby
+require 'tbpgr_utils'
+[*1..4].if_else_map(
+        :odd?.to_proc,
+        ->(odd){'odd'},
+        ->(even){'even'}
+      )
+__END__
+["odd", "even", "odd", "even"]
+~~~
+
+~~~ruby
+require 'tbpgr_utils'
+[*?a..?z].if_else_map(
+        :vowel?.to_proc,
+        ->(alph){ "#{alph} is vowel" },
+        ->(alph){ "#{alph} is not vowel" }
+      )
+
+__END__
+["a is vowel",
+ "b is not vowel",
+ "c is not vowel",
+ "d is not vowel",
+ "e is vowel",
+ "f is not vowel",
+ "g is not vowel",
+ "h is not vowel",
+ "i is vowel",
+ "j is not vowel",
+ "k is not vowel",
+ "l is not vowel",
+ "m is not vowel",
+ "n is not vowel",
+ "o is vowel",
+ "p is not vowel",
+ "q is not vowel",
+ "r is not vowel",
+ "s is not vowel",
+ "t is not vowel",
+ "u is vowel",
+ "v is not vowel",
+ "w is not vowel",
+ "x is not vowel",
+ "y is not vowel",
+ "z is not vowel"]
+~~~
+
+[back to list](#list)
+
+### Enumerable#kernel_send
+~~~ruby
+require 'tbpgr_utils'
+[*1..3].kernel_send:Rational # => [(1/1), (2/1), (3/1)]
+[*1..3].kernel_send:print # => 123
+[*65..68].kernel_send :putc # => ABCD
+~~~
+
+[back to list](#list)
+
 ### EvalHelper Object
 
 enable to use EvalHelper in Object
@@ -4330,6 +4382,7 @@ if you are Sublime Text2 user, you can use snippet for TbpgrUtils.
 https://github.com/tbpgr/tbpgr_utils_snippets
 
 ## History
+* version 0.0.151 : add Enumerable#if_else_map, change class Array#sum to Enumerable#sum, change class Array#kernel_send to Enumerable#kernel_send
 * version 0.0.150 : add AttrEnumerable.slice_attr
 * version 0.0.149 : add AttrEnumerable.shuffle_attr
 * version 0.0.148 : add AttrEnumerable.select_attr
