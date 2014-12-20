@@ -10,9 +10,9 @@ describe Enumerable do
         case_title: 'valid case',
         input: 1..4,
         predicate: :odd?.to_proc,
-        proc_t: ->(odd){'奇数'},
-        proc_f: ->(even){'偶数'},
-        expected: ['奇数','偶数','奇数','偶数']
+        proc_t: ->(odd) { '奇数' },
+        proc_f: ->(even) { '偶数' },
+        expected: ['奇数', '偶数', '奇数', '偶数']
       }
     ]
 
@@ -25,7 +25,7 @@ describe Enumerable do
           # nothing
 
           # -- when/then --
-          actual = c[:input].if_else_map(c[:predicate],c[:proc_t],c[:proc_f])
+          actual = c[:input].if_else_map(c[:predicate], c[:proc_t], c[:proc_f])
 
           expect(actual).to eq(c[:expected])
         ensure

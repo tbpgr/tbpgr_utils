@@ -36,7 +36,7 @@ describe AttrEnumerable do
         ),
         method: :first_name,
         first: nil,
-        expected: ['tanaka'],
+        expected: ['tanaka']
       },
       {
         case_no: 2,
@@ -50,7 +50,7 @@ describe AttrEnumerable do
         ),
         method: :first_age,
         first: 2,
-        expected: [84, 20],
+        expected: [84, 20]
       },
       {
         case_no: 3,
@@ -64,7 +64,7 @@ describe AttrEnumerable do
         ),
         method: :first_age,
         first: 4,
-        expected: [84, 20, 20],
+        expected: [84, 20, 20]
       },
       {
         case_no: 4,
@@ -72,7 +72,7 @@ describe AttrEnumerable do
         klass: AttrEnumerablePersons.new([]),
         method: :first_name,
         first: nil,
-        expected: [],
+        expected: []
       }
     ]
 

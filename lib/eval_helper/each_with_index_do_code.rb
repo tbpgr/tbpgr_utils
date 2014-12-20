@@ -20,7 +20,7 @@ module EvalHelper
   #   EvalHelperEachWithIndexDoTest.new.hoge(hash) # => return "[:a, :b].each_with_index do |v, i|\n  puts \"\#{i}:\#{v}1\"\n  puts \"\#{i}:\#{v}2\"\nend"
   #
   def each_with_index_do_code(target, proc)
-    indented = proc.split("\n").reduce([]) { |a, e|a << "  #{e}" ; a }.join("\n")
+    indented = proc.split("\n").reduce([]) { |a, e|a << "  #{e}"; a }.join("\n")
     "#{target}.each_with_index do |v, i|\n#{indented}\nend"
   end
 end

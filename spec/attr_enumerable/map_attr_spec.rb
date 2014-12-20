@@ -36,7 +36,7 @@ describe AttrEnumerable do
         ),
         method: :map_name,
         block: lambda { |x|x.upcase },
-        expected: ['TANAKA' , 'TANAKA', 'SUZUKI']
+        expected: ['TANAKA', 'TANAKA', 'SUZUKI']
       },
       {
         case_no: 2,

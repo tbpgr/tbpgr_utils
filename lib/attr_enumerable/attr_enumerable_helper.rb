@@ -27,7 +27,7 @@ module AttrEnumerable
     target_method = detect(method_name)
     send(target_method[:call_method], target_method[:attribute], method_name, *args, &block)
   rescue
-   raise
+    raise
   end
 
   private

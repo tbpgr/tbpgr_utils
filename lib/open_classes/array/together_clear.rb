@@ -17,7 +17,7 @@ class Array
   #   [alpha, numbers].together_clear # => output [[],[]]
   def together_clear
     if_not_contain_array_rails_type_error
-    each { |list|list.clear }
+    each(&:clear)
   end
 
   alias_method :tclear, :together_clear

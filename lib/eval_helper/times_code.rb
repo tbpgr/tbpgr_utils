@@ -50,7 +50,7 @@ module EvalHelper
   #
   def times_code(number, proc)
     return "#{number}.times { |i| #{proc} }" if proc.count('\n') == 0
-    indented = proc.split('\n').reduce([]) { |a, e|a << "  #{e}" ; a }.join("\n")
+    indented = proc.split('\n').reduce([]) { |a, e|a << "  #{e}"; a }.join("\n")
     <<-EOS
 #{number}.times do |i|
 #{indented}

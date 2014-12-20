@@ -67,6 +67,6 @@ class String
 
   def line_max
     return 0 if self.empty?
-    each_line.max_by { |v|v.size }.chomp.size
+    each_line.max_by(&:size).chomp.size
   end
 end

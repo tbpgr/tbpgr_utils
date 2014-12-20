@@ -8,8 +8,8 @@ describe MetasyntacticVariable do
       {
         case_no: 1,
         case_title: 'valid case',
-        expected: [:foo, :bar, :baz, :qux, :quux, :corge, :grault, :garply, :waldo, :fred, :plugh, :xyzzy, :thud],
-      },
+        expected: [:foo, :bar, :baz, :qux, :quux, :corge, :grault, :garply, :waldo, :fred, :plugh, :xyzzy, :thud]
+      }
     ]
 
     cases.each do |c|
@@ -47,8 +47,8 @@ describe MetasyntacticVariable do
       {
         case_no: 1,
         case_title: 'valid case',
-        expected: [:Foo, :Bar, :Baz, :Qux, :Quux, :Corge, :Grault, :Garply, :Waldo, :Fred, :Plugh, :Xyzzy, :Thud],
-      },
+        expected: [:Foo, :Bar, :Baz, :Qux, :Quux, :Corge, :Grault, :Garply, :Waldo, :Fred, :Plugh, :Xyzzy, :Thud]
+      }
     ]
 
     cases.each do |c|

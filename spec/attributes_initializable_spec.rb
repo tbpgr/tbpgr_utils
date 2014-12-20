@@ -16,13 +16,13 @@ describe AttributesInitializable do
         klass: AccessorAccessorSample,
         inputs: {
           atr1: 'atr1',
-          atr2: 'atr2',
+          atr2: 'atr2'
         },
         block: false,
         expected:  {
           atr1: 'atr1',
-          atr2: 'atr2',
-        },
+          atr2: 'atr2'
+        }
       },
       {
         case_no: 2,
@@ -30,14 +30,14 @@ describe AttributesInitializable do
         klass: AccessorAccessorSample,
         inputs: {
           atr1: 'atr1',
-          atr2: 'atr2',
+          atr2: 'atr2'
         },
         block: true,
         expected:  {
           atr1: 'atr1',
-          atr2: 'atr2',
-        },
-      },
+          atr2: 'atr2'
+        }
+      }
     ]
 
     cases.each do |c|
@@ -91,13 +91,13 @@ describe AttributesInitializable do
         klass: ReaderSample,
         inputs: {
           atr1: 'atr1',
-          atr2: 'atr2',
+          atr2: 'atr2'
         },
         block: false,
         expected:  {
           atr1: 'atr1',
-          atr2: 'atr2',
-        },
+          atr2: 'atr2'
+        }
       },
       {
         case_no: 2,
@@ -105,14 +105,14 @@ describe AttributesInitializable do
         klass: ReaderSample,
         inputs: {
           atr1: 'atr1',
-          atr2: 'atr2',
+          atr2: 'atr2'
         },
         block: true,
         expected:  {
           atr1: 'atr1',
-          atr2: 'atr2',
-        },
-      },
+          atr2: 'atr2'
+        }
+      }
     ]
 
     cases.each do |c|
@@ -170,13 +170,13 @@ describe AttributesInitializable do
         klass: WriterSample,
         inputs: {
           atr1: 'atr1',
-          atr2: 'atr2',
+          atr2: 'atr2'
         },
         block: false,
         expected:  {
           atr1: 'atr1',
-          atr2: 'atr2',
-        },
+          atr2: 'atr2'
+        }
       },
       {
         case_no: 2,
@@ -184,14 +184,14 @@ describe AttributesInitializable do
         klass: WriterSample,
         inputs: {
           atr1: 'atr1',
-          atr2: 'atr2',
+          atr2: 'atr2'
         },
         block: true,
         expected:  {
           atr1: 'atr1',
-          atr2: 'atr2',
-        },
-      },
+          atr2: 'atr2'
+        }
+      }
     ]
 
     cases.each do |c|

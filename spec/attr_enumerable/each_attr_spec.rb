@@ -47,7 +47,7 @@ describe AttrEnumerable do
         ),
         method: :each_age,
         expected: [84, 103]
-      },
+      }
     ]
 
     cases.each do |c|

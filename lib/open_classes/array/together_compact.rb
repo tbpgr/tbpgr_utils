@@ -36,7 +36,7 @@ class Array
   #   print ret # => output [['a','b','c','d'], [1, 2, 3]]
   def together_compact!
     if_not_contain_array_rails_type_error
-    each { |list|list.compact! }
+    each(&:compact!)
   end
 
   alias_method :tcompact, :together_compact

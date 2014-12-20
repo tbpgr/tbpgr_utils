@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = TbpgrUtils::VERSION
   spec.authors       = ['tbpgr']
   spec.email         = ['tbpgr@tbpgr.jp']
-  spec.description   = %q(Utilities)
-  spec.summary       = %q(Utilities)
+  spec.description   = 'Utilities'
+  spec.summary       = 'Utilities'
   spec.homepage      = 'https://github.com/tbpgr/tbpgr_utils'
   spec.license       = 'MIT'
 

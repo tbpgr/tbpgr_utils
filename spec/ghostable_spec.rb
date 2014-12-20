@@ -31,9 +31,9 @@ describe Ghostable do
         case_no: 1,
         case_title: 'valid case',
         klass: SampleChecker,
-        methods: [:check_range_3_to_5?, :check_range_3_to_5? , :contain_hoge?, :contain_hoge?],
+        methods: [:check_range_3_to_5?, :check_range_3_to_5?, :contain_hoge?, :contain_hoge?],
         values: [3, 6, 'testhogetest', 'testhigetest'],
-        expecteds: [true, false, true, false],
+        expecteds: [true, false, true, false]
       },
       {
         case_no: 2,
@@ -42,7 +42,7 @@ describe Ghostable do
         methods: [:not_match_method],
         values: [nil],
         expect_error: true
-      },
+      }
     ]
 
     cases.each do |c|

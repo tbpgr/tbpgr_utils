@@ -7,7 +7,7 @@ class HashContext
     @receiver = receiver
   end
 
-  def method_missing(method_name, *args , &block)
+  def method_missing(method_name, *args, &block)
     result = nil
     if args.size > 0
       receiver.reduce({}) do |ret, (key, value)|
@@ -16,7 +16,7 @@ class HashContext
         ret
       end
     else
-      receiver.reduce({}) do |ret, (key , value)|
+      receiver.reduce({}) do |ret, (key, value)|
         value = value.send method_name
         ret[key] = value
         ret

@@ -7,7 +7,7 @@ class ArrayContext
     @receiver = receiver
   end
 
-  def method_missing(method_name, *args , &block)
+  def method_missing(method_name, *args, &block)
     if args.size > 0
       receiver.map do |value|
         value.send method_name, *args

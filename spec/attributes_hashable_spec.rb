@@ -27,7 +27,7 @@ describe AttributesHashable do
         case_title: 'no attribute case',
         klass: NoAttributeHoge,
         expected: {}
-      },
+      }
     ]
 
     cases.each do |c|
