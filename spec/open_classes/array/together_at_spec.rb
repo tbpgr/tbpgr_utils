@@ -11,7 +11,7 @@ describe Array do
         inputs: [[1, 2, 3], %w(one two three)],
         index: 2,
         method_name: :together_at,
-        expected: [3, 'three']\
+        expected: [3, 'three']
       },
       {
         case_no: 2,
